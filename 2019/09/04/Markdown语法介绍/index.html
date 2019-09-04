@@ -38,6 +38,8 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 <link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"><script src="/assets/js/DPlayer.min.js"></script></head>
 
 
@@ -458,15 +460,33 @@
 <center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=481356667&auto=1&height=66"></iframe></center>
 <center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=413812448&auto=0&height=66"></iframe></center>
 
-			<script>
-				console.error("Error: [hexo-tag-aplayer] Unrecognized tag argument(2): autoplay=false");
-			</script>
+        <div id="aplayer-gcMkToPq" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-gcMkToPq"),
+            narrow: false,
+            autoplay: true,
+            showlrc: false,
+            music: {
+              title: "Caffeine",
+              author: "Jeff Williams",
+              url: "http://7xq131.com1.z0.glb.clouddn.com/Preparation.mp3",
+              pic: "",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
 ---
 ><center><font faceface="微软雅黑" color="green" size="12">孔子曾说过:“言必信,行必果”</font></center>
 
 <hr>
 <center><font faceface="微软雅黑" color="green" size="14">**video**</font></center>
-<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"https://music.163.com/video?id=79C87BDBE27C9D40D6631A41BCAEC6FA&userid=348319050"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"http://devtest.qiniudn.com/若能绽放光芒.mp4","pic":"http://devtest.qiniudn.com/若能绽放光芒.png"},"danmaku":{"id":"9E2E3368B56CDBB4","api":"http://dplayer.daoapp.io","token":"tokendemo"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
 
 <hr>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://www.bilibili.com/video/av23983281" target="_blank" rel="noopener">https://www.bilibili.com/video/av23983281</a><br><a href="https://walesexcitedmei.github.io/2018/08/29/HEXO-hexo-%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91%E7%9A%84%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">https://walesexcitedmei.github.io/2018/08/29/HEXO-hexo-%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91%E7%9A%84%E6%96%B9%E6%B3%95/</a><br><img src="http://pic128.huitu.com/res/20190901/571787_20190901124015978020_1.jpg" alt="中秋"></p>
