@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-24T08:00:34.184Z</updated>
+  <updated>2019-09-24T11:37:33.836Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ew</title>
+    <link href="http://yoursite.com/2019/09/24/ew/"/>
+    <id>http://yoursite.com/2019/09/24/ew/</id>
+    <published>2019-09-24T11:36:39.000Z</published>
+    <updated>2019-09-24T11:37:33.836Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="���" scheme="http://yoursite.com/tags/%EF%BF%BD%EF%BF%BD%EF%BF%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)</title>
