@@ -5,8 +5,9 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061), Allen">
-    <meta name="description" content="前言    因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 &#39;struct&#39; 类型的输入参数相对应的函数 &#39;fetch&#39;原因    查找了网上此类问题的原因，大致有以下几种：
-    1.安装mysql后">
+    <meta name="description" content="前言    因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：
+    未定义与 &#39;struct&#39; 类型的输入参数相对应的函数 &#39;fetch&#39;原因    查找了网上此类问题的原因，大致有以下几种：
+    1.安装m">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -432,13 +433,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>    因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 'struct' 类型的输入参数相对应的函数 'fetch'</code></pre><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><pre><code>    查找了网上此类问题的原因，大致有以下几种：
-    1.安装mysql后使用mysql命令时报错 Can't connect to MySQL server on localhost (10061)，或者用net start mysql 时报服务名无效，一般是因为mysql服务没有启动。
-        解决方案：修改系统变量
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>    因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：
+    未定义与 'struct' 类型的输入参数相对应的函数 'fetch'</code></pre><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><pre><code>    查找了网上此类问题的原因，大致有以下几种：
+    1.安装mysql后使用mysql命令时报错 Can't connect to MySQL server on localhost (10061)，或者用net start mysql 时报服务名无效，一般是因为mysql服务没有启动。  
+      解决方案：修改系统变量
         具体请参考：
-        https://blog.csdn.net/wolfking0608/article/details/82784297</code></pre><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre><code>    然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入"mysql -u root -p"，提示输入密码。输完密码后直接闪退。
+        https://blog.csdn.net/wolfking0608/article/details/82784297</code></pre><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre><code>    然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入"mysql -u root -p"，提示输入密码。输完密码后直接闪退。  
     于是换另一种方式重启服务，以下是具体步骤：
-    在桌面右键单击“我的电脑”--管理--服务和应用程序--服务，在服务名称中找到MySQL57（以MySQL57为例），右键单击将其重新启动即可。
+    在桌面右键单击“我的电脑”--管理--服务和应用程序--服务，在服务名称中找到MySQL57（以MySQL57为例），右键单击将其重新启动即可。  
     好了，大功告成，这次终于成功了。</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -674,8 +676,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言    因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 'struct' 类型的输入参数相对应的函数 'fetch'原因    查找了网上此类问题的原因，大致有以下几种：
-    1.安装mysql后
+                            前言    因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：
+    未定义与 'struct' 类型的输入参数相对应的函数 'fetch'原因    查找了网上此类问题的原因，大致有以下几种：
+    1.安装m
                         
                     </div>
                     <div class="publish-info">
