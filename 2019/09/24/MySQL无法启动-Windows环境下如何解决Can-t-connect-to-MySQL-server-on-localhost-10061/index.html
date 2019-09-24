@@ -4,8 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Allen">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061), Allen">
+    <meta name="description" content="前言    因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 &#39;struct&#39; 类型的输入参数相对应的函数 &#39;fetch&#39;原因    查找了网上此类问题的原因，大致有以下几种：
+    1.安装mysql后">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | Allen</title>
+    <title>MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061) | Allen</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)
                     </div>
                 </div>
             </div>
@@ -375,12 +376,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/" target="_blank">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/技术/" class="post-category" target="_blank">
+                                技术
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -388,14 +402,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-03
+                    2019-09-24
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        131
+                        334
                     </div>
                     
 
@@ -418,16 +432,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre>
-<h2 id="More-info-Deployment"><a href="#More-info-Deployment" class="headerlink" title="More info: Deployment"></a>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery</a></p>
-<script>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>    因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 'struct' 类型的输入参数相对应的函数 'fetch'</code></pre><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><pre><code>    查找了网上此类问题的原因，大致有以下几种：
+    1.安装mysql后使用mysql命令时报错 Can't connect to MySQL server on localhost (10061)，或者用net start mysql 时报服务名无效，一般是因为mysql服务没有启动。
+        解决方案：修改系统变量
+        具体请参考：https://blog.csdn.net/wolfking0608/article/details/82784297</code></pre><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre><code>    然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入"mysql -u root -p"，提示输入密码。输完密码后直接闪退。
+    于是换另一种方式重启服务，以下是具体步骤：
+    在桌面右键单击“我的电脑”--管理--服务和应用程序--服务，在服务名称中找到MySQL57（以MySQL57为例），右键单击将其重新启动即可。
+    好了，大功告成，这次终于成功了。</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -603,9 +614,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Hello World》
+                    《MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/03/hello-world/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/24/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Hailong Gao
             </a> 采用
@@ -645,31 +656,87 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/09/03/个人博客创建教程/">
+                <a href="/2019/09/24/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="win10环境下如何用hexo+git 创建个人博客">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="MySQL无法启动--Windows环境下如何解决Can't connect to MySQL server on localhost (10061)">
                         
-                        <span class="card-title">win10环境下如何用hexo+git 创建个人博客</span>
+                        <span class="card-title">MySQL无法启动--Windows环境下如何解决Can't connect to MySQL server on localhost (10061)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第一章  如何部署环境？1.首先下载node.js，下载地址：https://nodejs.org，安装完成后会有包管理器npm（搭建hexo博客框架所必需）。
-
-2.安装淘宝的npm的镜像源，在cmd窗口中输入：npm install -
+                            前言    因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 'struct' 类型的输入参数相对应的函数 'fetch'原因    查找了网上此类问题的原因，大致有以下几种：
+    1.安装mysql后
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-03
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/技术/" class="post-category" target="_blank">
+                                    技术
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/" target="_blank">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/04/Markdown语法介绍/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Markdown语法介绍">
+                        
+                        <span class="card-title">Markdown语法介绍</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Markdown一些常用命令    1.设置标题级别
+    标题前加几个#，就代表几级标题
+    一级标题#标题
+    二级标题##标题
+
+    2.引用
+    &gt; 亚里士多德说过，人生最终的价值在于觉醒和思考，而不仅仅在于
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -685,49 +752,11 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo-git-个人博客/" target="_blank">
-                        <span class="chip bg-color">hexo+git 个人博客</span>
+                    <a href="/tags/Markdown语法/" target="_blank">
+                        <span class="chip bg-color">Markdown语法</span>
                     </a>
                     
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/09/03/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            Hailong Gao
-                            
-                        </span>
-                    </div>
-                </div>
-
                 
             </div>
         </div>
