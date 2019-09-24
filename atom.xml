@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-24T12:23:07.861Z</updated>
+  <updated>2019-09-24T12:28:27.522Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,36 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ew</title>
-    <link href="http://yoursite.com/2019/09/24/ew/"/>
-    <id>http://yoursite.com/2019/09/24/ew/</id>
-    <published>2019-09-24T11:36:39.000Z</published>
-    <updated>2019-09-24T12:23:07.861Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="���" scheme="http://yoursite.com/tags/%EF%BF%BD%EF%BF%BD%EF%BF%BD/"/>
-    
-  </entry>
-  
-  <entry>
     <title>MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)</title>
     <link href="http://yoursite.com/2019/09/24/MySQL%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8-Windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3Can-t-connect-to-MySQL-server-on-localhost-10061/"/>
     <id>http://yoursite.com/2019/09/24/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/</id>
     <published>2019-09-24T06:51:14.000Z</published>
-    <updated>2019-09-24T12:20:05.637Z</updated>
+    <updated>2019-09-24T12:28:27.522Z</updated>
     
     <summary type="html">
     

@@ -4,30 +4,11 @@
   
     
     <entry>
-      <title>ew</title>
-      <link href="/2019/09/24/ew/"/>
-      <url>/2019/09/24/ew/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="���"><a href="#���" class="headerlink" title="���"></a>���</h3><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> ��� </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)</title>
       <link href="/2019/09/24/MySQL%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8-Windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3Can-t-connect-to-MySQL-server-on-localhost-10061/"/>
       <url>/2019/09/24/MySQL%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8-Windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3Can-t-connect-to-MySQL-server-on-localhost-10061/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre class=" language-bash"><code class="language-bash">因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 <span class="token string">'struct'</span> 类型的输入参数相对应的函数 <span class="token string">'fetch'</span>   </code></pre><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><pre class=" language-bash"><code class="language-bash">查找了网上此类问题的原因，大致如下：1.安装mysql后使用mysql命令时报错 <span class="token string">"Can't connect to MySQL server on localhost (10061)"</span>，或者用<span class="token string">"net start mysql"</span> 时报服务名无效，一般是因为mysql服务没有启动。   解决方案：    1.修改系统变量            2.重启MySQL     </code></pre><p>修改系统变量具体请参考：<a href="https://blog.csdn.net/wolfking0608/article/details/82784297/" target="_blank" rel="noopener">Solution</a></p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre class=" language-bash"><code class="language-bash">然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入<span class="token string">"mysql -u root -p"</span>，提示输入密码。输完密码后直接闪退。  于是换另一种方式重启服务，以下是具体步骤： 在桌面右键单击“我的电脑”--管理--服务和应用程序--服务，在服务名称中找到MySQL57（以MySQL57为例），右键单击将其重新启动即可。好了，大功告成，这次终于成功了。</code></pre><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre class=" language-bash"><code class="language-bash">因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 <span class="token string">'struct'</span> 类型的输入参数相对应的函数 <span class="token string">'fetch'</span>   </code></pre><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><pre class=" language-bash"><code class="language-bash">查找了网上此类问题的原因，大致如下：安装mysql后使用mysql命令时报错 <span class="token string">"Can't connect to MySQL server on localhost (10061)"</span>，或者用<span class="token string">"net start mysql"</span> 时报服务名无效，一般是因为mysql服务没有启动。   解决方案：    1.修改系统变量  2.重启MySQL     </code></pre><p>修改系统变量具体请参考：<a href="https://blog.csdn.net/wolfking0608/article/details/82784297/" target="_blank" rel="noopener">Solution</a></p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre class=" language-bash"><code class="language-bash">然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入<span class="token string">"mysql -u root -p"</span>，提示输入密码。输完密码后直接闪退。  于是换另一种方式重启服务，以下是具体步骤： 在桌面右键单击“我的电脑”--管理--服务和应用程序--服务，在服务名称中找到MySQL57（以MySQL57为例），右键单击将其重新启动即可。好了，大功告成，这次终于成功了。</code></pre><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
