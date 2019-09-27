@@ -449,7 +449,7 @@
 <p>如下图2所示，深绿色的方格为起点，它的外框是亮蓝色，表示该方格被加入到了 close list 。与它相邻的黑色方格是需要被检查的，他们的外框是亮绿色。每个黑方格都有一个灰色的指针指向他们的父节点，这里是起点 A 。<br><img src="http://www.cppblog.com/images/cppblog_com/christanxw/image002.jpg" alt="图2"></p>
 <p>下一步，我们需要从 open list 中选一个与起点 A 相邻的方格，按下面描述的一样或多或少的重复前面的步骤。但是到底选择哪个方格好呢？具有最小 F 值的那个。  </p>
 <h3 id="3-路径排序-Path-Sorting"><a href="#3-路径排序-Path-Sorting" class="headerlink" title="3.路径排序(Path Sorting)"></a>3.路径排序(Path Sorting)</h3><p>计算出组成路径的方格的关键是下面这个等式：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>center<span class="token operator">></span>F <span class="token operator">=</span> G + H<span class="token operator">&lt;</span>/center<span class="token operator">></span>
+<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>center<span class="token operator">></span><span class="token operator">&lt;</span>font<span class="token operator">></span>F <span class="token operator">=</span> G + H<span class="token operator">&lt;</span>/font<span class="token operator">></span><span class="token operator">&lt;</span>/center<span class="token operator">></span>
 
 这里，G <span class="token operator">=</span> 从起点 A 移动到指定方格的移动代价，沿着到达该方格而生成的路径。  
 
@@ -492,7 +492,7 @@ H <span class="token operator">=</span> 从指定的方格移动到终点 B 的�
 <p>注意，在起点下面 2 格的方格的父亲已经与前面不同了。之前它的 G 值是 28 并且指向它右上方的方格。现在它的 G 值为 20 ，并且指向它正上方的方格。这在寻路过程中的某处发生，使用新路径时 G 值经过检查并且变得更低，因此父节点被重新设置， G 和 F 值被重新计算。尽管这一变化在本例中并不重要，但是在很多场合中，这种变化会导致寻路结果的巨大变化。  </p>
 <p>那么我们怎么样去确定实际路径呢？很简单，从终点开始，按着箭头向父节点移动，这样你就被带回到了起点，这就是你的路径。如下图所示。从起点 A 移动到终点 B 就是简单从路径上的一个方格的中心移动到另一个方格的中心，直至目标。就是这么简单！  </p>
 <p><img src="http://www.cppblog.com/images/cppblog_com/christanxw/image007.jpg" alt="图7"></p>
-<h3 id="A-Star-Algorithm-Summary"><a href="#A-Star-Algorithm-Summary" class="headerlink" title="A-Star Algorithm Summary"></a>A-Star Algorithm Summary</h3><p>Ok ，现在你已经看完了整个的介绍，现在我们把所有步骤放在一起：  </p>
+<h3 id="5-A-Star-Algorithm-Summary"><a href="#5-A-Star-Algorithm-Summary" class="headerlink" title="5.A-Star Algorithm Summary"></a>5.A-Star Algorithm Summary</h3><p>Ok ，现在你已经看完了整个的介绍，现在我们把所有步骤放在一起：  </p>
 <pre class=" language-bash"><code class="language-bash">1.把起点加入 <span class="token function">open</span> list 。
 
 2.重复如下过程：
@@ -500,10 +500,14 @@ H <span class="token operator">=</span> 从指定的方格移动到终点 B 的�
     a<span class="token punctuation">)</span>遍历 <span class="token function">open</span> list ，查找 F 值最小的节点，把它作为当前要处理的节点。  
     b<span class="token punctuation">)</span>把这个节点移到 close list 。  
     c<span class="token punctuation">)</span>对当前方格的 8 个相邻方格的每一个方格:
-        ◆ 如果它是不可抵达的或者它在 close list 中，忽略它。否则，做如下操作。  
+        ◆ 如果它是不可抵达的或者它在 close list 中，忽略它。否则，做如下操作。 
+
         ◆ 如果它不在 <span class="token function">open</span> list 中，把它加入 <span class="token function">open</span> list ，并且把当前方格设置为它的父亲，记录该方格的 F ， G 和 H 值。  
+
         ◆ 如果它已经在 <span class="token function">open</span> list 中，检查这条路径 <span class="token punctuation">(</span> 即经由当前方格到达它那里 <span class="token punctuation">)</span> 是否更好，用 G 值作参考。更小的 G 值表示这是更好的路径。如果是这样，把它的父亲设置为当前方格，并重新计算它的 G 和 F 值。如果你的 <span class="token function">open</span> list 是按 F 值排序的话，改变后你可能需要重新排序。  
+
     d<span class="token punctuation">)</span>停止，当你
+
         ◆ 把终点加入到了 <span class="token function">open</span> list 中，此时路径已经找到了，或者
         ◆ 查找终点失败，并且 <span class="token function">open</span> list 是空的，此时没有路径。
 
