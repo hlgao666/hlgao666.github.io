@@ -449,7 +449,7 @@
 <p>如下图2所示，深绿色的方格为起点，它的外框是亮蓝色，表示该方格被加入到了 close list 。与它相邻的黑色方格是需要被检查的，他们的外框是亮绿色。每个黑方格都有一个灰色的指针指向他们的父节点，这里是起点 A 。<br><img src="http://www.cppblog.com/images/cppblog_com/christanxw/image002.jpg" alt="图2"></p>
 <p>下一步，我们需要从 open list 中选一个与起点 A 相邻的方格，按下面描述的一样或多或少的重复前面的步骤。但是到底选择哪个方格好呢？具有最小 F 值的那个。  </p>
 <h3 id="3-路径排序-Path-Sorting"><a href="#3-路径排序-Path-Sorting" class="headerlink" title="3.路径排序(Path Sorting)"></a>3.路径排序(Path Sorting)</h3><p>计算出组成路径的方格的关键是下面这个等式：</p>
-<center><font faceface="微软雅黑" color="green" size="12">F = G + H</font></center>
+<center><font faceface="微软雅黑" color="red" size="12">F = G + H</font></center>
 
 <pre class=" language-bash"><code class="language-bash">这里，G <span class="token operator">=</span> 从起点 A 移动到指定方格的移动代价，沿着到达该方格而生成的路径。  
 
