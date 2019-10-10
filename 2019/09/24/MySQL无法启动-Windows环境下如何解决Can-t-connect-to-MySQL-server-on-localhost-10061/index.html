@@ -5,7 +5,10 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061), Allen">
-    <meta name="description" content="前言因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 &#39;struct&#39; 类型的输入参数相对应的函数 因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 &#39;struct&#39; 类型">
+    <meta name="description" content="前言因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 &#39;struct&#39; 类型的输入参数相对应的函数 &#39;fetch&#39;   
+原因查找了网上此类问题的原因，大致如下：
+
+安装mysql后使用mysql命令时报错">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +31,8 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -408,7 +412,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        433
+                        334
                     </div>
                     
 
@@ -431,20 +435,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre class=" language-bash">因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 <span class="string">'struct'</span> 类型的输入参数相对应的函数 <span class="string"><code class="language-bash">因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 <span class="string">'struct'</span> 类型的输入参数相对应的函数 <span class="string">'fetch'</span>   </code></pre>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><pre class=" language-bash"><code class="language-bash">查找了网上此类问题的原因，大致如下：
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre class="line-numbers language-bash"><code class="language-bash">因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 <span class="token string">'struct'</span> 类型的输入参数相对应的函数 <span class="token string">'fetch'</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><pre class="line-numbers language-bash"><code class="language-bash">查找了网上此类问题的原因，大致如下：
 
-安装mysql后使用mysql命令时报错 <span class="token operator">&lt;</span>span class<span class="token operator">=</span><span class="token string">"string"</span><span class="token operator">></span><span class="token string">"Can't connect to MySQL server on localhost (10061)"</span><span class="token operator">&lt;</span>/span<span class="token operator">></span>，或者用<span class="token operator">&lt;</span>span class<span class="token operator">=</span><span class="token string">"string"</span><span class="token operator">></span><span class="token string">"net start mysql"</span><span class="token operator">&lt;</span>/span<span class="token operator">></span> 时报服务名无效，一般是因为mysql服务没有启动。   
+安装mysql后使用mysql命令时报错 <span class="token string">"Can't connect to MySQL server on localhost (10061)"</span>，或者用<span class="token string">"net start mysql"</span> 时报服务名无效，一般是因为mysql服务没有启动。   
 
-解决方案：    1.修改系统变量  2.重启MySQL     </code></pre>
+解决方案：    1.修改系统变量  2.重启MySQL     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>修改系统变量具体请参考：<a href="https://blog.csdn.net/wolfking0608/article/details/82784297/" target="_blank" rel="noopener">Solution</a></p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre class=" language-bash">然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入<span class="string"><code class="language-bash">然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入<span class="string">"mysql -u root -p"</span>，提示输入密码。输完密码后直接闪退。  
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre class="line-numbers language-bash"><code class="language-bash">然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入<span class="token string">"mysql -u root -p"</span>，提示输入密码。输完密码后直接闪退。  
 
 于是换另一种方式重启服务，以下是具体步骤： 
 
 在桌面右键单击“我的电脑”--管理--服务和应用程序--服务，在服务名称中找到MySQL57（以MySQL57为例），右键单击将其重新启动即可。
 
-好了，大功告成，这次终于成功了。</code></pre>
+好了，大功告成，这次终于成功了。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -681,7 +685,7 @@
                     <div class="summary block-with-text">
                         
                             A-Star Algorithm转自：https://blog.csdn.net/qq_36946274/article/details/81982691
-1.搜索区域(The Search Area)12A*算法是一种在静态路网中求解最短
+1.搜索区域(The Search Area)A*算法是一种在静态路网中求解最短路径
                         
                     </div>
                     <div class="publish-info">
@@ -730,16 +734,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Markdown一些常用命令设置标题级别123标题前加几个#，就代表几级标题一级标题#标题二级标题##标题
-
-
-引用1&gt; 亚里士多德说过，人生最终的价值在于觉醒和思考，而不仅仅在于生存。
-
-
-写无序列表1- 无序列表
-
-
-有序列表1数
+                            Markdown一些常用命令设置标题级别标题前加几个#，就代表几级标题
+一级标题#标题
+二级标题##标题
+引用> 亚里士多德说过，人生最终的价值在于觉醒和思考，而不仅仅在于生存。
+写无序列表- 无序列表
+有序列表数字+英文句号
+插入图片![
                         
                     </div>
                     <div class="publish-info">
@@ -921,7 +922,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">7.8k</span>
+                <span class="white-color">7.7k</span>
             
 
             
