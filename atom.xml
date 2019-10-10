@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-10T04:58:06.283Z</updated>
+  <updated>2019-10-10T05:21:49.102Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Prim &amp; Kruskal Algorithm</title>
-    <link href="http://yoursite.com/2019/10/09/Prim-Kruskal-Algorithm/"/>
-    <id>http://yoursite.com/2019/10/09/Prim-Kruskal-Algorithm/</id>
+    <title>最小生成树的两种经典算法</title>
+    <link href="http://yoursite.com/2019/10/09/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/10/09/最小生成树的两种经典算法/</id>
     <published>2019-10-09T11:39:05.000Z</published>
-    <updated>2019-10-10T04:58:06.283Z</updated>
+    <updated>2019-10-10T05:21:49.102Z</updated>
     
     <summary type="html">
     
