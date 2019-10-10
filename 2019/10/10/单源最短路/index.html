@@ -439,12 +439,17 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
 </blockquote>
 <p><img src="/../images/image021.jpg" alt="图1"></p>
 <p>指定A作为“源点”，问题就是求A到其他节点的最短路径。</p>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><p>1.指定一个节点，例如我们要计算 ‘A’ 到其他节点的最短路径  </p>
-<p>2.引入两个集合（S、U），S集合包含已求出的最短路径的点（以及相应的最短长度），U集合包含未求出最短路径的点（以及A到该点的路径，注意:如上图1所示，A-&gt;C由于没有直接边相连，初始时置为∞）  </p>
-<p>3.初始化两个集合，S集合初始时 只有当前要计算的节点，A-&gt;A = 0，U集合初始时为 A-&gt;B = 4, A-&gt;C = ∞, A-&gt;D = 2, A-&gt;E = ∞  </p>
-<p>4.从U集合中找出路径最短的点，加入S集合，例如 A-&gt;D = 2  </p>
-<p>5.更新U集合路径，if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 则更新U  </p>
-<p>6.循环执行 4、5 两步骤，直至遍历结束，得到A到其他节点的最短路径.</p>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><pre class=" language-bash"><code class="language-bash">1.指定一个节点，例如我们要计算 <span class="token string">'A'</span> 到其他节点的最短路径  
+
+2.引入两个集合（S、U），S集合包含已求出的最短路径的点（以及相应的最短长度），U集合包含未求出最短路径的点（以及A到该点的路径，注意:如上图1所示，A-<span class="token operator">></span>C由于没有直接边相连，初始时置为∞）  
+
+3.初始化两个集合，S集合初始时 只有当前要计算的节点，A-<span class="token operator">></span>A <span class="token operator">=</span> 0，U集合初始时为 A-<span class="token operator">></span>B <span class="token operator">=</span> 4, A-<span class="token operator">></span>C <span class="token operator">=</span> ∞, A-<span class="token operator">></span>D <span class="token operator">=</span> 2, A-<span class="token operator">></span>E <span class="token operator">=</span> ∞  
+
+4.从U集合中找出路径最短的点，加入S集合，例如 A-<span class="token operator">></span>D <span class="token operator">=</span> 2  
+
+5.更新U集合路径，if <span class="token punctuation">(</span> <span class="token string">'D 到 B,C,E 的距离'</span> + <span class="token string">'AD 距离'</span> <span class="token operator">&lt;</span> <span class="token string">'A 到 B,C,E 的距离'</span> <span class="token punctuation">)</span> 则更新U  
+
+6.循环执行 4、5 两步骤，直至遍历结束，得到A到其他节点的最短路径.</code></pre>
 <h3 id="算法图解"><a href="#算法图解" class="headerlink" title="算法图解"></a>算法图解</h3><p>1.选定A节点并初始化，如上述步骤3所示</p>
 <p><img src="/../images/image022.jpg" alt="图2"></p>
 <p>2.执行上述 4、5两步骤，找出U集合中路径最短的节点D 加入S集合，并根据条件 if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 来更新U集合  </p>
@@ -522,8 +527,8 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
             return shortPath;
         }    
     }</code></pre><h2 id="Floyd-algorithm"><a href="#Floyd-algorithm" class="headerlink" title="Floyd algorithm"></a>Floyd algorithm</h2><p>求解多源最短路问题的2种方法：</p>
-<p>1.直接把Dijkstra调用|V|遍，时间复杂度为O(V3);</p>
-<p>2.Floyd算法更简洁，但算法复杂度仍为O(n3)。</p>
+<p>1.直接把Dijkstra调用|V|遍，时间复杂度为O(V^3);</p>
+<p>2.Floyd算法更简洁，但算法复杂度仍为O(V^3)。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
