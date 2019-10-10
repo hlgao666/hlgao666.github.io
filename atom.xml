@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2019-10-10T12:36:01.669Z</updated>
+  <updated>2019-10-10T13:45:35.318Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>求解最短路问题的两种经典算法</title>
+    <link href="https://hlgao666.github.io/2019/10/10/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    <id>https://hlgao666.github.io/2019/10/10/单源最短路/</id>
+    <published>2019-10-10T13:14:59.000Z</published>
+    <updated>2019-10-10T13:45:35.318Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://hlgao666.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="Dijkstra &amp; Floyd" scheme="https://hlgao666.github.io/tags/Dijkstra-Floyd/"/>
+    
+  </entry>
   
   <entry>
     <title>最小生成树的两种经典算法</title>

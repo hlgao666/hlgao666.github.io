@@ -4,9 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="最小生成树的两种经典算法, Allen">
-    <meta name="description" content="Prim &amp;amp; Kruskal Algorithm转自：https://blog.csdn.net/qq_36951116/article/details/83089039
-问题引出：假设要在n个城市之间建立通信网，则连通n个城市只需">
+    <meta name="keywords" content="求解最短路问题的两种经典算法, Allen">
+    <meta name="description" content="Dijkstra &amp;amp; Floyd Algorithm转自： https://www.jianshu.com/p/ff6db00ad866
+Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于解决有权图的多源最短路问">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>最小生成树的两种经典算法 | Allen</title>
+    <title>求解最短路问题的两种经典算法 | Allen</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -261,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        最小生成树的两种经典算法
+                        求解最短路问题的两种经典算法
                     </div>
                 </div>
             </div>
@@ -378,8 +378,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Prim-Kruskal/" target="_blank">
-                                <span class="chip bg-color">Prim &amp; Kruskal</span>
+                            <a href="/tags/Dijkstra-Floyd/" target="_blank">
+                                <span class="chip bg-color">Dijkstra &amp; Floyd</span>
                             </a>
                         
                     </div>
@@ -402,21 +402,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-09
+                    2019-10-10
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.3k
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        5 分
                     </div>
                     
                 
@@ -432,55 +432,96 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Prim-amp-Kruskal-Algorithm"><a href="#Prim-amp-Kruskal-Algorithm" class="headerlink" title="Prim &amp; Kruskal Algorithm"></a>Prim &amp; Kruskal Algorithm</h2><p>转自：<a href="https://blog.csdn.net/qq_36951116/article/details/83089039" target="_blank" rel="noopener">https://blog.csdn.net/qq_36951116/article/details/83089039</a></p>
-<p>问题引出：假设要在n个城市之间建立通信网，则连通n个城市只需要n-1条线路。这时自然会考虑一个问题：如何在最节省经费的前提下建立这个通信网？  </p>
-<hr>
-<h3 id="MST-minimal-spanning-treeproblem"><a href="#MST-minimal-spanning-treeproblem" class="headerlink" title="MST(minimal spanning treeproblem)"></a>MST(minimal spanning treeproblem)</h3><p>可以用连通网来表示n个城市以及n个城市之间的通信线路，其中，网的顶点表示城市，边表示两城市之间的线路，赋予边权值表示开设相应线路的代价。  </p>
-<p>这个问题就是最小生成树问题：求解连通无向图的权最小的生成树  </p>
-<p>Prim &amp; Kruskal Algorithm 是利用MST性质构造最小生成树的两种算法。Prim算法用于稠密图效果更好，Kruskal算法则更适用于稀疏图。  </p>
-<h3 id="MST性质"><a href="#MST性质" class="headerlink" title="MST性质"></a>MST性质</h3><p>设G=(V，E)是一个连通网络，U是顶点集V的一个真子集。若(u，v)是G中一条“一个端点在U中(例如：u∈U)，另一个端点不在U中”的边(例如：v∈V-U)，且(u，v)具有最小权值，则一定存在G的一棵最小生成树包括此边(u，v)。  </p>
-<p>证明略去，具体可参考： <a href="https://blog.csdn.net/s_j_huang/article/details/79447041" target="_blank" rel="noopener">https://blog.csdn.net/s_j_huang/article/details/79447041</a></p>
-<h3 id="Prim-algorithm"><a href="#Prim-algorithm" class="headerlink" title="Prim algorithm"></a>Prim algorithm</h3><pre class=" language-bash"><code class="language-bash">算法思路：从已选顶点所关联的未选边中找出权重最小的边，并且生成树不存在环。  
+                <h1 id="Dijkstra-amp-Floyd-Algorithm"><a href="#Dijkstra-amp-Floyd-Algorithm" class="headerlink" title="Dijkstra &amp; Floyd Algorithm"></a>Dijkstra &amp; Floyd Algorithm</h1><p>转自： <a href="https://www.jianshu.com/p/ff6db00ad866" target="_blank" rel="noopener">https://www.jianshu.com/p/ff6db00ad866</a></p>
+<p>Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于解决有权图的多源最短路问题。</p>
+<h2 id="Dijkstra-algorithm"><a href="#Dijkstra-algorithm" class="headerlink" title="Dijkstra algorithm"></a>Dijkstra algorithm</h2><blockquote>
+<p>迪杰斯特拉(Dijkstra)算法是典型最短路径算法，用于计算一个节点到其他节点的最短路径。它的主要特点是以起始点为中心向外层层扩展(广度优先搜索思想)，直到扩展到终点为止。  </p>
+</blockquote>
+<p><img src="/../images/image0021.jpg" alt="图1"></p>
+<p>指定A作为“源点”，问题就是求A到其他节点的最短路径。</p>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><p>1.指定一个节点，例如我们要计算 ‘A’ 到其他节点的最短路径  </p>
+<p>2.引入两个集合（S、U），S集合包含已求出的最短路径的点（以及相应的最短长度），U集合包含未求出最短路径的点（以及A到该点的路径，注意:如上图1所示，A-&gt;C由于没有直接边相连，初始时置为∞）  </p>
+<p>3.初始化两个集合，S集合初始时 只有当前要计算的节点，A-&gt;A = 0，U集合初始时为 A-&gt;B = 4, A-&gt;C = ∞, A-&gt;D = 2, A-&gt;E = ∞  </p>
+<p>4.从U集合中找出路径最短的点，加入S集合，例如 A-&gt;D = 2  </p>
+<p>5.更新U集合路径，if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 则更新U  </p>
+<p>6.循环执行 4、5 两步骤，直至遍历结束，得到A到其他节点的最短路径.</p>
+<h3 id="算法图解"><a href="#算法图解" class="headerlink" title="算法图解"></a>算法图解</h3><p>1.选定A节点并初始化，如上述步骤3所示</p>
+<p><img src="/../images/image022.jpg" alt="图1"></p>
+<p>2.执行上述 4、5两步骤，找出U集合中路径最短的节点D 加入S集合，并根据条件 if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 来更新U集合  </p>
+<p><img src="/../images/image023.jpg" alt="图1"></p>
+<p>3.这时候 A-&gt;B, A-&gt;C 都为3，没关系。其实这时候他俩都是最短距离，如果从算法逻辑来讲的话，会先取到B点。而这个时候 if 条件变成了 if ( ‘B 到 C,E 的距离’ + ‘AB 距离’ &lt; ‘A 到 C,E 的距离’ ) ，如图所示这时候A-&gt;B距离 其实为 A-&gt;D-&gt;B  </p>
+<p><img src="/../images/image024.jpg" alt="图1"></p>
+<p>4.思路就是这样，往后就是大同小异了</p>
+<p><img src="/../images/image025.jpg" alt="图1"></p>
+<p>5.算法结束</p>
+<p><img src="/../images/image026.jpg" alt="图1"></p>
+<h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre><code>    public class Dijkstra {
+        public static final int M = 10000; // 代表正无穷
 
-其中，已选顶点是构成最小生成树的结点，未选边是不属于生成树中的边。 
+        public static void main(String[] args) {
+            // 二维数组每一行分别是 A、B、C、D、E 各点到其余点的距离, 
+            // A -&gt; A 距离为0, 常量M 为正无穷
+            int[][] weight1 = {
+                    {0,4,M,2,M}, 
+                    {4,0,4,1,M}, 
+                    {M,4,0,1,3}, 
+                    {2,1,1,0,7},   
+                    {M,M,3,7,0} 
+                };
 
-（普里姆算法与求最短路径的迪杰斯塔拉算法思想很类似）  </code></pre>
-<p>下面我们对下面这幅图求其最小生成树：</p>
-<p><img src="/../images/image008.jpg" alt="图1"></p>
-<p>假设我们从顶点v1开始，所以我们可以发现（v1,v3）边的权重最小，所以第一个输出的边就是：v1—v3=1,  </p>
-<p><img src="/../images/image009.jpg" alt="图2"></p>
-<p>然后，我们要从v1和v3作为起点的边中寻找权重最小的边，首先了（v1,v3）已经访问过了，所以我们从其他边中寻找，发现(v3,v6)这条边最小，所以输出边就是：v3—-v6=4,  </p>
-<p><img src="/../images/image010.jpg" alt="图3"></p>
-<p>然后，我们要从v1、v3、v6这三个点相关联的边中寻找一条权重最小的边，我们可以发现边(v6,v4)权重最小，所以输出边就是：v6—-v4=2,  </p>
-<p><img src="/../images/image011.jpg" alt="图4"></p>
-<p>然后，我们就从v1、v3、v6、v4这四个顶点相关联的边中寻找权重最小的边，发现边（v3，v2）的权重最小，所以输出边：v3—–v2=5,  </p>
-<p><img src="/../images/image012.jpg" alt="图5"></p>
-<p>然后，我们就从v1、v3、v6、v4，v2这2五个顶点相关联的边中寻找权重最小的边，发现边（v2，v5）的权重最小，所以输出边：v2—–v5=3,  </p>
-<p><img src="/../images/image013.jpg" alt="图6"></p>
-<p>最后，我们发现六个点都已经加入到集合U了，我们的最小生成树建立完成。  </p>
-<h3 id="Kruskal-algorithm"><a href="#Kruskal-algorithm" class="headerlink" title="Kruskal algorithm"></a>Kruskal algorithm</h3><pre class=" language-bash"><code class="language-bash">算法思路： 
-（1）将边按权值从小到大的顺序添加到新图中，保证添加的过程中不会形成环 
-（2）重复上一步直到连接所有顶点，此时就生成了最小生成树。这是一种贪心策略。
+            int start = 0;
 
-将图中所有边按照权重的大小 从小到大一个一个按顺序组合成最小生成树，在组合过程新加入的边会导致生成树形成环，那这条边就舍弃，直到所有顶点都添加到生成树中为止。  
-</code></pre>
-<p>这里同样我们给出一个和Prim算法讲解中同样的例子，模拟克鲁斯卡算法生成最小生成树的详细的过程：  </p>
-<p>首先完整的图如下图： </p>
-<p><img src="/../images/image014.jpg" alt="图7"></p>
-<p>然后，我们需要从这些边中找出权重最小的那条边，可以发现边（v1，v3）这条边的权重是最小的，所以我们输出边：v1—-v3=1,  </p>
-<p><img src="/../images/image015.jpg" alt="图8"></p>
-<p>然后，我们需要在剩余的边中，再次寻找一条权重最小的边，可以发现边（v4，v6）这条边的权重最小，所以输出边：v4—v6=2,    </p>
-<p><img src="/../images/image016.jpg" alt="图9"></p>
-<p>然后，我们再次从剩余边中寻找权重最小的边，发现边（v2，v5）的权重最小，所以可以输出边：v2—-v5=3,  </p>
-<p><img src="/../images/image017.jpg" alt="图10"></p>
-<p>然后，我们使用同样的方式找出了权重最小的边：（v3，v6），所以我们输出边：v3—-v6=4,  </p>
-<p><img src="/../images/image018.jpg" alt="图11"></p>
-<p>好了，现在我们还需要找出最后一条边就可以构造出一颗最小生成树，但是这个时候我们有三个选择：（v1,V4），（v2，v3），（v3，v4）,这三条边的权重都是5，首先我们如果选（v1，v4）的话，得到的图如下:  </p>
-<p><img src="/../images/image019.jpg" alt="图12"></p>
-<p>我们发现，这肯定是不符合我们算法要求的，因为它出现了一个环，所以我们再使用第二个（v2，v3）试试，得到图形如下：  </p>
-<p><img src="/../images/image020.jpg" alt="图13"></p>
-<p>我们发现，这个图中没有环出现，而且把所有的顶点都加入到了这颗树上了，所以（v2，v3）就是我们所需要的边，所以最后一个输出的边就是：v2—-v3=5.</p>
-<script>
+            int[] shortPath = dijkstra(weight1, start);
+
+            for (int i = 0; i &lt; shortPath.length; i++)
+                System.out.println("从" + start + "出发到" + i + "的最短距离为：" + shortPath[i]);
+        }
+
+        public static int[] dijkstra(int[][] weight, int start) {
+            // 接受一个有向图的权重矩阵，和一个起点编号start（从0编号，顶点存在数组中）
+            // 返回一个int[] 数组，表示从start到它的最短路径长度
+            int n = weight.length; // 顶点个数
+            int[] shortPath = new int[n]; // 保存start到其他各点的最短路径
+            String[] path = new String[n]; // 保存start到其他各点最短路径的字符串表示
+            for (int i = 0; i &lt; n; i++)
+                path[i] = new String(start + "--&gt;" + i);
+            int[] visited = new int[n]; // 标记当前该顶点的最短路径是否已经求出,1表示已求出
+
+            // 初始化，第一个顶点已经求出
+            shortPath[start] = 0;
+            visited[start] = 1;
+
+            for (int count = 1; count &lt; n; count++) { // 要加入n-1个顶点
+                int k = -1; // 选出一个距离初始顶点start最近的未标记顶点
+                int dmin = Integer.MAX_VALUE;
+                for (int i = 0; i &lt; n; i++) {
+                    if (visited[i] == 0 &amp;&amp; weight[start][i] &lt; dmin) {
+                        dmin = weight[start][i];
+                        k = i;
+                    }
+                }
+
+                // 将新选出的顶点标记为已求出最短路径，且到start的最短路径就是dmin
+                shortPath[k] = dmin;
+                visited[k] = 1;
+
+                // 以k为中间点，修正从start到未访问各点的距离
+                for (int i = 0; i &lt; n; i++) {
+                    //如果 '起始点到当前点距离' + '当前点到某点距离' &lt; '起始点到某点距离', 则更新
+                    if (visited[i] == 0 &amp;&amp; weight[start][k] + weight[k][i] &lt; weight[start][i]) {
+                        weight[start][i] = weight[start][k] + weight[k][i];
+                        path[i] = path[k] + "--&gt;" + i;
+                    }
+                }
+            }
+            for (int i = 0; i &lt; n; i++) {
+
+                System.out.println("从" + start + "出发到" + i + "的最短路径为：" + path[i]);
+            }
+            System.out.println("=====================================");
+            return shortPath;
+        }    
+    }</code></pre><h2 id="Floyd-algorithm"><a href="#Floyd-algorithm" class="headerlink" title="Floyd algorithm"></a>Floyd algorithm</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -656,9 +697,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《最小生成树的两种经典算法》
+                    《求解最短路问题的两种经典算法》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/09/最小生成树的两种经典算法/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/10/单源最短路/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Hailong Gao
             </a> 采用
@@ -698,9 +739,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/10/10/单源最短路/">
                     <div class="card-image">
@@ -719,9 +761,9 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -734,6 +776,7 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -752,25 +795,25 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/27/A-Star-Algorithm/">
+                <a href="/2019/10/09/最小生成树的两种经典算法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="A-Star Algorithm">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="最小生成树的两种经典算法">
                         
-                        <span class="card-title">A-Star Algorithm</span>
+                        <span class="card-title">最小生成树的两种经典算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            A-Star Algorithm转自：https://blog.csdn.net/qq_36946274/article/details/81982691
-1.搜索区域(The Search Area)A*算法是一种在静态路网中求解最短路径
+                            Prim &amp; Kruskal Algorithm转自：https://blog.csdn.net/qq_36951116/article/details/83089039
+问题引出：假设要在n个城市之间建立通信网，则连通n个城市只需
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-09
                             </span>
                         <span class="publish-author">
                             
@@ -787,8 +830,8 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/A-Star/" target="_blank">
-                        <span class="chip bg-color">A-Star</span>
+                    <a href="/tags/Prim-Kruskal/" target="_blank">
+                        <span class="chip bg-color">Prim &amp; Kruskal</span>
                     </a>
                     
                 </div>
