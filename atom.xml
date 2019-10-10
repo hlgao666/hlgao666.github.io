@@ -5,9 +5,9 @@
   <subtitle>Welcome to visit my blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://hlgao666.github.io/"/>
   <updated>2019-10-10T05:32:46.905Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://hlgao666.github.io/</id>
   
   <author>
     <name>Hailong Gao</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>最小生成树的两种经典算法</title>
-    <link href="http://yoursite.com/2019/10/09/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2019/10/09/最小生成树的两种经典算法/</id>
+    <link href="https://hlgao666.github.io/2019/10/09/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/"/>
+    <id>https://hlgao666.github.io/2019/10/09/最小生成树的两种经典算法/</id>
     <published>2019-10-09T11:39:05.000Z</published>
     <updated>2019-10-10T05:32:46.905Z</updated>
     
@@ -36,17 +36,17 @@
     </summary>
     
     
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://hlgao666.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="Prim &amp; Kruskal" scheme="http://yoursite.com/tags/Prim-Kruskal/"/>
+      <category term="Prim &amp; Kruskal" scheme="https://hlgao666.github.io/tags/Prim-Kruskal/"/>
     
   </entry>
   
   <entry>
     <title>A-Star Algorithm</title>
-    <link href="http://yoursite.com/2019/09/27/A-Star-Algorithm/"/>
-    <id>http://yoursite.com/2019/09/27/A-Star-Algorithm/</id>
+    <link href="https://hlgao666.github.io/2019/09/27/A-Star-Algorithm/"/>
+    <id>https://hlgao666.github.io/2019/09/27/A-Star-Algorithm/</id>
     <published>2019-09-27T06:28:46.000Z</published>
     <updated>2019-09-27T08:05:47.962Z</updated>
     
@@ -63,17 +63,17 @@
     </summary>
     
     
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://hlgao666.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="A-Star" scheme="http://yoursite.com/tags/A-Star/"/>
+      <category term="A-Star" scheme="https://hlgao666.github.io/tags/A-Star/"/>
     
   </entry>
   
   <entry>
     <title>MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)</title>
-    <link href="http://yoursite.com/2019/09/24/MySQL%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8-Windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3Can-t-connect-to-MySQL-server-on-localhost-10061/"/>
-    <id>http://yoursite.com/2019/09/24/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/</id>
+    <link href="https://hlgao666.github.io/2019/09/24/MySQL%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8-Windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3Can-t-connect-to-MySQL-server-on-localhost-10061/"/>
+    <id>https://hlgao666.github.io/2019/09/24/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/</id>
     <published>2019-09-24T06:51:14.000Z</published>
     <updated>2019-09-24T12:28:27.522Z</updated>
     
@@ -90,19 +90,19 @@
     </summary>
     
     
-      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hlgao666.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://hlgao666.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>Markdown语法介绍</title>
-    <link href="http://yoursite.com/2019/09/04/Markdown%E8%AF%AD%E6%B3%95%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://yoursite.com/2019/09/04/Markdown语法介绍/</id>
+    <link href="https://hlgao666.github.io/2019/09/04/Markdown%E8%AF%AD%E6%B3%95%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://hlgao666.github.io/2019/09/04/Markdown语法介绍/</id>
     <published>2019-09-04T07:17:23.000Z</published>
-    <updated>2019-09-27T06:30:40.759Z</updated>
+    <updated>2019-10-10T06:11:32.217Z</updated>
     
     <summary type="html">
     
@@ -117,17 +117,17 @@
     </summary>
     
     
-      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hlgao666.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="Markdown语法" scheme="http://yoursite.com/tags/Markdown%E8%AF%AD%E6%B3%95/"/>
+      <category term="Markdown语法" scheme="https://hlgao666.github.io/tags/Markdown%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>win10环境下如何用hexo+git 创建个人博客</title>
-    <link href="http://yoursite.com/2019/09/03/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/09/03/个人博客创建教程/</id>
+    <link href="https://hlgao666.github.io/2019/09/03/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <id>https://hlgao666.github.io/2019/09/03/个人博客创建教程/</id>
     <published>2019-09-03T07:28:09.000Z</published>
     <updated>2019-09-06T12:28:03.665Z</updated>
     
@@ -144,17 +144,17 @@
     </summary>
     
     
-      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hlgao666.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="hexo+git 个人博客" scheme="http://yoursite.com/tags/hexo-git-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+      <category term="hexo+git 个人博客" scheme="https://hlgao666.github.io/tags/hexo-git-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/09/03/hello-world/"/>
-    <id>http://yoursite.com/2019/09/03/hello-world/</id>
+    <link href="https://hlgao666.github.io/2019/09/03/hello-world/"/>
+    <id>https://hlgao666.github.io/2019/09/03/hello-world/</id>
     <published>2019-09-03T07:16:33.301Z</published>
     <updated>2019-09-24T12:05:45.313Z</updated>
     
