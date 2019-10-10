@@ -437,7 +437,7 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
 <h2 id="Dijkstra-algorithm"><a href="#Dijkstra-algorithm" class="headerlink" title="Dijkstra algorithm"></a>Dijkstra algorithm</h2><blockquote>
 <p>迪杰斯特拉(Dijkstra)算法是典型最短路径算法，用于计算一个节点到其他节点的最短路径。它的主要特点是以起始点为中心向外层层扩展(广度优先搜索思想)，直到扩展到终点为止。  </p>
 </blockquote>
-<p><img src="/../images/image0021.jpg" alt="图1"></p>
+<p><img src="/../images/image021.jpg" alt="图1"></p>
 <p>指定A作为“源点”，问题就是求A到其他节点的最短路径。</p>
 <h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><p>1.指定一个节点，例如我们要计算 ‘A’ 到其他节点的最短路径  </p>
 <p>2.引入两个集合（S、U），S集合包含已求出的最短路径的点（以及相应的最短长度），U集合包含未求出最短路径的点（以及A到该点的路径，注意:如上图1所示，A-&gt;C由于没有直接边相连，初始时置为∞）  </p>
@@ -446,15 +446,15 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
 <p>5.更新U集合路径，if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 则更新U  </p>
 <p>6.循环执行 4、5 两步骤，直至遍历结束，得到A到其他节点的最短路径.</p>
 <h3 id="算法图解"><a href="#算法图解" class="headerlink" title="算法图解"></a>算法图解</h3><p>1.选定A节点并初始化，如上述步骤3所示</p>
-<p><img src="/../images/image022.jpg" alt="图1"></p>
+<p><img src="/../images/image022.jpg" alt="图2"></p>
 <p>2.执行上述 4、5两步骤，找出U集合中路径最短的节点D 加入S集合，并根据条件 if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 来更新U集合  </p>
-<p><img src="/../images/image023.jpg" alt="图1"></p>
+<p><img src="/../images/image023.jpg" alt="图3"></p>
 <p>3.这时候 A-&gt;B, A-&gt;C 都为3，没关系。其实这时候他俩都是最短距离，如果从算法逻辑来讲的话，会先取到B点。而这个时候 if 条件变成了 if ( ‘B 到 C,E 的距离’ + ‘AB 距离’ &lt; ‘A 到 C,E 的距离’ ) ，如图所示这时候A-&gt;B距离 其实为 A-&gt;D-&gt;B  </p>
-<p><img src="/../images/image024.jpg" alt="图1"></p>
+<p><img src="/../images/image024.jpg" alt="图4"></p>
 <p>4.思路就是这样，往后就是大同小异了</p>
-<p><img src="/../images/image025.jpg" alt="图1"></p>
+<p><img src="/../images/image025.jpg" alt="图5"></p>
 <p>5.算法结束</p>
-<p><img src="/../images/image026.jpg" alt="图1"></p>
+<p><img src="/../images/image026.jpg" alt="图6"></p>
 <h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre><code>    public class Dijkstra {
         public static final int M = 10000; // 代表正无穷
 
@@ -521,7 +521,10 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
             System.out.println("=====================================");
             return shortPath;
         }    
-    }</code></pre><h2 id="Floyd-algorithm"><a href="#Floyd-algorithm" class="headerlink" title="Floyd algorithm"></a>Floyd algorithm</h2><script>
+    }</code></pre><h2 id="Floyd-algorithm"><a href="#Floyd-algorithm" class="headerlink" title="Floyd algorithm"></a>Floyd algorithm</h2><p>求解多源最短路问题的2种方法：</p>
+<p>1.直接把Dijkstra调用|V|遍，时间复杂度为O(V3);</p>
+<p>2.Floyd算法更简洁，但算法复杂度仍为O(n3)。</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
