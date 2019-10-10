@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="最小生成树的两种经典算法, Allen">
     <meta name="description" content="Prim &amp;amp; Kruskal Algorithm转自：https://blog.csdn.net/qq_36951116/article/details/83089039
-假设要在n个城市之间建立通信网，则连通n个城市只需要n-1条">
+问题引出：假设要在n个城市之间建立通信网，则连通n个城市只需">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -433,12 +433,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="Prim-amp-Kruskal-Algorithm"><a href="#Prim-amp-Kruskal-Algorithm" class="headerlink" title="Prim &amp; Kruskal Algorithm"></a>Prim &amp; Kruskal Algorithm</h2><p>转自：<a href="https://blog.csdn.net/qq_36951116/article/details/83089039" target="_blank" rel="noopener">https://blog.csdn.net/qq_36951116/article/details/83089039</a></p>
-<p>假设要在n个城市之间建立通信网，则连通n个城市只需要n-1条线路。这时自然会考虑一个问题：如何在最节省经费的前提下建立这个通信网？  </p>
-<p>可以用连通网来表示n个城市以及n个城市之间的通信线路，其中，网的顶点表示城市，边表示两城市之间的线路，赋予边权值表示开设相应线路的代价。这个问题就是最小生成树问题。  </p>
-<p>Prim &amp; Kruskal Algorithm 是利用MST性质构造最小生成树的两种算法。  </p>
+<p>问题引出：假设要在n个城市之间建立通信网，则连通n个城市只需要n-1条线路。这时自然会考虑一个问题：如何在最节省经费的前提下建立这个通信网？  </p>
 <hr>
-<h3 id="MST-Most-Small-Tree-性质："><a href="#MST-Most-Small-Tree-性质：" class="headerlink" title="MST(Most Small Tree)性质："></a>MST(Most Small Tree)性质：</h3><p>设G=(V，E)是一个连通网络，U是顶点集V的一个真子集。若(u，v)是G中一条“一个端点在U中(例如：u∈U)，另一个端点不在U中”的边(例如：v∈V-U)，且(u，v)具有最小权值，则一定存在G的一棵最小生成树包括此边(u，v)。  </p>
-<p>证明略去,具体可参考： <a href="https://blog.csdn.net/s_j_huang/article/details/79447041" target="_blank" rel="noopener">https://blog.csdn.net/s_j_huang/article/details/79447041</a></p>
+<h3 id="MST-minimal-spanning-treeproblem"><a href="#MST-minimal-spanning-treeproblem" class="headerlink" title="MST(minimal spanning treeproblem)"></a>MST(minimal spanning treeproblem)</h3><p>可以用连通网来表示n个城市以及n个城市之间的通信线路，其中，网的顶点表示城市，边表示两城市之间的线路，赋予边权值表示开设相应线路的代价。  </p>
+<p>这个问题就是最小生成树问题：求解连通无向图的权最小的生成树  </p>
+<p>Prim &amp; Kruskal Algorithm 是利用MST性质构造最小生成树的两种算法。  </p>
+<h3 id="MST-Most-Small-Tree-性质"><a href="#MST-Most-Small-Tree-性质" class="headerlink" title="MST(Most Small Tree)性质"></a>MST(Most Small Tree)性质</h3><p>设G=(V，E)是一个连通网络，U是顶点集V的一个真子集。若(u，v)是G中一条“一个端点在U中(例如：u∈U)，另一个端点不在U中”的边(例如：v∈V-U)，且(u，v)具有最小权值，则一定存在G的一棵最小生成树包括此边(u，v)。  </p>
+<p>证明略去，具体可参考： <a href="https://blog.csdn.net/s_j_huang/article/details/79447041" target="_blank" rel="noopener">https://blog.csdn.net/s_j_huang/article/details/79447041</a></p>
 <h3 id="Prim-algorithm"><a href="#Prim-algorithm" class="headerlink" title="Prim algorithm"></a>Prim algorithm</h3><pre class=" language-bash"><code class="language-bash">算法思路：从已选顶点所关联的未选边中找出权重最小的边，并且生成树不存在环。  
 
 其中，已选顶点是构成最小生成树的结点，未选边是不属于生成树中的边。 
@@ -715,7 +716,7 @@
                     <div class="summary block-with-text">
                         
                             Prim &amp; Kruskal Algorithm转自：https://blog.csdn.net/qq_36951116/article/details/83089039
-假设要在n个城市之间建立通信网，则连通n个城市只需要n-1条
+问题引出：假设要在n个城市之间建立通信网，则连通n个城市只需
                         
                     </div>
                     <div class="publish-info">
