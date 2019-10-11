@@ -435,7 +435,7 @@
                 <h2 id="A-Star-Algorithm"><a href="#A-Star-Algorithm" class="headerlink" title="A-Star Algorithm"></a>A-Star Algorithm</h2><p>转自：<a href="https://blog.csdn.net/qq_36946274/article/details/81982691" target="_blank" rel="noopener">https://blog.csdn.net/qq_36946274/article/details/81982691</a></p>
 <h3 id="1-搜索区域-The-Search-Area"><a href="#1-搜索区域-The-Search-Area" class="headerlink" title="1.搜索区域(The Search Area)"></a>1.搜索区域(The Search Area)</h3><pre class=" language-bash"><code class="language-bash">A*算法是一种在静态路网中求解最短路径问题的最直接方法，问题可描述如下：  
 我们假设某人要从 A 点移动到 B 点，但是这两点之间被一堵墙隔开。如图 1 ，绿色是 A ，红色是 B ，中间蓝色是墙。  </code></pre>
-<p><img src="/../images/image001.jpg" alt="图1"></p>
+<p><img src="/../images/image001.jpg" alt="图1"><br><img src="http://image-hlgao.test.upcdn.net/images/image001.jpg" alt="图1"></p>
 <p>你应该注意到了，我们把要搜寻的区域划分成了正方形的格子。这是寻路的第一步，简化搜索区域，就像我们这里做的一样。这个特殊的方法把我们的搜索区域简化为了 2 维数组。数组的每一项代表一个格子，它的状态就是可走 (walkalbe) 和不可走 (unwalkable) 。通过计算出从 A 到 B需要走过哪些方格，就找到了路径。一旦路径找到了，人物便从一个方格的中心移动到另一个方格的中心，直至到达目的地。  </p>
 <p>方格的中心点我们成为“节点 (nodes) ”。如果你读过其他关于 A-Star寻路算法的文章，你会发现人们常常都在讨论节点。为什么不直接描述为方格呢？因为我们有可能把搜索区域划为为其他多变形而不是正方形，例如可以是六边形，矩形，甚至可以是任意多变形。而节点可以放在任意多边形里面，可以放在多变形的中心，也可以放在多边形的边上。我们使用这个系统，因为它最简单。</p>
 <h3 id="2-开始搜索-Starting-the-Search"><a href="#2-开始搜索-Starting-the-Search" class="headerlink" title="2.开始搜索(Starting the Search)"></a>2.开始搜索(Starting the Search)</h3><p>一旦我们把搜寻区域简化为一组可以量化的节点后，就像上面做的一样，我们下一步要做的便是查找最短路径。在 A* 中，我们从起点开始，检查其相邻的方格，然后向四周扩展，直至找到目标。  </p>
