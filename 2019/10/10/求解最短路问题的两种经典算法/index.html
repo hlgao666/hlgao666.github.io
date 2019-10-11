@@ -460,73 +460,74 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
 <p><img src="/../images/image025.jpg" alt="图5"></p>
 <p>5.算法结束</p>
 <p><img src="/../images/image026.jpg" alt="图6"></p>
-<h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre><code>public class Dijkstra {
-    public static final int M = 10000; // 代表正无穷
+<h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dijkstra</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> M <span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 代表正无穷</span>
 
-    public static void main(String[] args) {
-        // 二维数组每一行分别是 A、B、C、D、E 各点到其余点的距离, 
-        // A -&gt; A 距离为0, 常量M 为正无穷
-        int[][] weight1 = {
-                {0,4,M,2,M}, 
-                {4,0,4,1,M}, 
-                {M,4,0,1,3}, 
-                {2,1,1,0,7},   
-                {M,M,3,7,0} 
-            };
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 二维数组每一行分别是 A、B、C、D、E 各点到其余点的距离, </span>
+        <span class="token comment" spellcheck="true">// A -> A 距离为0, 常量M 为正无穷</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> weight1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span>M<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span>M<span class="token punctuation">}</span><span class="token punctuation">,</span> 
+                <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>M<span class="token punctuation">}</span><span class="token punctuation">,</span> 
+                <span class="token punctuation">{</span>M<span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
+                <span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   
+                <span class="token punctuation">{</span>M<span class="token punctuation">,</span>M<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span> 
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-        int start = 0;
+        <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-        int[] shortPath = dijkstra(weight1, start);
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> shortPath <span class="token operator">=</span> <span class="token function">dijkstra</span><span class="token punctuation">(</span>weight1<span class="token punctuation">,</span> start<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        for (int i = 0; i &lt; shortPath.length; i++)
-            System.out.println("从" + start + "出发到" + i + "的最短距离为：" + shortPath[i]);
-    }
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> shortPath<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"从"</span> <span class="token operator">+</span> start <span class="token operator">+</span> <span class="token string">"出发到"</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">"的最短距离为："</span> <span class="token operator">+</span> shortPath<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public static int[] dijkstra(int[][] weight, int start) {
-        // 接受一个有向图的权重矩阵，和一个起点编号start（从0编号，顶点存在数组中）
-        // 返回一个int[] 数组，表示从start到它的最短路径长度
-        int n = weight.length; // 顶点个数
-        int[] shortPath = new int[n]; // 保存start到其他各点的最短路径
-        String[] path = new String[n]; // 保存start到其他各点最短路径的字符串表示
-        for (int i = 0; i &lt; n; i++)
-            path[i] = new String(start + "--&gt;" + i);
-        int[] visited = new int[n]; // 标记当前该顶点的最短路径是否已经求出,1表示已求出
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">dijkstra</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> weight<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 接受一个有向图的权重矩阵，和一个起点编号start（从0编号，顶点存在数组中）</span>
+        <span class="token comment" spellcheck="true">// 返回一个int[] 数组，表示从start到它的最短路径长度</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> weight<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 顶点个数</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> shortPath <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 保存start到其他各点的最短路径</span>
+        String<span class="token punctuation">[</span><span class="token punctuation">]</span> path <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 保存start到其他各点最短路径的字符串表示</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+            path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>start <span class="token operator">+</span> <span class="token string">"-->"</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> visited <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 标记当前该顶点的最短路径是否已经求出,1表示已求出</span>
 
-        // 初始化，第一个顶点已经求出
-        shortPath[start] = 0;
-        visited[start] = 1;
+        <span class="token comment" spellcheck="true">// 初始化，第一个顶点已经求出</span>
+        shortPath<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        visited<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
-        for (int count = 1; count &lt; n; count++) { // 要加入n-1个顶点
-            int k = -1; // 选出一个距离初始顶点start最近的未标记顶点
-            int dmin = Integer.MAX_VALUE;
-            for (int i = 0; i &lt; n; i++) {
-                if (visited[i] == 0 &amp;&amp; weight[start][i] &lt; dmin) {
-                    dmin = weight[start][i];
-                    k = i;
-                }
-            }
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> count <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> count<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 要加入n-1个顶点</span>
+            <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 选出一个距离初始顶点start最近的未标记顶点</span>
+            <span class="token keyword">int</span> dmin <span class="token operator">=</span> Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> dmin<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    dmin <span class="token operator">=</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    k <span class="token operator">=</span> i<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
 
-            // 将新选出的顶点标记为已求出最短路径，且到start的最短路径就是dmin
-            shortPath[k] = dmin;
-            visited[k] = 1;
+            <span class="token comment" spellcheck="true">// 将新选出的顶点标记为已求出最短路径，且到start的最短路径就是dmin</span>
+            shortPath<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> dmin<span class="token punctuation">;</span>
+            visited<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
-            // 以k为中间点，修正从start到未访问各点的距离
-            for (int i = 0; i &lt; n; i++) {
-                //如果 '起始点到当前点距离' + '当前点到某点距离' &lt; '起始点到某点距离', 则更新
-                if (visited[i] == 0 &amp;&amp; weight[start][k] + weight[k][i] &lt; weight[start][i]) {
-                    weight[start][i] = weight[start][k] + weight[k][i];
-                    path[i] = path[k] + "--&gt;" + i;
-                }
-            }
-        }
-        for (int i = 0; i &lt; n; i++) {
+            <span class="token comment" spellcheck="true">// 以k为中间点，修正从start到未访问各点的距离</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//如果 '起始点到当前点距离' + '当前点到某点距离' &lt; '起始点到某点距离', 则更新</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> weight<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> weight<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"-->"</span> <span class="token operator">+</span> i<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            System.out.println("从" + start + "出发到" + i + "的最短路径为：" + path[i]);
-        }
-        System.out.println("=====================================");
-        return shortPath;
-    }    
-}</code></pre><h2 id="Floyd-algorithm"><a href="#Floyd-algorithm" class="headerlink" title="Floyd algorithm"></a>Floyd algorithm</h2><blockquote>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"从"</span> <span class="token operator">+</span> start <span class="token operator">+</span> <span class="token string">"出发到"</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">"的最短路径为："</span> <span class="token operator">+</span> path<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"====================================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> shortPath<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>    
+<span class="token punctuation">}</span></code></pre>
+<h2 id="Floyd-algorithm"><a href="#Floyd-algorithm" class="headerlink" title="Floyd algorithm"></a>Floyd algorithm</h2><blockquote>
 <p>Floyd算法又称为插点法，是一种利用动态规划的思想寻找给定的加权图中多源点之间最短路径的算法，与Dijkstra算法类似。  </p>
 </blockquote>
 <p>求解多源最短路问题的2种方法：</p>
