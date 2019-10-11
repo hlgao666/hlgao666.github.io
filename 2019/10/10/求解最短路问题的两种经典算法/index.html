@@ -460,7 +460,8 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
 <p><img src="http://image-hlgao.test.upcdn.net/images/image025.jpg" alt="图5"></p>
 <p>5.算法结束</p>
 <p><img src="http://image-hlgao.test.upcdn.net/images/image026.jpg" alt="图6"></p>
-<h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dijkstra</span> <span class="token punctuation">{</span>
+<h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre class=" language-java"><code class="language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dijkstra</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> M <span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 代表正无穷</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -526,7 +527,8 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"====================================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> shortPath<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>    
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="Floyd-algorithm"><a href="#Floyd-algorithm" class="headerlink" title="Floyd algorithm"></a>Floyd algorithm</h2><blockquote>
 <p>Floyd算法又称为插点法，是一种利用动态规划的思想寻找给定的加权图中多源点之间最短路径的算法，与Dijkstra算法类似。  </p>
 </blockquote>
