@@ -29,7 +29,8 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -439,7 +440,7 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
 </blockquote>
 <p><img src="/../images/image021.jpg" alt="图1"></p>
 <p>指定A作为“源点”，问题就是求A到其他节点的最短路径。</p>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><pre class=" language-bash"><code class="language-bash">1.指定一个节点，例如我们要计算 <span class="token string">'A'</span> 到其他节点的最短路径  
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><pre class="line-numbers language-bash"><code class="language-bash">1.指定一个节点，例如我们要计算 <span class="token string">'A'</span> 到其他节点的最短路径  
 
 2.引入两个集合（S、U），S集合包含已求出的最短路径的点（以及相应的最短长度），U集合包含未求出最短路径的点（以及A到该点的路径，注意:如上图1所示，A-<span class="token operator">></span>C由于没有直接边相连，初始时置为∞）  
 
@@ -449,7 +450,7 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
 
 5.更新U集合路径，if <span class="token punctuation">(</span> <span class="token string">'D 到 B,C,E 的距离'</span> + <span class="token string">'AD 距离'</span> <span class="token operator">&lt;</span> <span class="token string">'A 到 B,C,E 的距离'</span> <span class="token punctuation">)</span> 则更新U  
 
-6.循环执行 4、5 两步骤，直至遍历结束，得到A到其他节点的最短路径.</code></pre>
+6.循环执行 4、5 两步骤，直至遍历结束，得到A到其他节点的最短路径.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="算法图解"><a href="#算法图解" class="headerlink" title="算法图解"></a>算法图解</h3><p>1.选定A节点并初始化，如上述步骤3所示</p>
 <p><img src="/../images/image022.jpg" alt="图2"></p>
 <p>2.执行上述 4、5两步骤，找出U集合中路径最短的节点D 加入S集合，并根据条件 if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 来更新U集合  </p>
@@ -460,7 +461,7 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
 <p><img src="/../images/image025.jpg" alt="图5"></p>
 <p>5.算法结束</p>
 <p><img src="/../images/image026.jpg" alt="图6"></p>
-<h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dijkstra</span> <span class="token punctuation">{</span>
+<h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dijkstra</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> M <span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 代表正无穷</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -526,7 +527,7 @@ Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于�
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"====================================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> shortPath<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>    
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Floyd-algorithm"><a href="#Floyd-algorithm" class="headerlink" title="Floyd algorithm"></a>Floyd algorithm</h2><blockquote>
 <p>Floyd算法又称为插点法，是一种利用动态规划的思想寻找给定的加权图中多源点之间最短路径的算法，与Dijkstra算法类似。  </p>
 </blockquote>
