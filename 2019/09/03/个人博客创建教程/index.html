@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="win10环境下如何用hexo+git 创建个人博客, Allen">
+    <meta name="keywords" content="win10环境下如何用hexo+git 创建个人博客, hlgao666">
     <meta name="description" content="第一章  如何部署环境？1.首先下载node.js，下载地址：https://nodejs.org，安装完成后会有包管理器npm（搭建hexo博客框架所必需）。
 
 2.安装淘宝的npm的镜像源，在cmd窗口中输入：npm install -">
@@ -674,6 +674,28 @@ hexo g -d    生成并发布</code></pre><hr>
         </div>
     </div>
 
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '71b3fe32e349132d133e',
+        clientSecret: '1c6066aad8a2feaccbdf64f42194f3dfef3eb0e0',
+        repo: 'hlgao666',
+        owner: 'hlgao',
+        admin: "hlgao",
+        id: '2019-09-03T15-28-09',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
     
