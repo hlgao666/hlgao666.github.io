@@ -412,14 +412,14 @@ Floyd算法又称为插点法，是一种利用动态规划的思想寻找给定
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.9k
+                        2.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        7 分
+                        8 分
                     </div>
                     
                 
@@ -491,39 +491,39 @@ Floyd算法又称为插点法，是一种利用动态规划的思想寻找给定
 <p><img src="http://image-hlgao.test.upcdn.net/images/image032.jpg" alt="图12"> </p>
 <p>最后允许通过所有顶点作为中转，任意两点之间最终的最短路程为：</p>
 <p><img src="http://image-hlgao.test.upcdn.net/images/image033.jpg" alt="图13"> </p>
-<h3 id="代码实现-C"><a href="#代码实现-C" class="headerlink" title="代码实现(C++)"></a>代码实现(C++)</h3><pre class=" language-c++"><code class="language-c++">#include<iostream>
-#define inf 999999  //表示两个点之间不连通 
-#define max 105
-using namespace std;
-int m,n,edge[max][max];
-int main()
-{
-    int i,j;
-    cin>>n>>m;
-    //先对邻接矩阵进行初始化 
-    for(int i=1;i<=n;i++)
-    {
-        for(int j=1;j<=n;j++)
-            edge[i][j]=inf;
-        edge[i][i]=0;
-    }
-    //建图 
-    while(m--)
-    {
-        cin>>i>>j;
-        cin>>edge[i][j];
-        edge[j][i]=edge[i][j];
-    }
-    for(int i=1;i<=n;i++)
-        for(int j=1;j<=n;j++)
-            for(int k=1;k<=n;k++)
-                //若结点对跟中转点不连通，则跳过 
-                if(edge[i][k]!=inf && edge[k][j]!=inf && edge[i][j]>(edge[i][k]+edge[k][j]))
-                    //更新最短路径 
-                    edge[i][j]=edge[i][k]+edge[k][j];
-    cout<<edge[1][n]<<endl;
-    return 0;
-}</code></pre>
+<h3 id="代码实现-C"><a href="#代码实现-C" class="headerlink" title="代码实现(C++)"></a>代码实现(C++)</h3><pre class=" language-java"><code class="language-java">#include<span class="token operator">&lt;</span>iostream<span class="token operator">></span>
+#define inf <span class="token number">999999</span>  <span class="token comment" spellcheck="true">//表示两个点之间不连通 </span>
+#define max <span class="token number">105</span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> m<span class="token punctuation">,</span>n<span class="token punctuation">,</span>edge<span class="token punctuation">[</span>max<span class="token punctuation">]</span><span class="token punctuation">[</span>max<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span>j<span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>n<span class="token operator">>></span>m<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//先对邻接矩阵进行初始化 </span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>inf<span class="token punctuation">;</span>
+        edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//建图 </span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>m<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cin<span class="token operator">>></span>i<span class="token operator">>></span>j<span class="token punctuation">;</span>
+        cin<span class="token operator">>></span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        edge<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>k<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span>
+                <span class="token comment" spellcheck="true">//若结点对跟中转点不连通，则跳过 </span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">!=</span>inf <span class="token operator">&amp;&amp;</span> edge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span>inf <span class="token operator">&amp;&amp;</span> edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">(</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">+</span>edge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token comment" spellcheck="true">//更新最短路径 </span>
+                    edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">+</span>edge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>edge<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <hr>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/wangyuliang/p/9216365.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangyuliang/p/9216365.html</a><br><a href="https://blog.csdn.net/Q_M_X_D_D_/article/details/84866501" target="_blank" rel="noopener">https://blog.csdn.net/Q_M_X_D_D_/article/details/84866501</a><br><a href="https://www.jianshu.com/p/ff6db00ad866" target="_blank" rel="noopener">https://www.jianshu.com/p/ff6db00ad866</a></p>
 <script>
@@ -998,7 +998,7 @@ Dijkstra algo
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">9.7k</span>
+                <span class="white-color">9.8k</span>
             
 
             
