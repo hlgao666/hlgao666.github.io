@@ -480,7 +480,6 @@
 <p>上面find递归函数里，有包含两个return，第一个return返回递归体，第二个return返回参数x的值。  </p>
 <p>若第一个不加return，则函数到了结束条件时，会一层层地向上返回，直到返回到原来的主调函数。  </p>
 <p>e.g. 输入为8，期望输出为11。<br>1.若第一个不加return，则x的值变为11后，先执行”return x;” ，然后find函数会一层层地返回到原来的主调函数，即find(9).<br>2.若第一个加了return，则x的值变为11后，先执行”return x;” ，然后直接执行”return find(++x)”语句，直接返回当前x的值，而不再返回之前的递归。  </p>
-<hr>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
