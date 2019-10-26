@@ -31,7 +31,8 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -443,7 +444,7 @@
 <p>INPUT:7   OUTPUT:7  </p>
 <p>INPUT:8   OUTPUT:11</p>
 <p>算法代码（java）  </p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> test<span class="token punctuation">;</span>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> test<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Scanner<span class="token punctuation">;</span>
 
@@ -476,7 +477,7 @@
         test002 newtest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">test002</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>newtest<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>上面find递归函数里，有包含两个return，第一个return返回递归体，第二个return返回参数x的值。  </p>
 <p>若第一个不加return，则函数到了结束条件时，会一层层地向上返回，直到返回到原来的主调函数。  </p>
 <p>e.g. 输入为8，期望输出为11。<br>1.若第一个不加return，则x的值变为11后，先执行”return x;” ，然后find函数会一层层地返回到原来的主调函数，即find(9).<br>2.若第一个加了return，则x的值变为11后，先执行”return x;” ，然后直接执行”return find(++x)”语句，直接返回当前x的值，而不再返回之前的递归。  </p>

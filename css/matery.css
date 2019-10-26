@@ -100,7 +100,6 @@ pre {
     overflow: auto;
     border-radius: 0.35rem;
     tab-size: 4;
-
 }
 
 code {
@@ -111,6 +110,7 @@ code {
     background-color: #f8f8f8;
     border-radius: 2px;
 }
+
 
 pre code {
     padding: 0;
