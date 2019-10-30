@@ -439,102 +439,102 @@
 <p>要求给出源程序和神经网络结构示意图，计算结果及分析。  </p>
 <p><a href="http://image-hlgao.test.upcdn.net/data/data.zip" target="_blank" rel="noopener">附件(.mat文件)</a></p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>该神经网络结构为输入层为24个神经元，隐含层有1层，神经元个数未定，输出层有4个神经元，神经网络结构如图1所示。<br><img src="http://image-hlgao.test.upcdn.net/images/image039.jpg" alt="图1 神经网络结构"></p>
-<h2 id="Matlab程序"><a href="#Matlab程序" class="headerlink" title="Matlab程序"></a>Matlab程序</h2><pre class="line-numbers language-bash"><code class="language-bash">%用BP网络语音识别
+<h2 id="Matlab程序"><a href="#Matlab程序" class="headerlink" title="Matlab程序"></a>Matlab程序</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token operator">%</span>用BP网络语音识别
 close all<span class="token punctuation">;</span>
-<span class="token function">clear</span> all<span class="token punctuation">;</span>
+clear all<span class="token punctuation">;</span>
 clc<span class="token punctuation">;</span>
 
-%训练集
+<span class="token operator">%</span>训练集
 
-%训练数据预测数据提取及归一化
+<span class="token operator">%</span>训练数据预测数据提取及归一化
 
-%下载四类语音信号
+<span class="token operator">%</span>下载四类语音信号
 load data1 c1
 load data2 c2
 load data3 c3
 load data4 c4
 
-%四个特征信号矩阵合成一个矩阵
-data<span class="token punctuation">(</span>1:500,:<span class="token punctuation">)</span><span class="token operator">=</span>c1<span class="token punctuation">(</span>1:500,:<span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">(</span>501:1000,:<span class="token punctuation">)</span><span class="token operator">=</span>c2<span class="token punctuation">(</span>1:500,:<span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">(</span>1001:1500,:<span class="token punctuation">)</span><span class="token operator">=</span>c3<span class="token punctuation">(</span>1:500,:<span class="token punctuation">)</span><span class="token punctuation">;</span>
-data<span class="token punctuation">(</span>1501:2000,:<span class="token punctuation">)</span><span class="token operator">=</span>c4<span class="token punctuation">(</span>1:500,:<span class="token punctuation">)</span><span class="token punctuation">;</span>
-%获取当前时间
+<span class="token operator">%</span>四个特征信号矩阵合成一个矩阵
+<span class="token function">data</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">c1</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">data</span><span class="token punctuation">(</span><span class="token number">501</span><span class="token operator">:</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">c2</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">data</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token operator">:</span><span class="token number">1500</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">c3</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">data</span><span class="token punctuation">(</span><span class="token number">1501</span><span class="token operator">:</span><span class="token number">2000</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">c4</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">%</span>获取当前时间
 t1 <span class="token operator">=</span> clock<span class="token punctuation">;</span> 
-%从1到2000间随机排序
-k<span class="token operator">=</span>rand<span class="token punctuation">(</span>1,2000<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">[</span>m,n<span class="token punctuation">]</span><span class="token operator">=</span>sort<span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">%</span>从<span class="token number">1</span>到<span class="token number">2000</span>间随机排序
+k<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span>m<span class="token punctuation">,</span>n<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">sort</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-%输入输出数据
-input<span class="token operator">=</span>data<span class="token punctuation">(</span>:,2:25<span class="token punctuation">)</span><span class="token punctuation">;</span>
-output1 <span class="token operator">=</span>data<span class="token punctuation">(</span>:,1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">%</span>输入输出数据
+input<span class="token operator">=</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+output1 <span class="token operator">=</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-%把输出从1维变成4维
-output<span class="token operator">=</span>zeros<span class="token punctuation">(</span>2000,4<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span> i<span class="token operator">=</span>1:2000
-    switch output1<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">case</span> 1
-            output<span class="token punctuation">(</span>i,:<span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span>1 0 0 0<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">case</span> 2
-            output<span class="token punctuation">(</span>i,:<span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span>0 1 0 0<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">case</span> 3
-            output<span class="token punctuation">(</span>i,:<span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span>0 0 1 0<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">case</span> 4
-            output<span class="token punctuation">(</span>i,:<span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span>0 0 0 1<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token operator">%</span>把输出从<span class="token number">1</span>维变成<span class="token number">4</span>维
+output<span class="token operator">=</span><span class="token function">zeros</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">2000</span>
+    <span class="token keyword">switch</span> <span class="token function">output1</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">case</span> <span class="token number">1</span>
+            <span class="token function">output</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token number">2</span>
+            <span class="token function">output</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token number">3</span>
+            <span class="token function">output</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token number">4</span>
+            <span class="token function">output</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     end
 end
 
-%随机提取1500个样本为训练样本，500个样本为预测样本
-input_train<span class="token operator">=</span>input<span class="token punctuation">(</span>n<span class="token punctuation">(</span>1:1500<span class="token punctuation">)</span>,:<span class="token punctuation">)</span><span class="token string">';
-output_train=output(n(1:1500),:)'</span><span class="token punctuation">;</span>
-input_test<span class="token operator">=</span>input<span class="token punctuation">(</span>n<span class="token punctuation">(</span>1501:2000<span class="token punctuation">)</span>,:<span class="token punctuation">)</span><span class="token string">';
-output_test=output(n(1501:2000),:)'</span><span class="token punctuation">;</span>
+<span class="token operator">%</span>随机提取<span class="token number">1500</span>个样本为训练样本，<span class="token number">500</span>个样本为预测样本
+input_train<span class="token operator">=</span><span class="token function">input</span><span class="token punctuation">(</span><span class="token function">n</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span>'<span class="token punctuation">;</span>
+output_train<span class="token operator">=</span><span class="token function">output</span><span class="token punctuation">(</span><span class="token function">n</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span>'<span class="token punctuation">;</span>
+input_test<span class="token operator">=</span><span class="token function">input</span><span class="token punctuation">(</span><span class="token function">n</span><span class="token punctuation">(</span><span class="token number">1501</span><span class="token operator">:</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span>'<span class="token punctuation">;</span>
+output_test<span class="token operator">=</span><span class="token function">output</span><span class="token punctuation">(</span><span class="token function">n</span><span class="token punctuation">(</span><span class="token number">1501</span><span class="token operator">:</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span>'<span class="token punctuation">;</span>
 
 
-% 网络结构初始化
-innum<span class="token operator">=</span>24<span class="token punctuation">;</span>
-midnum<span class="token operator">=</span>25<span class="token punctuation">;</span>
-outnum<span class="token operator">=</span>4<span class="token punctuation">;</span>
+<span class="token operator">%</span> 网络结构初始化
+innum<span class="token operator">=</span><span class="token number">24</span><span class="token punctuation">;</span>
+midnum<span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">;</span>
+outnum<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>
 
-%创建网络
+<span class="token operator">%</span>创建网络
 
-net <span class="token operator">=</span> newff<span class="token punctuation">(</span>minmax<span class="token punctuation">(</span>input_train<span class="token punctuation">)</span>,<span class="token punctuation">[</span>midnum,outnum<span class="token punctuation">]</span>,<span class="token punctuation">{</span><span class="token string">'tansig'</span> <span class="token string">'purelin'</span><span class="token punctuation">}</span>,<span class="token string">'trainlm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
-%训练函数可选项：<span class="token string">'trainlm'</span>, <span class="token string">'traingd'</span>, <span class="token string">'traingdm'</span>, <span class="token string">'traingdx'</span>
+net <span class="token operator">=</span> <span class="token function">newff</span><span class="token punctuation">(</span><span class="token function">minmax</span><span class="token punctuation">(</span>input_train<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">[</span>midnum<span class="token punctuation">,</span>outnum<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">'tansig'</span> <span class="token string">'purelin'</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token string">'trainlm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+<span class="token operator">%</span>训练函数可选项：<span class="token string">'trainlm'</span><span class="token punctuation">,</span> <span class="token string">'traingd'</span><span class="token punctuation">,</span> <span class="token string">'traingdm'</span><span class="token punctuation">,</span> <span class="token string">'traingdx'</span>
 
-net.trainParam.epochs <span class="token operator">=</span> 50<span class="token punctuation">;</span>
-net.iw<span class="token punctuation">{</span>1,1<span class="token punctuation">}</span> <span class="token operator">=</span> zeros<span class="token punctuation">(</span>midnum,innum<span class="token punctuation">)</span><span class="token punctuation">;</span>
-net.b<span class="token punctuation">{</span>1<span class="token punctuation">}</span> <span class="token operator">=</span> zeros<span class="token punctuation">(</span>midnum,1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-net.b<span class="token punctuation">{</span>2<span class="token punctuation">}</span> <span class="token operator">=</span> zeros<span class="token punctuation">(</span>outnum,1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-%训练
-net <span class="token operator">=</span> train<span class="token punctuation">(</span>net,input_train,output_train<span class="token punctuation">)</span><span class="token punctuation">;</span>
-y1 <span class="token operator">=</span> sim<span class="token punctuation">(</span>net,input_train<span class="token punctuation">)</span><span class="token punctuation">;</span>
-%获取运行后时间
+net<span class="token punctuation">.</span>trainParam<span class="token punctuation">.</span>epochs <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">;</span>
+net<span class="token punctuation">.</span>iw<span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>midnum<span class="token punctuation">,</span>innum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+net<span class="token punctuation">.</span>b<span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>midnum<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+net<span class="token punctuation">.</span>b<span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>outnum<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">%</span>训练
+net <span class="token operator">=</span> <span class="token function">train</span><span class="token punctuation">(</span>net<span class="token punctuation">,</span>input_train<span class="token punctuation">,</span>output_train<span class="token punctuation">)</span><span class="token punctuation">;</span>
+y1 <span class="token operator">=</span> <span class="token function">sim</span><span class="token punctuation">(</span>net<span class="token punctuation">,</span>input_train<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">%</span>获取运行后时间
 t2 <span class="token operator">=</span> clock<span class="token punctuation">;</span>
-%测试
-y2 <span class="token operator">=</span> sim<span class="token punctuation">(</span>net,input_test<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span> i <span class="token operator">=</span> 1:size<span class="token punctuation">(</span>y2,2<span class="token punctuation">)</span>
-    y2_fore<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span> find<span class="token punctuation">(</span>y2<span class="token punctuation">(</span>:,i<span class="token punctuation">)</span> <span class="token operator">==</span> max<span class="token punctuation">(</span>y2<span class="token punctuation">(</span>:,i<span class="token punctuation">))</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    out_fore<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span> find<span class="token punctuation">(</span>output_test<span class="token punctuation">(</span>:,i<span class="token punctuation">)</span> <span class="token operator">==</span> 1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">%</span>测试
+y2 <span class="token operator">=</span> <span class="token function">sim</span><span class="token punctuation">(</span>net<span class="token punctuation">,</span>input_test<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token function">size</span><span class="token punctuation">(</span>y2<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token function">y2_fore</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token function">y2</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token function">y2</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">out_fore</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token function">output_test</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 end
 
-%画出预测语音种类和实际语音种类的分类图
-figure<span class="token punctuation">(</span>1<span class="token punctuation">)</span>
-plot<span class="token punctuation">(</span>y2_fore,<span class="token string">'r'</span><span class="token punctuation">)</span>
+<span class="token operator">%</span>画出预测语音种类和实际语音种类的分类图
+<span class="token function">figure</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">plot</span><span class="token punctuation">(</span>y2_fore<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>
 hold on
-plot<span class="token punctuation">(</span>out_fore,<span class="token string">'b'</span><span class="token punctuation">)</span>
-legend<span class="token punctuation">(</span><span class="token string">'预测语音类别'</span>,<span class="token string">'实际语音类别'</span><span class="token punctuation">)</span>
+<span class="token function">plot</span><span class="token punctuation">(</span>out_fore<span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">)</span>
+<span class="token function">legend</span><span class="token punctuation">(</span><span class="token string">'预测语音类别'</span><span class="token punctuation">,</span><span class="token string">'实际语音类别'</span><span class="token punctuation">)</span>
 
-error <span class="token operator">=</span> y2_fore - out_fore<span class="token punctuation">;</span>
-%画出误差图
-figure<span class="token punctuation">(</span>2<span class="token punctuation">)</span>
-plot<span class="token punctuation">(</span>error<span class="token punctuation">)</span>
-title<span class="token punctuation">(</span><span class="token string">'BP网络分类误差'</span>,<span class="token string">'fontsize'</span>,12<span class="token punctuation">)</span>
-xlabel<span class="token punctuation">(</span><span class="token string">'语音信号'</span>,<span class="token string">'fontsize'</span>,12<span class="token punctuation">)</span>
-ylabel<span class="token punctuation">(</span><span class="token string">'分类误差'</span>,<span class="token string">'fontsize'</span>,12<span class="token punctuation">)</span>
-%计算训练时间
-t <span class="token operator">=</span> etime<span class="token punctuation">(</span>t2,t1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-%总正确率
-total_accu <span class="token operator">=</span> sum<span class="token punctuation">(</span>y2_fore<span class="token operator">==</span>out_fore<span class="token punctuation">)</span>/length<span class="token punctuation">(</span>out_fore<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+error <span class="token operator">=</span> y2_fore <span class="token operator">-</span> out_fore<span class="token punctuation">;</span>
+<span class="token operator">%</span>画出误差图
+<span class="token function">figure</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">plot</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
+<span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'BP网络分类误差'</span><span class="token punctuation">,</span><span class="token string">'fontsize'</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span>
+<span class="token function">xlabel</span><span class="token punctuation">(</span><span class="token string">'语音信号'</span><span class="token punctuation">,</span><span class="token string">'fontsize'</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span>
+<span class="token function">ylabel</span><span class="token punctuation">(</span><span class="token string">'分类误差'</span><span class="token punctuation">,</span><span class="token string">'fontsize'</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span>
+<span class="token operator">%</span>计算训练时间
+t <span class="token operator">=</span> <span class="token function">etime</span><span class="token punctuation">(</span>t2<span class="token punctuation">,</span>t1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">%</span>总正确率
+total_accu <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span>y2_fore<span class="token operator">==</span>out_fore<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">length</span><span class="token punctuation">(</span>out_fore<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h2><p>1)使用其中1500组为训练数据，500组为测试数据，输入层神经元24，隐含层神经元数目为30，输出层神经元数目为4的分类效果如图2所示。  </p>
 <p><img src="http://image-hlgao.test.upcdn.net/images/image040.jpg" alt="图2 分类效果图"><br>误差如图3所示。<br><img src="http://image-hlgao.test.upcdn.net/images/image043.png" alt="图3 分类误差"></p>
 <p>2)使用不同的隐含层神经元个数对分类精度的影响如表1所示。  </p>
