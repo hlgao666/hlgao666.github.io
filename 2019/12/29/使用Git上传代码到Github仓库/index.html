@@ -411,7 +411,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        396
+                        428
                     </div>
                     
 
@@ -443,16 +443,19 @@
 <p>4.提交到github仓库</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">"commit msg"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>5.将本地仓库与远端github仓库关联，后面的https改成自己新建的仓库https地址</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> remote add origin https://github.com/xxx/yyy.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> remote add origin https://github.com/xxx/yyy.git
+<span class="token function">git</span> pull origin master
+<span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>至此，本地代码已保存到远端的github仓库，刷新远端仓库即可</p>
 <h3 id="若提交到以前的仓库"><a href="#若提交到以前的仓库" class="headerlink" title="若提交到以前的仓库"></a>若提交到以前的仓库</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> add *
 <span class="token function">git</span> commit -m <span class="token string">"commit msg"</span>
 <span class="token function">git</span> pull origin master
 <span class="token function">git</span> push origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="若提交git-push-时出现-Updates-were-rejected-because…-错误"><a href="#若提交git-push-时出现-Updates-were-rejected-because…-错误" class="headerlink" title="若提交git push 时出现 Updates were rejected because… 错误"></a>若提交git push 时出现 Updates were rejected because… 错误</h4><p>出现此情况，一般需要先pull，再push，把远程分支上的提交合并到本地分支之后再push。<br>如果你确定远程分支上那些提交都不需要了，那么使用如下命令，强行让本地分支覆盖远程分支。</p>
+<h4 id="若提交git-push-时出现-Updates-were-rejected-because…-错误"><a href="#若提交git-push-时出现-Updates-were-rejected-because…-错误" class="headerlink" title="若提交git push 时出现 Updates were rejected because… 错误"></a>若提交git push 时出现 Updates were rejected because… 错误</h4><p>出现此情况，一般需要先pull，再push，把远程分支上的提交合并到本地分支之后再push。<br>如果你确定远程分支上那些提交都不需要了，那么使用如下命令，强行让本地分支覆盖远程分支(这样会使远程修改丢失，一般是不可取的，尤其是多人协作开发的时候)。</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> push origin master -f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>注：<br>1）生成新的文件夹后无需复制粘贴，否则会造成原本地代码因文件夹改变而造成的无法运行情况。  </p>
-<p>2）如果安装了IJ，则可以直接使用IJ自带的Git功能将代码上传到Github仓库。</p>
+<p>因此，可以这样修改($ git push -u origin master 上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了)：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> pull origin master
+<span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
