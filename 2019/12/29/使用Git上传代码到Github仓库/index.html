@@ -411,7 +411,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        428
+                        426
                     </div>
                     
 
@@ -453,9 +453,10 @@
 <span class="token function">git</span> push origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="若提交git-push-时出现-Updates-were-rejected-because…-错误"><a href="#若提交git-push-时出现-Updates-were-rejected-because…-错误" class="headerlink" title="若提交git push 时出现 Updates were rejected because… 错误"></a>若提交git push 时出现 Updates were rejected because… 错误</h4><p>出现此情况，一般需要先pull，再push，把远程分支上的提交合并到本地分支之后再push。<br>如果你确定远程分支上那些提交都不需要了，那么使用如下命令，强行让本地分支覆盖远程分支(这样会使远程修改丢失，一般是不可取的，尤其是多人协作开发的时候)。</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> push origin master -f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>因此，可以这样修改($ git push -u origin master 上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了)：</p>
+<p>因此，可以这样修改：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> pull origin master
 <span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>$ git push -u origin master 命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
