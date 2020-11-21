@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="求解最短路问题的两种经典算法（上）, hlgao666/hlgao666">
+    <meta name="keywords" content="剑指offer24	二叉树中和为某一值的路径, hlgao666/hlgao666">
     <meta name="description" content="I hope you are here for me">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>求解最短路问题的两种经典算法（上） | Allen</title>
+    <title>剑指offer24	二叉树中和为某一值的路径 | Allen</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/32.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">求解最短路问题的两种经典算法（上）</h1>
+                    <h1 class="description center-align post-title">剑指offer24	二叉树中和为某一值的路径</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Dijkstra-Floyd/">
-                                <span class="chip bg-color">Dijkstra &amp; Floyd</span>
+                            <a href="/tags/论文写作技巧/">
+                                <span class="chip bg-color">论文写作技巧</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/算法/" class="post-category">
-                                算法
+                            <a href="/categories/论文写作/" class="post-category">
+                                论文写作
                             </a>
                         
                     </div>
@@ -456,28 +456,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-10
+                    2020-11-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-10-22
+                    2020-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    734
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    3 分
                 </div>
                 
 
@@ -492,103 +492,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Dijkstra-amp-Floyd-Algorithm"><a href="#Dijkstra-amp-Floyd-Algorithm" class="headerlink" title="Dijkstra &amp; Floyd Algorithm"></a>Dijkstra &amp; Floyd Algorithm</h1><p>Dijkstra算法用于解决有权图的单源最短路问题，Floyd算法用于解决有权图的多源最短路问题。但二者均无法解决带负值问题，否则会陷入“负值圈”。  </p>
-<h2 id="Dijkstra-algorithm"><a href="#Dijkstra-algorithm" class="headerlink" title="Dijkstra algorithm"></a>Dijkstra algorithm</h2><blockquote>
-<p>迪杰斯特拉(Dijkstra)算法是典型最短路径算法，用于计算一个节点到其他节点的最短路径。它的主要特点是以起始点为中心向外层层扩展(广度优先搜索思想)，直到扩展到终点为止。  </p>
-</blockquote>
-<p><img src="http://image-hlgao.test.upcdn.net/images/image021.jpg" alt="图1"></p>
-<p>指定A作为“源点”，问题就是求A到其他节点的最短路径。</p>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><pre class="line-numbers language-bash"><code class="language-bash">1.指定一个节点，例如我们要计算 <span class="token string">'A'</span> 到其他节点的最短路径  
+                <h2 id="剑指offer"><a href="#剑指offer" class="headerlink" title="剑指offer"></a>剑指offer</h2><h3 id="24-二叉树中和为某一值的路径"><a href="#24-二叉树中和为某一值的路径" class="headerlink" title="24    二叉树中和为某一值的路径"></a>24    二叉树中和为某一值的路径</h3><hr>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>输入一颗二叉树的根节点和一个整数，按字典序打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
+<h4 id="思路（递归、DFS）"><a href="#思路（递归、DFS）" class="headerlink" title="思路（递归、DFS）"></a>思路（递归、DFS）</h4><p>首先思考节点值的和为输入的整数，每条路径都一定是从根节点到叶子节点，<br>在数据结构中从根节点到叶子节点的遍历称之为深度优先遍历DFS。因此整个过程可以采用先序遍历方式的DFS，即根节点》左子树》右子树。</p>
+<p>随后考虑一次遍历完成后的处理，当一次遍历完成后，如果输入整数值恰好等于节点值之和，则输出这条路径并且回退一个节点；<br>如果不等于则直接回退一个节点，即回退到当前节点的父节点，如果该父节点有右孩子，则继续遍历，否则继续回退。</p>
+<p>考虑回退到根节点，此时如果它有右孩子，则继续遍历，否则整个DFS结束。</p>
+<h4 id="数据结构分析"><a href="#数据结构分析" class="headerlink" title="数据结构分析"></a>数据结构分析</h4><p>采用<strong>ArrayList&lt;ArrayList<integer>&gt;</integer></strong>，举个如下的例子，输入整数为22。<br><img src="/medias/articleimages/4.png" alt="image"></p>
+<p>第一次遍历 10,5,4   19&lt;22，因此ArrayList要使用remove函数回退到父节点5上，开始寻找右孩子。</p>
+<p>第二次遍历 10,5,7   22=22，此时正好输出这条路径（将路径添加到ArrayList中），10,5,7，回退到父节点5上，此时5的左右孩子都已遍历完成，因此回退到父节点10</p>
+<p>第三次遍历 10,12   22=22，此时正好输出这条路径（将路径添加到ArrayList中），10,12，由于12没有左右孩子，因此直接回退到父节点10</p>
+<p>由于根节点10左右孩子都已遍历完成，因此整个DFS结束。</p>
+<p>需要注意的是不论路径的值是否等于输入整数值，都要回退，即使用remove函数移除路径上的最后一个节点。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/**
+public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
 
-2.引入两个集合（S、U），S集合包含已求出的最短路径的点（以及相应的最短长度），U集合包含未求出最短路径的点（以及A到该点的路径，注意:如上图1所示，A-<span class="token operator">></span>C由于没有直接边相连，初始时置为∞）  
+    public TreeNode(int val) {
+        this.val = val;
 
-3.初始化两个集合，S集合初始时 只有当前要计算的节点，A-<span class="token operator">></span>A <span class="token operator">=</span> 0，U集合初始时为 A-<span class="token operator">></span>B <span class="token operator">=</span> 4, A-<span class="token operator">></span>C <span class="token operator">=</span> ∞, A-<span class="token operator">></span>D <span class="token operator">=</span> 2, A-<span class="token operator">></span>E <span class="token operator">=</span> ∞  
+    }
 
-4.从U集合中找出路径最短的点，加入S集合，例如 A-<span class="token operator">></span>D <span class="token operator">=</span> 2  
-
-5.更新U集合路径，if <span class="token punctuation">(</span> <span class="token string">'D 到 B,C,E 的距离'</span> + <span class="token string">'AD 距离'</span> <span class="token operator">&lt;</span> <span class="token string">'A 到 B,C,E 的距离'</span> <span class="token punctuation">)</span> 则更新U  
-
-6.循环执行 4、5 两步骤，直至遍历结束，得到A到其他节点的最短路径.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="算法图解"><a href="#算法图解" class="headerlink" title="算法图解"></a>算法图解</h3><p>1.选定A节点并初始化，如上述步骤3所示</p>
-<p><img src="http://image-hlgao.test.upcdn.net/images/image022.jpg" alt="图2"></p>
-<p>2.执行上述 4、5两步骤，找出U集合中路径最短的节点D 加入S集合，并根据条件 if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 来更新U集合  </p>
-<p><img src="http://image-hlgao.test.upcdn.net/images/image023.jpg" alt="图3"></p>
-<p>3.这时候 A-&gt;B, A-&gt;C 都为3，没关系。其实这时候他俩都是最短距离，如果从算法逻辑来讲的话，会先取到B点。而这个时候 if 条件变成了 if ( ‘B 到 C,E 的距离’ + ‘AB 距离’ &lt; ‘A 到 C,E 的距离’ ) ，如图所示这时候A-&gt;B距离 其实为 A-&gt;D-&gt;B  </p>
-<p><img src="http://image-hlgao.test.upcdn.net/images/image024.jpg" alt="图4"></p>
-<p>4.思路就是这样，往后就是大同小异了</p>
-<p><img src="http://image-hlgao.test.upcdn.net/images/image025.jpg" alt="图5"></p>
-<p>5.算法结束</p>
-<p><img src="http://image-hlgao.test.upcdn.net/images/image026.jpg" alt="图6"></p>
-<h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre class="line-numbers language-java"><code class="language-java">
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dijkstra</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> M <span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 代表正无穷</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 二维数组每一行分别是 A、B、C、D、E 各点到其余点的距离, </span>
-        <span class="token comment" spellcheck="true">// A -> A 距离为0, 常量M 为正无穷</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> weight1 <span class="token operator">=</span> <span class="token punctuation">{</span>
-                <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span>M<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span>M<span class="token punctuation">}</span><span class="token punctuation">,</span> 
-                <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>M<span class="token punctuation">}</span><span class="token punctuation">,</span> 
-                <span class="token punctuation">{</span>M<span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
-                <span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   
-                <span class="token punctuation">{</span>M<span class="token punctuation">,</span>M<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span> 
-            <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> shortPath <span class="token operator">=</span> <span class="token function">dijkstra</span><span class="token punctuation">(</span>weight1<span class="token punctuation">,</span> start<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> shortPath<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"从"</span> <span class="token operator">+</span> start <span class="token operator">+</span> <span class="token string">"出发到"</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">"的最短距离为："</span> <span class="token operator">+</span> shortPath<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+}
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    ArrayList<span class="token operator">&lt;</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">>></span> pathList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> path <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> ArrayList<span class="token operator">&lt;</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">>></span> <span class="token function">FindPath</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">,</span><span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">==</span>null<span class="token punctuation">)</span> 
+            <span class="token keyword">return</span> pathList<span class="token punctuation">;</span>
+        path<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token operator">==</span>null <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>right<span class="token operator">==</span>null <span class="token operator">&amp;&amp;</span> target<span class="token operator">==</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+            pathList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token operator">!=</span>null <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>val <span class="token operator">&lt;=</span> target<span class="token punctuation">)</span>
+            <span class="token function">FindPath</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> target<span class="token operator">-</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token operator">!=</span>null <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>val<span class="token operator">&lt;=</span> target<span class="token punctuation">)</span>
+            <span class="token function">FindPath</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> target<span class="token operator">-</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        path<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> pathList<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">dijkstra</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> weight<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 接受一个有向图的权重矩阵，和一个起点编号start（从0编号，顶点存在数组中）</span>
-        <span class="token comment" spellcheck="true">// 返回一个int[] 数组，表示从start到它的最短路径长度</span>
-        <span class="token keyword">int</span> n <span class="token operator">=</span> weight<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 顶点个数</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> shortPath <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 保存start到其他各点的最短路径</span>
-        String<span class="token punctuation">[</span><span class="token punctuation">]</span> path <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 保存start到其他各点最短路径的字符串表示</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-            path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>start <span class="token operator">+</span> <span class="token string">"-->"</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> visited <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 标记当前该顶点的最短路径是否已经求出,1表示已求出</span>
-
-        <span class="token comment" spellcheck="true">// 初始化，第一个顶点已经求出</span>
-        shortPath<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        visited<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> count <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> count<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 要加入n-1个顶点</span>
-            <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 选出一个距离初始顶点start最近的未标记顶点</span>
-            <span class="token keyword">int</span> dmin <span class="token operator">=</span> Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> dmin<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    dmin <span class="token operator">=</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    k <span class="token operator">=</span> i<span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-
-            <span class="token comment" spellcheck="true">// 将新选出的顶点标记为已求出最短路径，且到start的最短路径就是dmin</span>
-            shortPath<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> dmin<span class="token punctuation">;</span>
-            visited<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-            <span class="token comment" spellcheck="true">// 以k为中间点，修正从start到未访问各点的距离</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">//如果 '起始点到当前点距离' + '当前点到某点距离' &lt; '起始点到某点距离', 则更新</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> weight<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> weight<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"-->"</span> <span class="token operator">+</span> i<span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"从"</span> <span class="token operator">+</span> start <span class="token operator">+</span> <span class="token string">"出发到"</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">"的最短路径为："</span> <span class="token operator">+</span> path<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"====================================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> shortPath<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>    
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1]<a href="https://blog.csdn.net/Q_M_X_D_D_/article/details/84866501" target="_blank" rel="noopener">https://blog.csdn.net/Q_M_X_D_D_/article/details/84866501</a><br>[2]<a href="https://www.jianshu.com/p/ff6db00ad866" target="_blank" rel="noopener">https://www.jianshu.com/p/ff6db00ad866</a><br>[3]<a href="https://www.cnblogs.com/wangyuliang/p/9216365.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangyuliang/p/9216365.html</a></p>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><p><a href="https://blog.csdn.net/u014525494/article/details/80978647" target="_blank" rel="noopener">https://blog.csdn.net/u014525494/article/details/80978647</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -632,7 +578,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2019/10/10/求解最短路问题的两种经典算法上/">https://hlgao666.github.io/2019/10/10/求解最短路问题的两种经典算法上/</a>
+                    <a href="https://hlgao666.github.io/2020/11/21/剑指offer24/">https://hlgao666.github.io/2020/11/21/剑指offer24/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -670,8 +616,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Dijkstra-Floyd/">
-                                    <span class="chip bg-color">Dijkstra &amp; Floyd</span>
+                                <a href="/tags/论文写作技巧/">
+                                    <span class="chip bg-color">论文写作技巧</span>
                                 </a>
                             
                         </div>
@@ -842,7 +788,7 @@
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2019-10-10T21-14-59',
+        id: '2020-11-21T14-28-46',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -866,45 +812,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/11/求解最短路问题的两种经典算法下/">
+                <a href="/2020/11/21/剑指offer24/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="求解最短路问题的两种经典算法（下）">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="剑指offer24	二叉树中和为某一值的路径">
                         
-                        <span class="card-title">求解最短路问题的两种经典算法（下）</span>
+                        <span class="card-title">剑指offer24	二叉树中和为某一值的路径</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了利用Floyd算法解决有权图的多源最短路问题
+                            剑指offer24    二叉树中和为某一值的路径
+题目描述输入一颗二叉树的根节点和一个整数，按字典序打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+思路（递归、DFS）首
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category">
-                                    算法
+                            <a href="/categories/论文写作/" class="post-category">
+                                    论文写作
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Dijkstra-Floyd/">
-                        <span class="chip bg-color">Dijkstra &amp; Floyd</span>
+                    <a href="/tags/论文写作技巧/">
+                        <span class="chip bg-color">论文写作技巧</span>
                     </a>
                     
                 </div>
@@ -918,30 +868,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/09/最小生成树的两种经典算法/">
+                <a href="/2019/12/29/使用Git上传代码到Github仓库/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="最小生成树的两种经典算法">
                         
-                        <span class="card-title">最小生成树的两种经典算法</span>
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="使用Git上传代码到Github仓库">
+                        
+                        <span class="card-title">使用Git上传代码到Github仓库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了利用Prim & Kruskal两种算法分别求解最小生成树问题
+                            介绍了如何将项目的本地代码利用Git命令行上传到Github仓库中去
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category">
-                                    算法
+                            <a href="/categories/技术/" class="post-category">
+                                    技术
                                 </a>
                             
                             
@@ -951,8 +902,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Prim-Kruskal/">
-                        <span class="chip bg-color">Prim &amp; Kruskal</span>
+                    <a href="/tags/Git-Github-来自转载/">
+                        <span class="chip bg-color">Git Github 来自转载</span>
                     </a>
                     
                 </div>
