@@ -39,12 +39,10 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    <div>
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
-                        
-                        <span class="logo-span">Allen</span>
-                    </div>
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Allen</span>
                 </a>
             </div>
             
@@ -498,7 +496,7 @@
 <h2 id="Dijkstra-algorithm"><a href="#Dijkstra-algorithm" class="headerlink" title="Dijkstra algorithm"></a>Dijkstra algorithm</h2><blockquote>
 <p>迪杰斯特拉(Dijkstra)算法是典型最短路径算法，用于计算一个节点到其他节点的最短路径。它的主要特点是以起始点为中心向外层层扩展(广度优先搜索思想)，直到扩展到终点为止。  </p>
 </blockquote>
-<p><img src="/medias/loading.gif" data-original="http://image-hlgao.test.upcdn.net/images/image021.jpg" alt="图1"></p>
+<p><img src="http://image-hlgao.test.upcdn.net/images/image021.jpg" alt="图1"></p>
 <p>指定A作为“源点”，问题就是求A到其他节点的最短路径。</p>
 <h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><pre class="line-numbers language-bash"><code class="language-bash">1.指定一个节点，例如我们要计算 <span class="token string">'A'</span> 到其他节点的最短路径  
 
@@ -512,15 +510,15 @@
 
 6.循环执行 4、5 两步骤，直至遍历结束，得到A到其他节点的最短路径.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="算法图解"><a href="#算法图解" class="headerlink" title="算法图解"></a>算法图解</h3><p>1.选定A节点并初始化，如上述步骤3所示</p>
-<p><img src="/medias/loading.gif" data-original="http://image-hlgao.test.upcdn.net/images/image022.jpg" alt="图2"></p>
+<p><img src="http://image-hlgao.test.upcdn.net/images/image022.jpg" alt="图2"></p>
 <p>2.执行上述 4、5两步骤，找出U集合中路径最短的节点D 加入S集合，并根据条件 if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 来更新U集合  </p>
-<p><img src="/medias/loading.gif" data-original="http://image-hlgao.test.upcdn.net/images/image023.jpg" alt="图3"></p>
+<p><img src="http://image-hlgao.test.upcdn.net/images/image023.jpg" alt="图3"></p>
 <p>3.这时候 A-&gt;B, A-&gt;C 都为3，没关系。其实这时候他俩都是最短距离，如果从算法逻辑来讲的话，会先取到B点。而这个时候 if 条件变成了 if ( ‘B 到 C,E 的距离’ + ‘AB 距离’ &lt; ‘A 到 C,E 的距离’ ) ，如图所示这时候A-&gt;B距离 其实为 A-&gt;D-&gt;B  </p>
-<p><img src="/medias/loading.gif" data-original="http://image-hlgao.test.upcdn.net/images/image024.jpg" alt="图4"></p>
+<p><img src="http://image-hlgao.test.upcdn.net/images/image024.jpg" alt="图4"></p>
 <p>4.思路就是这样，往后就是大同小异了</p>
-<p><img src="/medias/loading.gif" data-original="http://image-hlgao.test.upcdn.net/images/image025.jpg" alt="图5"></p>
+<p><img src="http://image-hlgao.test.upcdn.net/images/image025.jpg" alt="图5"></p>
 <p>5.算法结束</p>
-<p><img src="/medias/loading.gif" data-original="http://image-hlgao.test.upcdn.net/images/image026.jpg" alt="图6"></p>
+<p><img src="http://image-hlgao.test.upcdn.net/images/image026.jpg" alt="图6"></p>
 <h3 id="代码实现-java"><a href="#代码实现-java" class="headerlink" title="代码实现(java)"></a>代码实现(java)</h3><pre class="line-numbers language-java"><code class="language-java">
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dijkstra</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> M <span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 代表正无穷</span>
@@ -1374,11 +1372,6 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script>
-            window.imageLazyLoadSetting = {
-                isSPA: false,
-                processImages: null,
-            };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>undefined</script></body>
+</body>
 
 </html>
