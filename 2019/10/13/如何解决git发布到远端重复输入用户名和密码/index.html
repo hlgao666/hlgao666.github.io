@@ -39,10 +39,12 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Allen</span>
+                    <div>
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                        
+                        <span class="logo-span">Allen</span>
+                    </div>
                 </a>
             </div>
             
@@ -499,14 +501,14 @@
 
     3.修改hexo根目录下的_config.yml文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="具体解决步骤（配图说明）"><a href="#具体解决步骤（配图说明）" class="headerlink" title="具体解决步骤（配图说明）"></a>具体解决步骤（配图说明）</h2><h3 id="1-生成SSH密钥"><a href="#1-生成SSH密钥" class="headerlink" title="1.生成SSH密钥"></a>1.生成SSH密钥</h3><p>1.一般可通过在桌面单击鼠标右键选择“Git Bash Here”来打开Git的命令行窗口，打开后的窗口如图1所示:  </p>
-<p><img src="http://image-hlgao.test.upcdn.net/images/image034.jpg" alt="图1"></p>
+<p><img src="/medias/loading.gif" data-original="http://image-hlgao.test.upcdn.net/images/image034.jpg" alt="图1"></p>
 <p>2.在上图所示窗口中输入如下命令：  </p>
 <blockquote>
 <p>$ cd ~/.ssh<br>$ ssh-keygen -t rsa -C “username”</p>
 </blockquote>
 <pre><code>注意：1).第一行命令是查看你的PC用户根目录下是否有.ssh文件夹；
 2).上述命令中的"username"指的是你git的用户名。</code></pre><p>3.输入上述命令后，为简化流程，以后三次提示输入直接按Enter即可。然后可看到：</p>
-<p><img src="http://image-hlgao.test.upcdn.net/images/image035.jpg" alt="图2"></p>
+<p><img src="/medias/loading.gif" data-original="http://image-hlgao.test.upcdn.net/images/image035.jpg" alt="图2"></p>
 <p>说明密钥生成成功。</p>
 <h3 id="2-设置Github项目的Deploy-keys"><a href="#2-设置Github项目的Deploy-keys" class="headerlink" title="2.设置Github项目的Deploy keys"></a>2.设置Github项目的Deploy keys</h3><p>此处以我的博客为例。</p>
 <p>1.找到hlgao666.github.io仓库中，依次点击 Settings –&gt; Deploy keys –&gt; Add deploy key。  </p>
@@ -1315,6 +1317,11 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>undefined</script></body>
 
 </html>

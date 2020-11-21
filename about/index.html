@@ -39,10 +39,12 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Allen</span>
+                    <div>
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                        
+                        <span class="logo-span">Allen</span>
+                    </div>
                 </a>
             </div>
             
@@ -617,7 +619,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Dijkstra & Floyd","A-Star","Markdown语法","hexo+git 个人博客","BP 语音识别","Git Github 来自转载","Prim & Kruskal","git","MySQL","递归"]
+                data: ["Dijkstra & Floyd","A-Star","MySQL","Markdown语法","hexo+git 个人博客","Git Github 来自转载","git","BP 语音识别","Prim & Kruskal","递归"]
             }
         ],
         yAxis: [
@@ -806,6 +808,12 @@
             
             
             
+            <a href="/tags/MySQL/">
+                <span class="chip center-align waves-effect waves-light chip-default">MySQL</span>
+            </a>
+            
+            
+            
             <a href="/tags/Markdown语法/">
                 <span class="chip center-align waves-effect waves-light chip-default">Markdown语法</span>
             </a>
@@ -818,20 +826,8 @@
             
             
             
-            <a href="/tags/BP-语音识别/">
-                <span class="chip center-align waves-effect waves-light chip-default">BP 语音识别</span>
-            </a>
-            
-            
-            
             <a href="/tags/Git-Github-来自转载/">
                 <span class="chip center-align waves-effect waves-light chip-default">Git Github 来自转载</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Prim-Kruskal/">
-                <span class="chip center-align waves-effect waves-light chip-default">Prim & Kruskal</span>
             </a>
             
             
@@ -842,14 +838,20 @@
             
             
             
-            <a href="/tags/MySQL/">
-                <span class="chip center-align waves-effect waves-light chip-default">MySQL</span>
+            <a href="/tags/Dijkstra-Floyd/">
+                <span class="chip center-align waves-effect waves-light chip-default">Dijkstra & Floyd</span>
             </a>
             
             
             
-            <a href="/tags/Dijkstra-Floyd/">
-                <span class="chip center-align waves-effect waves-light chip-default">Dijkstra & Floyd</span>
+            <a href="/tags/BP-语音识别/">
+                <span class="chip center-align waves-effect waves-light chip-default">BP 语音识别</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Prim-Kruskal/">
+                <span class="chip center-align waves-effect waves-light chip-default">Prim & Kruskal</span>
             </a>
             
             
@@ -1163,6 +1165,11 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>undefined</script></body>
 
 </html>
