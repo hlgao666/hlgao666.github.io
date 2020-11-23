@@ -540,7 +540,10 @@
 <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/de446bfd-611a-4182-8c47-ad22c5dfe335.png" alt="图3 前馈网络原理图"></p>
 <p>$w_{jk}^{l}$为第$l$层上第$j$个神经元与上一层第$k$个神经元输出之间相对应的权重，$W$表示权重矩阵。<br>$a_j^l$ 表示第$l$层第$j$个神经元的输出，$A$表示输出矩阵。<br>$z_j^l$ 表示第$l$层第$j$个神经元的输入，$Z$表示输入矩阵。<br>$b_j^l$ 表示第$l$层第$j$个神经元的偏置，$B$表示偏置矩阵。</p>
 <p>权重矩阵可写作：$w^l=$</p>
-<p>$$\begin{bmatrix}<br>{a_{1,1}^{l}}&amp;{a_{2,1}^{l}}&amp;{\cdots}&amp;{a_{32,1}^{l}}<br>{a_{1,2}^{l}}&amp;{a_{2,2}^{l}}&amp;{\cdots}&amp;{a_{32,2}^{l}}<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}<br>{a_{1,320}^{l}}&amp;{a_{2,320}^{l}}&amp;{\cdots}&amp;{a_{32,320}^{l}}<br>\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}<br>{a_{1,1}^{l}}&amp;{a_{2,1}^{l}}&amp;{\cdots}&amp;{a_{32,1}^{l}}  </p>
+<p>{a_{1,2}^{l}}&amp;{a_{2,2}^{l}}&amp;{\cdots}&amp;{a_{32,2}^{l}}</p>
+<p>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}</p>
+<p>{a_{1,320}^{l}}&amp;{a_{2,320}^{l}}&amp;{\cdots}&amp;{a_{32,320}^{l}}<br>\end{bmatrix}$$</p>
 <p>以节点$2j$（第2行第$j$个节点）为例，输入信号为：$Z_j^2=\sum_{i=1}^{320}w_{jk}^2a_j^1+b_j^2$</p>
 <p>用矩阵来描述即：</p>
 <p>$$Z^2=W^2A^1+B^2$$</p>
