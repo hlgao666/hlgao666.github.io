@@ -432,7 +432,7 @@
                     <div class="article-tag">
                         
                             <a href="/tags/二叉搜索树-双向链表/">
-                                <span class="chip bg-color">二叉搜索树 双向链表</span>
+                                <span class="chip bg-color">二叉搜索树,双向链表</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/算法/" class="post-category">
-                                算法
+                            <a href="/categories/剑指offer/" class="post-category">
+                                剑指offer
                             </a>
                         
                     </div>
@@ -498,11 +498,11 @@
 <h5 id="1-调整指针"><a href="#1-调整指针" class="headerlink" title="1.调整指针"></a>1.调整指针</h5><p>原先指向左子节点的指针调整为链表中指向前一个节点的指针</p>
 <p>原先指向右子节点的指针调整为链表中指向后一个节点的指针</p>
 <h5 id="2-如何调整"><a href="#2-如何调整" class="headerlink" title="2.如何调整"></a>2.如何调整</h5><p>考虑根节点和左右子树的基本情况，因为如果用递归，这种基本情况考虑就可以去将同样的方法用到左右子树上</p>
-<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/e0e190ca-45de-4eb6-8363-c694f930a601.png" alt="双向链表示意图"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/e0e190ca-45de-4eb6-8363-c694f930a601.png" alt="基本情况"></p>
 <p>对于这种基本情况，可以分成三个部分来看，根节点10，左子树，右子树，需要做的就是将10与左子树中的最大值连起来，然后把10与右子树中的最小值连起来</p>
 <p>现在有个问题就是我们并不知道左子树中的最大值和右子树中的最小值，如果我们知道就好了。但是想到递归，递归到左子树中，如果左子树已转换为双向链表，那么双向链表的最后一个节点就是我们想要的，而右子树中的第一个节点也是我们想要的</p>
 <p>上面的代码中有两个参数，一个是根节点，一个是已经转换好的链表的最后一个节点，因为二叉搜索树中序遍历的特性，当遍历到根节点的时候，左子树已经排好序了，所以会有一个左子树已经转换好的链表，而这个链表的最后一个节点即是我们需要和根节点左连的节点</p>
-<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/e0e190ca-45de-4eb6-8363-c694f930a601.png" alt="双向链表示意图"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/e0e190ca-45de-4eb6-8363-c694f930a601.png" alt=""></p>
 <p>最开始的时候lastNode为null，<br>current为当前子树的根节点</p>
 <p>如果左子树存在，那么转换左子树，递归下去，递归返回之后，说明找到了链表的第一个节点，也就是4那个节点，将4的前面节点置为null，此时current为4那个节点，这个时候由于6的4这个左子树已遍历完了，所以需要往上层返回，返回之前需要将current赋值给lastNode，说明4这个左子树的最后一个节点就是4</p>
 <p>由于往上返回了一层，此时的current已经是6了，将6的左节点赋值为之前返回的4，判断之前返回的lastNode是否为null，不为空说明需要把根节点和lastNode连起来，其实lastNode为null的情况就只有第一个节点会出现，其他的时候都不会出现。现在已排好序的包括6的左子树以及6本身了，所以此时的lastNode为6</p>
@@ -627,7 +627,7 @@ public class TreeNode {
                         <div class="article-tag">
                             
                                 <a href="/tags/二叉搜索树-双向链表/">
-                                    <span class="chip bg-color">二叉搜索树 双向链表</span>
+                                    <span class="chip bg-color">二叉搜索树,双向链表</span>
                                 </a>
                             
                         </div>
