@@ -512,7 +512,7 @@
 <h3 id="数据描述"><a href="#数据描述" class="headerlink" title="数据描述"></a>数据描述</h3><p>创建0-9十个文件夹，清除爬取的无效字符（空白或干扰）图片，并把处理后的图片手动归类到0-9十个不同的文件夹下，便于训练和测试。<br><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/d2dc1bfd-1d8d-4305-a25a-ec4c6ed6bf4a.png" alt="图1 训练集"></p>
 <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/2308d94e-70f6-4c97-8c5d-99abaf78c771.png" alt="图2 部分归类图片"></p>
 <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-爬取验证码图片数据"><a href="#1-爬取验证码图片数据" class="headerlink" title="1.爬取验证码图片数据"></a>1.爬取验证码图片数据</h4><p>首先爬取GIF验证码，使用第三方库requests库爬取华科统一身份验证网页的GIF验证码，使用PIL库的Image模块对GIF分解（一张GIF分解为四张PNG图片）。</p>
-<h4 id="2-灰度处理-amp-二值化"><a href="#2-灰度处理-amp-二值化" class="headerlink" title="2.灰度处理&amp;二值化"></a>2.灰度处理&amp;二值化</h4><p>灰度处理：在PIL中，从模式”RGB”转为”L”模式是按照下面公式转换L=R*299/1000 + G * 587/1000+ B * 114/1000，此时每个像素点有8位表示，即0-255.为了降噪，需要对图片二值化处理，处理完后每个像素点仅有1位表示，即0或1.</p>
+<h4 id="2-灰度处理-amp-二值化"><a href="#2-灰度处理-amp-二值化" class="headerlink" title="2.灰度处理&amp;二值化"></a>2.灰度处理&amp;二值化</h4><p>灰度处理：在PIL中，从模式”RGB”转为”L”模式是按照下面公式转换L=R* 299/1000 + G * 587/1000+ B*114/1000，此时每个像素点有8位表示，即0-255.为了降噪，需要对图片二值化处理，处理完后每个像素点仅有1位表示，即0或1.</p>
 <p>二值化：使用point方法进行二值化，阈值设为200.</p>
 <h4 id="3-降噪"><a href="#3-降噪" class="headerlink" title="3.降噪"></a>3.降噪</h4><p>本文使用九宫格法进行降噪，降噪步骤为：<br>1).对某个黑点周边的九宫格里面的黑色点计数<br>2).如果黑色点少于4个则证明此点为孤立点，然后得到所有的孤立点（本文中黑色点少于4去噪效果最好）<br>3).对所有孤立点一次批量移除</p>
 <h4 id="4-图片字符分割"><a href="#4-图片字符分割" class="headerlink" title="4.图片字符分割"></a>4.图片字符分割</h4><p>使用图像编辑软件（Photoshop或者其它）打开验证码图片，放大到像素级别，观察其它一些参数特点：可以得到如下参数：</p>
@@ -540,12 +540,12 @@
 <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/de446bfd-611a-4182-8c47-ad22c5dfe335.png" alt="图3 前馈网络原理图"></p>
 <p>$w_{jk}^{l}$为第$l$层上第$j$个神经元与上一层第$k$个神经元输出之间相对应的权重，$W$表示权重矩阵。<br>$a_j^l$ 表示第$l$层第$j$个神经元的输出，$A$表示输出矩阵。<br>$z_j^l$ 表示第$l$层第$j$个神经元的输入，$Z$表示输入矩阵。<br>$b_j^l$ 表示第$l$层第$j$个神经元的偏置，$B$表示偏置矩阵。</p>
 <p>权重矩阵可写作：$w^l=$</p>
-<p>$$\begin{bmatrix}<br>{a_{1,1}^{l}}&amp;{a_{2,1}^{l}}&amp;{\cdots}&amp;{a_{32,1}^{l}}\<br>{a_{1,2}^{l}}&amp;{a_{2,2}^{l}}&amp;{\cdots}&amp;{a_{32,2}^{l}}\<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\<br>{a_{1,320}^{l}}&amp;{a_{2,320}^{l}}&amp;{\cdots}&amp;{a_{32,320}^{l}}\<br>\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}<br>{a_{1,1}^{l}}&amp;{a_{2,1}^{l}}&amp;{\cdots}&amp;{a_{32,1}^{l}}<br>{a_{1,2}^{l}}&amp;{a_{2,2}^{l}}&amp;{\cdots}&amp;{a_{32,2}^{l}}<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}<br>{a_{1,320}^{l}}&amp;{a_{2,320}^{l}}&amp;{\cdots}&amp;{a_{32,320}^{l}}<br>\end{bmatrix}$$</p>
 <p>以节点$2j$（第2行第$j$个节点）为例，输入信号为：$Z_j^2=\sum_{i=1}^{320}w_{jk}^2a_j^1+b_j^2$</p>
 <p>用矩阵来描述即：</p>
 <p>$$Z^2=W^2A^1+B^2$$</p>
 <p>隐藏层节点经过非线性变换后的输出表示如下：</p>
-<p>$$A^2=sigmoid(Z^2)$$</p>
+<p>$$A^2=\text{sigmoid}(Z^2)$$</p>
 <p>输入信号在权重矩阵们的帮助下，得到每一层的输出，最终到达输出层。</p>
 <h4 id="8-预测和拼接"><a href="#8-预测和拼接" class="headerlink" title="8.预测和拼接"></a>8.预测和拼接</h4><p>完整识别流程为：<br>1）    爬取GIF并分解<br>2）    灰度处理&amp;二值化<br>3）    去噪<br>4）    图片转CSV数据<br>5）    使用训练好的模型预测，拼接<br>拼接流程以GIF验证码“7786”为例:<br><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/df7cf884-505f-4eb1-99ec-6ca698f70b37.png" alt="图4 验证码样例"></p>
 <p>爬取GIF，经过分解，灰度处理，二值化后得到图4所示四张PNG图片，验证码预测结果拼接代码如下图5所示：</p>
