@@ -431,8 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/二叉搜索树-双向链表/">
-                                <span class="chip bg-color">二叉搜索树,双向链表</span>
+                            <a href="/tags/二叉搜索树/">
+                                <span class="chip bg-color">二叉搜索树</span>
+                            </a>
+                        
+                            <a href="/tags/双向链表/">
+                                <span class="chip bg-color">双向链表</span>
                             </a>
                         
                     </div>
@@ -456,7 +460,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-23
+                    2020-11-23
                 </div>
                 
 
@@ -499,11 +503,11 @@
 <p>原先指向右子节点的指针调整为链表中指向后一个节点的指针</p>
 <h5 id="2-如何调整"><a href="#2-如何调整" class="headerlink" title="2.如何调整"></a>2.如何调整</h5><p>考虑根节点和左右子树的基本情况，因为如果用递归，这种基本情况考虑就可以去将同样的方法用到左右子树上</p>
 <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/e0e190ca-45de-4eb6-8363-c694f930a601.png" alt="基本情况"></p>
-<p>对于这种基本情况，可以分成三个部分来看，根节点10，左子树，右子树，需要做的就是将10与左子树中的最大值连起来，然后把10与右子树中的最小值连起来</p>
+<h5 id="3-调整步骤"><a href="#3-调整步骤" class="headerlink" title="3.调整步骤"></a>3.调整步骤</h5><p>对于这种基本情况，可以分成三个部分来看，根节点10，左子树，右子树，需要做的就是将10与左子树中的最大值连起来，然后把10与右子树中的最小值连起来</p>
 <p>现在有个问题就是我们并不知道左子树中的最大值和右子树中的最小值，如果我们知道就好了。但是想到递归，递归到左子树中，如果左子树已转换为双向链表，那么双向链表的最后一个节点就是我们想要的，而右子树中的第一个节点也是我们想要的</p>
 <p>上面的代码中有两个参数，一个是根节点，一个是已经转换好的链表的最后一个节点，因为二叉搜索树中序遍历的特性，当遍历到根节点的时候，左子树已经排好序了，所以会有一个左子树已经转换好的链表，而这个链表的最后一个节点即是我们需要和根节点左连的节点</p>
 <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/e0e190ca-45de-4eb6-8363-c694f930a601.png" alt=""></p>
-<p>最开始的时候lastNode为null，<br>current为当前子树的根节点</p>
+<p>最开始的时候lastNode为null，current为当前子树的根节点</p>
 <p>如果左子树存在，那么转换左子树，递归下去，递归返回之后，说明找到了链表的第一个节点，也就是4那个节点，将4的前面节点置为null，此时current为4那个节点，这个时候由于6的4这个左子树已遍历完了，所以需要往上层返回，返回之前需要将current赋值给lastNode，说明4这个左子树的最后一个节点就是4</p>
 <p>由于往上返回了一层，此时的current已经是6了，将6的左节点赋值为之前返回的4，判断之前返回的lastNode是否为null，不为空说明需要把根节点和lastNode连起来，其实lastNode为null的情况就只有第一个节点会出现，其他的时候都不会出现。现在已排好序的包括6的左子树以及6本身了，所以此时的lastNode为6</p>
 <p>6和4的双向连接就完成了，由于6的右子树存在，又会递归到右边子树去，由于8不存在左右子树，递归下去一层之后current就是8这个节点，但它的左孩子为空，所以不会左边递归下去，将8的左连接与之前的lastNode连接起来，建立双向连接的一条连接，然后由于lastNode不为空，所以又把lastNode的右连接与8连接起来，至此双向连接建立，此时lastNode为8</p>
@@ -588,7 +592,7 @@ public class TreeNode {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2019/11/23/剑指offer26/">https://hlgao666.github.io/2019/11/23/剑指offer26/</a>
+                    <a href="https://hlgao666.github.io/2020/11/23/剑指offer26/">https://hlgao666.github.io/2020/11/23/剑指offer26/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -626,8 +630,12 @@ public class TreeNode {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/二叉搜索树-双向链表/">
-                                    <span class="chip bg-color">二叉搜索树,双向链表</span>
+                                <a href="/tags/二叉搜索树/">
+                                    <span class="chip bg-color">二叉搜索树</span>
+                                </a>
+                            
+                                <a href="/tags/双向链表/">
+                                    <span class="chip bg-color">双向链表</span>
                                 </a>
                             
                         </div>
@@ -798,7 +806,7 @@ public class TreeNode {
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2019-11-23T14-28-46',
+        id: '2020-11-23T14-28-46',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -822,46 +830,55 @@ public class TreeNode {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/29/使用Git上传代码到Github仓库/">
+                <a href="/2020/11/23/剑指offer26/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="剑指offer26 二叉搜索树与双向链表">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="使用Git上传代码到Github仓库">
-                        
-                        <span class="card-title">使用Git上传代码到Github仓库</span>
+                        <span class="card-title">剑指offer26 二叉搜索树与双向链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了如何将项目的本地代码利用Git命令行上传到Github仓库中去
+                            剑指offer26 二叉搜索树与双向链表
+题目描述输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。
+思路
+1.调整指针原先指向左子节点的指针调整为链表中指向前一个节点的指针
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/技术/" class="post-category">
-                                    技术
+                            <a href="/categories/剑指offer/" class="post-category">
+                                    剑指offer
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git-Github-来自转载/">
-                        <span class="chip bg-color">Git Github 来自转载</span>
+                    <a href="/tags/二叉搜索树/">
+                        <span class="chip bg-color">二叉搜索树</span>
+                    </a>
+                    
+                    <a href="/tags/双向链表/">
+                        <span class="chip bg-color">双向链表</span>
                     </a>
                     
                 </div>
@@ -875,47 +892,30 @@ public class TreeNode {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/21/诗集/">
+                <a href="/2020/11/21/剑指offer25/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="诗集">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="剑指offer25 复杂链表的复制">
                         
-                        <span class="card-title">诗集</span>
+                        <span class="card-title">剑指offer25 复杂链表的复制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            诗 集
-作者：假如苏子还在
-
-
-
-
-《点绛唇 • 新月无声》
-
-
-新月无声，几许伤春欲向晚。数峰清苦，冷蕊衡窗瘦。
-
-佳人不眠，只把想思染。君知否？梦回之后，兴归桃花酒。
-
-
-《蝶恋花（其三）》
-
-
-    风雪不愔离人苦。几度流光，隐隐已
+                            复杂链表的复制
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/诗集/" class="post-category">
-                                    诗集
+                            <a href="/categories/剑指offer/" class="post-category">
+                                    剑指offer
                                 </a>
                             
                             
@@ -925,8 +925,8 @@ public class TreeNode {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/诗集/">
-                        <span class="chip bg-color">诗集</span>
+                    <a href="/tags/算法/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
