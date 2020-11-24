@@ -492,7 +492,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="动态SQL语句实现"><a href="#动态SQL语句实现" class="headerlink" title="动态SQL语句实现"></a>动态SQL语句实现</h1><h2 id="if-查询"><a href="#if-查询" class="headerlink" title="if 查询"></a>if 查询</h2><h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BlogMapper</span> <span class="token punctuation">{</span>
+                <h2 id="动态SQL语句实现"><a href="#动态SQL语句实现" class="headerlink" title="动态SQL语句实现"></a>动态SQL语句实现</h2><h3 id="if-查询"><a href="#if-查询" class="headerlink" title="if 查询"></a>if 查询</h3><h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BlogMapper</span> <span class="token punctuation">{</span>
 
     List<span class="token operator">&lt;</span>Blog<span class="token operator">></span> <span class="token function">queryBlogIF</span><span class="token punctuation">(</span>Map map<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -533,7 +533,7 @@
         sqlSession<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="trim-where-set"><a href="#trim-where-set" class="headerlink" title="trim(where,set)"></a>trim(where,set)</h2><h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><p>where 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。而且，若子句的开头为 “AND” 或 “OR”，where 元素也会将它们去除。</p>
+<h3 id="trim-where-set"><a href="#trim-where-set" class="headerlink" title="trim(where,set)"></a>trim(where,set)</h3><h3 id="where"><a href="#where" class="headerlink" title="where"></a>where</h3><p>where 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。而且，若子句的开头为 “AND” 或 “OR”，where 元素也会将它们去除。</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>findActiveBlogLike<span class="token punctuation">"</span></span>
      <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Blog<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   SELECT * FROM BLOG
@@ -554,7 +554,7 @@
   ...
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>trim</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>prefixOverrides 属性会忽略通过管道符分隔的文本序列（注意此例中的空格是必要的）。上述例子会移除所有 prefixOverrides 属性中指定的内容，并且插入 prefix 属性中指定的内容。</p>
-<h2 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h2><p>用于动态更新语句的类似解决方案叫做 set。set 元素可以用于动态包含需要更新的列，忽略其它不更新的列。比如：</p>
+<h3 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h3><p>用于动态更新语句的类似解决方案叫做 set。set 元素可以用于动态包含需要更新的列，忽略其它不更新的列。比如：</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>update</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>updateAuthorIfNecessary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   update Author
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>set</span><span class="token punctuation">></span></span>
@@ -571,7 +571,7 @@
   ...
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>trim</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>注意，我们覆盖了后缀值设置，并且自定义了前缀值。</p>
-<h2 id="choose-和when配合使用"><a href="#choose-和when配合使用" class="headerlink" title="choose(和when配合使用)"></a>choose(和when配合使用)</h2><p>有时候，我们不想使用所有的条件，而只是想从多个条件中选择一个使用。针对这种情况，MyBatis 提供了 choose 元素，它有点像 Java 中的 switch 语句。</p>
+<h3 id="choose-和when配合使用"><a href="#choose-和when配合使用" class="headerlink" title="choose(和when配合使用)"></a>choose(和when配合使用)</h3><p>有时候，我们不想使用所有的条件，而只是想从多个条件中选择一个使用。针对这种情况，MyBatis 提供了 choose 元素，它有点像 Java 中的 switch 语句。</p>
 <h4 id="接口-1"><a href="#接口-1" class="headerlink" title="接口"></a>接口</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BlogMapper</span> <span class="token punctuation">{</span>
 
     List<span class="token operator">&lt;</span>Blog<span class="token operator">></span> <span class="token function">queryBlogChoose</span><span class="token punctuation">(</span>Map map<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -609,7 +609,7 @@
 
     sqlSession<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="SQL片段"><a href="#SQL片段" class="headerlink" title="SQL片段"></a>SQL片段</h2><p>有的时候，我们可能想要将一些公共的部分抽取出来，方便复用！  </p>
+<h3 id="SQL片段"><a href="#SQL片段" class="headerlink" title="SQL片段"></a>SQL片段</h3><p>有的时候，我们可能想要将一些公共的部分抽取出来，方便复用！  </p>
 <p>1.使用SQL标签抽取公共部分<br>2.在需要使用的地方使用 include 标签引入即可</p>
 <h4 id="Mapper-xml-2"><a href="#Mapper-xml-2" class="headerlink" title="Mapper.xml"></a>Mapper.xml</h4><pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--    提高代码复用--></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sql</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>if-title-author<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -648,7 +648,7 @@
 [allen.dao.BlogMapper.queryBlogIF]-&lt;==      Total: 2
 Blog(id=b29f1be4a8d24ccabe26f316d834f052, title=钢铁是怎样炼成的, author=保尔, createTime=Sun Nov 22 22:50:07 CST 2020, views=510)
 Blog(id=ba66644c43964e8fa62a0b229bf280df, title=py so easy, author=保尔, createTime=Mon Nov 23 22:06:39 CST 2020, views=20)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><h4 id="接口-2"><a href="#接口-2" class="headerlink" title="接口"></a>接口</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BlogMapper</span> <span class="token punctuation">{</span>
+<h3 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h3><h4 id="接口-2"><a href="#接口-2" class="headerlink" title="接口"></a>接口</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BlogMapper</span> <span class="token punctuation">{</span>
 
     List<span class="token operator">&lt;</span>Blog<span class="token operator">></span> <span class="token function">queryBlogForeach</span><span class="token punctuation">(</span>Map map<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
