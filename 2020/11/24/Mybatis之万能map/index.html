@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    209
+                    204
                 </div>
                 
 
@@ -493,19 +493,23 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="万能map"><a href="#万能map" class="headerlink" title="万能map"></a>万能map</h2><ol>
-<li><p>在接口方法中，参数直接传递Map；</p>
-<pre><code>User selectUserByNP2(Map&lt;String,Object&gt; map);</code></pre></li>
-<li><p>编写sql语句的时候，需要传递参数类型，参数类型为map</p>
-<pre><code>&lt;select id="selectUserByNP2" parameterType="map" resultType="com.kuang.pojo.User"&gt;
- select * from user where name = #{username} and pwd = #{pwd}
-&lt;/select&gt;</code></pre></li>
-<li><p>在使用方法的时候，Map的 <strong>key</strong> 为 sql中取的值即可，<strong>没有顺序要求！</strong></p>
-</li>
+<li>在接口方法中，参数直接传递Map；</li>
 </ol>
-<pre><code>Map&lt;String, Object&gt; map = new HashMap&lt;String, Object&gt;();
-map.put("username","小明");
-map.put("pwd","123456");
-User user = mapper.selectUserByNP2(map);</code></pre><p><strong>结论</strong>：如果参数过多，我们可以考虑直接使用Map实现，如果参数比较少，直接传递参数即可</p>
+<pre class="line-numbers language-java"><code class="language-java">User <span class="token function">selectUserByNP2</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">></span> map<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="2">
+<li>编写sql语句的时候，需要传递参数类型，参数类型为map</li>
+</ol>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectUserByNP2<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.kuang.pojo.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    select * from user where name = #{username} and pwd = #{pwd}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>在使用方法的时候，Map的 <strong>key</strong> 为 sql中取的值即可，<strong>没有顺序要求！</strong></li>
+</ol>
+<pre class="line-numbers language-java"><code class="language-java">Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">,</span><span class="token string">"小明"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"pwd"</span><span class="token punctuation">,</span><span class="token string">"123456"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+User user <span class="token operator">=</span> mapper<span class="token punctuation">.</span><span class="token function">selectUserByNP2</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>结论</strong>：如果参数过多，我们可以考虑直接使用Map实现，如果参数比较少，直接传递参数即可</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -801,8 +805,11 @@ User user = mapper.selectUserByNP2(map);</code></pre><p><strong>结论</strong>�
                         
                             万能map
 在接口方法中，参数直接传递Map；
-User selectUserByNP2(Map&lt;String,Object&gt; map);
+
+User selectUserByNP2(Map&lt;String,Object> map);
+
 编写sql语句的时候，需要传递参数类型，参数类型为map
+
 &lt;select id="
                         
                     </div>
