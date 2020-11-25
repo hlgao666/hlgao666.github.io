@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Machine Learning Project - Captcha Recognition, hlgao666/hlgao666">
+    <meta name="keywords" content="我和浅浅（一）, hlgao666/hlgao666">
     <meta name="description" content="I hope you are here for me">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Machine Learning Project - Captcha Recognition | Allen</title>
+    <title>我和浅浅（一） | Allen</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/90911ad2-63b7-4a1f-9a7c-d716c7b09baa.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Machine Learning Project - Captcha Recognition</h1>
+                    <h1 class="description center-align post-title">我和浅浅（一）</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/机器学习/">
-                                <span class="chip bg-color">机器学习</span>
+                            <a href="/tags/浅浅/">
+                                <span class="chip bg-color">浅浅</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/机器学习/" class="post-category">
-                                机器学习
+                            <a href="/categories/我和浅浅专栏/" class="post-category">
+                                我和浅浅专栏
                             </a>
                         
                     </div>
@@ -456,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-23
+                    2020-11-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-23
+                    2020-11-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2k
                 </div>
                 
 
@@ -492,81 +492,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Captcha-Recognition（GIF验证码自动识别）"><a href="#Captcha-Recognition（GIF验证码自动识别）" class="headerlink" title="Captcha Recognition（GIF验证码自动识别）"></a>Captcha Recognition（GIF验证码自动识别）</h2><hr>
-<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>此次作业通过使用requests库爬取华科统一身份系统登陆页面的GIF验证码，并使用PIL库的Image模块对GIF验证码进行了分解。作业主要工作可分为以下几个主要模块：爬取验证码图片数据模块，灰度处理&amp;二值化模块，降噪模块，图片字符分割模块，素材处理与标记模块，归一化与one-hot编码模块，训练模块，预测和拼接模块，并分别完成这八个模块的设计和实现，最终达到了自动识别GIF验证码的目的。</p>
-<h3 id="软件结构和实现方法"><a href="#软件结构和实现方法" class="headerlink" title="软件结构和实现方法"></a>软件结构和实现方法</h3><p>操作系统为Windows8系统，python版本是3.7，所用到的模块如下：</p>
-<ul>
-<li>PIL：用来分解GIF</li>
-<li>Scikit-learn：用来训练和调用神经网络模型</li>
-<li>NumPy：处理数据</li>
-<li>Pandas：处理数据</li>
-</ul>
-<p>编写的函数及功能如下：</p>
-<ul>
-<li>data_preprocessing.py: 数据爬取和预处理（灰度处理、二值化、降噪）</li>
-<li>img_2_csv.py: img图片转csv数据</li>
-<li>captcha_train.py: 模型训练</li>
-<li>predict.py: 预测和识别验证码</li>
-<li>main.py: 主函数</li>
-</ul>
-<h3 id="数据描述"><a href="#数据描述" class="headerlink" title="数据描述"></a>数据描述</h3><p>创建0-9十个文件夹，清除爬取的无效字符（空白或干扰）图片，并把处理后的图片手动归类到0-9十个不同的文件夹下，便于训练和测试。<br><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/d2dc1bfd-1d8d-4305-a25a-ec4c6ed6bf4a.png" alt="图1 训练集"></p>
-<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/2308d94e-70f6-4c97-8c5d-99abaf78c771.png" alt="图2 部分归类图片"></p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-爬取验证码图片数据"><a href="#1-爬取验证码图片数据" class="headerlink" title="1.爬取验证码图片数据"></a>1.爬取验证码图片数据</h4><p>首先爬取GIF验证码，使用第三方库requests库爬取华科统一身份验证网页的GIF验证码，使用PIL库的Image模块对GIF分解（一张GIF分解为四张PNG图片）。</p>
-<h4 id="2-灰度处理-amp-二值化"><a href="#2-灰度处理-amp-二值化" class="headerlink" title="2.灰度处理&amp;二值化"></a>2.灰度处理&amp;二值化</h4><p>灰度处理：在PIL中，从模式”RGB”转为”L”模式是按照下面公式转换L=R* 299/1000 + G * 587/1000+ B*114/1000，此时每个像素点有8位表示，即0-255.为了降噪，需要对图片二值化处理，处理完后每个像素点仅有1位表示，即0或1.</p>
-<p>二值化：使用point方法进行二值化，阈值设为200.</p>
-<h4 id="3-降噪"><a href="#3-降噪" class="headerlink" title="3.降噪"></a>3.降噪</h4><p>本文使用九宫格法进行降噪，降噪步骤为：<br>1).对某个黑点周边的九宫格里面的黑色点计数<br>2).如果黑色点少于4个则证明此点为孤立点，然后得到所有的孤立点（本文中黑色点少于4去噪效果最好）<br>3).对所有孤立点一次批量移除</p>
-<h4 id="4-图片字符分割"><a href="#4-图片字符分割" class="headerlink" title="4.图片字符分割"></a>4.图片字符分割</h4><p>使用图像编辑软件（Photoshop或者其它）打开验证码图片，放大到像素级别，观察其它一些参数特点：可以得到如下参数：</p>
-<ul>
-<li>整个图片尺寸是90*58</li>
-<li>单个字符尺寸是16*20</li>
-<li>左右字符相距5个像素</li>
-<li>字符上下距边缘19个像素</li>
-</ul>
-<h4 id="5-素材处理与标记"><a href="#5-素材处理与标记" class="headerlink" title="5.素材处理与标记"></a>5.素材处理与标记</h4><p>素材处理与标记的结果见数据描述，创建0-9十个文件夹，清除爬取的无效字符（空白或干扰）图片，并把处理后的图片手动归类到0-9十个不同的文件夹下，便于训练和测试。</p>
-<h4 id="6-归一化与one-hot编码"><a href="#6-归一化与one-hot编码" class="headerlink" title="6.归一化与one-hot编码"></a>6.归一化与one-hot编码</h4><p>对输入的训练集和测试集进行归一化：像素值/255对于输出采用0-9十个字符表示，并将其进行one-hot编码。</p>
-<h4 id="7-训练"><a href="#7-训练" class="headerlink" title="7.训练"></a>7.训练</h4><p>使用scikit-learn库的MLPClassifier(多层感知器分类模型)进行训练，输入为16<em>20共320个神经元，隐含层为32</em>32的双隐含层，输出为10*1的One-hot编码。具体训练参数如下：</p>
-<ul>
-<li>solver=’sgd’：采用随机梯度下降算法进行训练</li>
-<li>activation=’relu’</li>
-<li>alpha=1e-5</li>
-<li>hidden_layer_sizes=(32,32)：隐含层有32*32个神经元，代表第一隐含层32个神经元，第2隐含层32个神经元。</li>
-<li>tol=1e-5</li>
-<li>random_state=1</li>
-<li>max_iter=100</li>
-<li>verbose=10</li>
-<li>learning_rate_init=0.1：学习率初始化为0.1</li>
-</ul>
-<p>多层感知器网络（前馈网络）原理如下：</p>
-<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/de446bfd-611a-4182-8c47-ad22c5dfe335.png" alt="图3 前馈网络原理图"></p>
-<p>$w_{jk}^{l}$为第$l$层上第$j$个神经元与上一层第$k$个神经元输出之间相对应的权重，$W$表示权重矩阵。<br>$a_j^l$ 表示第$l$层第$j$个神经元的输出，$A$表示输出矩阵。<br>$z_j^l$ 表示第$l$层第$j$个神经元的输入，$Z$表示输入矩阵。<br>$b_j^l$ 表示第$l$层第$j$个神经元的偏置，$B$表示偏置矩阵。</p>
-<p>权重矩阵可写作：$w^l=$</p>
-<p>$$\begin{bmatrix}<br>{a_{1,1}^{l}}&amp;{a_{2,1}^{l}}&amp;{\cdots}&amp;{a_{32,1}^{l}}\<br>{a_{1,2}^{l}}&amp;{a_{2,2}^{l}}&amp;{\cdots}&amp;{a_{32,2}^{l}}\<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\<br>{a_{1,320}^{l}}&amp;{a_{2,320}^{l}}&amp;{\cdots}&amp;{a_{32,320}^{l}}\<br>\end{bmatrix}$$</p>
-<p>以节点$2j$（第2行第$j$个节点）为例，输入信号为：$Z_j^2=\sum_{i=1}^{320}w_{jk}^2a_j^1+b_j^2$</p>
-<p>用矩阵来描述即：</p>
-<p>$$Z^2=W^2A^1+B^2$$</p>
-<p>隐藏层节点经过非线性变换后的输出表示如下：</p>
-<p>$$A^2=\text{sigmoid}(Z^2)$$</p>
-<p>输入信号在权重矩阵们的帮助下，得到每一层的输出，最终到达输出层。</p>
-<h4 id="8-预测和拼接"><a href="#8-预测和拼接" class="headerlink" title="8.预测和拼接"></a>8.预测和拼接</h4><p>完整识别流程为：<br>1）    爬取GIF并分解<br>2）    灰度处理&amp;二值化<br>3）    去噪<br>4）    图片转CSV数据<br>5）    使用训练好的模型预测，拼接<br>拼接流程以GIF验证码“7786”为例:<br><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/df7cf884-505f-4eb1-99ec-6ca698f70b37.png" alt="图4 验证码样例"></p>
-<p>爬取GIF，经过分解，灰度处理，二值化后得到图4所示四张PNG图片，验证码预测结果拼接代码如下图5所示：</p>
-<ul>
-<li>若3.png的前两位等于2.png的前两位，或1.png的前两位等于2.png的前两位，则：前两位取2.png的前两位；</li>
-<li>否则，取3.png的前两位。</li>
-</ul>
-<p>后两位则直接取0.png的后两位。</p>
-<pre class="line-numbers language-py"><code class="language-py"># 拼接
-# 前两位
-if crack_result.get('4')[:2] == crack_result.get('3')[:2] or crack_result.get('2')[:2] == crack_result.get('3')[:2]:
-    final_result = crack_result.get('3')[:2]
-else:
-    final_result = crack_result.get('4')[:2]
-# 后两位
-final_result += crack_result.get('1')[-2:]
-print(f'final_result: {final_result}')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p>根据预测结果重命名10张GIF，程序运行结果如图5所示：<br><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/095c659a-7efc-4925-972e-c1447636fa6b.png" alt="图5 程序运行结果"></p>
-<p>命名后的GIF如图6所示。<br>注：由于是GIF动图，因此在截图后无法显示完整验证码信息。</p>
-<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/88c313ef-e557-47ad-8e06-d659cdda11cb.png" alt="图6 命名后结果"></p>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>通过对字符图片的训练，测试数据集达到了100%的准确率，此次利用机器学习识别GIF验证码有着很不错的效果。</p>
+                <h2 id="我和浅浅（一）"><a href="#我和浅浅（一）" class="headerlink" title="我和浅浅（一）"></a>我和浅浅（一）</h2><p> 我和浅浅已经共同生活了20天了。还记得第一天去接她的时候，下着小雨，我打着车满怀欣喜和期待的去快递驿站。我走进去远远的看见一个蓝色的小笼子里一坨白色的肉球，我走到她身边，颠簸了两三天的浅浅扒着笼子冲我摇尾巴，除了有点脏以外其他都还好。我蹲下来把手指放到笼子里面，浅浅用软乎乎的小舌头舔我，从那一刻，她就完全属于我了。<br><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/90911ad2-63b7-4a1f-9a7c-d716c7b09baa.jpg" alt=""><br> 接到她的第一件事就是带她去宠物店做检查，还好细小和犬瘟她都没有，健健康康，而且特别胖，之前吃的都是母乳，虽然才1个多月，但是我一只手都抓不起来她。最开始浅浅特别胆小，抱她的时候一直发抖，所以最开始每次抱她我都小心翼翼，生怕用多余的一点力让他感到不舒服。</p>
+<p> 接她回家的第一天，特别活泼，到处跑来跑去摇着那短短一根毛茸茸的小尾巴，像是要探索这整片领域。我还担心她路上颠簸几天会很累，没想到我的浅浅这么坚强。第一天晚上我很担心她到了陌生的环境会一直叫，因为我是和另外一个女生一起合租的两室一厅，我担心浅浅影响到她，所以到了晚上我就开始紧张，没想到喂完她把她放在笼子里之后，浅浅乖乖的就睡着了。一晚上，一声也没叫。合租的小姐妹说“你这可真是一条宝藏狗狗啊。”</p>
+<p> 浅浅和我在学校周边的出租房里一起住了１２天，我会让她在我的卧室里尽情的撒欢，尽管不大，但足够浅浅玩耍。她总是随意的拉在我的床底下，以至于我每次都要跪在地板上擦拭擦尿，有时候拉到床的最里面，只能拿拖把拖，就会搞得整个拖把都臭臭的，每次洗拖把的时候我都要晕过去了。后来我掌握了她的排便规律，只要吃完，一分钟之内浅浅就会在地上闻来闻去找自己拉粑粑的领地，我尝试着把她放到笼子里面拉，但是一进笼子她就开始叫个不停，小奶抓扒着笼子急切地要出来，所以没办法每次都要把她抱出来放在地上，任由她随意自由的拉粑粑。后来我才知道狗狗的天性就是不会在吃饭和睡觉的地方排便，所以我又在外边铺了尿垫，上面还搜集了她的尿液和粑粑，想让她学会定点大小便，但是浅浅每次不但不在尿垫上排便，而且还摇头晃脑的把尿垫咬来咬去，每次想发火，但是看着她可爱的小样子又忍不住想笑。</p>
+<p> 后来浅浅又跟着我到了广州实习。其实在这之前，我有想过把她送走，因为我怕我实习之后就没有那么多时间照顾她，我怕她跟着我不能健康平安地长大。所以我挣扎了很久，最终还是带她去了宠物店，我想如果不能给她找一个好主人，至少在宠物店可以平安无事。我跑了三四家宠物店，他们都说浅浅太小了，担心以后会有什么问题所以都不敢收。说来也奇怪，浅浅一向在外胆子小，除了发抖也不敢叫，但是那几次在宠物店的时候，不管谁抱她，她都哼哼唧唧的乱叫，动来动去一点也不老实，等把她从宠物店带出来，立马乖乖的。我当时觉得别看她小，这么一点点的小狗也是很有灵性的。后来我又把她挂在了闲鱼上，就在我打算来广州的前几天，有一位善良温柔的小姐姐通过闲鱼联系到了我，当她给我打电话说要去家里看狗的时候，那一刻，我的内心深处突然就冒出来一个想法，“希望她不要看上我的狗狗。”我真的很奇怪，我纠结了那么多天，最终决定把她送走，可是当真的要把她送走的那一刻，我又不愿意把她送走了。那位姐姐看到浅浅之后喜欢的不得了，她越喜欢，我越难受。当我把浅浅放到她怀里的时候，就好像亲手把原本专属自己的东西拱手于人，一种不甘和嫉妒感竟从心而生。那天晚上浅浅像发疯一样一直咬，咬我，咬那个姐姐，我不知道这是不是她的一种反抗。当然，最终我没有送出去，我不舍得。也好在那位姐姐非常善解人意，我临走前她给我发消息说“幸好你没有放弃她。”<br><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/1fa7bb1a-cea8-4e19-8612-a5e5bb1445ca.jpg" alt=""><br> 就这样，浅浅和我一起来到了广州。也许以后浅浅还是要跟着我四处奔波，但是我再也不会把她送走，这辈子我们是注定要一直在一起了。<br>到了广州，我在找实习公司之前暂住在小姨家。小姨家养了一只六个月大的蓝猫，特别胖，个头是浅浅的两倍。但是胆子小的还不及浅浅的十分之一。浅浅先是抢他的猫粮，把半碗猫粮吃了个精光，紧接着又玩他的玩具，那只胆小的蓝猫只敢远远的看着，无奈却无可奈何。</p>
+<p> 最后，浅浅追着蓝猫跑来跑去，白色的小肉团追着一根肥硕的蓝猫尾巴，蓝猫吓得上蹿下跳，浅浅却乐此不疲，最后直接跳到蓝猫身上把他扑倒，结果蓝猫全身的毛都竖起来了。我和浅浅住了那么几天，真的是心疼那只蓝猫。</p>
+<p> 后来我和浅浅租了一个公寓，在公寓里面浅浅乖了不少，没有猫供她玩耍，她只能孤单的玩我的玩偶。我每天早上九点半上班，下午六点半下班，中间这么长的时间，浅浅都要自己在家。每天下班回家，当我走到门口按密码的时候，我就能听见浅浅的小奶声嘤嘤嘤，一看到我小尾巴都要要断了，每次回家抱起她的那一刻，在外一整天的疲惫都消失了。虽然还要仅紧接着给她打扫留在笼子底座的便便，但是我甘之如饴。</p>
+<p> 浅浅在我睡觉的时候一声不吭，我不理她的时候，她就把头埋在玩偶里乖乖的睡觉，只要听到我翻身或者做起来的声音，立马抬头看着我，天真可爱的小眼神和我对视的时候，心都化了。浅浅好像天生会歪头杀，我每次讲话她都会歪着小脑袋看着我，我看新闻说狗狗歪头是因为想听清主人在说什么，原来我的宝贝是急切地想明白我的意思呢。不知道她的小脑瓜整天都在想什么，肯定都是可可爱爱的小想法和吃喝拉撒，但是肯定，也会想我。</p>
+<p> 现在回家浅浅都会闹着让我抱她，一到我怀里就舔我的隔壁和手，听说狗狗舔手是爱你的表现，那我的狗子可给我了太多爱了，毕竟我整个胳膊被她舔的都是狗粮味。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -610,7 +543,7 @@ print(f'final_result: {final_result}')<span aria-hidden="true" class="line-numbe
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2020/11/23/Machine-Learning-Project/">https://hlgao666.github.io/2020/11/23/Machine-Learning-Project/</a>
+                    <a href="https://hlgao666.github.io/2020/11/25/我和浅浅/">https://hlgao666.github.io/2020/11/25/我和浅浅/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -648,8 +581,8 @@ print(f'final_result: {final_result}')<span aria-hidden="true" class="line-numbe
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/机器学习/">
-                                    <span class="chip bg-color">机器学习</span>
+                                <a href="/tags/浅浅/">
+                                    <span class="chip bg-color">浅浅</span>
                                 </a>
                             
                         </div>
@@ -820,7 +753,7 @@ print(f'final_result: {final_result}')<span aria-hidden="true" class="line-numbe
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2020-11-23T14-27-29',
+        id: '2020-11-25T10-50-47',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -844,49 +777,47 @@ print(f'final_result: {final_result}')<span aria-hidden="true" class="line-numbe
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/23/剑指offer26/">
+                <a href="/2020/11/25/我和浅浅/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="剑指offer26 二叉搜索树与双向链表">
+                        <img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/90911ad2-63b7-4a1f-9a7c-d716c7b09baa.jpg" class="responsive-img" alt="我和浅浅（一）">
                         
-                        <span class="card-title">剑指offer26 二叉搜索树与双向链表</span>
+                        <span class="card-title">我和浅浅（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            二叉搜索树与双向链表的应用
+                            我和浅浅的开始
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/剑指offer/" class="post-category">
-                                    剑指offer
+                            <a href="/categories/我和浅浅专栏/" class="post-category">
+                                    我和浅浅专栏
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/二叉搜索树/">
-                        <span class="chip bg-color">二叉搜索树</span>
-                    </a>
-                    
-                    <a href="/tags/双向链表/">
-                        <span class="chip bg-color">双向链表</span>
+                    <a href="/tags/浅浅/">
+                        <span class="chip bg-color">浅浅</span>
                     </a>
                     
                 </div>
@@ -900,23 +831,23 @@ print(f'final_result: {final_result}')<span aria-hidden="true" class="line-numbe
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/23/Mybatis-环境搭建/">
+                <a href="/2020/11/24/Mybatis之动态SQL语句实现/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Mybatis环境搭建">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Mybatis之动态SQL语句实现">
                         
-                        <span class="card-title">Mybatis环境搭建</span>
+                        <span class="card-title">Mybatis之动态SQL语句实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了Mybatis环境搭建的步骤及注意事项
+                            介绍了Mybatis中SQL如何动态拼接
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-24
                             </span>
                         <span class="publish-author">
                             
@@ -1105,13 +1036,6 @@ print(f'final_result: {final_result}')<span aria-hidden="true" class="line-numbe
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
