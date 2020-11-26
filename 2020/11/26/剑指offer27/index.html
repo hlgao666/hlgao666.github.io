@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="win10环境下如何用hexo+git 创建个人博客, hlgao666/hlgao666">
+    <meta name="keywords" content="剑指offer27 字符串的排列, hlgao666/hlgao666">
     <meta name="description" content="I hope you are here for me">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>win10环境下如何用hexo+git 创建个人博客 | Allen</title>
+    <title>剑指offer27 字符串的排列 | Allen</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
@@ -322,12 +322,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/30.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/37.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">win10环境下如何用hexo+git 创建个人博客</h1>
+                    <h1 class="description center-align post-title">剑指offer27 字符串的排列</h1>
                 </div>
             </div>
         </div>
@@ -444,8 +444,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo-git-个人博客/">
-                                <span class="chip bg-color">hexo+git 个人博客</span>
+                            <a href="/tags/字符串/">
+                                <span class="chip bg-color">字符串</span>
                             </a>
                         
                     </div>
@@ -456,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/技术/" class="post-category">
-                                技术
+                            <a href="/categories/剑指offer/" class="post-category">
+                                剑指offer
                             </a>
                         
                     </div>
@@ -469,28 +469,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-03
+                    2020-11-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-24
+                    2020-11-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    667
+                    508
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -505,45 +505,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第一章-如何部署环境？"><a href="#第一章-如何部署环境？" class="headerlink" title="第一章  如何部署环境？"></a>第一章  如何部署环境？</h2><pre><code>1.首先下载node.js，下载地址：https://nodejs.org，安装完成后会有包管理器npm（搭建hexo博客框架所必需）。
-
-2.安装淘宝的npm的镜像源，在cmd窗口中输入：npm install -g cnpm --registry=https://registry.npm.taobao.org，Enter等待安装完成。（install -g 全局安装）
-
-3.利用2中安装的cnpm安装hexo框架，在cmd窗口中输入：cnpm install -g hexo-cli，Enter等待安装完成。至此，hexo安装完成。</code></pre><hr>
-<h2 id="第二章-如何初始化博客？"><a href="#第二章-如何初始化博客？" class="headerlink" title="第二章  如何初始化博客？"></a>第二章  如何初始化博客？</h2><pre><code>1.创建博客存放的文件夹，在cmd窗口中输入：mkdir blog，可以在当前路径下找到blog文件夹（命令：dir），定位到blog文件夹 cd blog，初始化博客hexo init（此步骤之前本地需安装git），等待初始化完成。
-
-2.启动本地博客hexo s，浏览器输入：localhost:4000，即可访问。</code></pre><hr>
-<h2 id="第三章-如何写博客？"><a href="#第三章-如何写博客？" class="headerlink" title="第三章  如何写博客？"></a>第三章  如何写博客？</h2><pre><code>1.新建内容hexo n "我的第一篇博客文章"，定位到文章所在文件夹cd source/_posts，查看文件夹下文件目录dir，可用vim/notepad打开vim/notepad 我的第一篇博客文章.md，修改之（makedown格式语法）。
-
-2.清理hexo clean，生成hexo g，重启hexo s</code></pre><hr>
-<h2 id="第四章-如何将hexo发布到github上？"><a href="#第四章-如何将hexo发布到github上？" class="headerlink" title="第四章  如何将hexo发布到github上？"></a>第四章  如何将hexo发布到github上？</h2><pre><code>1.Create a new repository in github，repository's name must be consistent with your  person  github's name. 
-   e.g. my github's name is hlgao666, then repository's name must be hlgao666.github.io.
-
-2.安装发布插件，cnpm install --save hexo-deployer-git
-
-3.修改插件的_config.yml文件。新增：
-   1）在delpoyment中的type: git；
-   2）repo:  https://github.com/hlgao666/hlgao666.github.io.git（https的SSH地址）；
-   3）branch: master
-
-4.部署到远端hexo d，此时可直接访问仓库名hlgao666.github.io.</code></pre><hr>
-<h2 id="第五章-如何更换博客主题？"><a href="#第五章-如何更换博客主题？" class="headerlink" title="第五章 如何更换博客主题？"></a>第五章 如何更换博客主题？</h2><pre><code>1.直接克隆：git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia，https://github.com/litten/hexo-theme-yilia.git为源主题地址，存放在blog的themes/yilia下。
-
-2.修改插件的_config.yml文件，修改theme为yilia
-
-3.hexo clean, hexo g, hexo s, hexo d</code></pre><hr>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code>cd ../..         后退2层文件夹
-dir        查看当前文件夹下文件目录     
-mkdir blog     新建blog文件夹
-hexo clean    清除
-hexo g        生成，generate
-hexo s        启动，start
-hexo n        新建，new
-hexo d        发布到远端，deploy
-hexo g -d    生成并发布</code></pre><hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1]<a href="https://github.com/hlgao666" target="_blank" rel="noopener">https://github.com/hlgao666</a><br>[2]<a href="https://www.bilibili.com/video/av44544186" target="_blank" rel="noopener">https://www.bilibili.com/video/av44544186</a><br>[3]<a href="https://www.codesheep.cn" target="_blank" rel="noopener">https://www.codesheep.cn</a><br>[4]<a href="https://blinkfox.github.io/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/#toc-heading-24" target="_blank" rel="noopener">https://blinkfox.github.io/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/#toc-heading-24</a></p>
-<hr>
-<h3 id="jump-to-My-Github"><a href="#jump-to-My-Github" class="headerlink" title="jump to My Github"></a><center><a href="https://github.com/hlgao666" target="_blank" rel="noopener">jump to My Github</a></center></h3><script>
+                <h1 id="剑指offer"><a href="#剑指offer" class="headerlink" title="剑指offer"></a>剑指offer</h1><h2 id="27-字符串的排列"><a href="#27-字符串的排列" class="headerlink" title="27 字符串的排列"></a>27 字符串的排列</h2><hr>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则按字典序打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。</p>
+<h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述"></a>输入描述</h3><blockquote>
+<p>输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。</p>
+</blockquote>
+<h3 id="思路-分治、递归"><a href="#思路-分治、递归" class="headerlink" title="思路(分治、递归)"></a>思路(分治、递归)</h3><p>固定第一个字符，递归取得首位后面的各种字符串组合；再将第一个字符与后面每一个字符交换，同样递归获得其字符串组合；每次递归都是到最后一位时结束，递归的循环过程，就是从每个子串的第二个字符开始依次与第一个字符交换，然后继续处理子串。</p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/fb7fb192-a74a-435f-84a0-a45354759f13.png" alt=""></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> ArrayList<span class="token operator">&lt;</span>String<span class="token operator">></span> <span class="token function">Permutation</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ArrayList<span class="token operator">&lt;</span>String<span class="token operator">></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span> <span class="token operator">||</span>str <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">PermutationHelper</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//按字典序输出</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">PermutationHelper</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars<span class="token punctuation">,</span><span class="token keyword">int</span> i<span class="token punctuation">,</span>ArrayList<span class="token operator">&lt;</span>String<span class="token operator">></span> result<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//已经递归到了字符串最后一位，判断集合中有没有这个字符串，没有则加入</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span> chars<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>result<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                result<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//首次传进来的i为0，代表首位字符</span>
+            <span class="token comment" spellcheck="true">//依次处理i与i后面的每个字符(索引j)交换</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>i<span class="token punctuation">;</span> j<span class="token operator">&lt;</span>chars<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token function">swap</span><span class="token punctuation">(</span>chars<span class="token punctuation">,</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//交换</span>
+                <span class="token function">PermutationHelper</span><span class="token punctuation">(</span>chars<span class="token punctuation">,</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//继续递归交换后的子串</span>
+                <span class="token function">swap</span><span class="token punctuation">(</span>chars<span class="token punctuation">,</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//还原。每次交换排列完成之后一定要将原来的字符换回来，确保字符顺序正确</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars<span class="token punctuation">,</span><span class="token keyword">int</span> i<span class="token punctuation">,</span><span class="token keyword">int</span> j<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">char</span> temp <span class="token operator">=</span> chars<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        chars<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> chars<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        chars<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><p><a href="https://blog.csdn.net/qq_42039996/article/details/84504574" target="_blank" rel="noopener">https://blog.csdn.net/qq_42039996/article/details/84504574</a></p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -586,7 +590,7 @@ hexo g -d    生成并发布</code></pre><hr>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2019/09/03/个人博客创建教程/">https://hlgao666.github.io/2019/09/03/个人博客创建教程/</a>
+                    <a href="https://hlgao666.github.io/2020/11/26/剑指offer27/">https://hlgao666.github.io/2020/11/26/剑指offer27/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,8 +628,8 @@ hexo g -d    生成并发布</code></pre><hr>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo-git-个人博客/">
-                                    <span class="chip bg-color">hexo+git 个人博客</span>
+                                <a href="/tags/字符串/">
+                                    <span class="chip bg-color">字符串</span>
                                 </a>
                             
                         </div>
@@ -796,7 +800,7 @@ hexo g -d    生成并发布</code></pre><hr>
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2019-09-03T15-28-09',
+        id: '2020-11-26T11-22-46',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -820,45 +824,47 @@ hexo g -d    生成并发布</code></pre><hr>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/09/04/Markdown语法介绍/">
+                <a href="/2020/11/26/剑指offer27/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Markdown语法介绍">
+                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="剑指offer27 字符串的排列">
                         
-                        <span class="card-title">Markdown语法介绍</span>
+                        <span class="card-title">剑指offer27 字符串的排列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了Markdown基本语法
+                            字符串输出全排列
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/技术/" class="post-category">
-                                    技术
+                            <a href="/categories/剑指offer/" class="post-category">
+                                    剑指offer
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown语法/">
-                        <span class="chip bg-color">Markdown语法</span>
+                    <a href="/tags/字符串/">
+                        <span class="chip bg-color">字符串</span>
                     </a>
                     
                 </div>
@@ -872,32 +878,43 @@ hexo g -d    生成并发布</code></pre><hr>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/03/hello-world/">
+                <a href="/2020/11/25/我和浅浅(一)/">
                     <div class="card-image">
                         
+                        <img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/90911ad2-63b7-4a1f-9a7c-d716c7b09baa.jpg" class="responsive-img" alt="我和浅浅的开始">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/featureimages/26.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">我和浅浅的开始</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            相遇
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-25
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Hailong Gao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/我和浅浅专栏/" class="post-category">
+                                    我和浅浅专栏
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/浅浅/">
+                        <span class="chip bg-color">浅浅</span>
+                    </a>
+                    
                 </div>
                 
             </div>
