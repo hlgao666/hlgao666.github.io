@@ -490,7 +490,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -722,7 +722,8 @@ delete one client<span aria-hidden="true" class="line-numbers-rows"><span></span
 chuzu
 fare!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h2 id="动态代理-2"><a href="#动态代理-2" class="headerlink" title="动态代理(2)"></a>动态代理(2)</h2><h3 id="获取代理类"><a href="#获取代理类" class="headerlink" title="获取代理类"></a>获取代理类</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProxyInvocationHandller</span> <span class="token keyword">implements</span> <span class="token class-name">InvocationHandler</span> <span class="token punctuation">{</span>
+<h2 id="动态代理-2"><a href="#动态代理-2" class="headerlink" title="动态代理(2)"></a>动态代理(2)</h2><p>==每个代理实例都有一个关联的调用处理程序。== <strong>当在代理实例上调用方法时，方法调用将被编码并分派到其调用处理程序的invoke方法。</strong></p>
+<h3 id="获取代理类"><a href="#获取代理类" class="headerlink" title="获取代理类"></a>获取代理类</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProxyInvocationHandller</span> <span class="token keyword">implements</span> <span class="token class-name">InvocationHandler</span> <span class="token punctuation">{</span>
 
 
     <span class="token comment" spellcheck="true">//被代理的接口</span>
@@ -753,7 +754,8 @@ fare!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="客户访问-2"><a href="#客户访问-2" class="headerlink" title="客户访问"></a>客户访问</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">{</span>
+<h3 id="客户访问-2"><a href="#客户访问-2" class="headerlink" title="客户访问"></a>客户访问</h3><p>注意：<strong>动态代理，代理的是接口，不是具体实现类</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//真实角色</span>
@@ -764,7 +766,7 @@ fare!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
         pih<span class="token punctuation">.</span><span class="token function">setTarget</span><span class="token punctuation">(</span>userService<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//设置要代理的对象</span>
 
-        UserService proxy <span class="token operator">=</span> <span class="token punctuation">(</span>UserService<span class="token punctuation">)</span> pih<span class="token punctuation">.</span><span class="token function">getProxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//动态生成代理类</span>
+        UserService proxy <span class="token operator">=</span> <span class="token punctuation">(</span>UserService<span class="token punctuation">)</span> pih<span class="token punctuation">.</span><span class="token function">getProxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//动态生成代理类，proxy 代理了 UserService</span>
         proxy<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1056,29 +1058,28 @@ add one client<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/28/代理模式/">
+                <a href="/2020/11/28/AOP/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="代理模式">
+                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="AOP">
                         
-                        <span class="card-title">代理模式</span>
+                        <span class="card-title">AOP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了Spring中AOP用到的代理模式
+                            介绍了Spring的AOP
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1091,7 +1092,6 @@ add one client<span aria-hidden="true" class="line-numbers-rows"><span></span><s
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1375,7 +1375,7 @@ add one client<span aria-hidden="true" class="line-numbers-rows"><span></span><s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.8k</span>&nbsp;字
+                class="white-color">37.2k</span>&nbsp;字
             
             
             
