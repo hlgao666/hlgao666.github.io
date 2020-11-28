@@ -18,35 +18,8 @@
   
   <entry>
     <title>AOP</title>
-    <link href="https://hlgao666.github.io/2020/11/28/AOP/"/>
-    <id>https://hlgao666.github.io/2020/11/28/AOP/</id>
-    <published>2020-11-28T07:07:30.000Z</published>
-    <updated>2020-11-28T09:07:55.195Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="ssm框架" scheme="https://hlgao666.github.io/categories/ssm%E6%A1%86%E6%9E%B6/"/>
-    
-    
-      <category term="Spring" scheme="https://hlgao666.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AOP</title>
-    <link href="https://hlgao666.github.io/2020/11/28/ssm/test/"/>
-    <id>https://hlgao666.github.io/2020/11/28/ssm/test/</id>
+    <link href="https://hlgao666.github.io/2020/11/28/ssm/AOP/"/>
+    <id>https://hlgao666.github.io/2020/11/28/ssm/AOP/</id>
     <published>2020-11-28T07:07:30.000Z</published>
     <updated>2020-11-28T09:07:55.195Z</updated>
     
@@ -72,8 +45,8 @@
   
   <entry>
     <title>代理模式</title>
-    <link href="https://hlgao666.github.io/2020/11/28/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://hlgao666.github.io/2020/11/28/代理模式/</id>
+    <link href="https://hlgao666.github.io/2020/11/28/ssm/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://hlgao666.github.io/2020/11/28/ssm/代理模式/</id>
     <published>2020-11-28T02:24:08.000Z</published>
     <updated>2020-11-28T08:57:57.805Z</updated>
     
@@ -99,8 +72,8 @@
   
   <entry>
     <title>使用java配置Spring</title>
-    <link href="https://hlgao666.github.io/2020/11/28/%E4%BD%BF%E7%94%A8java%E9%85%8D%E7%BD%AESpring/"/>
-    <id>https://hlgao666.github.io/2020/11/28/使用java配置Spring/</id>
+    <link href="https://hlgao666.github.io/2020/11/28/ssm/%E4%BD%BF%E7%94%A8java%E9%85%8D%E7%BD%AESpring/"/>
+    <id>https://hlgao666.github.io/2020/11/28/ssm/使用java配置Spring/</id>
     <published>2020-11-28T02:23:54.000Z</published>
     <updated>2020-11-28T02:34:14.244Z</updated>
     
@@ -126,8 +99,8 @@
   
   <entry>
     <title>其它自动装配</title>
-    <link href="https://hlgao666.github.io/2020/11/28/%E5%85%B6%E5%AE%83%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/"/>
-    <id>https://hlgao666.github.io/2020/11/28/其它自动装配/</id>
+    <link href="https://hlgao666.github.io/2020/11/28/ssm/%E5%85%B6%E5%AE%83%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/"/>
+    <id>https://hlgao666.github.io/2020/11/28/ssm/其它自动装配/</id>
     <published>2020-11-28T02:23:22.000Z</published>
     <updated>2020-11-28T02:32:56.584Z</updated>
     
@@ -153,8 +126,8 @@
   
   <entry>
     <title>bean的自动装配</title>
-    <link href="https://hlgao666.github.io/2020/11/28/bean%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/"/>
-    <id>https://hlgao666.github.io/2020/11/28/bean的自动装配/</id>
+    <link href="https://hlgao666.github.io/2020/11/28/ssm/bean%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/"/>
+    <id>https://hlgao666.github.io/2020/11/28/ssm/bean的自动装配/</id>
     <published>2020-11-28T02:23:12.000Z</published>
     <updated>2020-11-28T02:33:07.875Z</updated>
     
@@ -180,8 +153,8 @@
   
   <entry>
     <title>剑指offer30 连续子数组的最大和</title>
-    <link href="https://hlgao666.github.io/2020/11/28/%E5%89%91%E6%8C%87offer30/"/>
-    <id>https://hlgao666.github.io/2020/11/28/剑指offer30/</id>
+    <link href="https://hlgao666.github.io/2020/11/28/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer30/"/>
+    <id>https://hlgao666.github.io/2020/11/28/剑指offer/剑指offer30/</id>
     <published>2020-11-28T02:11:21.000Z</published>
     <updated>2020-11-28T02:18:52.142Z</updated>
     
@@ -207,8 +180,8 @@
   
   <entry>
     <title>剑指offer28 数组中出现次数超过一半的数字</title>
-    <link href="https://hlgao666.github.io/2020/11/28/%E5%89%91%E6%8C%87offer28/"/>
-    <id>https://hlgao666.github.io/2020/11/28/剑指offer28/</id>
+    <link href="https://hlgao666.github.io/2020/11/28/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer28/"/>
+    <id>https://hlgao666.github.io/2020/11/28/剑指offer/剑指offer28/</id>
     <published>2020-11-28T02:11:11.000Z</published>
     <updated>2020-11-28T02:18:05.079Z</updated>
     
@@ -236,8 +209,8 @@
   
   <entry>
     <title>bean的作用域</title>
-    <link href="https://hlgao666.github.io/2020/11/26/bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
-    <id>https://hlgao666.github.io/2020/11/26/bean的作用域/</id>
+    <link href="https://hlgao666.github.io/2020/11/26/ssm/bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    <id>https://hlgao666.github.io/2020/11/26/ssm/bean的作用域/</id>
     <published>2020-11-26T13:28:21.000Z</published>
     <updated>2020-11-26T13:29:42.705Z</updated>
     
@@ -263,8 +236,8 @@
   
   <entry>
     <title>DI依赖注入</title>
-    <link href="https://hlgao666.github.io/2020/11/26/DI%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
-    <id>https://hlgao666.github.io/2020/11/26/DI依赖注入/</id>
+    <link href="https://hlgao666.github.io/2020/11/26/ssm/DI%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
+    <id>https://hlgao666.github.io/2020/11/26/ssm/DI依赖注入/</id>
     <published>2020-11-26T13:26:34.000Z</published>
     <updated>2020-11-26T13:28:32.579Z</updated>
     
@@ -290,8 +263,8 @@
   
   <entry>
     <title>Spring简单配置</title>
-    <link href="https://hlgao666.github.io/2020/11/26/Spring%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/"/>
-    <id>https://hlgao666.github.io/2020/11/26/Spring简单配置/</id>
+    <link href="https://hlgao666.github.io/2020/11/26/ssm/Spring%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/"/>
+    <id>https://hlgao666.github.io/2020/11/26/ssm/Spring简单配置/</id>
     <published>2020-11-26T13:25:06.000Z</published>
     <updated>2020-11-26T13:25:47.200Z</updated>
     
@@ -317,8 +290,8 @@
   
   <entry>
     <title>IOC创建对象方式</title>
-    <link href="https://hlgao666.github.io/2020/11/26/IOC%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E6%96%B9%E5%BC%8F/"/>
-    <id>https://hlgao666.github.io/2020/11/26/IOC创建对象方式/</id>
+    <link href="https://hlgao666.github.io/2020/11/26/ssm/IOC%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E6%96%B9%E5%BC%8F/"/>
+    <id>https://hlgao666.github.io/2020/11/26/ssm/IOC创建对象方式/</id>
     <published>2020-11-26T13:23:13.000Z</published>
     <updated>2020-11-26T13:24:32.993Z</updated>
     
@@ -344,8 +317,8 @@
   
   <entry>
     <title>helloSpring及IOC</title>
-    <link href="https://hlgao666.github.io/2020/11/26/helloSpring%E5%8F%8AIOC/"/>
-    <id>https://hlgao666.github.io/2020/11/26/helloSpring及IOC/</id>
+    <link href="https://hlgao666.github.io/2020/11/26/ssm/helloSpring%E5%8F%8AIOC/"/>
+    <id>https://hlgao666.github.io/2020/11/26/ssm/helloSpring及IOC/</id>
     <published>2020-11-26T13:21:16.000Z</published>
     <updated>2020-11-26T13:22:37.411Z</updated>
     
@@ -371,8 +344,8 @@
   
   <entry>
     <title>Spring简介</title>
-    <link href="https://hlgao666.github.io/2020/11/26/Spring%E7%AE%80%E4%BB%8B/"/>
-    <id>https://hlgao666.github.io/2020/11/26/Spring简介/</id>
+    <link href="https://hlgao666.github.io/2020/11/26/ssm/Spring%E7%AE%80%E4%BB%8B/"/>
+    <id>https://hlgao666.github.io/2020/11/26/ssm/Spring简介/</id>
     <published>2020-11-26T13:17:28.000Z</published>
     <updated>2020-11-26T13:20:10.050Z</updated>
     
@@ -398,8 +371,8 @@
   
   <entry>
     <title>Spring之IOC思想</title>
-    <link href="https://hlgao666.github.io/2020/11/26/Spring%E4%B9%8BIOC%E6%80%9D%E6%83%B3/"/>
-    <id>https://hlgao666.github.io/2020/11/26/Spring之IOC思想/</id>
+    <link href="https://hlgao666.github.io/2020/11/26/ssm/Spring%E4%B9%8BIOC%E6%80%9D%E6%83%B3/"/>
+    <id>https://hlgao666.github.io/2020/11/26/ssm/Spring之IOC思想/</id>
     <published>2020-11-26T13:11:06.000Z</published>
     <updated>2020-11-26T13:15:55.360Z</updated>
     
@@ -425,8 +398,8 @@
   
   <entry>
     <title>剑指offer27 字符串的排列</title>
-    <link href="https://hlgao666.github.io/2020/11/26/%E5%89%91%E6%8C%87offer27/"/>
-    <id>https://hlgao666.github.io/2020/11/26/剑指offer27/</id>
+    <link href="https://hlgao666.github.io/2020/11/26/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer27/"/>
+    <id>https://hlgao666.github.io/2020/11/26/剑指offer/剑指offer27/</id>
     <published>2020-11-26T03:22:46.000Z</published>
     <updated>2020-11-26T03:25:27.425Z</updated>
     
@@ -452,8 +425,8 @@
   
   <entry>
     <title>我和浅浅的开始</title>
-    <link href="https://hlgao666.github.io/2020/11/25/%E6%88%91%E5%92%8C%E6%B5%85%E6%B5%85(%E4%B8%80)/"/>
-    <id>https://hlgao666.github.io/2020/11/25/我和浅浅(一)/</id>
+    <link href="https://hlgao666.github.io/2020/11/25/%E8%8B%8F%E5%AD%90%E4%B8%93%E6%A0%8F/%E6%88%91%E5%92%8C%E6%B5%85%E6%B5%85(%E4%B8%80)/"/>
+    <id>https://hlgao666.github.io/2020/11/25/苏子专栏/我和浅浅(一)/</id>
     <published>2020-11-25T02:50:47.000Z</published>
     <updated>2020-11-25T05:26:54.811Z</updated>
     
@@ -479,8 +452,8 @@
   
   <entry>
     <title>Mybatis之动态SQL语句实现</title>
-    <link href="https://hlgao666.github.io/2020/11/24/Mybatis%E4%B9%8B%E5%8A%A8%E6%80%81SQL%E8%AF%AD%E5%8F%A5%E5%AE%9E%E7%8E%B0/"/>
-    <id>https://hlgao666.github.io/2020/11/24/Mybatis之动态SQL语句实现/</id>
+    <link href="https://hlgao666.github.io/2020/11/24/ssm/Mybatis%E4%B9%8B%E5%8A%A8%E6%80%81SQL%E8%AF%AD%E5%8F%A5%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://hlgao666.github.io/2020/11/24/ssm/Mybatis之动态SQL语句实现/</id>
     <published>2020-11-24T14:10:41.000Z</published>
     <updated>2020-11-24T14:38:30.220Z</updated>
     
@@ -506,8 +479,8 @@
   
   <entry>
     <title>Mybatis之万能map</title>
-    <link href="https://hlgao666.github.io/2020/11/24/Mybatis%E4%B9%8B%E4%B8%87%E8%83%BDmap/"/>
-    <id>https://hlgao666.github.io/2020/11/24/Mybatis之万能map/</id>
+    <link href="https://hlgao666.github.io/2020/11/24/ssm/Mybatis%E4%B9%8B%E4%B8%87%E8%83%BDmap/"/>
+    <id>https://hlgao666.github.io/2020/11/24/ssm/Mybatis之万能map/</id>
     <published>2020-11-24T14:03:49.000Z</published>
     <updated>2020-11-24T14:20:14.452Z</updated>
     
@@ -533,8 +506,8 @@
   
   <entry>
     <title>剑指offer26 二叉搜索树与双向链表</title>
-    <link href="https://hlgao666.github.io/2020/11/23/%E5%89%91%E6%8C%87offer26/"/>
-    <id>https://hlgao666.github.io/2020/11/23/剑指offer26/</id>
+    <link href="https://hlgao666.github.io/2020/11/23/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer26/"/>
+    <id>https://hlgao666.github.io/2020/11/23/剑指offer/剑指offer26/</id>
     <published>2020-11-23T06:28:46.000Z</published>
     <updated>2020-11-24T14:23:09.911Z</updated>
     
@@ -557,6 +530,33 @@
       <category term="二叉搜索树" scheme="https://hlgao666.github.io/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
     
       <category term="双向链表" scheme="https://hlgao666.github.io/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Machine Learning Project - Captcha Recognition</title>
+    <link href="https://hlgao666.github.io/2020/11/23/AI/Machine-Learning-Project/"/>
+    <id>https://hlgao666.github.io/2020/11/23/AI/Machine-Learning-Project/</id>
+    <published>2020-11-23T06:27:29.000Z</published>
+    <updated>2020-11-23T08:06:08.251Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="https://hlgao666.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://hlgao666.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
