@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Mybatis之万能map, hlgao666/hlgao666">
+    <meta name="keywords" content="剑指offer30 连续子数组的最大和, hlgao666/hlgao666">
     <meta name="description" content="I hope you are here for me">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Mybatis之万能map | Allen</title>
+    <title>剑指offer30 连续子数组的最大和 | Allen</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
@@ -322,12 +322,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mybatis之万能map</h1>
+                    <h1 class="description center-align post-title">剑指offer30 连续子数组的最大和</h1>
                 </div>
             </div>
         </div>
@@ -444,8 +444,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Mybatis/">
-                                <span class="chip bg-color">Mybatis</span>
+                            <a href="/tags/动态规划/">
+                                <span class="chip bg-color">动态规划</span>
                             </a>
                         
                     </div>
@@ -456,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/ssm框架/" class="post-category">
-                                ssm框架
+                            <a href="/categories/剑指offer/" class="post-category">
+                                剑指offer
                             </a>
                         
                     </div>
@@ -469,28 +469,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-24
+                    2020-11-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-24
+                    2020-11-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    204
+                    495
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -505,24 +505,37 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="万能map"><a href="#万能map" class="headerlink" title="万能map"></a>万能map</h2><ol>
-<li>在接口方法中，参数直接传递Map；</li>
-</ol>
-<pre class="line-numbers language-java"><code class="language-java">User <span class="token function">selectUserByNP2</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">></span> map<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol start="2">
-<li>编写sql语句的时候，需要传递参数类型，参数类型为map</li>
-</ol>
-<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectUserByNP2<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.kuang.pojo.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    select * from user where name = #{username} and pwd = #{pwd}
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ol start="3">
-<li>在使用方法的时候，Map的 <strong>key</strong> 为 sql中取的值即可，<strong>没有顺序要求！</strong></li>
-</ol>
-<pre class="line-numbers language-java"><code class="language-java">Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">,</span><span class="token string">"小明"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"pwd"</span><span class="token punctuation">,</span><span class="token string">"123456"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-User user <span class="token operator">=</span> mapper<span class="token punctuation">.</span><span class="token function">selectUserByNP2</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>结论</strong>：如果参数过多，我们可以考虑直接使用Map实现，如果参数比较少，直接传递参数即可</p>
+                <h1 id="剑指offer"><a href="#剑指offer" class="headerlink" title="剑指offer"></a>剑指offer</h1><h2 id="30-连续子数组的最大和"><a href="#30-连续子数组的最大和" class="headerlink" title="30 连续子数组的最大和"></a>30 连续子数组的最大和</h2><hr>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。给一个数组，返回它的最大连续子序列的和，你会不会被他忽悠住？(子向量的长度至少是1)</p>
+<p>输入</p>
+<blockquote>
+<p>[1,-2,3,10,-4,7,2,-5]</p>
+</blockquote>
+<p>输出</p>
+<blockquote>
+<p>18</p>
+</blockquote>
+<p>输出 18 为 3,10…2 的和。</p>
+<h3 id="思路分析（动态规划）"><a href="#思路分析（动态规划）" class="headerlink" title="思路分析（动态规划）"></a>思路分析（动态规划）</h3><p>1、状态方程 ： <strong>getMax( dp[ i ] )</strong> = max( <strong>getMax( dp[ i -1 ] )</strong> + arr[ i ] , arr[ i ] )</p>
+<p>2、上面式子的意义是：我们从头开始遍历数组，遍历到数组元素 arr[ i ] 时，连续的最大的和 可能为 getMax( dp[ i -1 ] ) + arr[ i ] ，也可能为 arr[ i ] ，做比较即可得出哪个更大，取最大值。时间复杂度为 n。</p>
+<p>注意：上式 dp[i-1] 为数组元素 arr[ i ] 之前的<strong>和的最大值</strong>。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">FindGreatestSumOfSubArray</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//if(array.length==1) return array[0];</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>len<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> max <span class="token operator">=</span> array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        temp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>temp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//如果下标 i 前面包括其本身的数组值和小于 i 本身，那么从 i 重新开始</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span>max<span class="token punctuation">)</span> max <span class="token operator">=</span> temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//如果当前和（从某个元素开始，不一定从0开始，直到i）大于 max，替换 max值</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> max<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.cnblogs.com/en-heng/p/3970231.html" target="_blank" rel="noopener">https://www.cnblogs.com/en-heng/p/3970231.html</a><br><a href="https://blog.csdn.net/kongmin_123/article/details/82430985" target="_blank" rel="noopener">https://blog.csdn.net/kongmin_123/article/details/82430985</a><br><a href="https://blog.csdn.net/m0_37925202/article/details/80816684" target="_blank" rel="noopener">https://blog.csdn.net/m0_37925202/article/details/80816684</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -566,7 +579,7 @@ User user <span class="token operator">=</span> mapper<span class="token punctua
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2020/11/24/Mybatis之万能map/">https://hlgao666.github.io/2020/11/24/Mybatis之万能map/</a>
+                    <a href="https://hlgao666.github.io/2020/11/28/剑指offer30/">https://hlgao666.github.io/2020/11/28/剑指offer30/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -604,8 +617,8 @@ User user <span class="token operator">=</span> mapper<span class="token punctua
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Mybatis/">
-                                    <span class="chip bg-color">Mybatis</span>
+                                <a href="/tags/动态规划/">
+                                    <span class="chip bg-color">动态规划</span>
                                 </a>
                             
                         </div>
@@ -776,7 +789,7 @@ User user <span class="token operator">=</span> mapper<span class="token punctua
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2020-11-24T22-03-49',
+        id: '2020-11-28T10-11-21',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -800,45 +813,47 @@ User user <span class="token operator">=</span> mapper<span class="token punctua
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/24/Mybatis之动态SQL语句实现/">
+                <a href="/2020/11/28/剑指offer30/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Mybatis之动态SQL语句实现">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="剑指offer30 连续子数组的最大和">
                         
-                        <span class="card-title">Mybatis之动态SQL语句实现</span>
+                        <span class="card-title">剑指offer30 连续子数组的最大和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了Mybatis中SQL如何动态拼接
+                            求连续子数组的最大和的动态规划方法
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ssm框架/" class="post-category">
-                                    ssm框架
+                            <a href="/categories/剑指offer/" class="post-category">
+                                    剑指offer
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/动态规划/">
+                        <span class="chip bg-color">动态规划</span>
                     </a>
                     
                 </div>
@@ -852,23 +867,23 @@ User user <span class="token operator">=</span> mapper<span class="token punctua
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/23/剑指offer26/">
+                <a href="/2020/11/28/剑指offer28/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="剑指offer26 二叉搜索树与双向链表">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="剑指offer28 数组中出现次数超过一半的数字">
                         
-                        <span class="card-title">剑指offer26 二叉搜索树与双向链表</span>
+                        <span class="card-title">剑指offer28 数组中出现次数超过一半的数字</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            二叉搜索树与双向链表的应用
+                            key-value 的运用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-28
                             </span>
                         <span class="publish-author">
                             
@@ -885,12 +900,12 @@ User user <span class="token operator">=</span> mapper<span class="token punctua
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/二叉搜索树/">
-                        <span class="chip bg-color">二叉搜索树</span>
+                    <a href="/tags/位运算/">
+                        <span class="chip bg-color">位运算</span>
                     </a>
                     
-                    <a href="/tags/双向链表/">
-                        <span class="chip bg-color">双向链表</span>
+                    <a href="/tags/分治/">
+                        <span class="chip bg-color">分治</span>
                     </a>
                     
                 </div>
