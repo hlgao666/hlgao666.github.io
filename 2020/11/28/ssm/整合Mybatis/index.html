@@ -476,21 +476,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-28
+                    2020-11-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -747,7 +747,40 @@ User(id=3, username=wangw, password=123)
 User(id=4, username=zhaol, password=123456)
 User(id=6, username=wangzai, password=111223)
 User(id=9, username=wangzai, password=1266666)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Mybatis整合（二）"><a href="#Mybatis整合（二）" class="headerlink" title="Mybatis整合（二）"></a>Mybatis整合（二）</h2><p>dao继承Support类 , 直接利用 getSqlSession() 获得 , 然后直接注入SqlSessionFactory . 比起方式1 , 不需要管理SqlSessionTemplate , 而且对事务的支持更加友好 . 可跟踪源码查看</p>
+<h2 id="Mybatis整合（二）（默认自动提交和关闭）"><a href="#Mybatis整合（二）（默认自动提交和关闭）" class="headerlink" title="Mybatis整合（二）（默认自动提交和关闭）"></a>Mybatis整合（二）（默认自动提交和关闭）</h2><p>默认自动提交和关闭，可查看 SqlSessionTemplate.class 的源码 190-221 行</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> Object <span class="token function">invoke</span><span class="token punctuation">(</span>Object proxy<span class="token punctuation">,</span> Method method<span class="token punctuation">,</span> Object<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Throwable <span class="token punctuation">{</span>
+    SqlSession sqlSession <span class="token operator">=</span> SqlSessionUtils<span class="token punctuation">.</span><span class="token function">getSqlSession</span><span class="token punctuation">(</span>SqlSessionTemplate<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>sqlSessionFactory<span class="token punctuation">,</span> SqlSessionTemplate<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>executorType<span class="token punctuation">,</span> SqlSessionTemplate<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>exceptionTranslator<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Object unwrapped<span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        Object result <span class="token operator">=</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>sqlSession<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>SqlSessionUtils<span class="token punctuation">.</span><span class="token function">isSqlSessionTransactional</span><span class="token punctuation">(</span>sqlSession<span class="token punctuation">,</span> SqlSessionTemplate<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>sqlSessionFactory<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sqlSession<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        unwrapped <span class="token operator">=</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> var11<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        unwrapped <span class="token operator">=</span> ExceptionUtil<span class="token punctuation">.</span><span class="token function">unwrapThrowable</span><span class="token punctuation">(</span>var11<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>SqlSessionTemplate<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>exceptionTranslator <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> unwrapped <span class="token keyword">instanceof</span> <span class="token class-name">PersistenceException</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            SqlSessionUtils<span class="token punctuation">.</span><span class="token function">closeSqlSession</span><span class="token punctuation">(</span>sqlSession<span class="token punctuation">,</span> SqlSessionTemplate<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>sqlSessionFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sqlSession <span class="token operator">=</span> null<span class="token punctuation">;</span>
+            Throwable translated <span class="token operator">=</span> SqlSessionTemplate<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>exceptionTranslator<span class="token punctuation">.</span><span class="token function">translateExceptionIfPossible</span><span class="token punctuation">(</span><span class="token punctuation">(</span>PersistenceException<span class="token punctuation">)</span>unwrapped<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>translated <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                unwrapped <span class="token operator">=</span> translated<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">throw</span> <span class="token punctuation">(</span>Throwable<span class="token punctuation">)</span>unwrapped<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sqlSession <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            SqlSessionUtils<span class="token punctuation">.</span><span class="token function">closeSqlSession</span><span class="token punctuation">(</span>sqlSession<span class="token punctuation">,</span> SqlSessionTemplate<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>sqlSessionFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> unwrapped<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>dao继承Support类 , 直接利用 getSqlSession() 获得 , 然后直接注入SqlSessionFactory . 比起方式1 , 不需要管理SqlSessionTemplate , 而且对事务的支持更加友好 . 可跟踪源码查看</p>
 <p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201128223142.png" alt=""></p>
 <h3 id="1-UserDaoImpl修改-新建UserDaoImpl2"><a href="#1-UserDaoImpl修改-新建UserDaoImpl2" class="headerlink" title="1.UserDaoImpl修改(新建UserDaoImpl2)"></a>1.UserDaoImpl修改(新建UserDaoImpl2)</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserMapperImpl2</span> <span class="token keyword">extends</span> <span class="token class-name">SqlSessionDaoSupport</span> <span class="token keyword">implements</span> <span class="token class-name">UserMapper</span> <span class="token punctuation">{</span>
     <span class="token annotation punctuation">@Override</span>
@@ -1048,29 +1081,28 @@ User(id=9, username=wangzai, password=1266666)<span aria-hidden="true" class="li
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/28/ssm/整合Mybatis/">
+                <a href="/2020/11/29/ssm/Spring的声明式事务/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/39.jpg" class="responsive-img" alt="整合Mybatis">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Spring的声明式事务">
                         
-                        <span class="card-title">整合Mybatis</span>
+                        <span class="card-title">Spring的声明式事务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了Spring与Mybatis的整合
+                            介绍了Spring中的声明式事务
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1083,7 +1115,6 @@ User(id=9, username=wangzai, password=1266666)<span aria-hidden="true" class="li
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1367,7 +1398,7 @@ User(id=9, username=wangzai, password=1266666)<span aria-hidden="true" class="li
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">38.6k</span>&nbsp;字
+                class="white-color">40.4k</span>&nbsp;字
             
             
             
