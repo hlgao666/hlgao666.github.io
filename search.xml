@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Dos常用命令</title>
+      <link href="/2020/11/29/%E9%9B%B6%E7%A2%8E/Dos%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/2020/11/29/%E9%9B%B6%E7%A2%8E/Dos%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="打开cmd的几种方式"><a href="#打开cmd的几种方式" class="headerlink" title="打开cmd的几种方式"></a>打开cmd的几种方式</h1><ol><li>开始+系统+命令提示符</li><li>Win+R键，输入cmd（推荐使用）</li><li>在任意文件夹下面，按住Shift+鼠标右键，选择在此处打开PowerShell ( Windows10 下)</li><li>资源管理器的地址栏前面加上 cmd</li></ol><h1 id="Dos常用命令"><a href="#Dos常用命令" class="headerlink" title="Dos常用命令"></a>Dos常用命令</h1><h3 id="切换盘符"><a href="#切换盘符" class="headerlink" title="切换盘符"></a>切换盘符</h3><p>直接 盘符+英文: ,</p><blockquote><p>例切换到D盘，输入</p></blockquote><pre><code>d:</code></pre><p>回车即可。</p><h3 id="查看当前目录下的所有文件"><a href="#查看当前目录下的所有文件" class="headerlink" title="查看当前目录下的所有文件"></a>查看当前目录下的所有文件</h3><pre><code>dir</code></pre><p>回车即可。</p><h3 id="切换目录"><a href="#切换目录" class="headerlink" title="切换目录"></a>切换目录</h3><pre><code>cd</code></pre><p>cd, change directory</p><h3 id="返回上一级"><a href="#返回上一级" class="headerlink" title="返回上一级"></a>返回上一级</h3><pre><code>cd ..</code></pre><h3 id="清理屏幕"><a href="#清理屏幕" class="headerlink" title="清理屏幕"></a>清理屏幕</h3><pre><code>cls</code></pre><p>cls, clear screen</p><h3 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h3><pre><code>exit</code></pre><h3 id="查看ip"><a href="#查看ip" class="headerlink" title="查看ip"></a>查看ip</h3><pre><code>ipconfig</code></pre><h3 id="ping命令"><a href="#ping命令" class="headerlink" title="ping命令"></a>ping命令</h3><pre><code>ping www.baidu.com</code></pre><h3 id="粘贴"><a href="#粘贴" class="headerlink" title="粘贴"></a>粘贴</h3><p>鼠标右键</p><h3 id="在当前目录创建文件夹"><a href="#在当前目录创建文件夹" class="headerlink" title="在当前目录创建文件夹"></a>在当前目录创建文件夹</h3><pre><code>md 文件夹名</code></pre><h3 id="在当前目录移除文件夹"><a href="#在当前目录移除文件夹" class="headerlink" title="在当前目录移除文件夹"></a>在当前目录移除文件夹</h3><pre><code>rd 文件夹名</code></pre><h3 id="在当前目录创建文件"><a href="#在当前目录创建文件" class="headerlink" title="在当前目录创建文件"></a>在当前目录创建文件</h3><pre><code>cd&gt; 文件名</code></pre><h3 id="在当前目录删除文件"><a href="#在当前目录删除文件" class="headerlink" title="在当前目录删除文件"></a>在当前目录删除文件</h3><pre><code>del 文件名</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术漫步 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Dos命令 </tag>
+            
+            <tag> cmd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Spring的声明式事务</title>
       <link href="/2020/11/29/ssm/Spring%E7%9A%84%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1/"/>
       <url>/2020/11/29/ssm/Spring%E7%9A%84%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1/</url>
