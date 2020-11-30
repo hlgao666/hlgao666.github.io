@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="如何解决git发布到远端重复输入用户名和密码, hlgao666/hlgao666">
+    <meta name="keywords" content="Markdown语法介绍, hlgao666/hlgao666">
     <meta name="description" content="I hope you are here for me">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何解决git发布到远端重复输入用户名和密码 | Allen</title>
+    <title>Markdown语法介绍 | Allen</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
@@ -322,12 +322,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/28.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何解决git发布到远端重复输入用户名和密码</h1>
+                    <h1 class="description center-align post-title">Markdown语法介绍</h1>
                 </div>
             </div>
         </div>
@@ -444,8 +444,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
+                            <a href="/tags/Markdown语法/">
+                                <span class="chip bg-color">Markdown语法</span>
                             </a>
                         
                     </div>
@@ -456,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/技术/" class="post-category">
-                                技术
+                            <a href="/categories/技术漫步/" class="post-category">
+                                技术漫步
                             </a>
                         
                     </div>
@@ -469,28 +469,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-13
+                    2019-09-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-24
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    553
+                    445
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -505,43 +505,50 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为本人在使用hexo博客发布到远端过程中，出现重复输入用户名和密码问题，觉得太麻烦，于是上网查找解决办法。但发现没有一个比较完整的解决思路，于是将本人解决经验总结如下.  </p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><pre class="line-numbers language-bash"><code class="language-bash">    1.生成SSH密钥
-
-    2.设置Github项目的Deploy keys
-
-    3.修改hexo根目录下的_config.yml文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="具体解决步骤（配图说明）"><a href="#具体解决步骤（配图说明）" class="headerlink" title="具体解决步骤（配图说明）"></a>具体解决步骤（配图说明）</h2><h3 id="1-生成SSH密钥"><a href="#1-生成SSH密钥" class="headerlink" title="1.生成SSH密钥"></a>1.生成SSH密钥</h3><p>1.一般可通过在桌面单击鼠标右键选择“Git Bash Here”来打开Git的命令行窗口，打开后的窗口如图1所示:  </p>
-<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/17e77ff8-a6a3-4ac7-ad82-901de307eb4b.jpg" alt="图1"></p>
-<p>2.在上图所示窗口中输入如下命令：  </p>
+                <h2 id="Markdown一些常用命令"><a href="#Markdown一些常用命令" class="headerlink" title="Markdown一些常用命令"></a>Markdown一些常用命令</h2><h3 id="1-设置标题级别"><a href="#1-设置标题级别" class="headerlink" title="1.设置标题级别"></a>1.设置标题级别</h3><pre class="line-numbers language-bash"><code class="language-bash">标题前加几个<span class="token comment" spellcheck="true">#，就代表几级标题</span>
+一级标题 <span class="token comment" spellcheck="true"># 标题</span>
+二级标题 <span class="token comment" spellcheck="true">## 标题</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-引用"><a href="#2-引用" class="headerlink" title="2.引用"></a>2.引用</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">></span> 亚里士多德说过，人生最终的价值在于觉醒和思考，而不仅仅在于生存。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
-<p>$ cd ~/.ssh<br>$ ssh-keygen -t rsa -C “username”</p>
+<p>亚里士多德说过，人生最终的价值在于觉醒和思考，而不仅仅在于生存。</p>
 </blockquote>
-<pre><code>注意：1).第一行命令是查看你的PC用户根目录下是否有.ssh文件夹；
-2).上述命令中的"username"指的是你git的用户名。</code></pre><p>3.输入上述命令后，为简化流程，以后三次提示输入直接按Enter即可。然后可看到：</p>
-<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/1c358f17-10e5-4dc1-8a5d-05cf2a0fed1c.jpg" alt="图2"></p>
-<p>说明密钥生成成功。</p>
-<h3 id="2-设置Github项目的Deploy-keys"><a href="#2-设置Github项目的Deploy-keys" class="headerlink" title="2.设置Github项目的Deploy keys"></a>2.设置Github项目的Deploy keys</h3><p>此处以我的博客为例。</p>
-<p>1.找到hlgao666.github.io仓库中，依次点击 Settings –&gt; Deploy keys –&gt; Add deploy key。  </p>
-<p>2.找到PC用户根目录下的.ssh文件夹，将id_rsa.pub 中的内容全选复制到 key 输入框中，勾选 Allow write access，然后点击 Add key 完成添加公钥。  </p>
-<p>3.测试配置是否成功。</p>
-<p>在Git命令行窗口中输入以下命令：</p>
-<blockquote>
-<p>$ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
-</blockquote>
-<p>如果出现以下内容即表示配置完成并且成功！</p>
-<pre class="line-numbers language-bash"><code class="language-bash">Hi username<span class="token operator">!</span> You've successfully authenticated, but GitHub does not
-provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="3-修改hexo根目录下的-config-yml文件"><a href="#3-修改hexo根目录下的-config-yml文件" class="headerlink" title="3.修改hexo根目录下的_config.yml文件"></a>3.修改hexo根目录下的_config.yml文件</h3><p>修改 hexo 的配置文件 _config.yml 中的deploy 属性。</p>
-<p>修改如下：</p>
-<blockquote>
-<pre><code>deploy:
-  type: git
-  repo: git@github.com:hlgao666/hlgao666.github.io.git
-  branch: master</code></pre></blockquote>
-<p>至此，修改已全部完成。重新hexo clean, hexo g -d即可。</p>
+<h3 id="3-写无序列表"><a href="#3-写无序列表" class="headerlink" title="3.写无序列表"></a>3.写无序列表</h3><pre class="line-numbers language-bash"><code class="language-bash">- 无序列表<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li><p>无序列表</p>
+<p>  ​    </p>
+<h3 id="4-有序列表"><a href="#4-有序列表" class="headerlink" title="4.有序列表"></a>4.有序列表</h3></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">数字+英文句号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>1.xxx<br>2.xxx<br>3.xxx</p>
+<h3 id="5-插入图片"><a href="#5-插入图片" class="headerlink" title="5.插入图片"></a>5.插入图片</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">!</span><span class="token punctuation">[</span>中秋<span class="token punctuation">]</span><span class="token punctuation">(</span>http://pic128.huitu.com/res/20190901/571787_20190901124015978020_1.jpg<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="http://pic128.huitu.com/res/20190901/571787_20190901124015978020_1.jpg" alt="中秋"></p>
+<h3 id="6-创建超链接"><a href="#6-创建超链接" class="headerlink" title="6.创建超链接"></a>6.创建超链接</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>baidu<span class="token punctuation">]</span><span class="token punctuation">(</span>https://www.baidu.com<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><a href="https://www.baidu.com" target="_blank" rel="noopener">baidu</a></p>
+<h3 id="7-加粗"><a href="#7-加粗" class="headerlink" title="7.加粗"></a>7.加粗</h3><pre class="line-numbers language-bash"><code class="language-bash">**加粗**<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>加粗</strong></p>
+<h3 id="8-斜体"><a href="#8-斜体" class="headerlink" title="8.斜体"></a>8.斜体</h3><pre class="line-numbers language-bash"><code class="language-bash">*斜体*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><em>斜体</em></p>
+<h3 id="9-调整字体、字号和颜色"><a href="#9-调整字体、字号和颜色" class="headerlink" title="9.调整字体、字号和颜色"></a>9.调整字体、字号和颜色</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token string">"&lt;font face="</span>微软雅黑<span class="token string">" color="</span>red<span class="token string">" size="</span>28<span class="token string">">字体、颜色和字号&lt;/font>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><font face="微软雅黑" color="red" size="28">字体、颜色和字号</font></p>
+<h3 id="10-居中、居左、居右（适用于字体、图片）"><a href="#10-居中、居左、居右（适用于字体、图片）" class="headerlink" title="10.居中、居左、居右（适用于字体、图片）"></a>10.居中、居左、居右（适用于字体、图片）</h3><pre class="line-numbers language-bash"><code class="language-bash">居中
+<span class="token operator">&lt;</span>center<span class="token operator">></span><span class="token operator">&lt;</span>font face<span class="token operator">=</span><span class="token string">"微软雅黑"</span> color<span class="token operator">=</span><span class="token string">"red"</span> size<span class="token operator">=</span><span class="token string">"28"</span><span class="token operator">></span>字体、颜色和字号<span class="token operator">&lt;</span>/font<span class="token operator">></span><span class="token operator">&lt;</span>/center<span class="token operator">></span>  
+居左
+<span class="token operator">&lt;</span>p align<span class="token operator">=</span><span class="token string">"left"</span><span class="token operator">></span><span class="token operator">&lt;</span>font face<span class="token operator">=</span><span class="token string">"微软雅黑"</span> color<span class="token operator">=</span><span class="token string">"red"</span> size<span class="token operator">=</span><span class="token string">"28"</span><span class="token operator">></span>字体、颜色和字号<span class="token operator">&lt;</span>/font<span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="11-引用本地图片"><a href="#11-引用本地图片" class="headerlink" title="11.引用本地图片"></a>11.引用本地图片</h3><pre class="line-numbers language-bash"><code class="language-bash">
+1.首先将想要引用的图片保存在本地source/images（需新建images文件夹）文件夹下
+
+2.由于博客文件在source/_posts文件夹下，因此引用时需要返回一层目录。
+
+引用格式为：
+<span class="token operator">!</span><span class="token punctuation">[</span>图3<span class="token punctuation">]</span><span class="token punctuation">(</span>/<span class="token punctuation">..</span>/images/image023.jpg<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1]<a href="https://blog.csdn.net/hhgggggg/article/details/77853665" target="_blank" rel="noopener">https://blog.csdn.net/hhgggggg/article/details/77853665</a><br>[2]<a href="https://blog.csdn.net/yjk13703623757/article/details/87882294" target="_blank" rel="noopener">https://blog.csdn.net/yjk13703623757/article/details/87882294</a>  </p>
+<center><font faceface="微软雅黑" color="green" size="14">**music**</font></center>
+<center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=481356667&amp;auto=1&amp;height=66"></iframe></center>
+<center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=413812448&amp;auto=0&amp;height=66"></iframe></center>
+
+<hr>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1]<a href="https://www.bilibili.com/video/av23983281" target="_blank" rel="noopener">https://www.bilibili.com/video/av23983281</a><br>[2]<a href="https://walesexcitedmei.github.io/2018/08/29/HEXO-hexo-%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91%E7%9A%84%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">https://walesexcitedmei.github.io/2018/08/29/HEXO-hexo-%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91%E7%9A%84%E6%96%B9%E6%B3%95/</a>  </p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -585,7 +592,7 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2019/10/13/技术/如何解决git发布到远端重复输入用户名和密码/">https://hlgao666.github.io/2019/10/13/技术/如何解决git发布到远端重复输入用户名和密码/</a>
+                    <a href="https://hlgao666.github.io/2019/09/04/技术漫步/Markdown语法介绍/">https://hlgao666.github.io/2019/09/04/技术漫步/Markdown语法介绍/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -623,8 +630,8 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
+                                <a href="/tags/Markdown语法/">
+                                    <span class="chip bg-color">Markdown语法</span>
                                 </a>
                             
                         </div>
@@ -795,7 +802,7 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2019-10-13T13-08-30',
+        id: '2019-09-04T15-17-23',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -823,30 +830,30 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/20/算法/浅析递归调用/">
+                <a href="/2019/09/24/技术漫步/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="浅析递归调用">
+                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)">
                         
-                        <span class="card-title">浅析递归调用</span>
+                        <span class="card-title">MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            递归原理
+                            解决了MySQL无法启动(10061)
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-24
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category">
-                                    算法
+                            <a href="/categories/技术漫步/" class="post-category">
+                                    技术漫步
                                 </a>
                             
                             
@@ -856,12 +863,8 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/递归/">
-                        <span class="chip bg-color">递归</span>
-                    </a>
-                    
-                    <a href="/tags/算法/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
@@ -875,30 +878,30 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/11/算法/求解最短路问题的两种经典算法下/">
+                <a href="/2019/09/03/技术漫步/个人博客创建教程/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="求解最短路问题的两种经典算法（下）">
+                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="win10环境下如何用hexo+git 创建个人博客">
                         
-                        <span class="card-title">求解最短路问题的两种经典算法（下）</span>
+                        <span class="card-title">win10环境下如何用hexo+git 创建个人博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了利用Floyd算法解决有权图的多源最短路问题
+                            介绍了win10环境下如何创建个人博客
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category">
-                                    算法
+                            <a href="/categories/技术漫步/" class="post-category">
+                                    技术漫步
                                 </a>
                             
                             
@@ -908,8 +911,12 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Dijkstra-Floyd/">
-                        <span class="chip bg-color">Dijkstra &amp; Floyd</span>
+                    <a href="/tags/hexo-git/">
+                        <span class="chip bg-color">hexo+git</span>
+                    </a>
+                    
+                    <a href="/tags/个人博客/">
+                        <span class="chip bg-color">个人博客</span>
                     </a>
                     
                 </div>

@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061), hlgao666/hlgao666">
+    <meta name="keywords" content="如何解决git发布到远端重复输入用户名和密码, hlgao666/hlgao666">
     <meta name="description" content="I hope you are here for me">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061) | Allen</title>
+    <title>如何解决git发布到远端重复输入用户名和密码 | Allen</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
@@ -322,12 +322,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/29.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)</h1>
+                    <h1 class="description center-align post-title">如何解决git发布到远端重复输入用户名和密码</h1>
                 </div>
             </div>
         </div>
@@ -444,8 +444,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MySQL/">
-                                <span class="chip bg-color">MySQL</span>
+                            <a href="/tags/git/">
+                                <span class="chip bg-color">git</span>
                             </a>
                         
                     </div>
@@ -456,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/技术/" class="post-category">
-                                技术
+                            <a href="/categories/技术漫步/" class="post-category">
+                                技术漫步
                             </a>
                         
                     </div>
@@ -469,28 +469,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-24
+                    2019-10-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-24
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    334
+                    553
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -505,21 +505,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre class="line-numbers language-bash"><code class="language-bash">因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 <span class="token string">'struct'</span> 类型的输入参数相对应的函数 <span class="token string">'fetch'</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><pre class="line-numbers language-bash"><code class="language-bash">查找了网上此类问题的原因，大致如下：
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为本人在使用hexo博客发布到远端过程中，出现重复输入用户名和密码问题，觉得太麻烦，于是上网查找解决办法。但发现没有一个比较完整的解决思路，于是将本人解决经验总结如下.  </p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><pre class="line-numbers language-bash"><code class="language-bash">    1.生成SSH密钥
 
-安装mysql后使用mysql命令时报错 <span class="token string">"Can't connect to MySQL server on localhost (10061)"</span>，或者用<span class="token string">"net start mysql"</span> 时报服务名无效，一般是因为mysql服务没有启动。   
+    2.设置Github项目的Deploy keys
 
-解决方案：    1.修改系统变量  2.重启MySQL     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>修改系统变量具体请参考：<a href="https://blog.csdn.net/wolfking0608/article/details/82784297/" target="_blank" rel="noopener">Solution</a></p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre class="line-numbers language-bash"><code class="language-bash">然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入<span class="token string">"mysql -u root -p"</span>，提示输入密码。输完密码后直接闪退。  
-
-于是换另一种方式重启服务，以下是具体步骤： 
-
-在桌面右键单击“我的电脑”--管理--服务和应用程序--服务，在服务名称中找到MySQL57（以MySQL57为例），右键单击将其重新启动即可。
-
-好了，大功告成，这次终于成功了。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    3.修改hexo根目录下的_config.yml文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="具体解决步骤（配图说明）"><a href="#具体解决步骤（配图说明）" class="headerlink" title="具体解决步骤（配图说明）"></a>具体解决步骤（配图说明）</h2><h3 id="1-生成SSH密钥"><a href="#1-生成SSH密钥" class="headerlink" title="1.生成SSH密钥"></a>1.生成SSH密钥</h3><p>1.一般可通过在桌面单击鼠标右键选择“Git Bash Here”来打开Git的命令行窗口，打开后的窗口如图1所示:  </p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/17e77ff8-a6a3-4ac7-ad82-901de307eb4b.jpg" alt="图1"></p>
+<p>2.在上图所示窗口中输入如下命令：  </p>
+<blockquote>
+<p>$ cd ~/.ssh<br>$ ssh-keygen -t rsa -C “username”</p>
+</blockquote>
+<pre><code>注意：1).第一行命令是查看你的PC用户根目录下是否有.ssh文件夹；
+2).上述命令中的"username"指的是你git的用户名。</code></pre><p>3.输入上述命令后，为简化流程，以后三次提示输入直接按Enter即可。然后可看到：</p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/1c358f17-10e5-4dc1-8a5d-05cf2a0fed1c.jpg" alt="图2"></p>
+<p>说明密钥生成成功。</p>
+<h3 id="2-设置Github项目的Deploy-keys"><a href="#2-设置Github项目的Deploy-keys" class="headerlink" title="2.设置Github项目的Deploy keys"></a>2.设置Github项目的Deploy keys</h3><p>此处以我的博客为例。</p>
+<p>1.找到hlgao666.github.io仓库中，依次点击 Settings –&gt; Deploy keys –&gt; Add deploy key。  </p>
+<p>2.找到PC用户根目录下的.ssh文件夹，将id_rsa.pub 中的内容全选复制到 key 输入框中，勾选 Allow write access，然后点击 Add key 完成添加公钥。  </p>
+<p>3.测试配置是否成功。</p>
+<p>在Git命令行窗口中输入以下命令：</p>
+<blockquote>
+<p>$ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+</blockquote>
+<p>如果出现以下内容即表示配置完成并且成功！</p>
+<pre class="line-numbers language-bash"><code class="language-bash">Hi username<span class="token operator">!</span> You've successfully authenticated, but GitHub does not
+provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="3-修改hexo根目录下的-config-yml文件"><a href="#3-修改hexo根目录下的-config-yml文件" class="headerlink" title="3.修改hexo根目录下的_config.yml文件"></a>3.修改hexo根目录下的_config.yml文件</h3><p>修改 hexo 的配置文件 _config.yml 中的deploy 属性。</p>
+<p>修改如下：</p>
+<blockquote>
+<pre><code>deploy:
+  type: git
+  repo: git@github.com:hlgao666/hlgao666.github.io.git
+  branch: master</code></pre></blockquote>
+<p>至此，修改已全部完成。重新hexo clean, hexo g -d即可。</p>
 <hr>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1]<a href="https://blog.csdn.net/hhgggggg/article/details/77853665" target="_blank" rel="noopener">https://blog.csdn.net/hhgggggg/article/details/77853665</a><br>[2]<a href="https://blog.csdn.net/yjk13703623757/article/details/87882294" target="_blank" rel="noopener">https://blog.csdn.net/yjk13703623757/article/details/87882294</a>  </p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -563,7 +585,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2019/09/24/技术/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/">https://hlgao666.github.io/2019/09/24/技术/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/</a>
+                    <a href="https://hlgao666.github.io/2019/10/13/技术漫步/如何解决git发布到远端重复输入用户名和密码/">https://hlgao666.github.io/2019/10/13/技术漫步/如何解决git发布到远端重复输入用户名和密码/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,8 +623,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MySQL/">
-                                    <span class="chip bg-color">MySQL</span>
+                                <a href="/tags/git/">
+                                    <span class="chip bg-color">git</span>
                                 </a>
                             
                         </div>
@@ -773,7 +795,7 @@
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2019-09-24T14-51-14',
+        id: '2019-10-13T13-08-30',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -801,30 +823,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/27/论文/论文写作技巧总结/">
+                <a href="/2019/10/20/算法/浅析递归调用/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="论文写作技巧总结">
+                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="浅析递归调用">
                         
-                        <span class="card-title">论文写作技巧总结</span>
+                        <span class="card-title">浅析递归调用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了论文写作的有关技巧和注意事项
+                            递归原理
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-20
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/论文写作/" class="post-category">
-                                    论文写作
+                            <a href="/categories/算法/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -834,8 +856,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/论文写作技巧/">
-                        <span class="chip bg-color">论文写作技巧</span>
+                    <a href="/tags/递归/">
+                        <span class="chip bg-color">递归</span>
+                    </a>
+                    
+                    <a href="/tags/算法/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -849,30 +875,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/04/技术/Markdown语法介绍/">
+                <a href="/2019/10/11/算法/求解最短路问题的两种经典算法下/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Markdown语法介绍">
+                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="求解最短路问题的两种经典算法（下）">
                         
-                        <span class="card-title">Markdown语法介绍</span>
+                        <span class="card-title">求解最短路问题的两种经典算法（下）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了Markdown基本语法
+                            介绍了利用Floyd算法解决有权图的多源最短路问题
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/技术/" class="post-category">
-                                    技术
+                            <a href="/categories/算法/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -882,8 +908,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown语法/">
-                        <span class="chip bg-color">Markdown语法</span>
+                    <a href="/tags/Dijkstra-Floyd/">
+                        <span class="chip bg-color">Dijkstra &amp; Floyd</span>
                     </a>
                     
                 </div>

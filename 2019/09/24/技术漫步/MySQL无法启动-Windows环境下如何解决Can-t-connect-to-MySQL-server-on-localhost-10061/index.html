@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="使用Git上传代码到Github仓库, hlgao666/hlgao666">
+    <meta name="keywords" content="MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061), hlgao666/hlgao666">
     <meta name="description" content="I hope you are here for me">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>使用Git上传代码到Github仓库 | Allen</title>
+    <title>MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061) | Allen</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
@@ -322,12 +322,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/featureimages/30.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/29.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">使用Git上传代码到Github仓库</h1>
+                    <h1 class="description center-align post-title">MySQL无法启动--Windows环境下如何解决Can&#39;t connect to MySQL server on localhost (10061)</h1>
                 </div>
             </div>
         </div>
@@ -444,8 +444,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git-Github-来自转载/">
-                                <span class="chip bg-color">Git Github 来自转载</span>
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
@@ -456,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/技术/" class="post-category">
-                                技术
+                            <a href="/categories/技术漫步/" class="post-category">
+                                技术漫步
                             </a>
                         
                     </div>
@@ -469,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-29
+                    2019-09-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-29
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    426
+                    334
                 </div>
                 
 
@@ -505,29 +505,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="使用Git上传代码到Github仓库"><a href="#使用Git上传代码到Github仓库" class="headerlink" title="使用Git上传代码到Github仓库"></a>使用Git上传代码到Github仓库</h2><p><em>转载自：<a href="https://www.cnblogs.com/mr-wuxiansheng/p/6974170.html" target="_blank" rel="noopener">https://www.cnblogs.com/mr-wuxiansheng/p/6974170.html</a></em></p>
-<h3 id="若创建新的仓库"><a href="#若创建新的仓库" class="headerlink" title="若创建新的仓库"></a>若创建新的仓库</h3><p>1.首先需要在github中新建一个仓库</p>
-<p>2.在本地文件夹下使用git初始化仓库</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>3.将项目的所有文件添加到仓库中(注意英文的 .)</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> add <span class="token keyword">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>4.提交到github仓库</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">"commit msg"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>5.将本地仓库与远端github仓库关联，后面的https改成自己新建的仓库https地址</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> remote add origin https://github.com/xxx/yyy.git
-<span class="token function">git</span> pull origin master
-<span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>至此，本地代码已保存到远端的github仓库，刷新远端仓库即可</p>
-<h3 id="若提交到以前的仓库"><a href="#若提交到以前的仓库" class="headerlink" title="若提交到以前的仓库"></a>若提交到以前的仓库</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> add *
-<span class="token function">git</span> commit -m <span class="token string">"commit msg"</span>
-<span class="token function">git</span> pull origin master
-<span class="token function">git</span> push origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="若提交git-push-时出现-Updates-were-rejected-because…-错误"><a href="#若提交git-push-时出现-Updates-were-rejected-because…-错误" class="headerlink" title="若提交git push 时出现 Updates were rejected because… 错误"></a>若提交git push 时出现 Updates were rejected because… 错误</h4><p>出现此情况，一般需要先pull，再push，把远程分支上的提交合并到本地分支之后再push。<br>如果你确定远程分支上那些提交都不需要了，那么使用如下命令，强行让本地分支覆盖远程分支(这样会使远程修改丢失，一般是不可取的，尤其是多人协作开发的时候)。</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> push origin master -f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>因此，可以这样修改：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> pull origin master
-<span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>$ git push -u origin master 命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre class="line-numbers language-bash"><code class="language-bash">因为近期做项目需要用到mysql数据库，但用matlab连接数据库时报错：未定义与 <span class="token string">'struct'</span> 类型的输入参数相对应的函数 <span class="token string">'fetch'</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><pre class="line-numbers language-bash"><code class="language-bash">查找了网上此类问题的原因，大致如下：
+
+安装mysql后使用mysql命令时报错 <span class="token string">"Can't connect to MySQL server on localhost (10061)"</span>，或者用<span class="token string">"net start mysql"</span> 时报服务名无效，一般是因为mysql服务没有启动。   
+
+解决方案：    1.修改系统变量  2.重启MySQL     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>修改系统变量具体请参考：<a href="https://blog.csdn.net/wolfking0608/article/details/82784297/" target="_blank" rel="noopener">Solution</a></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre class="line-numbers language-bash"><code class="language-bash">然鹅，在试过上述修改环境变量后，依然报错，于是，开始怀疑是不是没有启动MySQL服务。打开cmd，在命令行输入<span class="token string">"mysql -u root -p"</span>，提示输入密码。输完密码后直接闪退。  
+
+于是换另一种方式重启服务，以下是具体步骤： 
+
+在桌面右键单击“我的电脑”--管理--服务和应用程序--服务，在服务名称中找到MySQL57（以MySQL57为例），右键单击将其重新启动即可。
+
+好了，大功告成，这次终于成功了。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p>​        </p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -571,7 +564,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2019/12/29/技术/使用Git上传代码到Github仓库/">https://hlgao666.github.io/2019/12/29/技术/使用Git上传代码到Github仓库/</a>
+                    <a href="https://hlgao666.github.io/2019/09/24/技术漫步/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/">https://hlgao666.github.io/2019/09/24/技术漫步/MySQL无法启动-Windows环境下如何解决Can-t-connect-to-MySQL-server-on-localhost-10061/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -609,8 +602,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git-Github-来自转载/">
-                                    <span class="chip bg-color">Git Github 来自转载</span>
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -781,7 +774,7 @@
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2019-12-29T15-11-32',
+        id: '2019-09-24T14-51-14',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -809,30 +802,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/21/苏子专栏/诗集/">
+                <a href="/2019/09/27/论文/论文写作技巧总结/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="诗集">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="论文写作技巧总结">
                         
-                        <span class="card-title">诗集</span>
+                        <span class="card-title">论文写作技巧总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            假如苏子还在 —— 一个热爱着苏子的才女之作
+                            介绍了论文写作的有关技巧和注意事项
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-27
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/诗集/" class="post-category">
-                                    诗集
+                            <a href="/categories/论文写作/" class="post-category">
+                                    论文写作
                                 </a>
                             
                             
@@ -842,8 +835,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/诗集/">
-                        <span class="chip bg-color">诗集</span>
+                    <a href="/tags/论文写作技巧/">
+                        <span class="chip bg-color">论文写作技巧</span>
                     </a>
                     
                 </div>
@@ -857,31 +850,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/30/AI/人工神经网络之BP语音识别/">
+                <a href="/2019/09/04/技术漫步/Markdown语法介绍/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Markdown语法介绍">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/featureimages/27.jpg" class="responsive-img" alt="人工神经网络之BP语音识别">
-                        
-                        <span class="card-title">人工神经网络之BP语音识别</span>
+                        <span class="card-title">Markdown语法介绍</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了使用BP网络训练模型进行语音识别，并比较了不同训练算法的性能
+                            介绍了Markdown基本语法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/AI/" class="post-category">
-                                    AI
+                            <a href="/categories/技术漫步/" class="post-category">
+                                    技术漫步
                                 </a>
                             
                             
@@ -891,8 +883,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BP-语音识别/">
-                        <span class="chip bg-color">BP 语音识别</span>
+                    <a href="/tags/Markdown语法/">
+                        <span class="chip bg-color">Markdown语法</span>
                     </a>
                     
                 </div>
