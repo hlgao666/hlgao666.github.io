@@ -653,6 +653,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <ul>
 <li>默认日期格式会变成一个数字，是1970年1月1日到当前日期的毫秒数！</li>
 <li>Jackson 默认是会把时间转成timestamps形式</li>
+<li><strong>@Controller</strong>     //走视图解析器</li>
+<li><strong>@ResponseBody</strong>   //<strong>配合@Controller使用</strong>，不走视图解析器，直接返回字符串</li>
+<li><strong>@RestController</strong>     //使整个类：  不走视图解析器，直接返回字符串</li>
 </ul>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>controller<span class="token punctuation">;</span>
 
@@ -1374,7 +1377,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">56.9k</span>&nbsp;字
+                class="white-color">57k</span>&nbsp;字
             
             
             
