@@ -476,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-01
+                    2020-12-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -640,21 +640,19 @@
 <li>方法返回的结果是视图的名称hello，加上配置文件中的前后缀变成WEB-INF/jsp/hello.jsp。</li>
 </ul>
 <h3 id="7-创建视图层"><a href="#7-创建视图层" class="headerlink" title="7.创建视图层"></a>7.创建视图层</h3><p>在WEB-INF/ jsp目录中创建 hello.jsp ， 视图可以直接取出并展示从Controller带回的信息；</p>
-<p>可以通过EL表示取出Model中存放的值，或者对象；</p>
-<pre class="line-numbers language-jsp"><code class="language-jsp"><%@ page contenttype="text/html;charset=UTF-8" language="java" %>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    <title>Title</title>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-<body>
+<p>可以通过EL表示取出Model中存放的值，或者对象</p>
+<pre><code>&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
     ${msg}
 
-</body>
-</html><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></%@></code></pre>
-<h3 id="8-启动Tomcat"><a href="#8-启动Tomcat" class="headerlink" title="8.启动Tomcat"></a>8.启动Tomcat</h3><p>注意地址栏</p>
-<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201130170613.png" alt></p>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h3 id="8-启动Tomcat"><a href="#8-启动Tomcat" class="headerlink" title="8.启动Tomcat"></a>8.启动Tomcat</h3><p>注意地址栏</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201130170613.png" alt=""></p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>使用springMVC必须配置的三大件：</p>
 <ul>
 <li>处理器映射器</li>
@@ -682,7 +680,7 @@
           });
       </script>
             </div>
-            <hr>
+            <hr/>
 
             
 
@@ -1256,7 +1254,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.8k</span>&nbsp;字
+                class="white-color">60.3k</span>&nbsp;字
             
             
             

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-03T07:40:32.934Z</updated>
+  <updated>2020-12-03T07:49:44.740Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -18,10 +18,37 @@
   
   <entry>
     <title>整合SSM框架</title>
+    <link href="https://hlgao666.github.io/2020/12/03/%E6%95%B4%E5%90%88SSM%E6%A1%86%E6%9E%B6/"/>
+    <id>https://hlgao666.github.io/2020/12/03/整合SSM框架/</id>
+    <published>2020-12-03T07:03:34.000Z</published>
+    <updated>2020-12-03T07:49:44.740Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="ssm框架" scheme="https://hlgao666.github.io/categories/ssm%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="ssm" scheme="https://hlgao666.github.io/tags/ssm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>整合SSM框架</title>
     <link href="https://hlgao666.github.io/2020/12/03/SpringMVC/%E6%95%B4%E5%90%88SSM%E6%A1%86%E6%9E%B6/"/>
     <id>https://hlgao666.github.io/2020/12/03/SpringMVC/整合SSM框架/</id>
     <published>2020-12-03T07:03:34.000Z</published>
-    <updated>2020-12-03T07:40:32.934Z</updated>
+    <updated>2020-12-03T07:54:20.607Z</updated>
     
     <summary type="html">
     
@@ -106,7 +133,7 @@
     <link href="https://hlgao666.github.io/2020/12/02/SpringMVC/json%E4%BA%A4%E4%BA%92/"/>
     <id>https://hlgao666.github.io/2020/12/02/SpringMVC/json交互/</id>
     <published>2020-12-02T01:25:03.000Z</published>
-    <updated>2020-12-02T06:02:45.405Z</updated>
+    <updated>2020-12-03T07:56:35.419Z</updated>
     
     <summary type="html">
     
@@ -133,7 +160,7 @@
     <link href="https://hlgao666.github.io/2020/12/02/SpringMVC/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
     <id>https://hlgao666.github.io/2020/12/02/SpringMVC/乱码问题/</id>
     <published>2020-12-02T01:24:47.000Z</published>
-    <updated>2020-12-02T01:32:36.638Z</updated>
+    <updated>2020-12-03T07:58:53.172Z</updated>
     
     <summary type="html">
     
@@ -241,7 +268,7 @@
     <link href="https://hlgao666.github.io/2020/12/01/SpringMVC/Controller%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/"/>
     <id>https://hlgao666.github.io/2020/12/01/SpringMVC/Controller实现方式/</id>
     <published>2020-12-01T02:58:04.000Z</published>
-    <updated>2020-12-01T03:07:07.585Z</updated>
+    <updated>2020-12-03T08:01:12.101Z</updated>
     
     <summary type="html">
     
@@ -268,7 +295,7 @@
     <link href="https://hlgao666.github.io/2020/12/01/SpringMVC/SpringMVC%E6%B3%A8%E8%A7%A3%E7%89%88/"/>
     <id>https://hlgao666.github.io/2020/12/01/SpringMVC/SpringMVC注解版/</id>
     <published>2020-12-01T02:57:41.000Z</published>
-    <updated>2020-12-01T03:03:19.911Z</updated>
+    <updated>2020-12-03T08:02:46.089Z</updated>
     
     <summary type="html">
     
@@ -295,7 +322,7 @@
     <link href="https://hlgao666.github.io/2020/12/01/SpringMVC/SpringMVC%E9%85%8D%E7%BD%AE%E7%89%88/"/>
     <id>https://hlgao666.github.io/2020/12/01/SpringMVC/SpringMVC配置版/</id>
     <published>2020-12-01T02:57:33.000Z</published>
-    <updated>2020-12-01T03:02:29.997Z</updated>
+    <updated>2020-12-03T08:03:33.691Z</updated>
     
     <summary type="html">
     
@@ -322,7 +349,7 @@
     <link href="https://hlgao666.github.io/2020/12/01/SpringMVC/SpringMVC%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/"/>
     <id>https://hlgao666.github.io/2020/12/01/SpringMVC/SpringMVC简介及原理/</id>
     <published>2020-12-01T02:57:10.000Z</published>
-    <updated>2020-12-01T03:01:33.976Z</updated>
+    <updated>2020-12-03T08:04:51.092Z</updated>
     
     <summary type="html">
     
@@ -516,33 +543,6 @@
     <id>https://hlgao666.github.io/2020/11/28/Spring/代理模式/</id>
     <published>2020-11-28T02:24:08.000Z</published>
     <updated>2020-11-28T08:57:57.805Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="ssm框架" scheme="https://hlgao666.github.io/categories/ssm%E6%A1%86%E6%9E%B6/"/>
-    
-    
-      <category term="Spring" scheme="https://hlgao666.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用java配置Spring</title>
-    <link href="https://hlgao666.github.io/2020/11/28/Spring/%E4%BD%BF%E7%94%A8java%E9%85%8D%E7%BD%AESpring/"/>
-    <id>https://hlgao666.github.io/2020/11/28/Spring/使用java配置Spring/</id>
-    <published>2020-11-28T02:23:54.000Z</published>
-    <updated>2020-11-28T02:34:14.244Z</updated>
     
     <summary type="html">
     

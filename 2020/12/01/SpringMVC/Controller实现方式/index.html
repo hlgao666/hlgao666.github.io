@@ -476,7 +476,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-01
+                    2020-12-03
                 </div>
                 
 
@@ -519,32 +519,32 @@
    ModelAndView <span class="token function">handleRequest</span><span class="token punctuation">(</span>HttpServletRequest var1<span class="token punctuation">,</span> HttpServletResponse var2<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-新建一个Moudle，springmvc-04-controller"><a href="#1-新建一个Moudle，springmvc-04-controller" class="headerlink" title="1.新建一个Moudle，springmvc-04-controller"></a>1.新建一个Moudle，springmvc-04-controller</h4><ul>
-<li><p>web.xml</p>
+<li>web.xml</li>
+</ul>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://xmlns.jcp.org/xml/ns/javaee<span class="token punctuation">"</span></span>
-       <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
-       <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd<span class="token punctuation">"</span></span>
-       <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>4.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+         <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+         <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd<span class="token punctuation">"</span></span>
+         <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>4.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 
-  <span class="token comment" spellcheck="true">&lt;!--配置DispatcherServlet--></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>springmvc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">></span></span>org.springframework.web.servlet.DispatcherServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>init-param</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>contextConfigLocation<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>classpath:springmvc-servlet.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>load-on-startup</span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>load-on-startup</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!--配置DispatcherServlet--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>springmvc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">></span></span>org.springframework.web.servlet.DispatcherServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>init-param</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>contextConfigLocation<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>classpath:springmvc-servlet.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>load-on-startup</span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>load-on-startup</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">></span></span>
 
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>springmvc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>springmvc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-app</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>springmvc-servlet.xml</p>
-</li>
+<ul>
+<li>springmvc-servlet.xml</li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>mvc的配置文件只留下 视图解析器！注册bean类</strong></p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
@@ -584,21 +584,43 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="3-编写完毕后，去Spring配置文件中注册请求的bean；name对应请求路径，class对应处理请求的类"><a href="#3-编写完毕后，去Spring配置文件中注册请求的bean；name对应请求路径，class对应处理请求的类" class="headerlink" title="3.编写完毕后，去Spring配置文件中注册请求的bean；name对应请求路径，class对应处理请求的类"></a>3.编写完毕后，去Spring配置文件中注册请求的bean；name对应请求路径，class对应处理请求的类</h4><pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/t1<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.allen.controller.ControllerTest1<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="4-编写前端test-jsp，注意在WEB-INF-jsp目录下编写，对应我们的视图解析器"><a href="#4-编写前端test-jsp，注意在WEB-INF-jsp目录下编写，对应我们的视图解析器" class="headerlink" title="4.编写前端test.jsp，注意在WEB-INF/jsp目录下编写，对应我们的视图解析器"></a>4.编写前端test.jsp，注意在WEB-INF/jsp目录下编写，对应我们的视图解析器</h4><pre class="line-numbers language-jsp"><code class="language-jsp"><%@ page contenttype="text/html;charset=UTF-8" language="java" %>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    <title>Title</title>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-<body>
+<h4 id="4-编写前端test-jsp，注意在WEB-INF-jsp目录下编写，对应我们的视图解析器"><a href="#4-编写前端test-jsp，注意在WEB-INF-jsp目录下编写，对应我们的视图解析器" class="headerlink" title="4.编写前端test.jsp，注意在WEB-INF/jsp目录下编写，对应我们的视图解析器"></a>4.编写前端test.jsp，注意在WEB-INF/jsp目录下编写，对应我们的视图解析器</h4><pre><code>&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
     ${msg}
-</body>
-</html><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></%@></code></pre>
-<h4 id="5-配置Tomcat运行测试"><a href="#5-配置Tomcat运行测试" class="headerlink" title="5.配置Tomcat运行测试"></a>5.配置Tomcat运行测试</h4><p>步骤省略。</p>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h4 id="5-配置Tomcat运行测试"><a href="#5-配置Tomcat运行测试" class="headerlink" title="5.配置Tomcat运行测试"></a>5.配置Tomcat运行测试</h4><p>步骤省略。</p>
 <p>实现接口Controller定义控制器是较老的办法；</p>
 <p>缺点是：一个控制器中只有一个方法，如果要多个方法则需要定义多个Controller；定义的方式比较麻烦。</p>
 <hr>
-<h3 id="方式二：使用注解-Controller"><a href="#方式二：使用注解-Controller" class="headerlink" title="方式二：使用注解 @Controller"></a>方式二：使用注解 @Controller</h3><p>@Controller注解类型用于声明Spring类的实例是一个控制器（在讲IOC时还提到了另外3个注解）；<br>|     注解     |  用处  |<br>| :———-: | :—-: |<br>|  @Component  |  组件  |<br>|   @Service   | 业务层 |<br>| @Controller  | 控制层 |<br>| @Respository | dao层  |</p>
+<h3 id="方式二：使用注解-Controller"><a href="#方式二：使用注解-Controller" class="headerlink" title="方式二：使用注解 @Controller"></a>方式二：使用注解 @Controller</h3><p>@Controller注解类型用于声明Spring类的实例是一个控制器（在讲IOC时还提到了另外3个注解）；</p>
+<table>
+<thead>
+<tr>
+<th align="center">注解</th>
+<th align="center">用处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">@Component</td>
+<td align="center">组件</td>
+</tr>
+<tr>
+<td align="center">@Service</td>
+<td align="center">业务层</td>
+</tr>
+<tr>
+<td align="center">@Controller</td>
+<td align="center">控制层</td>
+</tr>
+<tr>
+<td align="center">@Respository</td>
+<td align="center">dao层</td>
+</tr>
+</tbody></table>
 <h4 id="1-在-springmvc-servlet-xml-配置文件中声明组件扫描"><a href="#1-在-springmvc-servlet-xml-配置文件中声明组件扫描" class="headerlink" title="1.在 springmvc-servlet.xml 配置文件中声明组件扫描"></a>1.在 springmvc-servlet.xml 配置文件中声明组件扫描</h4><p>Spring可以使用扫描机制来找到应用程序中所有基于注解的控制器类，为了保证Spring能找到你的控制器，需要在 springmvc-servlet.xml 配置文件中声明组件扫描。</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- 自动扫描包，让指定包下的注解生效,由IOC容器统一管理 --></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.allen.controller<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -622,36 +644,36 @@
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-运行tomcat测试"><a href="#3-运行tomcat测试" class="headerlink" title="3.运行tomcat测试"></a>3.运行tomcat测试</h4><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201130203952.png" alt></p>
-<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201130203955.png" alt></p>
+<h4 id="3-运行tomcat测试"><a href="#3-运行tomcat测试" class="headerlink" title="3.运行tomcat测试"></a>3.运行tomcat测试</h4><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201130203952.png" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201130203955.png" alt=""></p>
 <p>可以发现，我们的两个请求都可以指向一个视图，但是页面结果的结果是不一样的，从这里可以看出<strong>视图是被复用的</strong>，而控制器与视图之间是弱偶合关系。</p>
 <p><strong>注解方式是平时使用的最多的方式！</strong></p>
 <hr>
 <h3 id="补充：-RequestMapping"><a href="#补充：-RequestMapping" class="headerlink" title="补充：@RequestMapping"></a>补充：@RequestMapping</h3><p>@RequestMapping注解用于映射url到控制器类或一个特定的处理程序方法。<strong>可用于类或方法上</strong>。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。</p>
 <p>为了测试结论更加准确，我们可以加上一个项目名测试 myweb</p>
 <ul>
-<li><p>只注解在方法上面</p>
+<li>只注解在方法上面</li>
+</ul>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Controller</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestController</span> <span class="token punctuation">{</span>
- <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/h1"</span><span class="token punctuation">)</span>
- <span class="token keyword">public</span> String <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-     <span class="token keyword">return</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+   <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/h1"</span><span class="token punctuation">)</span>
+   <span class="token keyword">public</span> String <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       <span class="token keyword">return</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>访问路径：<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> / 项目名 / h1</p>
-</li>
-<li><p>同时注解类与方法</p>
+<ul>
+<li>同时注解类与方法</li>
+</ul>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Controller</span>
 <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/admin"</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestController</span> <span class="token punctuation">{</span>
- <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/h1"</span><span class="token punctuation">)</span>
- <span class="token keyword">public</span> String <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-     <span class="token keyword">return</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+   <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/h1"</span><span class="token punctuation">)</span>
+   <span class="token keyword">public</span> String <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       <span class="token keyword">return</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>访问路径：<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> / 项目名/ admin /h1  , <strong>需要先指定类的路径再指定方法的路径</strong>.</p>
-</li>
-</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -672,7 +694,7 @@
           });
       </script>
             </div>
-            <hr>
+            <hr/>
 
             
 
@@ -1246,7 +1268,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.8k</span>&nbsp;字
+                class="white-color">60.3k</span>&nbsp;字
             
             
             

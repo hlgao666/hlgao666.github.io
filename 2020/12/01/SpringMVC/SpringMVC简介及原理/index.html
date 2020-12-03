@@ -476,7 +476,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-01
+                    2020-12-03
                 </div>
                 
 
@@ -609,18 +609,16 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>5.编写Hello.jsp，在WEB-INF目录下新建一个jsp的文件夹，新建hello.jsp</p>
-<pre class="line-numbers language-jsp"><code class="language-jsp"><%@ page contenttype="text/html;charset=UTF-8" language="java" %>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    <title>Title</title>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-<body>
+<pre><code>&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
     ${msg}
-</body>
-</html><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></%@></code></pre>
-<p>6.在web.xml中注册Servlet</p>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>6.在web.xml中注册Servlet</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://xmlns.jcp.org/xml/ns/javaee<span class="token punctuation">"</span></span>
          <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
@@ -674,8 +672,8 @@
 <p>Spring MVC框架像许多其他MVC框架一样, 以请求为驱动 , 围绕一个中心Servlet分派请求及提供其他功能，DispatcherServlet是一个实际的Servlet (它继承自HttpServlet 基类)。</p>
 <p>SpringMVC的原理如下图所示：</p>
 <p>当发起请求时被前置的控制器拦截到请求，根据请求参数生成代理请求，找到请求对应的实际控制器，控制器处理请求，创建数据模型，访问数据库，将模型响应给中心控制器，控制器使用模型与视图渲染视图结果，将结果返回给中心控制器，再将结果返回给请求者。</p>
-<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201201110027.png" alt></p>
-<h2 id="SpringMVC-执行原理-重点"><a href="#SpringMVC-执行原理-重点" class="headerlink" title="SpringMVC 执行原理 ==(重点)=="></a>SpringMVC 执行原理 ==(重点)==</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201201110027.png" alt></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201201110027.png" alt=""></p>
+<h2 id="SpringMVC-执行原理-重点"><a href="#SpringMVC-执行原理-重点" class="headerlink" title="SpringMVC 执行原理 ==(重点)=="></a>SpringMVC 执行原理 ==(重点)==</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201201110027.png" alt=""></p>
 <p>图为SpringMVC的一个较完整的流程图，实线表示SpringMVC框架提供的技术，不需要开发者实现，虚线表示需要开发者实现。</p>
 <p>简要分析执行流程</p>
 <ol>
@@ -730,7 +728,7 @@
           });
       </script>
             </div>
-            <hr>
+            <hr/>
 
             
 
@@ -1308,7 +1306,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.8k</span>&nbsp;字
+                class="white-color">60.3k</span>&nbsp;字
             
             
             

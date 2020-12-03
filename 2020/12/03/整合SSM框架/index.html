@@ -483,14 +483,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    18 分
                 </div>
                 
 
@@ -515,9 +515,10 @@
 <li><p>Tomcat 9</p>
 </li>
 <li><p>Maven 3.5.4</p>
-<p>要求：需要熟练掌握MySQL数据库，Spring，JavaWeb及MyBatis知识，简单的前端知识</p>
+<p>要求：</p>
 </li>
 </ul>
+<p>需要熟练掌握MySQL数据库，Spring，JavaWeb及MyBatis知识，简单的前端知识</p>
 <h2 id="数据库环境"><a href="#数据库环境" class="headerlink" title="数据库环境"></a>数据库环境</h2><p>创建一个存放书籍数据的数据库表</p>
 <pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> <span class="token punctuation">`</span>ssmbuild<span class="token punctuation">`</span><span class="token punctuation">;</span>
 
@@ -678,13 +679,11 @@
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-建立基本结构和配置框架"><a href="#4-建立基本结构和配置框架" class="headerlink" title="4 建立基本结构和配置框架"></a>4 建立基本结构和配置框架</h3><blockquote>
-<ul>
-<li>com.allen.pojo (java)</li>
-<li>com.allen.dao (java)</li>
-<li>com.allen.service (java)</li>
-<li>com.allen.controller (java)</li>
-<li>mybatis-config.xml (resources)</li>
-</ul>
+<p>com.allen.pojo (java)</p>
+<p>com.allen.dao (java)</p>
+<p>com.allen.service (java)</p>
+<p>com.allen.controller (java)</p>
+<p>mybatis-config.xml (resources)</p>
 </blockquote>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>
 <span class="token doctype">&lt;!DOCTYPE configuration
@@ -694,9 +693,7 @@
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<ul>
-<li>applicationContext.xml (resources)</li>
-</ul>
+<p>applicationContext.xml (resources)</p>
 </blockquote>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
@@ -705,11 +702,12 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Mybatis层编写"><a href="#Mybatis层编写" class="headerlink" title="Mybatis层编写"></a>Mybatis层编写</h2><h3 id="1-数据库配置文件-database-properties"><a href="#1-数据库配置文件-database-properties" class="headerlink" title="1 数据库配置文件 database.properties"></a>1 数据库配置文件 database.properties</h3><pre><code>jdbc.driver=com.mysql.jdbc.Driver
-# 如果使用的是MySQL8.0+,需要加上时区设置，serverTimezone=Asia/Shanghai
-jdbc.url=jdbc:mysql://localhost:3306/ssmbuild?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8
-jdbc.username=root
-jdbc.password=1005</code></pre><h3 id="2-IDEA关联数据库"><a href="#2-IDEA关联数据库" class="headerlink" title="2 IDEA关联数据库"></a>2 IDEA关联数据库</h3><h3 id="3-编写MyBatis的核心配置文件"><a href="#3-编写MyBatis的核心配置文件" class="headerlink" title="3 编写MyBatis的核心配置文件"></a>3 编写MyBatis的核心配置文件</h3><p>mybatis-config.xml</p>
+<h2 id="Mybatis层编写"><a href="#Mybatis层编写" class="headerlink" title="Mybatis层编写"></a>Mybatis层编写</h2><h3 id="1-数据库配置文件-database-properties"><a href="#1-数据库配置文件-database-properties" class="headerlink" title="1 数据库配置文件 database.properties"></a>1 数据库配置文件 database.properties</h3><pre class="line-numbers language-properties"><code class="language-properties"><span class="token attr-name">jdbc.driver</span><span class="token punctuation">=</span><span class="token attr-value">com.mysql.jdbc.Driver</span>
+<span class="token comment" spellcheck="true"># 如果使用的是MySQL8.0+,需要加上时区设置，serverTimezone=Asia/Shanghai</span>
+<span class="token attr-name">jdbc.url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:mysql://localhost:3306/ssmbuild?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8</span>
+<span class="token attr-name">jdbc.username</span><span class="token punctuation">=</span><span class="token attr-value">root</span>
+<span class="token attr-name">jdbc.password</span><span class="token punctuation">=</span><span class="token attr-value">1005</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-IDEA关联数据库"><a href="#2-IDEA关联数据库" class="headerlink" title="2 IDEA关联数据库"></a>2 IDEA关联数据库</h3><h3 id="3-编写MyBatis的核心配置文件"><a href="#3-编写MyBatis的核心配置文件" class="headerlink" title="3 编写MyBatis的核心配置文件"></a>3 编写MyBatis的核心配置文件</h3><p>mybatis-config.xml</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>
 <span class="token doctype">&lt;!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -970,8 +968,7 @@ jdbc.password=1005</code></pre><h3 id="2-IDEA关联数据库"><a href="#2-IDEA�
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>contextConfigLocation<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>classpath:applicationContext.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>注意：classpath:<strong>applicationContext.xml</strong></p>
-<p>一定是导入了其他配置文件的总的配置文件。</p>
+<p>注意：classpath:<strong>applicationContext.xml</strong>一定是导入了其他配置文件的总的配置文件。</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://xmlns.jcp.org/xml/ns/javaee<span class="token punctuation">"</span></span>
          <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
@@ -1047,13 +1044,11 @@ jdbc.password=1005</code></pre><h3 id="2-IDEA关联数据库"><a href="#2-IDEA�
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>配置文件，暂时结束！</p>
 <h2 id="Controller-和-视图层编写"><a href="#Controller-和-视图层编写" class="headerlink" title="Controller 和 视图层编写"></a>Controller 和 视图层编写</h2><h3 id="1-BookController-类编写"><a href="#1-BookController-类编写" class="headerlink" title="1 BookController 类编写"></a>1 BookController 类编写</h3><blockquote>
-<ul>
-<li>方法一：查询全部书籍</li>
-<li>方法二：添加书籍</li>
-<li>方法三：修改书籍</li>
-<li>方法四：删除书籍</li>
-<li>方法五：查询书籍</li>
-</ul>
+<p>方法一：查询全部书籍</p>
+<p>方法二：添加书籍</p>
+<p>方法三：修改书籍</p>
+<p>方法四：删除书籍</p>
+<p>方法五：查询书籍</p>
 </blockquote>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>controller<span class="token punctuation">;</span>
 
@@ -1139,19 +1134,13 @@ jdbc.password=1005</code></pre><h3 id="2-IDEA关联数据库"><a href="#2-IDEA�
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-编写首页-index-jsp"><a href="#2-编写首页-index-jsp" class="headerlink" title="2 编写首页 index.jsp"></a>2 编写首页 index.jsp</h3><pre><code>&lt;%--
-  Created by IntelliJ IDEA.
-  User: Allen
-  Date: 2020/12/2
-  Time: 16:42
-  To change this template use File | Settings | File Templates.
---%&gt;
-&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;首页&lt;/title&gt;
+<h3 id="2-编写首页-index-jsp"><a href="#2-编写首页-index-jsp" class="headerlink" title="2 编写首页 index.jsp"></a>2 编写首页 index.jsp</h3><pre class="line-numbers language-jsp"><code class="language-jsp"><%-- 2 12 2020 created by intellij idea. user: allen date: time: 16:42 to change this template use file | settings templates. --%>
+<%@ page contenttype="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <title>首页</title>
 
-    &lt;style type="text/css"&gt;
+    <style type="text/css">
       a {
         text-decoration: none;
         color: black;
@@ -1166,202 +1155,196 @@ jdbc.password=1005</code></pre><h3 id="2-IDEA关联数据库"><a href="#2-IDEA�
         background: deepskyblue;
         border-radius: 4px;
       }
-    &lt;/style&gt;
+    </style>
 
-  &lt;/head&gt;
-  &lt;body&gt;
+  <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+  <body>
 
-  &lt;h3&gt;
-    &lt;a href="${pageContext.request.contextPath}/book/allbook"&gt;进入书籍界面&lt;/a&gt;
-  &lt;/h3&gt;
+  <h3>
+    <a href="${pageContext.request.contextPath}/book/allbook">进入书籍界面</a>
+  </h3>
 
 
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre><h3 id="3-书籍列表页面-allbook-jsp"><a href="#3-书籍列表页面-allbook-jsp" class="headerlink" title="3 书籍列表页面 allbook.jsp"></a>3 书籍列表页面 allbook.jsp</h3><pre><code>&lt;%--
-  Created by IntelliJ IDEA.
-  User: Allen
-  Date: 2020/12/2
-  Time: 17:05
-  To change this template use File | Settings | File Templates.
---%&gt;
-&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %&gt;
-&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;书籍展示&lt;/title&gt;
+  </body>
+</html><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></%@></%--></code></pre>
+<h3 id="3-书籍列表页面-allbook-jsp"><a href="#3-书籍列表页面-allbook-jsp" class="headerlink" title="3 书籍列表页面 allbook.jsp"></a>3 书籍列表页面 allbook.jsp</h3><pre class="line-numbers language-jsp"><code class="language-jsp"><%-- 2 12 2020 created by intellij idea. user: allen date: time: 17:05 to change this template use file | settings templates. --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contenttype="text/html;charset=UTF-8" language="java" %>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <title>书籍展示</title>
 
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;!-- 引入 Bootstrap --&gt;
-    &lt;link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"&gt;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class="container"&gt;
+</head>
+<body>
+<div class="container">
 
-    &lt;div class="row clearfix"&gt;
-        &lt;div class="col-md-12 column"&gt;
-            &lt;div class="page-header"&gt;
-                &lt;h1&gt;
-                    &lt;small&gt;&lt;center&gt;书籍列表 —— 显示所有书籍&lt;/center&gt;&lt;/small&gt;
-                &lt;/h1&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small><center>书籍列表 —— 显示所有书籍</center></small>
+                </h1>
+            </div>
+        </div>
+    </div>
 
-    &lt;div class="row"&gt;
-        &lt;div class="col-md-4 column"&gt;
-            &lt;a class="btn btn-primary" href="${pageContext.request.contextPath}/book/addBook"&gt;新增&lt;/a&gt;
-        &lt;/div&gt;
-        &lt;div class="col-md-4 column"&gt;&lt;/div&gt;
-        &lt;div class="col-md-8 column"&gt;
-            &lt;form action="${pageContext.request.contextPath}/book/queryBook" method="post" style="float: right"&gt;
-                &lt;input type="text" name="bookName" class="from-control" placeholder="请输入要查询的书籍名称"&gt;
-                &lt;input type="submit" value="查询" class="btn btn-primary"&gt;
-            &lt;/form&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+    <div class="row">
+        <div class="col-md-4 column">
+            <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/addBook">新增</a>
+        </div>
+        <div class="col-md-4 column"></div>
+        <div class="col-md-8 column">
+            <form action="${pageContext.request.contextPath}/book/queryBook" method="post" style="float: right">
+                <input type="text" name="bookName" class="from-control" placeholder="请输入要查询的书籍名称">
+                <input type="submit" value="查询" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
 
-    &lt;div class="row clearfix"&gt;
-        &lt;div class="col-md-12 column"&gt;
-            &lt;table class="table table-hover table-striped"&gt;
-                &lt;thead&gt;
-                    &lt;tr&gt;
-                        &lt;th&gt;书籍编号&lt;/th&gt;
-                        &lt;th&gt;书籍名字&lt;/th&gt;
-                        &lt;th&gt;书籍数量&lt;/th&gt;
-                        &lt;th&gt;书籍详情&lt;/th&gt;
-                        &lt;th&gt;操作&lt;/th&gt;
-                    &lt;/tr&gt;
-                &lt;/thead&gt;
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>书籍编号</th>
+                        <th>书籍名字</th>
+                        <th>书籍数量</th>
+                        <th>书籍详情</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
 
-                &lt;tbody&gt;
-                    &lt;c:forEach var="book" items="${requestScope.get('list')}"&gt;
-                        &lt;tr&gt;
-                            &lt;td&gt;${book.getBookId()}&lt;/td&gt;
-                            &lt;td&gt;${book.getBookName()}&lt;/td&gt;
-                            &lt;td&gt;${book.getBookCounts()}&lt;/td&gt;
-                            &lt;td&gt;${book.getDetail()}&lt;/td&gt;
-                            &lt;td&gt;
-                                &lt;a href="${pageContext.request.contextPath}/book/updateBook?id=${book.bookId}"&gt;更改&lt;/a&gt;
-                                &amp;nbsp;| &amp;nbsp;
-                                &lt;a href="${pageContext.request.contextPath}/book/deleteBook?id=${book.bookId}"&gt;删除&lt;/a&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/c:forEach&gt;
-                &lt;/tbody&gt;
+                <tbody>
+                    <c:foreach var="book" items="${requestScope.get('list')}">
+                        <tr>
+                            <td>${book.getBookId()}</td>
+                            <td>${book.getBookName()}</td>
+                            <td>${book.getBookCounts()}</td>
+                            <td>${book.getDetail()}</td>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/book/updateBook?id=${book.bookId}">更改</a>
+                                &nbsp;| &nbsp;
+                                <a href="${pageContext.request.contextPath}/book/deleteBook?id=${book.bookId}">删除</a>
+                            </td>
+                        </tr>
+                    </c:foreach>
+                </tbody>
 
-            &lt;/table&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><h3 id="4-添加书籍页面-addBook-jsp"><a href="#4-添加书籍页面-addBook-jsp" class="headerlink" title="4 添加书籍页面 addBook.jsp"></a>4 添加书籍页面 addBook.jsp</h3><pre><code>&lt;%--
-  Created by IntelliJ IDEA.
-  User: Allen
-  Date: 2020/12/2
-  Time: 21:32
-  To change this template use File | Settings | File Templates.
---%&gt;
-&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %&gt;
-&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></%@></%@></%--></code></pre>
+<h3 id="4-添加书籍页面-addBook-jsp"><a href="#4-添加书籍页面-addBook-jsp" class="headerlink" title="4 添加书籍页面 addBook.jsp"></a>4 添加书籍页面 addBook.jsp</h3><pre class="line-numbers language-jsp"><code class="language-jsp"><%-- 2 12 2020 created by intellij idea. user: allen date: time: 21:32 to change this template use file | settings templates. --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contenttype="text/html;charset=UTF-8" language="java" %>
 
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;新增书籍&lt;/title&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;!-- 引入 Bootstrap --&gt;
-    &lt;link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class="container"&gt;
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <title>新增书籍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
 
-    &lt;div class="row clearfix"&gt;
-        &lt;div class="col-md-12 column"&gt;
-            &lt;div class="page-header"&gt;
-                &lt;h1&gt;
-                    &lt;small&gt;新增书籍&lt;/small&gt;
-                &lt;/h1&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>新增书籍</small>
+                </h1>
+            </div>
+        </div>
+    </div>
 
-        &lt;%--    required可强制  输入值不为空，否则报错  --%&gt;
-    &lt;form action="${pageContext.request.contextPath}/book/addbook" method="post"&gt;
-        书籍名称：&lt;input type="text" name="bookName" required&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-        书籍数量：&lt;input type="text" name="bookCounts" required&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-        书籍详情：&lt;input type="text" name="detail" required&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-        &lt;input type="submit" value="添加"&gt;
-    &lt;/form&gt;
+        <%-- required可强制 输入值不为空，否则报错 --%>
+    <form action="${pageContext.request.contextPath}/book/addbook" method="post">
+        书籍名称：<input type="text" name="bookName" required><br><br><br>
+        书籍数量：<input type="text" name="bookCounts" required><br><br><br>
+        书籍详情：<input type="text" name="detail" required><br><br><br>
+        <input type="submit" value="添加">
+    </form>
 
-&lt;/div&gt;</code></pre><h3 id="5-修改书籍界面-updateBook-jsp"><a href="#5-修改书籍界面-updateBook-jsp" class="headerlink" title="5 修改书籍界面 updateBook.jsp"></a>5 修改书籍界面 updateBook.jsp</h3><pre><code>&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %&gt;
-&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;修改信息&lt;/title&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;!-- 引入 Bootstrap --&gt;
-    &lt;link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class="container"&gt;
+</%--></div><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></body></html></%@></%@></%--></code></pre>
+<h3 id="5-修改书籍界面-updateBook-jsp"><a href="#5-修改书籍界面-updateBook-jsp" class="headerlink" title="5 修改书籍界面 updateBook.jsp"></a>5 修改书籍界面 updateBook.jsp</h3><pre class="line-numbers language-jsp"><code class="language-jsp"><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contenttype="text/html;charset=UTF-8" language="java" %>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <title>修改信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
 
-    &lt;div class="row clearfix"&gt;
-        &lt;div class="col-md-12 column"&gt;
-            &lt;div class="page-header"&gt;
-                &lt;h1&gt;
-                    &lt;small&gt;修改信息&lt;/small&gt;
-                &lt;/h1&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>修改信息</small>
+                </h1>
+            </div>
+        </div>
+    </div>
 
-    &lt;form action="${pageContext.request.contextPath}/book/updatebook" method="post"&gt;
-        &lt;input type="hidden" name="bookId" value="${book.bookId}"/&gt;
-        书籍名称：&lt;input type="text" name="bookName" value="${book.bookName}"/&gt;
-        书籍数量：&lt;input type="text" name="bookCounts" value="${book.bookCounts}"/&gt;
-        书籍详情：&lt;input type="text" name="detail" value="${book.detail}"/&gt;
-        &lt;input type="submit" value="修改"/&gt;
-    &lt;/form&gt;
+    <form action="${pageContext.request.contextPath}/book/updatebook" method="post">
+        <input type="hidden" name="bookId" value="${book.bookId}">
+        书籍名称：<input type="text" name="bookName" value="${book.bookName}">
+        书籍数量：<input type="text" name="bookCounts" value="${book.bookCounts}">
+        书籍详情：<input type="text" name="detail" value="${book.detail}">
+        <input type="submit" value="修改">
+    </form>
 
-&lt;/div&gt;</code></pre><h2 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h2><h3 id="1-导入依赖"><a href="#1-导入依赖" class="headerlink" title="1 导入依赖"></a>1 导入依赖</h3><pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--  LOG4J--></span>
+</div><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></body></html></%@></%@></code></pre>
+<h2 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h2><h3 id="1-导入依赖"><a href="#1-导入依赖" class="headerlink" title="1 导入依赖"></a>1 导入依赖</h3><pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--  LOG4J--></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>log4j<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>log4j<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.2.17<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-编写配置文件-log4j-properties"><a href="#2-编写配置文件-log4j-properties" class="headerlink" title="2 编写配置文件 log4j.properties"></a>2 编写配置文件 log4j.properties</h3><pre><code>#将等级为DEBUG的日志信息输出到console和file这两个目的地，console和file的定义在下面的代码
-log4j.rootLogger=DEBUG,console,file
+<h3 id="2-编写配置文件-log4j-properties"><a href="#2-编写配置文件-log4j-properties" class="headerlink" title="2 编写配置文件 log4j.properties"></a>2 编写配置文件 log4j.properties</h3><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true">#将等级为DEBUG的日志信息输出到console和file这两个目的地，console和file的定义在下面的代码</span>
+<span class="token attr-name">log4j.rootLogger</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG,console,file</span>
 
-#控制台输出的相关设置
-log4j.appender.console = org.apache.log4j.ConsoleAppender
-log4j.appender.console.Target = System.out
-log4j.appender.console.Threshold=DEBUG
-log4j.appender.console.layout = org.apache.log4j.PatternLayout
-log4j.appender.console.layout.ConversionPattern=[%c]-%m%n
+<span class="token comment" spellcheck="true">#控制台输出的相关设置</span>
+<span class="token attr-name">log4j.appender.console</span> <span class="token punctuation">=</span> <span class="token attr-value">org.apache.log4j.ConsoleAppender</span>
+<span class="token attr-name">log4j.appender.console.Target</span> <span class="token punctuation">=</span> <span class="token attr-value">System.out</span>
+<span class="token attr-name">log4j.appender.console.Threshold</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span>
+<span class="token attr-name">log4j.appender.console.layout</span> <span class="token punctuation">=</span> <span class="token attr-value">org.apache.log4j.PatternLayout</span>
+<span class="token attr-name">log4j.appender.console.layout.ConversionPattern</span><span class="token punctuation">=</span><span class="token attr-value">[%c]-%m%n</span>
 
-#文件输出的相关设置
-log4j.appender.file = org.apache.log4j.RollingFileAppender
-log4j.appender.file.File=./log/allen.log
-log4j.appender.file.MaxFileSize=10mb
-log4j.appender.file.Threshold=DEBUG
-log4j.appender.file.layout=org.apache.log4j.PatternLayout
-log4j.appender.file.layout.ConversionPattern=[%p]allen:[%d{yy-MM-dd}][%c]%m%n
+<span class="token comment" spellcheck="true">#文件输出的相关设置</span>
+<span class="token attr-name">log4j.appender.file</span> <span class="token punctuation">=</span> <span class="token attr-value">org.apache.log4j.RollingFileAppender</span>
+<span class="token attr-name">log4j.appender.file.File</span><span class="token punctuation">=</span><span class="token attr-value">./log/allen.log</span>
+<span class="token attr-name">log4j.appender.file.MaxFileSize</span><span class="token punctuation">=</span><span class="token attr-value">10mb</span>
+<span class="token attr-name">log4j.appender.file.Threshold</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span>
+<span class="token attr-name">log4j.appender.file.layout</span><span class="token punctuation">=</span><span class="token attr-value">org.apache.log4j.PatternLayout</span>
+<span class="token attr-name">log4j.appender.file.layout.ConversionPattern</span><span class="token punctuation">=</span><span class="token attr-value">[%p]allen:[%d{yy-MM-dd}][%c]%m%n</span>
 
-#日志输出级别
-log4j.logger.org.mybatis=DEBUG
-log4j.logger.java.sql=DEBUG
-log4j.logger.java.sql.Statement=DEBUG
-log4j.logger.java.sql.ResultSet=DEBUG
-log4j.logger.java.sql.PreparedStatement=DEBUG</code></pre><h3 id="3-mybatis-config-xml-设置日志实现"><a href="#3-mybatis-config-xml-设置日志实现" class="headerlink" title="3 mybatis-config.xml 设置日志实现"></a>3 mybatis-config.xml 设置日志实现</h3><pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- log output --></span>
+<span class="token comment" spellcheck="true">#日志输出级别</span>
+<span class="token attr-name">log4j.logger.org.mybatis</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span>
+<span class="token attr-name">log4j.logger.java.sql</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span>
+<span class="token attr-name">log4j.logger.java.sql.Statement</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span>
+<span class="token attr-name">log4j.logger.java.sql.ResultSet</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span>
+<span class="token attr-name">log4j.logger.java.sql.PreparedStatement</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-mybatis-config-xml-设置日志实现"><a href="#3-mybatis-config-xml-设置日志实现" class="headerlink" title="3 mybatis-config.xml 设置日志实现"></a>3 mybatis-config.xml 设置日志实现</h3><pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- log output --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>settings</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>logImpl<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>LOG4J<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>settings</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h2><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203145939.png" alt=""></p>
-<h3 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203145951.png" alt=""></p>
-<h3 id="所有书籍"><a href="#所有书籍" class="headerlink" title="所有书籍"></a>所有书籍</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203150005.png" alt=""></p>
-<h3 id="新增书籍"><a href="#新增书籍" class="headerlink" title="新增书籍"></a>新增书籍</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203150016.png" alt=""></p>
-<h3 id="修改书籍"><a href="#修改书籍" class="headerlink" title="修改书籍"></a>修改书籍</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203150026.png" alt=""></p>
-<h3 id="查询书籍"><a href="#查询书籍" class="headerlink" title="查询书籍"></a>查询书籍</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203150034.png" alt=""></p>
+<h2 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h2><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203145939.png" alt></p>
+<h3 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203145951.png" alt></p>
+<h3 id="所有书籍"><a href="#所有书籍" class="headerlink" title="所有书籍"></a>所有书籍</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203150005.png" alt></p>
+<h3 id="新增书籍"><a href="#新增书籍" class="headerlink" title="新增书籍"></a>新增书籍</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203150016.png" alt></p>
+<h3 id="修改书籍"><a href="#修改书籍" class="headerlink" title="修改书籍"></a>修改书籍</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203150026.png" alt></p>
+<h3 id="查询书籍"><a href="#查询书籍" class="headerlink" title="查询书籍"></a>查询书籍</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201203150034.png" alt></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1382,7 +1365,7 @@ log4j.logger.java.sql.PreparedStatement=DEBUG</code></pre><h3 id="3-mybatis-conf
           });
       </script>
             </div>
-            <hr/>
+            <hr>
 
             
 
@@ -1405,7 +1388,7 @@ log4j.logger.java.sql.PreparedStatement=DEBUG</code></pre><h3 id="3-mybatis-conf
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2020/12/03/SpringMVC/整合SSM框架/">https://hlgao666.github.io/2020/12/03/SpringMVC/整合SSM框架/</a>
+                    <a href="https://hlgao666.github.io/2020/12/03/整合SSM框架/">https://hlgao666.github.io/2020/12/03/整合SSM框架/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1641,7 +1624,8 @@ log4j.logger.java.sql.PreparedStatement=DEBUG</code></pre><h3 id="3-mybatis-conf
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/12/03/整合SSM框架/">
                     <div class="card-image">
@@ -1658,9 +1642,9 @@ log4j.logger.java.sql.PreparedStatement=DEBUG</code></pre><h3 id="3-mybatis-conf
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1673,6 +1657,7 @@ log4j.logger.java.sql.PreparedStatement=DEBUG</code></pre><h3 id="3-mybatis-conf
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1691,18 +1676,18 @@ log4j.logger.java.sql.PreparedStatement=DEBUG</code></pre><h3 id="3-mybatis-conf
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/03/剑指offer/剑指offer35/">
+                <a href="/2020/12/03/SpringMVC/整合SSM框架/">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201201174027.jpg" class="responsive-img" alt="剑指offer35">
+                        <img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201201174017.jpg" class="responsive-img" alt="整合SSM框架">
                         
-                        <span class="card-title">剑指offer35</span>
+                        <span class="card-title">整合SSM框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数组中的逆序对
+                            SSM框架整合
                         
                     </div>
                     <div class="publish-info">
@@ -1713,8 +1698,8 @@ log4j.logger.java.sql.PreparedStatement=DEBUG</code></pre><h3 id="3-mybatis-conf
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/剑指offer/" class="post-category">
-                                    剑指offer
+                            <a href="/categories/ssm框架/" class="post-category">
+                                    ssm框架
                                 </a>
                             
                             
@@ -1724,16 +1709,8 @@ log4j.logger.java.sql.PreparedStatement=DEBUG</code></pre><h3 id="3-mybatis-conf
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/分治/">
-                        <span class="chip bg-color">分治</span>
-                    </a>
-                    
-                    <a href="/tags/数组/">
-                        <span class="chip bg-color">数组</span>
-                    </a>
-                    
-                    <a href="/tags/归并排序/">
-                        <span class="chip bg-color">归并排序</span>
+                    <a href="/tags/ssm/">
+                        <span class="chip bg-color">ssm</span>
                     </a>
                     
                 </div>

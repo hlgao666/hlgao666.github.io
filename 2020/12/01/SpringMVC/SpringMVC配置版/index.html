@@ -476,7 +476,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-01
+                    2020-12-03
                 </div>
                 
 
@@ -611,19 +611,17 @@
 <h3 id="9-将自己的类注册bean到SpringIOC容器"><a href="#9-将自己的类注册bean到SpringIOC容器" class="headerlink" title="9.将自己的类注册bean到SpringIOC容器"></a>9.将自己的类注册bean到SpringIOC容器</h3><pre class="line-numbers language-xml"><code class="language-xml">    <span class="token comment" spellcheck="true">&lt;!--Handler--></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/hello<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.allen.controller.HelloController<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="10-写要跳转的jsp页面，显示ModelandView存放的数据，以及我们的正常页面"><a href="#10-写要跳转的jsp页面，显示ModelandView存放的数据，以及我们的正常页面" class="headerlink" title="10.写要跳转的jsp页面，显示ModelandView存放的数据，以及我们的正常页面"></a>10.写要跳转的jsp页面，显示ModelandView存放的数据，以及我们的正常页面</h3><p>在 WEB-INF 目录下，新建jsp目录，然后新建 hello.jsp 文件。</p>
-<pre class="line-numbers language-jsp"><code class="language-jsp"><%@ page contenttype="text/html;charset=UTF-8" language="java" %>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    <title>Allen</title>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-<body>
+<pre><code>&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Allen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
     ${msg}
 
-</body>
-</html><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></%@></code></pre>
-<h3 id="11-配置-Tomcat-启动测试！"><a href="#11-配置-Tomcat-启动测试！" class="headerlink" title="11.配置 Tomcat 启动测试！"></a>11.配置 Tomcat 启动测试！</h3><h3 id="可能遇到的问题：访问出现404"><a href="#可能遇到的问题：访问出现404" class="headerlink" title="可能遇到的问题：访问出现404"></a>可能遇到的问题：访问出现404</h3><p>排查步骤：</p>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h3 id="11-配置-Tomcat-启动测试！"><a href="#11-配置-Tomcat-启动测试！" class="headerlink" title="11.配置 Tomcat 启动测试！"></a>11.配置 Tomcat 启动测试！</h3><h3 id="可能遇到的问题：访问出现404"><a href="#可能遇到的问题：访问出现404" class="headerlink" title="可能遇到的问题：访问出现404"></a>可能遇到的问题：访问出现404</h3><p>排查步骤：</p>
 <p>查看控制台输出，看一下是不是缺少了什么 jar 包。</p>
 <p>如果 jar 包存在，显示无法输出，就在 IDEA 的项目发布中，添加 lib 依赖！  </p>
 <ul>
@@ -734,7 +732,7 @@
           });
       </script>
             </div>
-            <hr>
+            <hr/>
 
             
 
@@ -1308,7 +1306,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.8k</span>&nbsp;字
+                class="white-color">60.3k</span>&nbsp;字
             
             
             

@@ -476,21 +476,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-02
+                    2020-12-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    359
+                    452
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -515,33 +515,30 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="在web目录下新建-form-jsp"><a href="#在web目录下新建-form-jsp" class="headerlink" title="在web目录下新建 form.jsp"></a>在web目录下新建 form.jsp</h2><p>注意 action 和 method</p>
-<pre class="line-numbers language-jsp"><code class="language-jsp"><%@ page contenttype="text/html;charset=UTF-8" language="java" %>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    <title>Title</title>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-<body>
+<pre><code>&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
 
-<form action="/e/t" method="post">
-    <input type="text" name="name">
-    <input type="submit">
-</form>
+&lt;form action="/e/t" method="post"&gt;
+    &lt;input type="text" name="name"/&gt;
+    &lt;input type="submit"/&gt;
+&lt;/form&gt;
 
 
-</body>
-</html><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></%@></code></pre>
-<h2 id="web-WEB-INF-jsp-test-jsp"><a href="#web-WEB-INF-jsp-test-jsp" class="headerlink" title="web/WEB-INF/jsp/test.jsp"></a>web/WEB-INF/jsp/test.jsp</h2><pre class="line-numbers language-jsp"><code class="language-jsp"><%@ page contenttype="text/html;charset=UTF-8" language="java" %>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    <title>Title</title>
-</head>
-<body>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h2 id="web-WEB-INF-jsp-test-jsp"><a href="#web-WEB-INF-jsp-test-jsp" class="headerlink" title="web/WEB-INF/jsp/test.jsp"></a>web/WEB-INF/jsp/test.jsp</h2><pre><code>&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
     ${msg}
-</body>
-</html><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></%@></code></pre>
-<hr>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><hr>
 <h2 id="解决乱码"><a href="#解决乱码" class="headerlink" title="解决乱码"></a>解决乱码</h2><h3 id="方式一：自己编写过滤器类"><a href="#方式一：自己编写过滤器类" class="headerlink" title="方式一：自己编写过滤器类"></a>方式一：自己编写过滤器类</h3><h4 id="1-编写过滤器类-EncodingFilter"><a href="#1-编写过滤器类-EncodingFilter" class="headerlink" title="1.编写过滤器类 EncodingFilter"></a>1.编写过滤器类 EncodingFilter</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>filter<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
@@ -565,7 +562,7 @@
 
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="2-在-web-WEB-INF-web-xml-目录下-注册过滤器类"><a href="#2-在-web-WEB-INF-web-xml-目录下-注册过滤器类" class="headerlink" title="2.在 web/WEB-INF/web.xml 目录下 注册过滤器类"></a>2.在 web/WEB-INF/web.xml 目录下 注册过滤器类</h4><p>注意：<em>*<url-pattern>/</url-pattern></em> 中的 / * 表示匹配所有包括jsp页面</p>
+<h4 id="2-在-web-WEB-INF-web-xml-目录下-注册过滤器类"><a href="#2-在-web-WEB-INF-web-xml-目录下-注册过滤器类" class="headerlink" title="2.在 web/WEB-INF/web.xml 目录下 注册过滤器类"></a>2.在 web/WEB-INF/web.xml 目录下 注册过滤器类</h4><p>注意：<url-pattern>/*</url-pattern> 中的 / * 表示匹配所有，包括jsp页面</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-name</span><span class="token punctuation">></span></span>encoding<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-name</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-class</span><span class="token punctuation">></span></span>com.allen.filter.EncodingFilter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-class</span><span class="token punctuation">></span></span>
@@ -574,7 +571,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-name</span><span class="token punctuation">></span></span>encoding<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-name</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-mapping</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="方式二：web-xml中配置-SpringMVC-的过滤器类"><a href="#方式二：web-xml中配置-SpringMVC-的过滤器类" class="headerlink" title="方式二：web.xml中配置 SpringMVC 的过滤器类"></a>方式二：web.xml中配置 SpringMVC 的过滤器类</h3><p>注意：<em>*<url-pattern>/</url-pattern></em> 中的 / * 表示匹配所有包括jsp页面</p>
+<h3 id="方式二：web-xml中配置-SpringMVC-的过滤器类"><a href="#方式二：web-xml中配置-SpringMVC-的过滤器类" class="headerlink" title="方式二：web.xml中配置 SpringMVC 的过滤器类"></a>方式二：web.xml中配置 SpringMVC 的过滤器类</h3><p>注意：<url-pattern>/*</url-pattern> 中的 / * 表示匹配所有，包括jsp页面</p>
 <pre class="line-numbers language-xml"><code class="language-xml">    <span class="token comment" spellcheck="true">&lt;!--配置SpringMVC的过滤器类--></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-name</span><span class="token punctuation">></span></span>encoding2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-name</span><span class="token punctuation">></span></span>
@@ -608,7 +605,7 @@
           });
       </script>
             </div>
-            <hr>
+            <hr/>
 
             
 
@@ -1182,7 +1179,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.8k</span>&nbsp;字
+                class="white-color">60.3k</span>&nbsp;字
             
             
             

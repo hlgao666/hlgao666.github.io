@@ -476,7 +476,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-02
+                    2020-12-03
                 </div>
                 
 
@@ -652,93 +652,107 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>编写一个Controller</p>
 <ul>
 <li>默认日期格式会变成一个数字，是1970年1月1日到当前日期的毫秒数！</li>
-<li>Jackson 默认是会把时间转成timestamps形式<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>controller<span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<li>Jackson 默认是会把时间转成timestamps形式</li>
 </ul>
-<p>import com.alibaba.fastjson.JSON;<br>import com.alibaba.fastjson.serializer.SerializerFeature;<br>import com.allen.pojo.User;<br>import com.fasterxml.jackson.core.JsonProcessingException;<br>import com.fasterxml.jackson.databind.ObjectMapper;<br>import org.springframework.stereotype.Controller;<br>import org.springframework.web.bind.annotation.RequestMapping;<br>import org.springframework.web.bind.annotation.ResponseBody;<br>import org.springframework.web.bind.annotation.RestController;</p>
-<p>import java.text.SimpleDateFormat;<br>import java.util.ArrayList;<br>import java.util.Date;<br>import java.util.List;</p>
-<p>/**</p>
-<ul>
-<li>@author Allen</li>
-<li>@date 2020/12/1 22:04</li>
-<li>/</li>
-</ul>
-<p>//@Controller     //走视图解析器<br>@RestController     //使整个类：  不走视图解析器，直接返回字符串<br>public class UserController {</p>
-<pre><code>//单个对象
-@RequestMapping("/j1")
-//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串
-public String test() throws JsonProcessingException {
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>controller<span class="token punctuation">;</span>
 
-    ObjectMapper objectMapper = new ObjectMapper();
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>fastjson<span class="token punctuation">.</span>JSON<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>fastjson<span class="token punctuation">.</span>serializer<span class="token punctuation">.</span>SerializerFeature<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>fasterxml<span class="token punctuation">.</span>jackson<span class="token punctuation">.</span>core<span class="token punctuation">.</span>JsonProcessingException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>fasterxml<span class="token punctuation">.</span>jackson<span class="token punctuation">.</span>databind<span class="token punctuation">.</span>ObjectMapper<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Controller<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>RequestMapping<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>ResponseBody<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>RestController<span class="token punctuation">;</span>
 
-    User user = new User(1, "中国", 18);
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>text<span class="token punctuation">.</span>SimpleDateFormat<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
 
-    String s = objectMapper.writeValueAsString(user);
+<span class="token comment" spellcheck="true">/**
+ * @author Allen
+ * @date 2020/12/1 22:04
+ */</span>
 
-    return s;
-}
+<span class="token comment" spellcheck="true">//@Controller     //走视图解析器</span>
+<span class="token annotation punctuation">@RestController</span>     <span class="token comment" spellcheck="true">//使整个类：  不走视图解析器，直接返回字符串</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserController</span> <span class="token punctuation">{</span>
 
-//集合
-@RequestMapping("/j2")
-//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串
-public String test2() throws JsonProcessingException {
+    <span class="token comment" spellcheck="true">//单个对象</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/j1"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串</span>
+    <span class="token keyword">public</span> String <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> JsonProcessingException <span class="token punctuation">{</span>
 
-    ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    List&lt;User&gt; userList = new ArrayList&lt;&gt;();
-    User user1 = new User(1, "中国", 18);
-    User user2 = new User(1, "中国", 18);
-    User user3 = new User(1, "中国", 18);
-    User user4 = new User(1, "中国", 18);
-    userList.add(user1);
-    userList.add(user2);
-    userList.add(user3);
-    userList.add(user4);
+        User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"中国"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    String s = objectMapper.writeValueAsString(userList);
+        String s <span class="token operator">=</span> objectMapper<span class="token punctuation">.</span><span class="token function">writeValueAsString</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    return s;
-}
+        <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-//时间
-@RequestMapping("/j3")
-//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串
-public String test3() throws JsonProcessingException {
+    <span class="token comment" spellcheck="true">//集合</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/j2"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串</span>
+    <span class="token keyword">public</span> String <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> JsonProcessingException <span class="token punctuation">{</span>
 
-    ObjectMapper objectMapper = new ObjectMapper();
-    Date date = new Date();
-    //时间解析后的默认格式：Timestamp, 时间戳，因此需要转换
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        ObjectMapper objectMapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    String s = objectMapper.writeValueAsString(dateFormat.format(date));
+        List<span class="token operator">&lt;</span>User<span class="token operator">></span> userList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        User user1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"中国"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        User user2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"中国"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        User user3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"中国"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        User user4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"中国"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>user1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>user2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>user3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>user4<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    return s;
-}
+        String s <span class="token operator">=</span> objectMapper<span class="token punctuation">.</span><span class="token function">writeValueAsString</span><span class="token punctuation">(</span>userList<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-//时间  import com.alibaba.fastjson.JSON;
-@RequestMapping("/j4")
-//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串
-public String test4() throws JsonProcessingException {
+        <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    Date date = new Date();
+    <span class="token comment" spellcheck="true">//时间</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/j3"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串</span>
+    <span class="token keyword">public</span> String <span class="token function">test3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> JsonProcessingException <span class="token punctuation">{</span>
 
-    String s = JSON.toJSONStringWithDateFormat(date,"yyyy-MM-dd HH:mm:ss", SerializerFeature.WriteDateUseDateFormat);
+        ObjectMapper objectMapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Date date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//时间解析后的默认格式：Timestamp, 时间戳，因此需要转换</span>
+        SimpleDateFormat dateFormat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    return s;
-}</code></pre><p>}</p>
-<pre><code>
-### FastJson
-fastjson.jar是阿里开发的一款专门用于Java开发的包，可以方便的实现json对象与JavaBean对象的转换，实现JavaBean对象与json字符串的转换，实现json对象与json字符串的转换。实现json的转换方法很多，最后的实现结果都是一样的。
+        String s <span class="token operator">=</span> objectMapper<span class="token punctuation">.</span><span class="token function">writeValueAsString</span><span class="token punctuation">(</span>dateFormat<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-fastjson 的 pom依赖！
-```xml
-&lt;!-- https://mvnrepository.com/artifact/com.alibaba/fastjson --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
-    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
-    &lt;version&gt;1.2.75&lt;/version&gt;
-&lt;/dependency&gt;</code></pre><p>fastjson 三个主要的类：</p>
+        <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//时间  import com.alibaba.fastjson.JSON;</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/j4"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串</span>
+    <span class="token keyword">public</span> String <span class="token function">test4</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> JsonProcessingException <span class="token punctuation">{</span>
+
+        Date date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        String s <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">toJSONStringWithDateFormat</span><span class="token punctuation">(</span>date<span class="token punctuation">,</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">,</span> SerializerFeature<span class="token punctuation">.</span>WriteDateUseDateFormat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="FastJson"><a href="#FastJson" class="headerlink" title="FastJson"></a>FastJson</h3><p>fastjson.jar是阿里开发的一款专门用于Java开发的包，可以方便的实现json对象与JavaBean对象的转换，实现JavaBean对象与json字符串的转换，实现json对象与json字符串的转换。实现json的转换方法很多，最后的实现结果都是一样的。</p>
+<p>fastjson 的 pom依赖！</p>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- https://mvnrepository.com/artifact/com.alibaba/fastjson --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>fastjson<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.2.75<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>fastjson 三个主要的类：</p>
 <ul>
 <li>JSONObject  代表 json 对象 </li>
 <li>JSONObject实现了Map接口, 猜想 JSONObject底层操作是由Map实现的。</li>
@@ -750,23 +764,21 @@ fastjson 的 pom依赖！
 </ul>
 <p>JSON代表 JSONObject和JSONArray的转化</p>
 <ul>
-<li><p>JSON类源码分析与使用</p>
-</li>
-<li><p>仔细观察这些方法，主要是实现json对象，json对象数组，javabean对象，json字符串之间的相互转化。</p>
-<pre class="line-numbers language-java"><code class="language-java">  <span class="token comment" spellcheck="true">//时间  import com.alibaba.fastjson.JSON;</span>
-  <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/j4"</span><span class="token punctuation">)</span>
-  <span class="token comment" spellcheck="true">//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串</span>
-  <span class="token keyword">public</span> String <span class="token function">test4</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> JsonProcessingException <span class="token punctuation">{</span>
-
-      Date date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-      String s <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">toJSONStringWithDateFormat</span><span class="token punctuation">(</span>date<span class="token punctuation">,</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">,</span> SerializerFeature<span class="token punctuation">.</span>WriteDateUseDateFormat<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-      <span class="token keyword">return</span> s<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>这种工具类，我们只需要掌握使用就好了，在使用的时候在根据具体的业务去找对应的实现。和以前的commons-io那种工具包一样，拿来用就好了！</p>
-</li>
+<li>JSON类源码分析与使用</li>
+<li>仔细观察这些方法，主要是实现json对象，json对象数组，javabean对象，json字符串之间的相互转化。</li>
 </ul>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//时间  import com.alibaba.fastjson.JSON;</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/j4"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//@ResponseBody   //配合@Controller使用，不走视图解析器，直接返回字符串</span>
+    <span class="token keyword">public</span> String <span class="token function">test4</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> JsonProcessingException <span class="token punctuation">{</span>
+
+        Date date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        String s <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">toJSONStringWithDateFormat</span><span class="token punctuation">(</span>date<span class="token punctuation">,</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">,</span> SerializerFeature<span class="token punctuation">.</span>WriteDateUseDateFormat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>这种工具类，我们只需要掌握使用就好了，在使用的时候在根据具体的业务去找对应的实现。和以前的commons-io那种工具包一样，拿来用就好了！</p>
 <p>Json在我们数据传输中十分重要，一定要学会使用！</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1362,7 +1374,7 @@ fastjson 的 pom依赖！
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.8k</span>&nbsp;字
+                class="white-color">60.3k</span>&nbsp;字
             
             
             
