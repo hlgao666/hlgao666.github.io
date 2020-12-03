@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-03T07:49:44.740Z</updated>
+  <updated>2020-12-03T07:54:20.607Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,33 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>整合SSM框架</title>
-    <link href="https://hlgao666.github.io/2020/12/03/%E6%95%B4%E5%90%88SSM%E6%A1%86%E6%9E%B6/"/>
-    <id>https://hlgao666.github.io/2020/12/03/整合SSM框架/</id>
-    <published>2020-12-03T07:03:34.000Z</published>
-    <updated>2020-12-03T07:49:44.740Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="ssm框架" scheme="https://hlgao666.github.io/categories/ssm%E6%A1%86%E6%9E%B6/"/>
-    
-    
-      <category term="ssm" scheme="https://hlgao666.github.io/tags/ssm/"/>
-    
-  </entry>
   
   <entry>
     <title>整合SSM框架</title>
@@ -543,6 +516,33 @@
     <id>https://hlgao666.github.io/2020/11/28/Spring/代理模式/</id>
     <published>2020-11-28T02:24:08.000Z</published>
     <updated>2020-11-28T08:57:57.805Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="ssm框架" scheme="https://hlgao666.github.io/categories/ssm%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="Spring" scheme="https://hlgao666.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用java配置Spring</title>
+    <link href="https://hlgao666.github.io/2020/11/28/Spring/%E4%BD%BF%E7%94%A8java%E9%85%8D%E7%BD%AESpring/"/>
+    <id>https://hlgao666.github.io/2020/11/28/Spring/使用java配置Spring/</id>
+    <published>2020-11-28T02:23:54.000Z</published>
+    <updated>2020-11-28T02:34:14.244Z</updated>
     
     <summary type="html">
     
