@@ -679,13 +679,11 @@
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-建立基本结构和配置框架"><a href="#4-建立基本结构和配置框架" class="headerlink" title="4 建立基本结构和配置框架"></a>4 建立基本结构和配置框架</h3><blockquote>
-<ul>
-<li>com.allen.pojo (java)</li>
-<li>com.allen.dao (java)</li>
-<li>com.allen.service (java)</li>
-<li>com.allen.controller (java)</li>
-<li>mybatis-config.xml (resources)</li>
-</ul>
+<p>com.allen.pojo (java)</p>
+<p>com.allen.dao (java)</p>
+<p>com.allen.service (java)</p>
+<p>com.allen.controller (java)</p>
+<p>mybatis-config.xml (resources)</p>
 </blockquote>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>
 <span class="token doctype">&lt;!DOCTYPE configuration
@@ -695,9 +693,7 @@
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<ul>
-<li>applicationContext.xml (resources)</li>
-</ul>
+<p>applicationContext.xml (resources)</p>
 </blockquote>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
@@ -972,8 +968,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>contextConfigLocation<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>classpath:applicationContext.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>注意：classpath:<strong>applicationContext.xml</strong></p>
-<p>一定是导入了其他配置文件的总的配置文件。</p>
+<p>注意：classpath:<strong>applicationContext.xml</strong>一定是导入了其他配置文件的总的配置文件。</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://xmlns.jcp.org/xml/ns/javaee<span class="token punctuation">"</span></span>
          <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
@@ -1049,13 +1044,11 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>配置文件，暂时结束！</p>
 <h2 id="Controller-和-视图层编写"><a href="#Controller-和-视图层编写" class="headerlink" title="Controller 和 视图层编写"></a>Controller 和 视图层编写</h2><h3 id="1-BookController-类编写"><a href="#1-BookController-类编写" class="headerlink" title="1 BookController 类编写"></a>1 BookController 类编写</h3><blockquote>
-<ul>
-<li>方法一：查询全部书籍</li>
-<li>方法二：添加书籍</li>
-<li>方法三：修改书籍</li>
-<li>方法四：删除书籍</li>
-<li>方法五：查询书籍</li>
-</ul>
+<p>方法一：查询全部书籍</p>
+<p>方法二：添加书籍</p>
+<p>方法三：修改书籍</p>
+<p>方法四：删除书籍</p>
+<p>方法五：查询书籍</p>
 </blockquote>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>controller<span class="token punctuation">;</span>
 
@@ -1395,7 +1388,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2020/12/03/整合SSM框架/">https://hlgao666.github.io/2020/12/03/整合SSM框架/</a>
+                    <a href="https://hlgao666.github.io/2020/12/03/SpringMVC/整合SSM框架/">https://hlgao666.github.io/2020/12/03/SpringMVC/整合SSM框架/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1634,7 +1627,7 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/12/03/整合SSM框架/">
+                <a href="/2020/12/03/SpringMVC/整合SSM框架/">
                     <div class="card-image">
                         
                         <img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201201174017.jpg" class="responsive-img" alt="整合SSM框架">
