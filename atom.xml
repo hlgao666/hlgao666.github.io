@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-16T01:34:11.426Z</updated>
+  <updated>2020-12-17T03:14:47.170Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指offer39 平衡二叉树</title>
+    <link href="https://hlgao666.github.io/2020/12/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer39/"/>
+    <id>https://hlgao666.github.io/2020/12/17/剑指offer/剑指offer39/</id>
+    <published>2020-12-17T03:12:17.000Z</published>
+    <updated>2020-12-17T03:14:47.170Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="树" scheme="https://hlgao666.github.io/tags/%E6%A0%91/"/>
+    
+      <category term="递归" scheme="https://hlgao666.github.io/tags/%E9%80%92%E5%BD%92/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer38 二叉树的深度</title>
@@ -536,33 +565,6 @@
       <category term="数学" scheme="https://hlgao666.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
       <category term="二分" scheme="https://hlgao666.github.io/tags/%E4%BA%8C%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer32 把数组排成最小的数</title>
-    <link href="https://hlgao666.github.io/2020/11/30/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer32/"/>
-    <id>https://hlgao666.github.io/2020/11/30/剑指offer/剑指offer32/</id>
-    <published>2020-11-30T02:14:21.000Z</published>
-    <updated>2020-11-30T02:16:16.982Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="选择排序" scheme="https://hlgao666.github.io/tags/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
