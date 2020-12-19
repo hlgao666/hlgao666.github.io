@@ -4,6 +4,194 @@
   
     
     <entry>
+      <title>404和路由钩子</title>
+      <link href="/2020/12/19/Vue/404%E5%92%8C%E8%B7%AF%E7%94%B1%E9%92%A9%E5%AD%90/"/>
+      <url>/2020/12/19/Vue/404%E5%92%8C%E8%B7%AF%E7%94%B1%E9%92%A9%E5%AD%90/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="404和路由钩子"><a href="#404和路由钩子" class="headerlink" title="404和路由钩子"></a>404和路由钩子</h1><p>路由模式有两种：</p><ul><li>hash 路径带 #</li><li>histroy 路径不带 #</li></ul><p>修改路由配置：</p><pre><code>export default new Router({    mode: 'history',    routes: [      {}    ]});</code></pre><h2 id="404配置"><a href="#404配置" class="headerlink" title="404配置"></a>404配置</h2><p>router配置</p><pre><code>{path: '*',  //匹配所有请求component: NotFound}</code></pre><p>创建 NotFound.vue</p><pre><code>&lt;template&gt;  &lt;div&gt;    &lt;h1&gt;  404 not found&lt;/h1&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;    export default {        name: "NotFound"    }&lt;/script&gt;&lt;style scoped&gt;&lt;/style&gt;</code></pre><p>当请求不在 path 中时，会显示 <strong>404 not found</strong></p><h2 id="路由钩子"><a href="#路由钩子" class="headerlink" title="路由钩子"></a>路由钩子</h2><pre><code>&lt;template&gt;&lt;!-- 注意： 所有元素必须有标签包起来，不能直接暴露在根节点下--&gt;  &lt;div&gt;    &lt;h1&gt;个人信息&lt;/h1&gt;    {{id}}  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;    export default {        props: ['id'],        name: "userProfile",        beforeRouteEnter: (to, from, next)=&gt;{            console.log("enter");            next();        },        beforeRouteLeave: (to, from, next)=&gt;{            console.log("Leave");            next();        }    }&lt;/script&gt;&lt;style scoped&gt;&lt;/style&gt;</code></pre><p>参数说明：</p><ul><li>to, 路由将要跳转的路径信息</li><li>from, 路由跳转前的路径信息</li><li>next，路由的控制参数<ul><li>next()，跳入下一个页面，放行</li><li>next(‘/path’)，改变路由跳转方向，使其跳到另一个路由</li><li>next(false)，返回原来的页面</li><li>next((vm)=&gt;{}) 仅在beforeRouteEnter中可用，vm是实例</li></ul></li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>参数传递及重定向</title>
+      <link href="/2020/12/19/Vue/%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E5%8F%8A%E9%87%8D%E5%AE%9A%E5%90%91/"/>
+      <url>/2020/12/19/Vue/%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E5%8F%8A%E9%87%8D%E5%AE%9A%E5%90%91/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="参数传递及重定向"><a href="#参数传递及重定向" class="headerlink" title="参数传递及重定向"></a>参数传递及重定向</h1><h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p>通过使用 props 将组件和路由解耦：</p><pre><code>const User = {  template: '&lt;div&gt;User {{ $route.params.id }}&lt;/div&gt;'}const router = new VueRouter({  routes: [    { path: '/user/:id', component: User }  ]})</code></pre><p>通过 props 解耦</p><pre><code>const User = {  props: ['id'],  template: '&lt;div&gt;User {{ id }}&lt;/div&gt;'}const router = new VueRouter({  routes: [    { path: '/user/:id', component: User, props: true },    // 对于包含命名视图的路由，你必须分别为每个命名视图添加 `props` 选项：    {      path: '/user/:id',      components: { default: User, sidebar: Sidebar },      props: { default: true, sidebar: false }    }  ]})</code></pre><h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><p>重定向也是通过 routes 配置来完成，下面例子是从 /a 重定向到 /b：</p><pre><code>const router = new VueRouter({  routes: [    { path: '/a',     redirect: '/b'    }  ]})</code></pre><p>重定向实例</p><ol><li>index.js<pre><code>import Vue from 'vue'import Router from 'vue-router'</code></pre></li></ol><p>import Main from ‘../views/Main’<br>import Login from ‘../views/Login’</p><p>import Profile from “../views/user/Profile”<br>import List from “../views/user/List”</p><p>Vue.use(Router);</p><p>export default new Router({<br>    routes: [<br>      {<br>        path: ‘/main’,<br>        name: ‘main’,<br>        component: Main,    //嵌套路由<br>        children: [<br>          {<br>            path: ‘/user/profile/:id’,<br>            name: ‘profile’,<br>            component: Profile,<br>            props: true<br>          },<br>          {<br>            path: ‘/user/list’,<br>            name: ‘list’,<br>            component: List<br>          }<br>        ]<br>      },</p><pre><code>  {    path: '/login',    name: 'login',    component: Login  },  //重定向  {    path: '/goHome',    redirect: '/main'  }]</code></pre><p>});</p><pre><code>2. Main.vue</code></pre><template>  <div>    <el-container>      <el-aside width="200px"><pre><code>    &lt;el-menu :default-openeds="['1']"&gt;      &lt;el-submenu index="1"&gt;        &lt;template slot="title"&gt;&lt;i class="el-icon-caret-right"&gt;&lt;/i&gt;用户管理&lt;/template&gt;        &lt;el-menu-item-group&gt;          &lt;el-menu-item index="1-1"&gt;            &lt;router-link to="{name: '/user/profile',params: {id: 1}}"&gt;个人信息&lt;/router-link&gt;          &lt;/el-menu-item&gt;          &lt;el-menu-item index="1-2"&gt;            &lt;router-link to="/user/list"&gt;用户列表&lt;/router-link&gt;          &lt;/el-menu-item&gt;          &lt;el-menu-item index="1-3"&gt;            &lt;router-link to="/goHome"&gt;返回首页&lt;/router-link&gt;          &lt;/el-menu-item&gt;        &lt;/el-menu-item-group&gt;      &lt;/el-submenu&gt;      &lt;el-submenu index="2"&gt;        &lt;template slot="title"&gt;&lt;i class="el-icon-caret-right"&gt;&lt;/i&gt;内容管理&lt;/template&gt;        &lt;e1-menu-item-group&gt;          &lt;el-menu-item index="2-1"&gt;分类管理&lt;/el-menu-item&gt;          &lt;el-menu-item index="2-2"&gt;内容列表&lt;/el-menu-item&gt;        &lt;/e1-menu-item-group&gt;      &lt;/el-submenu&gt;      &lt;el-submenu index="3"&gt;        &lt;template slot="title"&gt;&lt;i class="el-icon-caret-right"&gt;&lt;/i&gt;用户管理&lt;/template&gt;        &lt;e1-menu-item-group&gt;          &lt;el-menu-item index="3-1"&gt;用户设置&lt;/el-menu-item&gt;          &lt;el-menu-item index="2-2"&gt;内容列表&lt;/el-menu-item&gt;        &lt;/e1-menu-item-group&gt;      &lt;/el-submenu&gt;    &lt;/el-menu&gt;  &lt;/el-aside&gt;&lt;el-container&gt;  &lt;el-header style="text-align: right; font-size: 12px"&gt;    &lt;el-dropdown&gt;      &lt;i class="el-icon-setting" style="margin-right:15px"&gt;&lt;/i&gt;      &lt;el-dropdown-menu slot="dropdown"&gt;        &lt;el-dropdown-item&gt;个人信息&lt;/el-dropdown-item&gt;        &lt;el-dropdown-item&gt;退出登录&lt;/el-dropdown-item&gt;      &lt;/el-dropdown-menu&gt;    &lt;/el-dropdown&gt;  &lt;/el-header&gt;  &lt;el-main&gt;    &lt;router-view/&gt;  &lt;/el-main&gt;&lt;/el-container&gt;&lt;/el-container&gt;</code></pre>  </el-aside></el-container></div></template><script>    export default {        name: "Main"    }</script><style scoped="">  .el-header {    background-color: #048bd1;    color: #333;    line-height: 60px;  }  .el-aside {    color: #333;  }</style><p>```</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>嵌套路由</title>
+      <link href="/2020/12/19/Vue/%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/"/>
+      <url>/2020/12/19/Vue/%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h1><p>实际生活中的应用界面，通常由多层嵌套的组件组合而成。同样地，URL 中各段动态路径也按某种结构对应嵌套的各层组件，例如：</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201219201210.png" alt=""></p><p>index.js,  实现首页嵌套了 user/profile 和 user/list</p><pre><code>import Vue from 'vue'import Router from 'vue-router'import Main from '../views/Main'import Login from '../views/Login'import Profile from "../views/user/Profile"import List from "../views/user/List"Vue.use(Router);export default new Router({    routes: [      {        path: '/main',        name: 'main',        component: Main,    //嵌套路由        children: [          {            path: '/user/profile',            name: 'profile',            component: Profile          },          {            path: '/user/list',            name: 'list',            component: List          }        ]      },      {        path: '/login',        name: 'login',        component: Login      }    ]});</code></pre><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><h3 id="Main-vue-利用了Element-UI的设计"><a href="#Main-vue-利用了Element-UI的设计" class="headerlink" title="Main.vue(利用了Element-UI的设计)"></a>Main.vue(利用了Element-UI的设计)</h3><pre><code>&lt;template&gt;  &lt;div&gt;    &lt;el-container&gt;      &lt;el-aside width="200px"&gt;        &lt;el-menu :default-openeds="['1']"&gt;          &lt;el-submenu index="1"&gt;            &lt;template slot="title"&gt;&lt;i class="el-icon-caret-right"&gt;&lt;/i&gt;用户管理&lt;/template&gt;            &lt;el-menu-item-group&gt;              &lt;el-menu-item index="1-1"&gt;                &lt;router-link to="/user/profile"&gt;个人信息&lt;/router-link&gt;              &lt;/el-menu-item&gt;              &lt;el-menu-item index="1-2"&gt;                &lt;router-link to="/user/list"&gt;用户列表&lt;/router-link&gt;              &lt;/el-menu-item&gt;            &lt;/el-menu-item-group&gt;          &lt;/el-submenu&gt;          &lt;el-submenu index="2"&gt;            &lt;template slot="title"&gt;&lt;i class="el-icon-caret-right"&gt;&lt;/i&gt;内容管理&lt;/template&gt;            &lt;e1-menu-item-group&gt;              &lt;el-menu-item index="2-1"&gt;分类管理&lt;/el-menu-item&gt;              &lt;el-menu-item index="2-2"&gt;内容列表&lt;/el-menu-item&gt;            &lt;/e1-menu-item-group&gt;          &lt;/el-submenu&gt;          &lt;el-submenu index="3"&gt;            &lt;template slot="title"&gt;&lt;i class="el-icon-caret-right"&gt;&lt;/i&gt;用户管理&lt;/template&gt;            &lt;e1-menu-item-group&gt;              &lt;el-menu-item index="3-1"&gt;用户设置&lt;/el-menu-item&gt;              &lt;el-menu-item index="2-2"&gt;内容列表&lt;/el-menu-item&gt;            &lt;/e1-menu-item-group&gt;          &lt;/el-submenu&gt;        &lt;/el-menu&gt;      &lt;/el-aside&gt;    &lt;el-container&gt;      &lt;el-header style="text-align: right; font-size: 12px"&gt;        &lt;el-dropdown&gt;          &lt;i class="el-icon-setting" style="margin-right:15px"&gt;&lt;/i&gt;          &lt;el-dropdown-menu slot="dropdown"&gt;            &lt;el-dropdown-item&gt;个人信息&lt;/el-dropdown-item&gt;            &lt;el-dropdown-item&gt;退出登录&lt;/el-dropdown-item&gt;          &lt;/el-dropdown-menu&gt;        &lt;/el-dropdown&gt;      &lt;/el-header&gt;      &lt;el-main&gt;        &lt;router-view/&gt;      &lt;/el-main&gt;    &lt;/el-container&gt;    &lt;/el-container&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;    export default {        name: "Main"    }&lt;/script&gt;&lt;style scoped&gt;  .el-header {    background-color: #048bd1;    color: #333;    line-height: 60px;  }  .el-aside {    color: #333;  }&lt;/style&gt;</code></pre><h3 id="Login-vue-不变"><a href="#Login-vue-不变" class="headerlink" title="Login.vue(不变)"></a>Login.vue(不变)</h3><pre><code>&lt;template&gt;  &lt;div&gt;    &lt;el-card class="box-card"&gt;          &lt;el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box"&gt;              &lt;h3 class="login-title"&gt;欢迎登录&lt;/h3&gt;              &lt;el-form-item label="账号" prop="username"&gt;                &lt;el-input type="text" placeholder="请输入账号" v-model="form.username"/&gt;              &lt;/el-form-item&gt;              &lt;el-form-item label="密码" prop="password"&gt;                &lt;el-input type="password" placeholder="请输入密码" v-model="form.password"/&gt;              &lt;/el-form-item&gt;              &lt;el-form-item&gt;                &lt;el-button type="primary" v-on:click="onSubmit('loginForm')"&gt;登录&lt;/el-button&gt;              &lt;/el-form-item&gt;          &lt;/el-form&gt;      &lt;/el-card&gt;    &lt;el-dialog      title="温馨提示"      :visible.sync="dialogVisible"      width="30%"      :before-close="handleClose"&gt;      &lt;span&gt;请输入账号和密码&lt;/span&gt;      &lt;span slot="footer" class="dialog-footer"&gt;        &lt;el-button type="primary" @click="dialogVisible = false"&gt;确 定&lt;/el-button&gt;      &lt;/span&gt;    &lt;/el-dialog&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;  export  default {    name:"Login",    data(){      return {        form:{          username: '',          password: ''        },        //表单验证，需要再el-form-item 元素中增加prop属性        rules:{          username: [            {required:true,message:'账号不能为空',trigger:'blur'}          ],          password: [            {required: true,message: '密码不能为空',trigger:'blur'}          ]        },        //对话框显示和隐藏        dialogVisible:false      }    },    methods:{      onSubmit(formName) {        //为表单绑定验证功能        this.$refs[formName].validate((valid) =&gt;{          if (valid){            //使用 vue-router路由到指定页面，该方式称之为编程式导航            this.$router.push("/main");          } else {            this.dialogVisible = true;            return false;          }        });      },      handleClose: function () {          console.log("Handle Close，空函数");      }    }  }&lt;/script&gt;&lt;style scoped&gt;.box-card {width: 480px;margin: auto;}&lt;/style&gt;；</code></pre><h3 id="index-js（导入路由并嵌套）"><a href="#index-js（导入路由并嵌套）" class="headerlink" title="index.js（导入路由并嵌套）"></a>index.js（导入路由并嵌套）</h3><pre><code>import Vue from 'vue'import Router from 'vue-router'import Main from '../views/Main'import Login from '../views/Login'import Profile from "../views/user/Profile"import List from "../views/user/List"Vue.use(Router);export default new Router({    routes: [      {        path: '/main',        name: 'main',        component: Main,    //嵌套路由        children: [          {            path: '/user/profile',            name: 'profile',            component: Profile          },          {            path: '/user/list',            name: 'list',            component: List          }        ]      },      {        path: '/login',        name: 'login',        component: Login      }    ]});</code></pre><h3 id="main-js-不变"><a href="#main-js-不变" class="headerlink" title="main.js(不变)"></a>main.js(不变)</h3><pre><code>import Vue from 'vue'import App from './App'import router from './router'//导入 element-ui 及 cssimport Element from 'element-ui'import 'element-ui/lib/theme-chalk/index.css'Vue.use(Element);/* eslint-disable no-new */new Vue({  el: '#app',  router,  render: h =&gt; h(App)  //ElementUI});</code></pre><h3 id="App-vue-不变"><a href="#App-vue-不变" class="headerlink" title="App.vue(不变)"></a>App.vue(不变)</h3><pre><code>&lt;template&gt;  &lt;div id="app"&gt;    &lt;router-link to="login"&gt;登录&lt;/router-link&gt;    &lt;router-link to="main"&gt;首页&lt;/router-link&gt;    &lt;router-view&gt;&lt;/router-view&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default {  name: 'App',}&lt;/script&gt;&lt;style&gt;#app {  font-family: 'Avenir', Helvetica, Arial, sans-serif;  -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;  text-align: center;  color: #2c3e50;  margin-top: 60px;}&lt;/style&gt;</code></pre><h3 id="新增-Profile-vue"><a href="#新增-Profile-vue" class="headerlink" title="新增 Profile.vue"></a>新增 Profile.vue</h3><pre><code>&lt;template&gt;  &lt;h1&gt;个人信息&lt;/h1&gt;&lt;/template&gt;&lt;script&gt;    export default {        name: "userProfile"    }&lt;/script&gt;&lt;style scoped&gt;&lt;/style&gt;</code></pre><h3 id="新增-List-vue"><a href="#新增-List-vue" class="headerlink" title="新增 List.vue"></a>新增 List.vue</h3><pre><code>&lt;template&gt;  &lt;h1&gt;用户列表&lt;/h1&gt;&lt;/template&gt;&lt;script&gt;    export default {        name: "userList"    }&lt;/script&gt;&lt;style scoped&gt;&lt;/style&gt;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue + ElementUI</title>
+      <link href="/2020/12/19/Vue/vue-ElementUI/"/>
+      <url>/2020/12/19/Vue/vue-ElementUI/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Vue-ElementUI"><a href="#Vue-ElementUI" class="headerlink" title="Vue + ElementUI"></a>Vue + ElementUI</h1><h2 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h2><p>1.命令行进入目录，创建一个名为 hello-vue 的项目，一路选 no</p><pre><code>vue init webpack hello-vue</code></pre><p>2.安装依赖，需要安装：</p><ul><li>vue-router</li><li>element-ui</li><li>sass-loader</li><li>node-sass</li></ul><pre><code>//进入目录cd hello-vue//安装路由 vue-routernpm install vue-router --safe-dev//安装 element-uinpm i element-ui -S//安装依赖npm install//安装sass加载器cnpm install sass-loader node-sass --safe-dev//启动测试npm run dev</code></pre><ol start="3"><li>src 目录下创建 views router 文件夹  </li><li>在 views 文件夹下创建 Login.vue 和 Main.vue</li></ol><p>Main.vue</p><pre><code>&lt;template&gt;    &lt;h1&gt;首页&lt;/h1&gt;&lt;/template&gt;&lt;script&gt;    export default {        name: "Main"    }&lt;/script&gt;&lt;style scoped&gt;&lt;/style&gt;</code></pre><p>Login.vue, 拷贝了 element-ui的登录表单</p><pre><code>&lt;template&gt;  &lt;div&gt;    &lt;el-card class="box-card"&gt;          &lt;el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box"&gt;              &lt;h3 class="login-title"&gt;欢迎登录&lt;/h3&gt;              &lt;el-form-item label="账号" prop="username"&gt;                &lt;el-input type="text" placeholder="请输入账号" v-model="form.username"/&gt;              &lt;/el-form-item&gt;              &lt;el-form-item label="密码" prop="password"&gt;                &lt;el-input type="password" placeholder="请输入密码" v-model="form.password"/&gt;              &lt;/el-form-item&gt;              &lt;el-form-item&gt;                &lt;el-button type="primary" v-on:click="onSubmit('loginForm')"&gt;登录&lt;/el-button&gt;              &lt;/el-form-item&gt;          &lt;/el-form&gt;      &lt;/el-card&gt;    &lt;el-dialog      title="温馨提示"      :visible.sync="dialogVisible"      width="30%"      :before-close="handleClose"&gt;      &lt;span&gt;请输入账号和密码&lt;/span&gt;      &lt;span slot="footer" class="dialog-footer"&gt;        &lt;el-button type="primary" @click="dialogVisible = false"&gt;确 定&lt;/el-button&gt;      &lt;/span&gt;    &lt;/el-dialog&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;  export  default {    name:"Login",    data(){      return {        form:{          username: '',          password: ''        },        //表单验证，需要再el-form-item 元素中增加prop属性        rules:{          username: [            {required:true,message:'账号不能为空',trigger:'blur'}          ],          password: [            {required: true,message: '密码不能为空',trigger:'blur'}          ]        },        //对话框显示和隐藏        dialogVisible:false      }    },    methods:{      onSubmit(formName) {        //为表单绑定验证功能        this.$refs[formName].validate((valid) =&gt;{          if (valid){            //使用 vue-router路由到指定页面，该方式称之为编程式导航            this.$router.push("/main");          } else {            this.dialogVisible = true;            return false;          }        });      },      handleClose: function () {          console.log("Handle Close，空函数");      }    }  }&lt;/script&gt;&lt;style scoped&gt;.box-card {width: 480px;margin: auto;}&lt;/style&gt;；</code></pre><p>5.在 router 文件夹下新建 index.js 文件</p><p>index.js</p><pre><code>import Vue from 'vue'import Router from 'vue-router'import Main from '../views/Main'import Login from '../views/Login'Vue.use(Router);export default new Router({    routes: [      {        path: '/login',        name: 'login',        component: Login      },      {        path: '/main',        name: 'main',        component: Main      }    ]});</code></pre><ol start="6"><li>在 main.js 中导入组件</li></ol><p>main.js</p><pre><code>import Vue from 'vue'import App from './App'import router from './router'//导入 element-ui 及 cssimport Element from 'element-ui'import 'element-ui/lib/theme-chalk/index.css'Vue.use(Element);/* eslint-disable no-new */new Vue({  el: '#app',  router,  render: h =&gt; h(App)  //ElementUI})</code></pre><p>7.在 App.vue 中使用</p><pre><code>&lt;template&gt;  &lt;div id="app"&gt;    &lt;router-link to="login"&gt;登录&lt;/router-link&gt;    &lt;router-link to="main"&gt;首页&lt;/router-link&gt;    &lt;router-view&gt;&lt;/router-view&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default {  name: 'App',}&lt;/script&gt;&lt;style&gt;#app {  font-family: 'Avenir', Helvetica, Arial, sans-serif;  -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;  text-align: center;  color: #2c3e50;  margin-top: 60px;}&lt;/style&gt;</code></pre><p>8.最终效果（使用 element-ui 实现）</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201219200907.png" alt=""></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue-router路由</title>
+      <link href="/2020/12/19/Vue/vue-router%E8%B7%AF%E7%94%B1/"/>
+      <url>/2020/12/19/Vue/vue-router%E8%B7%AF%E7%94%B1/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="vue-router路由（页面跳转）"><a href="#vue-router路由（页面跳转）" class="headerlink" title="vue-router路由（页面跳转）"></a>vue-router路由（页面跳转）</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。包含的功能有：</p><ul><li>嵌套的路由/视图表</li><li>模块化的、基于组件的路由配置</li><li>路由参数、查询、通配符</li><li>基于 Vue.js 过渡系统的视图过渡效果</li><li>细粒度的导航控制</li><li>带有自动激活的 CSS class 的链接</li><li>HTML5 历史模式或 hash 模式，在 IE9 中自动降级</li><li>自定义的滚动条行为</li></ul><h2 id="安装-vue-router"><a href="#安装-vue-router" class="headerlink" title="安装 vue-router"></a>安装 vue-router</h2><p>安装方式：</p><ol><li>cmd 进入项目目录</li><li>利用idea终端</li></ol><p>然后，输入以下命令</p><pre><code>npm install vue-router --save-dev</code></pre><p>如果在一个模块化工程中使用它，必须通过 Vue.use()明确安装路由功能</p><pre><code>import Vue from 'vue'import vueRouter from 'vue-router'  //1//安装路由Vue.use(vueRouter); //2</code></pre><h2 id="路由模板搭建"><a href="#路由模板搭建" class="headerlink" title="路由模板搭建"></a>路由模板搭建</h2><h3 id="1-先删除没有用的东西"><a href="#1-先删除没有用的东西" class="headerlink" title="1.先删除没有用的东西"></a>1.先删除没有用的东西</h3><h3 id="2-components-目录下存放我们自己编写的组件"><a href="#2-components-目录下存放我们自己编写的组件" class="headerlink" title="2.components 目录下存放我们自己编写的组件"></a>2.components 目录下存放我们自己编写的组件</h3><h3 id="3-定义一个-Content-vue-的组件"><a href="#3-定义一个-Content-vue-的组件" class="headerlink" title="3.定义一个 Content.vue 的组件"></a>3.定义一个 Content.vue 的组件</h3><pre><code>&lt;template&gt;  &lt;h1&gt;内容页&lt;/h1&gt;&lt;/template&gt;&lt;script&gt;    export default {        name: "content"    }&lt;/script&gt;&lt;style scoped&gt;&lt;/style&gt;</code></pre><h3 id="4-安装路由，在-src-目录下新建一个文件夹：router，专门存放路由"><a href="#4-安装路由，在-src-目录下新建一个文件夹：router，专门存放路由" class="headerlink" title="4.安装路由，在 src 目录下新建一个文件夹：router，专门存放路由"></a>4.安装路由，在 src 目录下新建一个文件夹：router，专门存放路由</h3><p>router 下新建 index.js</p><p>注意： 设置跳转的组件时，使用 <strong>component 单数</strong></p><pre><code>// 1 2 3处的名称必须相同import Vue from 'vue'import vueRouter from 'vue-router'  //1import Content from '../components/content'import Main from '../components/main'//安装路由Vue.use(vueRouter); //2//配置导出路由export default new vueRouter({  //3  routes: [    {      //路由路径      path: '/content',      name: 'content',      //跳转的组件      component: Content    },    {      //路由路径      path: '/main',      name: 'main',      //跳转的组件      component: Main    }  ]});</code></pre><h3 id="5-在-main-js-中配置路由"><a href="#5-在-main-js-中配置路由" class="headerlink" title="5.在 main.js 中配置路由"></a>5.在 main.js 中配置路由</h3><pre><code>// The Vue build version to load with the `import` command// (runtime-only or standalone) has been set in webpack.base.conf with an alias.import Vue from 'vue'import App from './App'import vueRouter from 'vue-router'import router from './router'   //自动扫描里面的路由配置//关闭生产模式下的提示Vue.config.productionTip = false;//显式使用vueRouterVue.use(vueRouter);/* eslint-disable no-new */new Vue({  el: '#app',  //配置路由  router,  components: { App },  template: '&lt;App/&gt;'});</code></pre><h3 id="6-在-App-vue-中使用路由"><a href="#6-在-App-vue-中使用路由" class="headerlink" title="6.在 App.vue 中使用路由"></a>6.在 App.vue 中使用路由</h3><pre><code>&lt;template&gt;  &lt;div id="app"&gt;    &lt;router-link to="/main"&gt;首页&lt;/router-link&gt;    &lt;router-link to="/content"&gt;内容页&lt;/router-link&gt;    &lt;router-view&gt;&lt;/router-view&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;  import content from "./components/content";export default {  name: 'App'}&lt;/script&gt;&lt;style&gt;#app {  font-family: 'Avenir', Helvetica, Arial, sans-serif;  -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;  text-align: center;  color: #2c3e50;  margin-top: 60px;}&lt;/style&gt;</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>1.模板搭建好后，我们可以在 component 目录下新建一个组件，如：</p><p>allen.vue</p><pre><code>&lt;template&gt;  &lt;h1&gt;allen&lt;/h1&gt;&lt;/template&gt;&lt;script&gt;    export default {        name: "allen"    }&lt;/script&gt;&lt;style scoped&gt;&lt;/style&gt;</code></pre><p>2.然后，在 index.js 中配置路由</p><pre><code>// 1 2 3处的名称必须相同import Vue from 'vue'import vueRouter from 'vue-router'  //1import Content from '../components/content'import Main from '../components/main'import allen from '../components/allen'//安装路由Vue.use(vueRouter); //2//配置导出路由export default new vueRouter({  //3  routes: [    {      //路由路径      path: '/content',      name: 'content',      //跳转的组件      component: Content    },    {      //路由路径      path: '/main',      name: 'main',      //跳转的组件      component: Main    },    {      //路由路径      path: '/allen',      name: 'allen',      //跳转的组件      component: allen    }  ]});</code></pre><p>3.最后，在 App.vue 中使用路由即可。</p><pre><code>&lt;template&gt;  &lt;div id="app"&gt;    &lt;router-link to="/main"&gt;首页&lt;/router-link&gt;    &lt;router-link to="/content"&gt;内容页&lt;/router-link&gt;    &lt;router-link to="/allen"&gt;allen&lt;/router-link&gt;    &lt;router-view&gt;&lt;/router-view&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;  import content from "./components/content";export default {  name: 'App'}&lt;/script&gt;&lt;style&gt;#app {  font-family: 'Avenir', Helvetica, Arial, sans-serif;  -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;  text-align: center;  color: #2c3e50;  margin-top: 60px;}&lt;/style&gt;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webpack使用</title>
+      <link href="/2020/12/19/Vue/webpack%E4%BD%BF%E7%94%A8/"/>
+      <url>/2020/12/19/Vue/webpack%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="webpack使用"><a href="#webpack使用" class="headerlink" title="webpack使用"></a>webpack使用</h1><h2 id="0-准备工作-在项目目录下安装-webpack"><a href="#0-准备工作-在项目目录下安装-webpack" class="headerlink" title="0.准备工作: 在项目目录下安装 webpack"></a>0.准备工作: 在项目目录下安装 webpack</h2><pre><code>cd myvuenpm install webpack -gnpm install webpack-cli -g</code></pre><h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1.新建项目"></a>1.新建项目</h2><h2 id="2-创建一个名为-modules-的目录，用于放置JS模块等资源"><a href="#2-创建一个名为-modules-的目录，用于放置JS模块等资源" class="headerlink" title="2.创建一个名为 modules 的目录，用于放置JS模块等资源"></a>2.创建一个名为 modules 的目录，用于放置JS模块等资源</h2><h2 id="3-在-modules-下创建模块文件，如-hello-js，-用于编写-JS-相关代码"><a href="#3-在-modules-下创建模块文件，如-hello-js，-用于编写-JS-相关代码" class="headerlink" title="3.在 modules 下创建模块文件，如 hello.js， 用于编写 JS 相关代码"></a>3.在 modules 下创建模块文件，如 hello.js， 用于编写 JS 相关代码</h2><p>hello.js</p><pre class="line-numbers language-html"><code class="language-html">//暴露一个方法exports.sayHi=function () {    document.write("<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>allen<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>");};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="4-在modules下创建一个名为-main-js-的文件，作为打包时的-entry"><a href="#4-在modules下创建一个名为-main-js-的文件，作为打包时的-entry" class="headerlink" title="4.在modules下创建一个名为 main.js 的文件，作为打包时的 entry"></a>4.在modules下创建一个名为 main.js 的文件，作为打包时的 entry</h2><p>main.js</p><pre><code>var hello = require("./hello");hello.sayHi();  //调用hello.js中的方法</code></pre><h2 id="5-在项目目录下创建-webpack-config-js-配置文件，使用-webpack-命令打包"><a href="#5-在项目目录下创建-webpack-config-js-配置文件，使用-webpack-命令打包" class="headerlink" title="5.在项目目录下创建 webpack.config.js 配置文件，使用 webpack 命令打包"></a>5.在项目目录下创建 webpack.config.js 配置文件，使用 webpack 命令打包</h2><p>webpack.config.js</p><pre><code>module.exports={    entry: "./modules/main.js",    output: {        filename: "./js/bundle.js"    }};</code></pre><p>在 idea 的终端(以管理员身份)输入</p><blockquote><p>webpack</p></blockquote><p>自动打包完成，此时在项目目录下会多出一个 js 文件夹。</p><h2 id="6-在项目目录下创建-html-页面，如-index-html-导入打包后的-js-文件"><a href="#6-在项目目录下创建-html-页面，如-index-html-导入打包后的-js-文件" class="headerlink" title="6.在项目目录下创建 html 页面，如 index.html ,导入打包后的 js 文件"></a>6.在项目目录下创建 html 页面，如 index.html ,导入打包后的 js 文件</h2><p>index.html</p><pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dist/js/bundle.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="7-运行html查看效果"><a href="#7-运行html查看效果" class="headerlink" title="7.运行html查看效果"></a>7.运行html查看效果</h2><p>效果图输出：</p><blockquote><p>allen</p></blockquote><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webpack简介</title>
+      <link href="/2020/12/19/Vue/webpack%E7%AE%80%E4%BB%8B/"/>
+      <url>/2020/12/19/Vue/webpack%E7%AE%80%E4%BB%8B/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="webpack简介"><a href="#webpack简介" class="headerlink" title="webpack简介"></a>webpack简介</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。</p><p>从 webpack v4.0.0 开始，可以不用引入一个配置文件。然而，webpack 仍然还是高度可配置的。在开始前你需要先理解四个核心概念：</p><ul><li>入口(entry)</li><li>输出(output)</li><li>loader</li><li>插件(plugins)</li></ul><h3 id="入口-entry"><a href="#入口-entry" class="headerlink" title="入口(entry)"></a>入口(entry)</h3><p>入口起点(entry point)指示 webpack 应该使用哪个模块，来作为构建其内部依赖图的开始。进入入口起点后，webpack 会找出有哪些模块和库是入口起点（直接和间接）依赖的。</p><p>可以通过在 webpack 配置中配置 entry 属性，来指定一个入口起点（或多个入口起点）。默认值为 ./src。</p><p>接下来我们看一个 entry 配置的最简单例子：</p><p>webpack.config.js</p><pre><code>module.exports = {  entry: './path/to/my/entry/file.js'};</code></pre><h3 id="出口-output"><a href="#出口-output" class="headerlink" title="出口(output)"></a>出口(output)</h3><p>output 属性告诉 webpack 在哪里输出它所创建的 bundles，以及如何命名这些文件，默认值为 ./dist。基本上，整个应用程序结构，都会被编译到你指定的输出路径的文件夹中。你可以通过在配置中指定一个 output 字段，来配置这些处理过程：</p><p>webpack.config.js</p><pre><code>const path = require('path');module.exports = {  entry: './path/to/my/entry/file.js',  output: {    path: path.resolve(__dirname, 'dist'),    filename: 'my-first-webpack.bundle.js'  }};</code></pre><p>在上面的示例中，我们通过 output.filename 和 output.path 属性，来告诉 webpack bundle 的名称，以及我们想要 bundle 生成(emit)到哪里。可能你想要了解在代码最上面导入的 path 模块是什么，它是一个 Node.js 核心模块，用于操作文件路径。</p><h3 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h3><p>loader 让 webpack 能够去处理那些非 JavaScript 文件（webpack 自身只理解 JavaScript）。loader 可以将所有类型的文件转换为 webpack 能够处理的有效模块，然后你就可以利用 webpack 的打包能力，对它们进行处理。</p><p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p><blockquote><p>注意，loader 能够 import 导入任何类型的模块（例如 .css 文件），这是 webpack 特有的功能，其他打包程序或任务执行器的可能并不支持。我们认为这种语言扩展是有很必要的，因为这可以使开发人员创建出更准确的依赖关系图。</p></blockquote><p>在更高层面，在 webpack 的配置中 loader 有两个目标：</p><ul><li>test 属性，用于标识出应该被对应的 loader 进行转换的某个或某些文件。</li><li>use 属性，表示进行转换时，应该使用哪个 loader。</li></ul><pre><code>const path = require('path');const config = {  output: {    filename: 'my-first-webpack.bundle.js'  },  module: {    rules: [      { test: /\.txt$/, use: 'raw-loader' }    ]  }};module.exports = config;</code></pre><p>以上配置中，对一个单独的 module 对象定义了 rules 属性，里面包含两个必须属性：test 和 use。这告诉 webpack 编译器(compiler) 如下信息：</p><blockquote><p>“嘿，webpack 编译器，当你碰到「在 require()/import 语句中被解析为 ‘.txt’ 的路径」时，在你对它打包之前，先使用 raw-loader 转换一下。”</p></blockquote><blockquote><p>重要的是要记得，在 webpack 配置中定义 loader 时，要定义在 module.rules 中，而不是 rules。然而，在定义错误时 webpack 会给出严重的警告。为了使你受益于此，如果没有按照正确方式去做，webpack 会“给出严重的警告”</p></blockquote><h3 id="插件-plugins"><a href="#插件-plugins" class="headerlink" title="插件(plugins)"></a>插件(plugins)</h3><p>loader 被用于转换某些类型的模块，而插件则可以用于执行范围更广的任务。插件的范围包括，从打包优化和压缩，一直到重新定义环境中的变量。插件接口功能极其强大，可以用来处理各种各样的任务。</p><p>想要使用一个插件，你只需要 require() 它，然后把它添加到 plugins 数组中。多数插件可以通过选项(option)自定义。你也可以在一个配置文件中因为不同目的而多次使用同一个插件，这时需要通过使用 new 操作符来创建它的一个实例。</p><pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin'); // 通过 npm 安装const webpack = require('webpack'); // 用于访问内置插件const config = {  module: {    rules: [      { test: /\.txt$/, use: 'raw-loader' }    ]  },  plugins: [    new HtmlWebpackPlugin({template: './src/index.html'})  ]};module.exports = config;</code></pre><h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>通过选择 development 或 production 之中的一个，来设置 mode 参数，你可以启用相应模式下的 webpack 内置的优化</p><pre><code>module.exports = {  mode: 'production'};</code></pre><h2 id="nodeJS特点"><a href="#nodeJS特点" class="headerlink" title="nodeJS特点"></a>nodeJS特点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul><li>服务器端模块便于重用</li><li>简单易用</li></ul><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul><li>同步的模块加载不适合在浏览器运行，同步意味着阻塞，浏览器资源是异步并行加载的</li><li>不能非阻塞地并行加载多个模块</li></ul><p>ps: <strong>同步加载</strong>流程是<strong>瀑布模型</strong>，<strong>异步加载</strong>流程是<strong>并发模型</strong>。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2020/12/19/Vue/Untitled/"/>
+      <url>/2020/12/19/Vue/Untitled/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201219201210.png" alt="QQ图片20201219201157">)<img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201219200907.png" alt="QQ图片20201219200840"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>npm常用命令</title>
       <link href="/2020/12/19/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
       <url>/2020/12/19/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
@@ -426,9 +614,9 @@
       
         <tags>
             
-            <tag> 二分 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 二分 </tag>
             
         </tags>
       
@@ -528,11 +716,11 @@
       
         <tags>
             
-            <tag> 分治 </tag>
-            
             <tag> 数组 </tag>
             
             <tag> 归并排序 </tag>
+            
+            <tag> 分治 </tag>
             
         </tags>
       
@@ -1086,9 +1274,9 @@
       
         <tags>
             
-            <tag> 位运算 </tag>
-            
             <tag> 分治 </tag>
+            
+            <tag> 位运算 </tag>
             
         </tags>
       
