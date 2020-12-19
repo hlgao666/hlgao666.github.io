@@ -507,7 +507,7 @@
             <div id="articleContent">
                 <h1 id="同步加载、异步加载、延迟加载、预加载"><a href="#同步加载、异步加载、延迟加载、预加载" class="headerlink" title="同步加载、异步加载、延迟加载、预加载"></a>同步加载、异步加载、延迟加载、预加载</h1><h2 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h2><p>平常默认用的都是同步加载。如：</p>
 <pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://yourdomain.com/script.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>同步模式又称阻塞模式，会阻止浏览器的后续处理，停止了后续的文件的解析，执行，如图像的渲染。流览器之所以会采用同步模式，是因为加载的js文件中有对dom的操作，重定向，输出document等默认行为，所以同步才是最安全的。通常<strong>会把要加载的js放到body结束标签之前，使得js可在页面最后加载，尽量减少阻塞页面的渲染</strong>, 这样可以先让页面显示出来
+<p>同步模式又称阻塞模式，会阻止浏览器的后续处理，停止了后续的文件的解析，执行，如图像的渲染。流览器之所以会采用同步模式，是因为加载的js文件中有对dom的操作，重定向，输出document等默认行为，所以同步才是最安全的。通常<strong>会把要加载的js放到body结束标签之前，使得js可在页面最后加载，尽量减少阻塞页面的渲染</strong>, 这样可以先让页面显示出来.
 　　
 　　</p>
 <h2 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h2><pre><code>(function() {

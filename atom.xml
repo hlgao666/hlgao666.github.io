@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-19T03:07:30.692Z</updated>
+  <updated>2020-12-19T03:07:49.238Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hlgao666.github.io/2020/12/19/Vue/%E5%90%8C%E6%AD%A5%E5%8A%A0%E8%BD%BD%E3%80%81%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E3%80%81%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%E3%80%81%E9%A2%84%E5%8A%A0%E8%BD%BD/"/>
     <id>https://hlgao666.github.io/2020/12/19/Vue/同步加载、异步加载、延迟加载、预加载/</id>
     <published>2020-12-19T03:01:43.000Z</published>
-    <updated>2020-12-19T03:07:30.692Z</updated>
+    <updated>2020-12-19T03:07:49.238Z</updated>
     
     <summary type="html">
     
@@ -450,9 +450,9 @@
       <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
     
     
-      <category term="二分" scheme="https://hlgao666.github.io/tags/%E4%BA%8C%E5%88%86/"/>
-    
       <category term="数组" scheme="https://hlgao666.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="二分" scheme="https://hlgao666.github.io/tags/%E4%BA%8C%E5%88%86/"/>
     
   </entry>
   
