@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-19T02:12:05.575Z</updated>
+  <updated>2020-12-19T03:04:18.703Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>同步加载、异步加载、延迟加载、预加载</title>
+    <link href="https://hlgao666.github.io/2020/12/19/Vue/%E5%90%8C%E6%AD%A5%E5%8A%A0%E8%BD%BD%E3%80%81%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E3%80%81%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%E3%80%81%E9%A2%84%E5%8A%A0%E8%BD%BD/"/>
+    <id>https://hlgao666.github.io/2020/12/19/Vue/同步加载、异步加载、延迟加载、预加载/</id>
+    <published>2020-12-19T03:01:43.000Z</published>
+    <updated>2020-12-19T03:04:18.703Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://hlgao666.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="前端" scheme="https://hlgao666.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer41 和为s的连续整数序列</title>
@@ -538,33 +565,6 @@
       <category term="数组" scheme="https://hlgao666.github.io/tags/%E6%95%B0%E7%BB%84/"/>
     
       <category term="归并排序" scheme="https://hlgao666.github.io/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer34 第一个只出现一次的字符</title>
-    <link href="https://hlgao666.github.io/2020/12/02/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer34/"/>
-    <id>https://hlgao666.github.io/2020/12/02/剑指offer/剑指offer34/</id>
-    <published>2020-12-02T06:03:42.000Z</published>
-    <updated>2020-12-18T01:18:04.776Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="字符串" scheme="https://hlgao666.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
