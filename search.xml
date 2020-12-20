@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>剑指offer42  和为s的两个数字</title>
+      <link href="/2020/12/20/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer42/"/>
+      <url>/2020/12/20/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer42/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="剑指offer42"><a href="#剑指offer42" class="headerlink" title="剑指offer42"></a>剑指offer42</h1><h2 id="和为s的两个数字"><a href="#和为s的两个数字" class="headerlink" title="和为s的两个数字"></a>和为s的两个数字</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。</p><p>输入</p><blockquote><p>[1,2,4,7,11,15],15</p></blockquote><p>输出</p><blockquote><p>[4,11]</p></blockquote><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>不要被题目误导了！证明如下，清晰明了：</p><p>//输出两个数的乘积最小的。这句话的理解？</p><p>假设：若b&gt;a,且存在，</p><p>a + b = s;</p><p>(a - m ) + (b + m) = s</p><p>则：(a - m )(b + m)=ab - (b-a)m - m*m &lt; ab；说明外层的乘积更小</p><p>也就是说依然是左右夹逼法！！！只需要2个指针</p><p>1.left开头，right指向结尾<br>2.如果和小于sum，说明太小了，left右移寻找更大的数<br>3.如果和大于sum，说明太大了，right左移寻找更小的数<br>4.和相等，把left和right的数返回  </p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> <span class="token function">FindNumbersWithSum</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> array<span class="token punctuation">,</span><span class="token keyword">int</span> sum<span class="token punctuation">)</span> <span class="token punctuation">{</span>        ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>array <span class="token operator">==</span> null <span class="token operator">||</span> array<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">return</span> res<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">int</span> minMul <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> j <span class="token operator">=</span> array<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>        <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>j<span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">int</span> temp <span class="token operator">=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>array<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>temp<span class="token operator">==</span>sum<span class="token punctuation">)</span><span class="token punctuation">{</span>                res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token keyword">return</span> res<span class="token punctuation">;</span>            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>temp<span class="token operator">&lt;</span>sum<span class="token punctuation">)</span><span class="token punctuation">{</span>                i<span class="token operator">++</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>                j<span class="token operator">--</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> res<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>很多题目都是给定一个数组，要求返回两个下标的（比如找两个元素，或者找一个子数组）。相应比较高效的解法，则是<strong>先排序，然后在一个循环体里利用两个变量进行反向的遍历</strong>，并且这两个变量遍历的方向是不变的，从而保证算法时间复杂度为 O(N)。这样类似的问题，可以考虑<strong>用双下标进行遍历</strong>。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>404和路由钩子</title>
       <link href="/2020/12/19/Vue/404%E5%92%8C%E8%B7%AF%E7%94%B1%E9%92%A9%E5%AD%90/"/>
       <url>/2020/12/19/Vue/404%E5%92%8C%E8%B7%AF%E7%94%B1%E9%92%A9%E5%AD%90/</url>
@@ -703,11 +730,11 @@
       
         <tags>
             
+            <tag> 分治 </tag>
+            
             <tag> 数组 </tag>
             
             <tag> 归并排序 </tag>
-            
-            <tag> 分治 </tag>
             
         </tags>
       
@@ -1261,9 +1288,9 @@
       
         <tags>
             
-            <tag> 分治 </tag>
-            
             <tag> 位运算 </tag>
+            
+            <tag> 分治 </tag>
             
         </tags>
       
