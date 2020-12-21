@@ -539,6 +539,7 @@
 <li>SpringBoot会将所有的功能场景都变成一个个启动器</li>
 </ul>
 <p>只需要在项目中引入这些 ‘starter’ 即可，所有相关的依赖都会导入进来 ， 我们要用什么功能就导入什么样的场景启动器即可 ；我们未来也可以自己自定义 starter；</p>
+<hr>
 <h2 id="主启动类"><a href="#主启动类" class="headerlink" title="主启动类"></a>主启动类</h2><h3 id="默认的主启动类"><a href="#默认的主启动类" class="headerlink" title="默认的主启动类"></a>默认的主启动类</h3><p>主程序</p>
 <pre><code>package com.allen.hello;
 
@@ -672,11 +673,17 @@ public @interface AutoConfigurationPackage {
 <h3 id="spring-factories"><a href="#spring-factories" class="headerlink" title="spring.factories"></a>spring.factories</h3><p>我们根据源头打开spring.factories ， 看到了很多自动配置的文件；这就是自动配置根源所在！</p>
 <p>自动配置真正实现是从classpath中搜寻所有的META-INF/spring.factories配置文件 ，并将其中对应的 org.springframework.boot.autoconfigure. 包下的配置项，通过反射实例化为对应标注了 @Configuration的JavaConfig形式的IOC容器配置类 ， 然后将这些都汇总成为一个实例并加载到IOC容器中。</p>
 <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ul>
-<li>SpringBoot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值</li>
-<li>将这些值作为自动配置类导入容器 ， 自动配置类就生效 ， 帮我们进行自动配置工作；</li>
-<li>整个J2EE的整体解决方案和自动配置都在springboot-autoconfigure的jar包中；</li>
-<li>它会给容器中导入非常多的自动配置类 （xxxAutoConfiguration）, 就是给容器中导入这个场景需要的所有组件 ， 并配置好这些组件 ；</li>
-<li>有了自动配置类 ， 免去了我们手动编写配置注入功能组件等的工作；</li>
+<li><p>SpringBoot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值</p>
+</li>
+<li><p>将这些值作为自动配置类导入容器 ， 自动配置类就生效 ， 帮我们进行自动配置工作；</p>
+</li>
+<li><p>整个J2EE的整体解决方案和自动配置都在springboot-autoconfigure的jar包中；</p>
+</li>
+<li><p>它会给容器中导入非常多的自动配置类 （xxxAutoConfiguration）, 就是给容器中导入这个场景需要的所有组件 ， 并配置好这些组件 ；</p>
+</li>
+<li><p>有了自动配置类 ， 免去了我们手动编写配置注入功能组件等的工作；</p>
+<hr>
+</li>
 </ul>
 <h2 id="SpringApplication"><a href="#SpringApplication" class="headerlink" title="SpringApplication"></a>SpringApplication</h2><p>SpringApplication.run分析</p>
 <p>分析该方法主要分两部分，一部分是SpringApplication的实例化，二是run方法的执行；</p>
