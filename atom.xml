@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-21T02:59:16.029Z</updated>
+  <updated>2020-12-21T14:54:41.564Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,195 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>thymeleaf语法</title>
+    <link href="https://hlgao666.github.io/2020/12/21/SpringBoot/thymeleaf%E8%AF%AD%E6%B3%95/"/>
+    <id>https://hlgao666.github.io/2020/12/21/SpringBoot/thymeleaf语法/</id>
+    <published>2020-12-21T14:49:39.000Z</published>
+    <updated>2020-12-21T14:54:41.564Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>首页定制</title>
+    <link href="https://hlgao666.github.io/2020/12/21/SpringBoot/%E9%A6%96%E9%A1%B5%E5%AE%9A%E5%88%B6/"/>
+    <id>https://hlgao666.github.io/2020/12/21/SpringBoot/首页定制/</id>
+    <published>2020-12-21T14:49:29.000Z</published>
+    <updated>2020-12-21T14:54:11.448Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>静态资源处理</title>
+    <link href="https://hlgao666.github.io/2020/12/21/SpringBoot/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86/"/>
+    <id>https://hlgao666.github.io/2020/12/21/SpringBoot/静态资源处理/</id>
+    <published>2020-12-21T14:49:17.000Z</published>
+    <updated>2020-12-21T14:53:56.647Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动配置原理深入理解</title>
+    <link href="https://hlgao666.github.io/2020/12/21/SpringBoot/%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/"/>
+    <id>https://hlgao666.github.io/2020/12/21/SpringBoot/自动配置原理深入理解/</id>
+    <published>2020-12-21T14:49:04.000Z</published>
+    <updated>2020-12-21T14:53:40.484Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多环境切换及配置文件加载</title>
+    <link href="https://hlgao666.github.io/2020/12/21/SpringBoot/%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/"/>
+    <id>https://hlgao666.github.io/2020/12/21/SpringBoot/多环境切换及配置文件加载/</id>
+    <published>2020-12-21T14:48:48.000Z</published>
+    <updated>2020-12-21T14:53:21.150Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSR303数据校验</title>
+    <link href="https://hlgao666.github.io/2020/12/21/SpringBoot/JSR303%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/"/>
+    <id>https://hlgao666.github.io/2020/12/21/SpringBoot/JSR303数据校验/</id>
+    <published>2020-12-21T14:48:34.000Z</published>
+    <updated>2020-12-21T14:52:53.760Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>yaml基本语法+配置注入</title>
+    <link href="https://hlgao666.github.io/2020/12/21/SpringBoot/yaml%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-%E9%85%8D%E7%BD%AE%E6%B3%A8%E5%85%A5/"/>
+    <id>https://hlgao666.github.io/2020/12/21/SpringBoot/yaml基本语法-配置注入/</id>
+    <published>2020-12-21T14:48:21.000Z</published>
+    <updated>2020-12-21T14:52:40.445Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer43  左旋转字符串</title>
@@ -370,195 +559,6 @@
     
     
       <category term="npm命令" scheme="https://hlgao666.github.io/tags/npm%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>同步加载、异步加载、延迟加载、预加载</title>
-    <link href="https://hlgao666.github.io/2020/12/19/Vue/%E5%90%8C%E6%AD%A5%E5%8A%A0%E8%BD%BD%E3%80%81%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E3%80%81%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%E3%80%81%E9%A2%84%E5%8A%A0%E8%BD%BD/"/>
-    <id>https://hlgao666.github.io/2020/12/19/Vue/同步加载、异步加载、延迟加载、预加载/</id>
-    <published>2020-12-19T03:01:43.000Z</published>
-    <updated>2020-12-19T03:07:49.238Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="前端" scheme="https://hlgao666.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="前端" scheme="https://hlgao666.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer41 和为s的连续整数序列</title>
-    <link href="https://hlgao666.github.io/2020/12/19/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer41/"/>
-    <id>https://hlgao666.github.io/2020/12/19/剑指offer/剑指offer41/</id>
-    <published>2020-12-19T02:09:47.000Z</published>
-    <updated>2020-12-19T02:12:05.575Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="穷举" scheme="https://hlgao666.github.io/tags/%E7%A9%B7%E4%B8%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一个vue-cli项目</title>
-    <link href="https://hlgao666.github.io/2020/12/18/Vue/%E7%AC%AC%E4%B8%80%E4%B8%AAvue-cli%E9%A1%B9%E7%9B%AE/"/>
-    <id>https://hlgao666.github.io/2020/12/18/Vue/第一个vue-cli项目/</id>
-    <published>2020-12-18T14:42:06.000Z</published>
-    <updated>2020-12-19T07:50:08.251Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue计算属性、内容分发、自定义事件</title>
-    <link href="https://hlgao666.github.io/2020/12/18/Vue/vue%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E3%80%81%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/"/>
-    <id>https://hlgao666.github.io/2020/12/18/Vue/vue计算属性、内容分发、自定义事件/</id>
-    <published>2020-12-18T13:30:49.000Z</published>
-    <updated>2020-12-18T13:35:06.762Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>axios通信</title>
-    <link href="https://hlgao666.github.io/2020/12/18/Vue/axios%E9%80%9A%E4%BF%A1/"/>
-    <id>https://hlgao666.github.io/2020/12/18/Vue/axios通信/</id>
-    <published>2020-12-18T13:30:22.000Z</published>
-    <updated>2020-12-18T13:34:18.351Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue组件</title>
-    <link href="https://hlgao666.github.io/2020/12/18/Vue/vue%E7%BB%84%E4%BB%B6/"/>
-    <id>https://hlgao666.github.io/2020/12/18/Vue/vue组件/</id>
-    <published>2020-12-18T13:30:06.000Z</published>
-    <updated>2020-12-18T13:33:21.393Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue绑定事件</title>
-    <link href="https://hlgao666.github.io/2020/12/18/Vue/vue%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6/"/>
-    <id>https://hlgao666.github.io/2020/12/18/Vue/vue绑定事件/</id>
-    <published>2020-12-18T13:29:54.000Z</published>
-    <updated>2020-12-18T13:32:32.751Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/tags/vue/"/>
     
   </entry>
   
