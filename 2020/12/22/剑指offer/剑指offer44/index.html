@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="如何解决git发布到远端重复输入用户名和密码, hlgao666/hlgao666">
+    <meta name="keywords" content="剑指offer44  反转单词序列, hlgao666/hlgao666">
     <meta name="description" content="I hope you are here for me">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何解决git发布到远端重复输入用户名和密码 | Allen</title>
+    <title>剑指offer44  反转单词序列 | Allen</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
@@ -322,12 +322,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/34.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何解决git发布到远端重复输入用户名和密码</h1>
+                    <h1 class="description center-align post-title">剑指offer44  反转单词序列</h1>
                 </div>
             </div>
         </div>
@@ -444,8 +444,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
+                            <a href="/tags/字符串/">
+                                <span class="chip bg-color">字符串</span>
                             </a>
                         
                     </div>
@@ -456,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/技术漫步/" class="post-category">
-                                技术漫步
+                            <a href="/categories/剑指offer/" class="post-category">
+                                剑指offer
                             </a>
                         
                     </div>
@@ -469,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-13
+                    2020-12-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    553
+                    600
                 </div>
                 
 
@@ -505,43 +505,90 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为本人在使用hexo博客发布到远端过程中，出现重复输入用户名和密码问题，觉得太麻烦，于是上网查找解决办法。但发现没有一个比较完整的解决思路，于是将本人解决经验总结如下.  </p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><pre class="line-numbers language-bash"><code class="language-bash">    1.生成SSH密钥
-
-    2.设置Github项目的Deploy keys
-
-    3.修改hexo根目录下的_config.yml文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="具体解决步骤（配图说明）"><a href="#具体解决步骤（配图说明）" class="headerlink" title="具体解决步骤（配图说明）"></a>具体解决步骤（配图说明）</h2><h3 id="1-生成SSH密钥"><a href="#1-生成SSH密钥" class="headerlink" title="1.生成SSH密钥"></a>1.生成SSH密钥</h3><p>1.一般可通过在桌面单击鼠标右键选择“Git Bash Here”来打开Git的命令行窗口，打开后的窗口如图1所示:  </p>
-<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/17e77ff8-a6a3-4ac7-ad82-901de307eb4b.jpg" alt="图1"></p>
-<p>2.在上图所示窗口中输入如下命令：  </p>
+                <h1 id="剑指offer44"><a href="#剑指offer44" class="headerlink" title="剑指offer44"></a>剑指offer44</h1><h2 id="反转单词序列"><a href="#反转单词序列" class="headerlink" title="反转单词序列"></a>反转单词序列</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
+<p>输入</p>
 <blockquote>
-<p>$ cd ~/.ssh<br>$ ssh-keygen -t rsa -C “username”</p>
+<p>“nowcoder. a am I”</p>
 </blockquote>
-<pre><code>注意：1).第一行命令是查看你的PC用户根目录下是否有.ssh文件夹；
-2).上述命令中的"username"指的是你git的用户名。</code></pre><p>3.输入上述命令后，为简化流程，以后三次提示输入直接按Enter即可。然后可看到：</p>
-<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/1c358f17-10e5-4dc1-8a5d-05cf2a0fed1c.jpg" alt="图2"></p>
-<p>说明密钥生成成功。</p>
-<h3 id="2-设置Github项目的Deploy-keys"><a href="#2-设置Github项目的Deploy-keys" class="headerlink" title="2.设置Github项目的Deploy keys"></a>2.设置Github项目的Deploy keys</h3><p>此处以我的博客为例。</p>
-<p>1.找到hlgao666.github.io仓库中，依次点击 Settings –&gt; Deploy keys –&gt; Add deploy key。  </p>
-<p>2.找到PC用户根目录下的.ssh文件夹，将id_rsa.pub 中的内容全选复制到 key 输入框中，勾选 Allow write access，然后点击 Add key 完成添加公钥。  </p>
-<p>3.测试配置是否成功。</p>
-<p>在Git命令行窗口中输入以下命令：</p>
+<p>输出</p>
 <blockquote>
-<p>$ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+<p>“I am a nowcoder.”</p>
 </blockquote>
-<p>如果出现以下内容即表示配置完成并且成功！</p>
-<pre class="line-numbers language-bash"><code class="language-bash">Hi username<span class="token operator">!</span> You've successfully authenticated, but GitHub does not
-provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="3-修改hexo根目录下的-config-yml文件"><a href="#3-修改hexo根目录下的-config-yml文件" class="headerlink" title="3.修改hexo根目录下的_config.yml文件"></a>3.修改hexo根目录下的_config.yml文件</h3><p>修改 hexo 的配置文件 _config.yml 中的deploy 属性。</p>
-<p>修改如下：</p>
-<blockquote>
-<pre><code>deploy:
-  type: git
-  repo: git@github.com:hlgao666/hlgao666.github.io.git
-  branch: master</code></pre></blockquote>
-<p>至此，修改已全部完成。重新hexo clean, hexo g -d即可。</p>
-<hr>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1]<a href="https://blog.csdn.net/hhgggggg/article/details/77853665" target="_blank" rel="noopener">https://blog.csdn.net/hhgggggg/article/details/77853665</a><br>[2]<a href="https://blog.csdn.net/yjk13703623757/article/details/87882294" target="_blank" rel="noopener">https://blog.csdn.net/yjk13703623757/article/details/87882294</a>  </p>
+<h3 id="解法一：使用-str-split拆分，然后-append-到-StringBuilder"><a href="#解法一：使用-str-split拆分，然后-append-到-StringBuilder" class="headerlink" title="解法一：使用 str.split拆分，然后 append 到 StringBuilder"></a>解法一：使用 str.split拆分，然后 append 到 StringBuilder</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> String <span class="token function">ReverseSentence</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">//1 使用 str.split拆分，然后 append 到 StringBuilder</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span> <span class="token operator">||</span> str<span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token keyword">return</span> str<span class="token punctuation">;</span>
+        StringBuilder sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String<span class="token punctuation">[</span><span class="token punctuation">]</span> strings <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> strings<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>len<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>strings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">deleteCharAt</span><span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//删除末尾的空格</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="解法二：使用栈，出现倒序，自然地联想到栈“后进先出”的特点"><a href="#解法二：使用栈，出现倒序，自然地联想到栈“后进先出”的特点" class="headerlink" title="解法二：使用栈，出现倒序，自然地联想到栈“后进先出”的特点"></a>解法二：使用栈，出现倒序，自然地联想到栈“后进先出”的特点</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Stack<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> String <span class="token function">ReverseSentence</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">//2 使用栈，出现倒序，自然地联想到栈“后进先出”的特点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token keyword">return</span> str<span class="token punctuation">;</span> 
+        Stack<span class="token operator">&lt;</span>String<span class="token operator">></span> reverse <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String res <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String<span class="token punctuation">[</span><span class="token punctuation">]</span> strings <span class="token operator">=</span> res<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>strings<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            reverse<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>strings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        res <span class="token operator">=</span> reverse<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>reverse<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            res <span class="token operator">=</span> res <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> reverse<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="解法三：两次反转：先反转句子整体，再反转句子中每个子字符串"><a href="#解法三：两次反转：先反转句子整体，再反转句子中每个子字符串" class="headerlink" title="解法三：两次反转：先反转句子整体，再反转句子中每个子字符串"></a>解法三：两次反转：先反转句子整体，再反转句子中每个子字符串</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> String <span class="token function">ReverseSentence</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">//3 两次反转：先反转句子整体，再反转句子中每个子字符串</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span> <span class="token operator">||</span> str<span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token keyword">return</span> str<span class="token punctuation">;</span>
+        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//整个句子反转</span>
+        <span class="token function">reverse</span><span class="token punctuation">(</span>chars<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> chars<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//分别反转里面的子字符串</span>
+        <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>end <span class="token operator">&lt;</span> chars<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//碰到空格了，将里面的子字符串反转</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>chars<span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token function">reverse</span><span class="token punctuation">(</span>chars<span class="token punctuation">,</span> start<span class="token punctuation">,</span> end<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                start <span class="token operator">=</span> end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//下次跳过空格</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//到最后一个，反转最后一个子字符串</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>end <span class="token operator">==</span> chars<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token function">reverse</span><span class="token punctuation">(</span>chars<span class="token punctuation">,</span> start<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+            end<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/**
+     * 反转方法
+     * @param target
+     * @param start
+     * @param end
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> target<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">int</span> end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>start <span class="token operator">&lt;</span> end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">char</span> tmp <span class="token operator">=</span> target<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            target<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> target<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            target<span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+            start<span class="token operator">++</span><span class="token punctuation">;</span>
+            end<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -585,7 +632,7 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2019/10/13/技术漫步/如何解决git发布到远端重复输入用户名和密码/">https://hlgao666.github.io/2019/10/13/技术漫步/如何解决git发布到远端重复输入用户名和密码/</a>
+                    <a href="https://hlgao666.github.io/2020/12/22/剑指offer/剑指offer44/">https://hlgao666.github.io/2020/12/22/剑指offer/剑指offer44/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -623,8 +670,8 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
+                                <a href="/tags/字符串/">
+                                    <span class="chip bg-color">字符串</span>
                                 </a>
                             
                         </div>
@@ -795,7 +842,7 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2019-10-13T13-08-30',
+        id: '2020-12-22T09-59-16',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -819,49 +866,47 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/20/算法/浅析递归调用/">
+                <a href="/2020/12/22/剑指offer/剑指offer44/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="浅析递归调用">
+                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="剑指offer44  反转单词序列">
                         
-                        <span class="card-title">浅析递归调用</span>
+                        <span class="card-title">剑指offer44  反转单词序列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            递归原理
+                            反转单词序列
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category">
-                                    算法
+                            <a href="/categories/剑指offer/" class="post-category">
+                                    剑指offer
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/递归/">
-                        <span class="chip bg-color">递归</span>
-                    </a>
-                    
-                    <a href="/tags/算法/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/字符串/">
+                        <span class="chip bg-color">字符串</span>
                     </a>
                     
                 </div>
@@ -875,30 +920,30 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/11/算法/求解最短路问题的两种经典算法下/">
+                <a href="/2020/12/21/SpringBoot/thymeleaf语法/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="求解最短路问题的两种经典算法（下）">
+                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="thymeleaf语法">
                         
-                        <span class="card-title">求解最短路问题的两种经典算法（下）</span>
+                        <span class="card-title">thymeleaf语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了利用Floyd算法解决有权图的多源最短路问题
+                            thymeleaf模板引擎
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category">
-                                    算法
+                            <a href="/categories/SpringBoot/" class="post-category">
+                                    SpringBoot
                                 </a>
                             
                             
@@ -908,8 +953,8 @@ provide shell access.<span aria-hidden="true" class="line-numbers-rows"><span></
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Dijkstra-Floyd/">
-                        <span class="chip bg-color">Dijkstra &amp; Floyd</span>
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>
