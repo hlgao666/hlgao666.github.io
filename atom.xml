@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-24T02:08:56.557Z</updated>
+  <updated>2020-12-24T13:40:32.741Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java 调用 matlab 程序说明</title>
+    <link href="https://hlgao666.github.io/2020/12/24/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/java-%E8%B0%83%E7%94%A8-matlab-%E7%A8%8B%E5%BA%8F%E8%AF%B4%E6%98%8E/"/>
+    <id>https://hlgao666.github.io/2020/12/24/技术漫步/java-调用-matlab-程序说明/</id>
+    <published>2020-12-24T13:38:26.000Z</published>
+    <updated>2020-12-24T13:40:32.741Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="技术漫步" scheme="https://hlgao666.github.io/categories/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/"/>
+    
+    
+      <category term="java" scheme="https://hlgao666.github.io/tags/java/"/>
+    
+      <category term="matlab" scheme="https://hlgao666.github.io/tags/matlab/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer46  圆圈中最后剩下的数</title>
@@ -532,33 +561,6 @@
       <category term="数组" scheme="https://hlgao666.github.io/tags/%E6%95%B0%E7%BB%84/"/>
     
       <category term="双指针" scheme="https://hlgao666.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>404和路由钩子</title>
-    <link href="https://hlgao666.github.io/2020/12/19/Vue/404%E5%92%8C%E8%B7%AF%E7%94%B1%E9%92%A9%E5%AD%90/"/>
-    <id>https://hlgao666.github.io/2020/12/19/Vue/404和路由钩子/</id>
-    <published>2020-12-19T14:04:46.000Z</published>
-    <updated>2020-12-19T14:10:47.563Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="https://hlgao666.github.io/tags/vue/"/>
     
   </entry>
   
