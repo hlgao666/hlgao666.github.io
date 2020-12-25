@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>剑指offer47  求1+2+...+n</title>
+      <link href="/2020/12/25/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer47/"/>
+      <url>/2020/12/25/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer47/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="剑指offer47"><a href="#剑指offer47" class="headerlink" title="剑指offer47"></a>剑指offer47</h1><h2 id="求1-2-…-n"><a href="#求1-2-…-n" class="headerlink" title="求1+2+…+n"></a>求1+2+…+n</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>求1+2+3+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p><p>输入</p><blockquote><p>5</p></blockquote><p>输出</p><blockquote><p>15</p></blockquote><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol><li>需利用逻辑与的短路特性实现递归终止。</li><li>当n==0时，(n&gt;0)&amp;&amp;((sum+=Sum_Solution(n-1))&gt;0)只执行前面的判断，为false，然后直接返回0；</li><li>当n&gt;0时，执行sum+=Sum_Solution(n-1)，实现递归计算Sum_Solution(n)。</li></ol><p>过程：</p><p>sum = n + Sum_Solution(n-1) + Sum_Solution(n-2) + … + Sum_Solution(1)</p><p>当判断加到 0 时，逻辑与短路，往上层依次返回：</p><p>sum = 1 + 2 + … + n, 最终返回sum.</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">Sum_Solution</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">int</span> sum <span class="token operator">=</span> n<span class="token punctuation">;</span>        <span class="token keyword">boolean</span> ans <span class="token operator">=</span> <span class="token punctuation">(</span>n<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sum<span class="token operator">+=</span><span class="token function">Sum_Solution</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> sum<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字 </tag>
+            
+            <tag> 逻辑与 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java 调用 matlab 程序说明</title>
       <link href="/2020/12/24/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/java-%E8%B0%83%E7%94%A8-matlab-%E7%A8%8B%E5%BA%8F%E8%AF%B4%E6%98%8E/"/>
       <url>/2020/12/24/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/java-%E8%B0%83%E7%94%A8-matlab-%E7%A8%8B%E5%BA%8F%E8%AF%B4%E6%98%8E/</url>
