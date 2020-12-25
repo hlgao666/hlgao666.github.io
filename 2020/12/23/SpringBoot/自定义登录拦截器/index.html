@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    448
+                    449
                 </div>
                 
 
@@ -569,31 +569,45 @@
 <p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201223224517.png" alt=""></p>
 <ul>
 <li>addPathPatterns()：拦截所选路径</li>
-<li>excludePathPatterns()：不拦截所选路径<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>config<span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<li>excludePathPatterns()：不拦截所选路径</li>
 </ul>
-<p>import com.allen.interceptor.LoginHandlerInterceptor;<br>import org.springframework.context.annotation.Bean;<br>import org.springframework.context.annotation.Configuration;<br>import org.springframework.web.servlet.LocaleResolver;<br>import org.springframework.web.servlet.config.annotation.InterceptorRegistry;<br>import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;<br>import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</p>
-<p>/**</p>
-<ul>
-<li><p>@author Allen</p>
-</li>
-<li><p>@date 2020/12/22 20:17</p>
-</li>
-<li><p>/<br>@Configuration<br>public class MyMvcConfig implements WebMvcConfigurer {</p>
-<p>  @Override<br>  public void addViewControllers(ViewControllerRegistry registry) {</p>
-<pre><code>  registry.addViewController("/").setViewName("index");
-  registry.addViewController("/index.html").setViewName("index");
-  registry.addViewController("/main.html").setViewName("dashboard");</code></pre><p>  }</p>
-<p>  //自定义国际化组件生效<br>  @Bean<br>  public LocaleResolver localeResolver(){</p>
-<pre><code>  return new MyLocaleResolver();</code></pre><p>  }</p>
-<p>  //拦截器生效<br>  @Override<br>  public void addInterceptors(InterceptorRegistry registry) {</p>
-<pre><code>  registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").
-          excludePathPatterns("/index.html","/","/user/login","/css/*","/img/*","/js/*");</code></pre><p>  }<br>}</p>
-<pre><code>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>config<span class="token punctuation">;</span>
 
-</code></pre></li>
-</ul>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>interceptor<span class="token punctuation">.</span>LoginHandlerInterceptor<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Bean<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>LocaleResolver<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>InterceptorRegistry<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>ViewControllerRegistry<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>WebMvcConfigurer<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * @author Allen
+ * @date 2020/12/22 20:17
+ */</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyMvcConfig</span> <span class="token keyword">implements</span> <span class="token class-name">WebMvcConfigurer</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addViewControllers</span><span class="token punctuation">(</span>ViewControllerRegistry registry<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        registry<span class="token punctuation">.</span><span class="token function">addViewController</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setViewName</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        registry<span class="token punctuation">.</span><span class="token function">addViewController</span><span class="token punctuation">(</span><span class="token string">"/index.html"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setViewName</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        registry<span class="token punctuation">.</span><span class="token function">addViewController</span><span class="token punctuation">(</span><span class="token string">"/main.html"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setViewName</span><span class="token punctuation">(</span><span class="token string">"dashboard"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//自定义国际化组件生效</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> LocaleResolver <span class="token function">localeResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MyLocaleResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//拦截器生效</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addInterceptors</span><span class="token punctuation">(</span>InterceptorRegistry registry<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        registry<span class="token punctuation">.</span><span class="token function">addInterceptor</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">LoginHandlerInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addPathPatterns</span><span class="token punctuation">(</span><span class="token string">"/**"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+                <span class="token function">excludePathPatterns</span><span class="token punctuation">(</span><span class="token string">"/index.html"</span><span class="token punctuation">,</span><span class="token string">"/"</span><span class="token punctuation">,</span><span class="token string">"/user/login"</span><span class="token punctuation">,</span><span class="token string">"/css/*"</span><span class="token punctuation">,</span><span class="token string">"/img/*"</span><span class="token punctuation">,</span><span class="token string">"/js/*"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
