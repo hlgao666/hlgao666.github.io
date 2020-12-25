@@ -1211,11 +1211,11 @@
       
         <tags>
             
+            <tag> 分治 </tag>
+            
             <tag> 数组 </tag>
             
             <tag> 归并排序 </tag>
-            
-            <tag> 分治 </tag>
             
         </tags>
       
@@ -1769,9 +1769,9 @@
       
         <tags>
             
-            <tag> 分治 </tag>
-            
             <tag> 位运算 </tag>
+            
+            <tag> 分治 </tag>
             
         </tags>
       
