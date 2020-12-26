@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>剑指offer48</title>
+      <link href="/2020/12/26/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer48/"/>
+      <url>/2020/12/26/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer48/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="剑指offer48"><a href="#剑指offer48" class="headerlink" title="剑指offer48"></a>剑指offer48</h1><h2 id="不用加减乘除做加法"><a href="#不用加减乘除做加法" class="headerlink" title="不用加减乘除做加法"></a>不用加减乘除做加法</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。</p><p>输入</p><blockquote><p>1,2</p></blockquote><p>输出</p><blockquote><p>3</p></blockquote><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>补充知识：</p><p>两个数按位与&amp;结果是进位位</p><p>两个数按位异或^结果是非进位位</p><p>两个数按位或|结果是两个数合并后的结果</p><p>过程：</p><p>step1:按位与&amp;是查看两个数哪些二进制位都为1，这些都是进位位，结果需左移一位，表示进位后的结果</p><p>step2:异或^是查看两个数哪些二进制位只有一个为1，这些是非进位位，可以直接加、减，结果表示非进位位进行加操作后的结果</p><p>step3:n1&amp;n2是查看有没有进位位了，如果有，需要重复step1、step2；如果没有，保留n1、n2上二进制为1的部分，用或|将之合为一个数，即为最后结果</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">int</span> num1<span class="token punctuation">,</span><span class="token keyword">int</span> num2<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">int</span> n1<span class="token punctuation">,</span>n2<span class="token punctuation">;</span>        n1<span class="token operator">=</span><span class="token punctuation">(</span>num1<span class="token operator">&amp;</span>num2<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span><span class="token number">1</span><span class="token punctuation">;</span>        n2<span class="token operator">=</span>num1<span class="token operator">^</span>num2<span class="token punctuation">;</span>        <span class="token keyword">boolean</span> jinwei_flag <span class="token operator">=</span> <span class="token punctuation">(</span>n1<span class="token operator">&amp;</span>n2<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token operator">?</span><span class="token boolean">true</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">;</span>        <span class="token keyword">while</span><span class="token punctuation">(</span>jinwei_flag<span class="token punctuation">)</span><span class="token punctuation">{</span>            num1<span class="token operator">=</span>n1<span class="token punctuation">;</span>            num2<span class="token operator">=</span>n2<span class="token punctuation">;</span>            n1<span class="token operator">=</span><span class="token punctuation">(</span>num1<span class="token operator">&amp;</span>num2<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span><span class="token number">1</span><span class="token punctuation">;</span>            n2<span class="token operator">=</span>num1<span class="token operator">^</span>num2<span class="token punctuation">;</span>            jinwei_flag <span class="token operator">=</span> <span class="token punctuation">(</span>n1<span class="token operator">&amp;</span>n2<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token operator">?</span><span class="token boolean">true</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> n1<span class="token operator">|</span>n2<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 求和 </tag>
+            
+            <tag> 位操作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>剑指offer47  求1+2+...+n</title>
       <link href="/2020/12/25/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer47/"/>
       <url>/2020/12/25/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer47/</url>
