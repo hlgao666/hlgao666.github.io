@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="win10环境下如何用hexo+git 创建个人博客, hlgao666/hlgao666">
+    <meta name="keywords" content="剑指offer49  把字符串转化为整数, hlgao666/hlgao666">
     <meta name="description" content="I hope you are here for me">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>win10环境下如何用hexo+git 创建个人博客 | Allen</title>
+    <title>剑指offer49  把字符串转化为整数 | Allen</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
@@ -322,12 +322,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/30.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/46.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">win10环境下如何用hexo+git 创建个人博客</h1>
+                    <h1 class="description center-align post-title">剑指offer49  把字符串转化为整数</h1>
                 </div>
             </div>
         </div>
@@ -444,12 +444,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo-git/">
-                                <span class="chip bg-color">hexo+git</span>
+                            <a href="/tags/字符串/">
+                                <span class="chip bg-color">字符串</span>
                             </a>
                         
-                            <a href="/tags/个人博客/">
-                                <span class="chip bg-color">个人博客</span>
+                            <a href="/tags/数学/">
+                                <span class="chip bg-color">数学</span>
                             </a>
                         
                     </div>
@@ -460,8 +460,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/技术漫步/" class="post-category">
-                                技术漫步
+                            <a href="/categories/剑指offer/" class="post-category">
+                                剑指offer
                             </a>
                         
                     </div>
@@ -473,28 +473,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-03
+                    2020-12-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-01
+                    2020-12-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    665
+                    664
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -509,45 +509,107 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第一章-如何部署环境？"><a href="#第一章-如何部署环境？" class="headerlink" title="第一章  如何部署环境？"></a>第一章  如何部署环境？</h2><pre><code>1.首先下载node.js，下载地址：https://nodejs.org，安装完成后会有包管理器npm（搭建hexo博客框架所必需）。
+                <h1 id="剑指offer49"><a href="#剑指offer49" class="headerlink" title="剑指offer49"></a>剑指offer49</h1><h2 id="把字符串转化为整数"><a href="#把字符串转化为整数" class="headerlink" title="把字符串转化为整数"></a>把字符串转化为整数</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><blockquote>
+<p>输入一个字符串,包括数字字母符号,可以为空</p>
+</blockquote>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><blockquote>
+<p>如果是合法的数值表达则返回该数字，否则返回0</p>
+</blockquote>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例一</p>
+<p>输入</p>
+<blockquote>
+<p>“+2147483647”</p>
+</blockquote>
+<p>输出</p>
+<blockquote>
+<p>2147483647</p>
+</blockquote>
+<p>示例二</p>
+<p>输入</p>
+<blockquote>
+<p>“1a33”</p>
+</blockquote>
+<p>输出</p>
+<blockquote>
+<p>0</p>
+</blockquote>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先判断这个数的正负，如果正数，超过了INT_MAX，就设置为INT_MAX，如果是负数，首先我们不考虑负号，如果超过了INT_MAX+1, 则就置为INT_MAX+1, 最后再根据正负号，来加负号。</p>
+<p>边界条件：</p>
+<ol>
+<li>数据上下溢出</li>
+<li>空字符串</li>
+<li>只有正负号</li>
+<li>有无正负号</li>
+<li>错误标志输出</li>
+</ol>
+<p>补充：ASCII码</p>
+<blockquote>
+<p>“+” 43, “-“ 45, “0” 48, “A” 65, “a” 97</p>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">StrToInt</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>str <span class="token operator">==</span> null<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> negative <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//是否负数</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/**
+         * limit 默认初始化为 负的 最大正整数 ，假如字符串表示的是正数
+         * 那么result(在返回之前一直是负数形式)就必须和这个最大正数的负数来比较，
+         * 判断是否溢出
+         */</span>
+        <span class="token keyword">int</span> limit <span class="token operator">=</span> <span class="token operator">-</span>Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> multmin<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> digit<span class="token punctuation">;</span>
 
-2.安装淘宝的npm的镜像源，在cmd窗口中输入：npm install -g cnpm --registry=https://registry.npm.taobao.org，Enter等待安装完成。（install -g 全局安装）
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">char</span> firstChar <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//首先看第一位</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>firstChar <span class="token operator">&lt;</span> <span class="token string">'0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// Possible leading "+" or "-", "+" 43, "-" 45, "0" 48</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>firstChar <span class="token operator">==</span> <span class="token string">'-'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    negative <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                    limit <span class="token operator">=</span> Integer<span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//在负号的情况下，判断溢出的值就变成了 整数的 最小负数了</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>firstChar <span class="token operator">!=</span> <span class="token string">'+'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//首位非正负号和数字，则为非法值</span>
+                    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// just have lone "+" or "-"，仅有1位</span>
+                    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                i<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            multmin <span class="token operator">=</span> limit <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> len<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// Accumulating negatively avoids surprises near MAX_VALUE</span>
+                digit <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token string">'0'</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//char转int</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>digit <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> digit <span class="token operator">></span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//0到9以外的数字，可能包含字母、特殊符号</span>
+                    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//以负数 multmin 判断溢出，利用limit / 10提前判断是否溢出</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">&lt;</span> multmin<span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                result <span class="token operator">*=</span> <span class="token number">10</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//扩大10倍后，可能越界也可能不越界，需要利用加数 digit（位于0-9之间） 进一步判断</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">&lt;</span> limit <span class="token operator">+</span> digit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                result <span class="token operator">-=</span> digit<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//如果是正数就返回-result（result一直是负数）</span>
+        <span class="token keyword">return</span> negative <span class="token operator">?</span> result <span class="token operator">:</span> <span class="token operator">-</span>result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-3.利用2中安装的cnpm安装hexo框架，在cmd窗口中输入：cnpm install -g hexo-cli，Enter等待安装完成。至此，hexo安装完成。</code></pre><hr>
-<h2 id="第二章-如何初始化博客？"><a href="#第二章-如何初始化博客？" class="headerlink" title="第二章  如何初始化博客？"></a>第二章  如何初始化博客？</h2><pre><code>1.创建博客存放的文件夹，在cmd窗口中输入：mkdir blog，可以在当前路径下找到blog文件夹（命令：dir），定位到blog文件夹 cd blog，初始化博客hexo init（此步骤之前本地需安装git），等待初始化完成。
+<span class="token comment" spellcheck="true">/**
+边界条件：
+1.数据上下溢出
+2.空字符串
+3.只有正负号
+4.有无正负号
+5.错误标志输出
 
-2.启动本地博客hexo s，浏览器输入：localhost:4000，即可访问。</code></pre><hr>
-<h2 id="第三章-如何写博客？"><a href="#第三章-如何写博客？" class="headerlink" title="第三章  如何写博客？"></a>第三章  如何写博客？</h2><pre><code>1.新建内容hexo n "我的第一篇博客文章"，定位到文章所在文件夹cd source/_posts，查看文件夹下文件目录dir，可用vim/notepad打开vim/notepad 我的第一篇博客文章.md，修改之（makedown格式语法）。
-
-2.清理hexo clean，生成hexo g，重启hexo s</code></pre><hr>
-<h2 id="第四章-如何将hexo发布到github上？"><a href="#第四章-如何将hexo发布到github上？" class="headerlink" title="第四章  如何将hexo发布到github上？"></a>第四章  如何将hexo发布到github上？</h2><pre><code>1.Create a new repository in github，repository's name must be consistent with your  person  github's name. 
-   e.g. my github's name is hlgao666, then repository's name must be hlgao666.github.io.
-
-2.安装发布插件，cnpm install --save hexo-deployer-git
-
-3.修改插件的_config.yml文件。新增：
-   1）在delpoyment中的type: git；
-   2）repo:  https://github.com/hlgao666/hlgao666.github.io.git（https的SSH地址）；
-   3）branch: master
-
-4.部署到远端hexo d，此时可直接访问仓库名hlgao666.github.io.</code></pre><hr>
-<h2 id="第五章-如何更换博客主题？"><a href="#第五章-如何更换博客主题？" class="headerlink" title="第五章 如何更换博客主题？"></a>第五章 如何更换博客主题？</h2><pre><code>1.直接克隆：git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia，https://github.com/litten/hexo-theme-yilia.git为源主题地址，存放在blog的themes/yilia下。
-
-2.修改插件的_config.yml文件，修改theme为yilia
-
-3.hexo clean, hexo g, hexo s, hexo d</code></pre><hr>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code>cd ../..         后退2层文件夹
-dir        查看当前文件夹下文件目录     
-mkdir blog     新建blog文件夹
-hexo clean    清除
-hexo g        生成，generate
-hexo s        启动，start
-hexo n        新建，new
-hexo d        发布到远端，deploy
-hexo g -d    生成并发布</code></pre><hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1]<a href="https://github.com/hlgao666" target="_blank" rel="noopener">https://github.com/hlgao666</a><br>[2]<a href="https://www.bilibili.com/video/av44544186" target="_blank" rel="noopener">https://www.bilibili.com/video/av44544186</a><br>[3]<a href="https://www.codesheep.cn" target="_blank" rel="noopener">https://www.codesheep.cn</a><br>[4]<a href="https://blinkfox.github.io/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/#toc-heading-24" target="_blank" rel="noopener">https://blinkfox.github.io/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/#toc-heading-24</a></p>
-<hr>
-<h3 id="My-Github"><a href="#My-Github" class="headerlink" title="My Github"></a><center><a href="https://github.com/hlgao666" target="_blank" rel="noopener">My Github</a></center></h3><script>
+补充：ASCII码
+"+" 43, "-" 45, "0" 48, "A" 65, "a" 97
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -590,7 +652,7 @@ hexo g -d    生成并发布</code></pre><hr>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hlgao666.github.io/2019/09/03/技术漫步/个人博客创建教程/">https://hlgao666.github.io/2019/09/03/技术漫步/个人博客创建教程/</a>
+                    <a href="https://hlgao666.github.io/2020/12/27/剑指offer/剑指offer49/">https://hlgao666.github.io/2020/12/27/剑指offer/剑指offer49/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,12 +690,12 @@ hexo g -d    生成并发布</code></pre><hr>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo-git/">
-                                    <span class="chip bg-color">hexo+git</span>
+                                <a href="/tags/字符串/">
+                                    <span class="chip bg-color">字符串</span>
                                 </a>
                             
-                                <a href="/tags/个人博客/">
-                                    <span class="chip bg-color">个人博客</span>
+                                <a href="/tags/数学/">
+                                    <span class="chip bg-color">数学</span>
                                 </a>
                             
                         </div>
@@ -804,7 +866,7 @@ hexo g -d    生成并发布</code></pre><hr>
         repo: 'hlgao666.github.io',
         owner: 'hlgao666',
         admin: "hlgao666",
-        id: '2019-09-03T15-28-09',
+        id: '2020-12-27T11-05-32',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -828,45 +890,51 @@ hexo g -d    生成并发布</code></pre><hr>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/09/04/技术漫步/Markdown语法介绍/">
+                <a href="/2020/12/27/剑指offer/剑指offer49/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Markdown语法介绍">
+                        <img src="/medias/featureimages/46.jpg" class="responsive-img" alt="剑指offer49  把字符串转化为整数">
                         
-                        <span class="card-title">Markdown语法介绍</span>
+                        <span class="card-title">剑指offer49  把字符串转化为整数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了Markdown基本语法
+                            把字符串转化为整数
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/技术漫步/" class="post-category">
-                                    技术漫步
+                            <a href="/categories/剑指offer/" class="post-category">
+                                    剑指offer
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown语法/">
-                        <span class="chip bg-color">Markdown语法</span>
+                    <a href="/tags/字符串/">
+                        <span class="chip bg-color">字符串</span>
+                    </a>
+                    
+                    <a href="/tags/数学/">
+                        <span class="chip bg-color">数学</span>
                     </a>
                     
                 </div>
@@ -880,31 +948,43 @@ hexo g -d    生成并发布</code></pre><hr>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/03/hello-world/">
+                <a href="/2020/12/26/杂感/20201226-记小破破站突破10w字/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/46.jpg" class="responsive-img" alt="20201226--记小破破站突破10w字">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">20201226--记小破破站突破10w字</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            20201226--记小破破站突破10w字
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-26
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Hailong Gao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/杂感/" class="post-category">
+                                    杂感
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/记小破破站突破10w字/">
+                        <span class="chip bg-color">记小破破站突破10w字</span>
+                    </a>
+                    
                 </div>
                 
             </div>
