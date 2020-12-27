@@ -538,12 +538,15 @@ const router = new VueRouter({
   ]
 })</code></pre><p>重定向实例</p>
 <ol>
-<li>index.js<pre><code>import Vue from 'vue'
+<li>index.js<pre class="line-numbers language-html"><code class="language-html">import Vue from 'vue'
 import Router from 'vue-router'
-</code></pre></li>
+import Main from '../views/Main'
+import Login from '../views/Login'
+import Profile from "../views/user/Profile"
+import List from "../views/user/List"
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ol>
-<p>import Main from ‘../views/Main’<br>import Login from ‘../views/Login’</p>
-<p>import Profile from “../views/user/Profile”<br>import List from “../views/user/List”</p>
 <p>Vue.use(Router);</p>
 <p>export default new Router({<br>    routes: [<br>      {<br>        path: ‘/main’,<br>        name: ‘main’,<br>        component: Main,    //嵌套路由<br>        children: [<br>          {<br>            path: ‘/user/profile/:id’,<br>            name: ‘profile’,<br>            component: Profile,<br>            props: true<br>          },<br>          {<br>            path: ‘/user/list’,<br>            name: ‘list’,<br>            component: List<br>          }<br>        ]<br>      },</p>
 <pre><code>  {
