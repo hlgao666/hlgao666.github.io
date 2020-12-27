@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-27T03:06:34.408Z</updated>
+  <updated>2020-12-27T03:31:17.749Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用对照表</title>
+    <link href="https://hlgao666.github.io/2020/12/27/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/%E5%B8%B8%E7%94%A8%E5%AF%B9%E7%85%A7%E8%A1%A8/"/>
+    <id>https://hlgao666.github.io/2020/12/27/技术漫步/常用对照表/</id>
+    <published>2020-12-27T03:18:20.000Z</published>
+    <updated>2020-12-27T03:31:17.749Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="技术漫步" scheme="https://hlgao666.github.io/categories/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/"/>
+    
+    
+      <category term="HTML转义字符" scheme="https://hlgao666.github.io/tags/HTML%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/"/>
+    
+      <category term="ASCII对照表" scheme="https://hlgao666.github.io/tags/ASCII%E5%AF%B9%E7%85%A7%E8%A1%A8/"/>
+    
+      <category term="HTTP状态码" scheme="https://hlgao666.github.io/tags/HTTP%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer49  把字符串转化为整数</title>
@@ -520,33 +551,6 @@
     <id>https://hlgao666.github.io/2020/12/21/SpringBoot/多环境切换及配置文件加载/</id>
     <published>2020-12-21T14:48:48.000Z</published>
     <updated>2020-12-21T14:53:21.150Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JSR303数据校验</title>
-    <link href="https://hlgao666.github.io/2020/12/21/SpringBoot/JSR303%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/"/>
-    <id>https://hlgao666.github.io/2020/12/21/SpringBoot/JSR303数据校验/</id>
-    <published>2020-12-21T14:48:34.000Z</published>
-    <updated>2020-12-21T14:52:53.760Z</updated>
     
     <summary type="html">
     
