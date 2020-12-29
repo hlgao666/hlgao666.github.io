@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-29T02:01:28.994Z</updated>
+  <updated>2020-12-29T09:24:29.206Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot整合shiro</title>
+    <link href="https://hlgao666.github.io/2020/12/29/SpringBoot/springboot%E6%95%B4%E5%90%88shiro/"/>
+    <id>https://hlgao666.github.io/2020/12/29/SpringBoot/springboot整合shiro/</id>
+    <published>2020-12-29T09:23:01.000Z</published>
+    <updated>2020-12-29T09:24:29.206Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
+    
+      <category term="shiro" scheme="https://hlgao666.github.io/tags/shiro/"/>
+    
+      <category term="thymeleaf" scheme="https://hlgao666.github.io/tags/thymeleaf/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer51  构建乘积数组</title>
@@ -151,9 +182,9 @@
       <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
     
     
-      <category term="数学" scheme="https://hlgao666.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="字符串" scheme="https://hlgao666.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+      <category term="数学" scheme="https://hlgao666.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -524,33 +555,6 @@
     <id>https://hlgao666.github.io/2020/12/21/SpringBoot/thymeleaf语法/</id>
     <published>2020-12-21T14:49:39.000Z</published>
     <updated>2020-12-21T14:54:41.564Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>首页定制</title>
-    <link href="https://hlgao666.github.io/2020/12/21/SpringBoot/%E9%A6%96%E9%A1%B5%E5%AE%9A%E5%88%B6/"/>
-    <id>https://hlgao666.github.io/2020/12/21/SpringBoot/首页定制/</id>
-    <published>2020-12-21T14:49:29.000Z</published>
-    <updated>2020-12-21T14:54:11.448Z</updated>
     
     <summary type="html">
     
