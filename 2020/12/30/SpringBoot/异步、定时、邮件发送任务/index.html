@@ -707,25 +707,26 @@ spring.mail.properties.mail.smtp.ssl.enable=true<span aria-hidden="true" class="
 <p>4、测试</p>
 <p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201230141433.png" alt="简单邮件发送成功"></p>
 <p>5、发送复杂邮件</p>
-<pre><code>    @Test
-    void contextLoads2() throws MessagingException {
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">void</span> <span class="token function">contextLoads2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> MessagingException <span class="token punctuation">{</span>
 
-        //一个复杂的邮件
-        MimeMessage message = mailSender.createMimeMessage();
-        //组装
-        MimeMessageHelper helper = new MimeMessageHelper(message,true);
+        <span class="token comment" spellcheck="true">//一个复杂的邮件</span>
+        MimeMessage message <span class="token operator">=</span> mailSender<span class="token punctuation">.</span><span class="token function">createMimeMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//组装</span>
+        MimeMessageHelper helper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MimeMessageHelper</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        helper.setSubject("!!!test 2!!!!");
-        helper.setText("&lt;p style='color: red'&gt;hello, this is mail test!&lt;/p&gt;",true);
+        helper<span class="token punctuation">.</span><span class="token function">setSubject</span><span class="token punctuation">(</span><span class="token string">"!!!test 2!!!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        helper<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"&lt;p style='color: red'>hello, this is mail test!&lt;/p>"</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //附件
-        helper.addAttachment("1.png",new File("C:\\Users\\Allen\\Desktop\\1.png"));
+        <span class="token comment" spellcheck="true">//附件</span>
+        helper<span class="token punctuation">.</span><span class="token function">addAttachment</span><span class="token punctuation">(</span><span class="token string">"1.png"</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"C:\\Users\\Allen\\Desktop\\1.png"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        helper.setFrom("1330695688@qq.com");
-        helper.setTo("1330695688@qq.com");
+        helper<span class="token punctuation">.</span><span class="token function">setFrom</span><span class="token punctuation">(</span><span class="token string">"1330695688@qq.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        helper<span class="token punctuation">.</span><span class="token function">setTo</span><span class="token punctuation">(</span><span class="token string">"1330695688@qq.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        mailSender.send(message);
-    }</code></pre><p>6、测试</p>
+        mailSender<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>6、测试</p>
 <p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20201230142930.png" alt="复杂邮件发送成功"></p>
 <script>
         document.querySelectorAll('.github-emoji')
