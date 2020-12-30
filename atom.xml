@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2020-12-30T03:17:34.648Z</updated>
+  <updated>2020-12-30T09:03:48.686Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>异步、定时、邮件发送任务</title>
+    <link href="https://hlgao666.github.io/2020/12/30/SpringBoot/%E5%BC%82%E6%AD%A5%E3%80%81%E5%AE%9A%E6%97%B6%E3%80%81%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E4%BB%BB%E5%8A%A1/"/>
+    <id>https://hlgao666.github.io/2020/12/30/SpringBoot/异步、定时、邮件发送任务/</id>
+    <published>2020-12-30T09:02:47.000Z</published>
+    <updated>2020-12-30T09:03:48.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>swagger使用</title>
@@ -550,33 +577,6 @@
     
     
       <category term="字符串" scheme="https://hlgao666.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MVC自动配置原理</title>
-    <link href="https://hlgao666.github.io/2020/12/23/SpringBoot/MVC%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/"/>
-    <id>https://hlgao666.github.io/2020/12/23/SpringBoot/MVC自动配置原理/</id>
-    <published>2020-12-23T01:56:43.000Z</published>
-    <updated>2020-12-23T01:59:27.393Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
     
   </entry>
   
