@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-01-08T03:17:17.896Z</updated>
+  <updated>2021-01-08T14:55:43.467Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CAP原则及对比zookeeper</title>
+    <link href="https://hlgao666.github.io/2021/01/08/springcloud/CAP%E5%8E%9F%E5%88%99%E5%8F%8A%E5%AF%B9%E6%AF%94zookeeper/"/>
+    <id>https://hlgao666.github.io/2021/01/08/springcloud/CAP原则及对比zookeeper/</id>
+    <published>2021-01-08T14:53:58.000Z</published>
+    <updated>2021-01-08T14:55:43.467Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Eureka服务注册、发现、集群</title>
+    <link href="https://hlgao666.github.io/2021/01/08/springcloud/Eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E3%80%81%E5%8F%91%E7%8E%B0%E3%80%81%E9%9B%86%E7%BE%A4/"/>
+    <id>https://hlgao666.github.io/2021/01/08/springcloud/Eureka服务注册、发现、集群/</id>
+    <published>2021-01-08T14:53:47.000Z</published>
+    <updated>2021-01-08T14:55:06.133Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer60  把二叉树打印成多行</title>
@@ -79,7 +133,7 @@
     <link href="https://hlgao666.github.io/2021/01/07/springcloud/Rest%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>https://hlgao666.github.io/2021/01/07/springcloud/Rest环境搭建/</id>
     <published>2021-01-07T13:33:01.000Z</published>
-    <updated>2021-01-07T14:39:39.674Z</updated>
+    <updated>2021-01-08T03:21:32.679Z</updated>
     
     <summary type="html">
     
@@ -503,60 +557,6 @@
     <id>https://hlgao666.github.io/2020/12/29/剑指offer/剑指offer51/</id>
     <published>2020-12-29T01:59:55.000Z</published>
     <updated>2020-12-29T02:01:28.994Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="数组" scheme="https://hlgao666.github.io/tags/%E6%95%B0%E7%BB%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringSecurity</title>
-    <link href="https://hlgao666.github.io/2020/12/28/SpringBoot/SpringSecurity/"/>
-    <id>https://hlgao666.github.io/2020/12/28/SpringBoot/SpringSecurity/</id>
-    <published>2020-12-28T02:29:21.000Z</published>
-    <updated>2020-12-28T02:30:57.826Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer50  数组中第一个重复数字</title>
-    <link href="https://hlgao666.github.io/2020/12/28/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer50/"/>
-    <id>https://hlgao666.github.io/2020/12/28/剑指offer/剑指offer50/</id>
-    <published>2020-12-28T01:48:05.000Z</published>
-    <updated>2021-01-05T02:55:10.218Z</updated>
     
     <summary type="html">
     
