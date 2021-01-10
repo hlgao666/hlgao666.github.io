@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-01-10T14:36:35.935Z</updated>
+  <updated>2021-01-10T14:38:58.930Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hystrix-服务熔断、降级</title>
+    <link href="https://hlgao666.github.io/2021/01/10/springcloud/Hystrix-%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD%E3%80%81%E9%99%8D%E7%BA%A7/"/>
+    <id>https://hlgao666.github.io/2021/01/10/springcloud/Hystrix-服务熔断、降级/</id>
+    <published>2021-01-10T14:34:59.000Z</published>
+    <updated>2021-01-10T14:38:58.930Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
+    
+  </entry>
   
   <entry>
     <title>Feign负载均衡</title>
@@ -532,33 +559,6 @@
     <id>https://hlgao666.github.io/2021/01/05/剑指offer/剑指offer54/</id>
     <published>2021-01-05T02:59:20.000Z</published>
     <updated>2021-01-05T03:02:14.857Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="字符串" scheme="https://hlgao666.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer53  表示数值的字符串</title>
-    <link href="https://hlgao666.github.io/2021/01/05/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer53/"/>
-    <id>https://hlgao666.github.io/2021/01/05/剑指offer/剑指offer53/</id>
-    <published>2021-01-05T02:59:14.000Z</published>
-    <updated>2021-01-05T03:01:01.150Z</updated>
     
     <summary type="html">
     
