@@ -476,21 +476,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-08
+                    2021-01-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -923,6 +923,9 @@ info:
 <p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210108214521.png" alt="7002界面"></p>
 <p>点击上图的 eureka7004.com，跳转后界面如图</p>
 <p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210108215747.png" alt="访问7004"></p>
+<p>依次再访问 <a href="http://eureka7002.com:7002/" target="_blank" rel="noopener">http://eureka7002.com:7002/</a> 和 <a href="http://eureka7003.com:7003/" target="_blank" rel="noopener">http://eureka7003.com:7003/</a> 时，是看不到服务的注册，虽然这3个注册中心构成了一个集群，但是<strong>只有当一个垮了之后，才会去访问下一个集群节点</strong>。 Eureka Client 在发送注册请求时，会按照 Eureka Server 集群节点 serviceUrlList 顺序逐个去尝试，如果有一个请求成功了，那么直接返回response ，不再去向其他节点请求。</p>
+<p>在本例中服务注册请求在 eureka7004 中注册成功，即 eureka7004 对应的 Eureka Server服务的状态是UP，则不会向另外两个节点（eureka7002，eureka7003）发送请求，相应地页面上也就没有显示。一旦停止 eureka7004 服务注册中心，则 dept-8001 服务会向 eureka7002 发送注册请求。</p>
+<p>可参考client重试机制： <a href="https://blog.csdn.net/qq_36960211/article/details/85273392" target="_blank" rel="noopener">https://blog.csdn.net/qq_36960211/article/details/85273392</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1521,7 +1524,7 @@ info:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.2k</span>&nbsp;字
+                class="white-color">139.1k</span>&nbsp;字
             
             
             

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-01-10T05:12:48.496Z</updated>
+  <updated>2021-01-10T14:36:35.935Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Feign负载均衡</title>
+    <link href="https://hlgao666.github.io/2021/01/10/springcloud/Feign%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+    <id>https://hlgao666.github.io/2021/01/10/springcloud/Feign负载均衡/</id>
+    <published>2021-01-10T14:34:47.000Z</published>
+    <updated>2021-01-10T14:36:35.935Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>负载均衡及ribbon</title>
+    <link href="https://hlgao666.github.io/2021/01/10/springcloud/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%8F%8Aribbon/"/>
+    <id>https://hlgao666.github.io/2021/01/10/springcloud/负载均衡及ribbon/</id>
+    <published>2021-01-10T14:34:34.000Z</published>
+    <updated>2021-01-10T14:37:49.977Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
+    
+    
+      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer63  数据流中的中位数</title>
@@ -139,7 +193,7 @@
     <link href="https://hlgao666.github.io/2021/01/08/springcloud/Eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E3%80%81%E5%8F%91%E7%8E%B0%E3%80%81%E9%9B%86%E7%BE%A4/"/>
     <id>https://hlgao666.github.io/2021/01/08/springcloud/Eureka服务注册、发现、集群/</id>
     <published>2021-01-08T14:53:47.000Z</published>
-    <updated>2021-01-08T14:55:06.133Z</updated>
+    <updated>2021-01-10T06:42:59.168Z</updated>
     
     <summary type="html">
     
@@ -224,7 +278,7 @@
     <link href="https://hlgao666.github.io/2021/01/07/springcloud/Rest%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>https://hlgao666.github.io/2021/01/07/springcloud/Rest环境搭建/</id>
     <published>2021-01-07T13:33:01.000Z</published>
-    <updated>2021-01-08T03:21:32.679Z</updated>
+    <updated>2021-01-10T12:30:55.173Z</updated>
     
     <summary type="html">
     
@@ -523,60 +577,6 @@
     
     
       <category term="字符串" scheme="https://hlgao666.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>异步、定时、邮件发送任务</title>
-    <link href="https://hlgao666.github.io/2020/12/30/SpringBoot/%E5%BC%82%E6%AD%A5%E3%80%81%E5%AE%9A%E6%97%B6%E3%80%81%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E4%BB%BB%E5%8A%A1/"/>
-    <id>https://hlgao666.github.io/2020/12/30/SpringBoot/异步、定时、邮件发送任务/</id>
-    <published>2020-12-30T09:02:47.000Z</published>
-    <updated>2020-12-30T09:13:03.189Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/categories/SpringBoot/"/>
-    
-    
-      <category term="SpringBoot" scheme="https://hlgao666.github.io/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swagger使用</title>
-    <link href="https://hlgao666.github.io/2020/12/30/swagger/swagger%E7%AE%80%E4%BB%8B/"/>
-    <id>https://hlgao666.github.io/2020/12/30/swagger/swagger简介/</id>
-    <published>2020-12-30T03:16:10.000Z</published>
-    <updated>2020-12-30T03:17:34.648Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="swagger" scheme="https://hlgao666.github.io/categories/swagger/"/>
-    
-    
-      <category term="swagger" scheme="https://hlgao666.github.io/tags/swagger/"/>
     
   </entry>
   

@@ -476,7 +476,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-08
+                    2021-01-10
                 </div>
                 
 
@@ -627,6 +627,7 @@
 <p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210107163703.png" alt=""></p>
 <h2 id="3、新建-springcloud-api-模块"><a href="#3、新建-springcloud-api-模块" class="headerlink" title="3、新建 springcloud-api 模块"></a>3、新建 springcloud-api 模块</h2><p>在 springcloud-api 模块下新建 com.allen.springcloud.pojo 目录，然后创建</p>
 <p><strong>Dept 实体类</strong></p>
+<p>注意：<strong>属性名与数据库字段名要一致，否则查询不到！</strong></p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>springcloud<span class="token punctuation">.</span>pojo<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> lombok<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
@@ -646,11 +647,11 @@
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dept</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>     <span class="token comment" spellcheck="true">//实体类，ORM（对象关系映射）</span>
 
     <span class="token keyword">private</span> <span class="token keyword">long</span> deptno<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> String dname<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String deptname<span class="token punctuation">;</span>
     <span class="token keyword">private</span> String db_source<span class="token punctuation">;</span>
 
     <span class="token keyword">public</span> <span class="token function">Dept</span><span class="token punctuation">(</span>String dname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>dname <span class="token operator">=</span> dname<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>deptname <span class="token operator">=</span> dname<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token comment" spellcheck="true">/*
@@ -1633,7 +1634,7 @@ spring:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.2k</span>&nbsp;字
+                class="white-color">139.1k</span>&nbsp;字
             
             
             
