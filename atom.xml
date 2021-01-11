@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-01-10T14:38:58.930Z</updated>
+  <updated>2021-01-11T03:02:44.846Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指offer64  滑动窗口的最大值</title>
+    <link href="https://hlgao666.github.io/2021/01/11/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer64/"/>
+    <id>https://hlgao666.github.io/2021/01/11/剑指offer/剑指offer64/</id>
+    <published>2021-01-11T02:59:35.000Z</published>
+    <updated>2021-01-11T03:02:44.846Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="滑动窗口" scheme="https://hlgao666.github.io/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
+    
+      <category term="双端队列" scheme="https://hlgao666.github.io/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>Hystrix-服务熔断、降级</title>
@@ -550,33 +579,6 @@
       <category term="zookeeper" scheme="https://hlgao666.github.io/tags/zookeeper/"/>
     
       <category term="RPC" scheme="https://hlgao666.github.io/tags/RPC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer54 字符流中第一个不重复的字符</title>
-    <link href="https://hlgao666.github.io/2021/01/05/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer54/"/>
-    <id>https://hlgao666.github.io/2021/01/05/剑指offer/剑指offer54/</id>
-    <published>2021-01-05T02:59:20.000Z</published>
-    <updated>2021-01-05T03:02:14.857Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="字符串" scheme="https://hlgao666.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
