@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-01-13T02:19:34.477Z</updated>
+  <updated>2021-01-14T02:52:53.522Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指offer67  剪绳子</title>
+    <link href="https://hlgao666.github.io/2021/01/14/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer67/"/>
+    <id>https://hlgao666.github.io/2021/01/14/剑指offer/剑指offer67/</id>
+    <published>2021-01-14T02:51:09.000Z</published>
+    <updated>2021-01-14T02:52:53.522Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="动态规划" scheme="https://hlgao666.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer66  机器人的运动范围(与题65类似)</title>
@@ -528,33 +555,6 @@
     <id>https://hlgao666.github.io/2021/01/07/剑指offer/剑指offer58/</id>
     <published>2021-01-07T03:03:04.000Z</published>
     <updated>2021-01-07T03:05:16.606Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="二叉树" scheme="https://hlgao666.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer57  二叉树的下一个节点</title>
-    <link href="https://hlgao666.github.io/2021/01/07/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer57/"/>
-    <id>https://hlgao666.github.io/2021/01/07/剑指offer/剑指offer57/</id>
-    <published>2021-01-07T03:03:00.000Z</published>
-    <updated>2021-01-07T03:04:28.647Z</updated>
     
     <summary type="html">
     
