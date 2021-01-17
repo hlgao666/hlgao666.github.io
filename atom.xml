@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-01-15T03:28:41.955Z</updated>
+  <updated>2021-01-17T12:05:12.627Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>车队管家调度系统</title>
+    <link href="https://hlgao666.github.io/2021/01/17/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/%E8%BD%A6%E9%98%9F%E7%AE%A1%E5%AE%B6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://hlgao666.github.io/2021/01/17/技术漫步/车队管家调度系统/</id>
+    <published>2021-01-17T12:00:57.000Z</published>
+    <updated>2021-01-17T12:05:12.627Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="密" scheme="https://hlgao666.github.io/categories/%E5%AF%86/"/>
+    
+    
+      <category term="密" scheme="https://hlgao666.github.io/tags/%E5%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode hot100-1 两数之和</title>
@@ -528,33 +555,6 @@
     <id>https://hlgao666.github.io/2021/01/07/springcloud/springcloud-Netflix/</id>
     <published>2021-01-07T13:32:43.000Z</published>
     <updated>2021-01-07T13:40:40.866Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微服务和微服务架构</title>
-    <link href="https://hlgao666.github.io/2021/01/07/springcloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/"/>
-    <id>https://hlgao666.github.io/2021/01/07/springcloud/微服务和微服务架构/</id>
-    <published>2021-01-07T13:32:30.000Z</published>
-    <updated>2021-01-07T13:40:00.581Z</updated>
     
     <summary type="html">
     

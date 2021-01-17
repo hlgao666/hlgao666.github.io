@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>车队管家调度系统</title>
+      <link href="/2021/01/17/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/%E8%BD%A6%E9%98%9F%E7%AE%A1%E5%AE%B6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2021/01/17/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/%E8%BD%A6%E9%98%9F%E7%AE%A1%E5%AE%B6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="车队管家调度系统"><a href="#车队管家调度系统" class="headerlink" title="车队管家调度系统"></a>车队管家调度系统</h1><h2 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117194156.png" alt="首页"></p><hr><hr><h2 id="基础信息-车辆"><a href="#基础信息-车辆" class="headerlink" title="基础信息-车辆"></a>基础信息-车辆</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117194344.png" alt="基础信息-车辆"></p><h2 id="基础信息-司机"><a href="#基础信息-司机" class="headerlink" title="基础信息-司机"></a>基础信息-司机</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117194441.png" alt="基础信息-司机"></p><h2 id="基础信息-账号"><a href="#基础信息-账号" class="headerlink" title="基础信息-账号"></a>基础信息-账号</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117194551.png" alt="基础信息-账号"></p><hr><hr><h2 id="排班调度"><a href="#排班调度" class="headerlink" title="排班调度"></a>排班调度</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117194654.png" alt="排班调度"></p><h2 id="排班调度-班车管理"><a href="#排班调度-班车管理" class="headerlink" title="排班调度-班车管理"></a>排班调度-班车管理</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117194845.png" alt="排班调度-班车管理"></p><h2 id="排班调度-订单管理"><a href="#排班调度-订单管理" class="headerlink" title="排班调度-订单管理"></a>排班调度-订单管理</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117194944.png" alt="排班调度-订单管理"></p><h2 id="排班调度-排班报表"><a href="#排班调度-排班报表" class="headerlink" title="排班调度-排班报表"></a>排班调度-排班报表</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117195025.png" alt="排班调度-排班报表"></p><hr><hr><h2 id="车辆监控-路径规划"><a href="#车辆监控-路径规划" class="headerlink" title="车辆监控-路径规划"></a>车辆监控-路径规划</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117195254.png" alt="车辆监控-路径规划"></p><h2 id="车辆监控-行程报表"><a href="#车辆监控-行程报表" class="headerlink" title="车辆监控-行程报表"></a>车辆监控-行程报表</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117195350.png" alt="车辆监控-行程报表"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 密 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 密 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode hot100-1 两数之和</title>
       <link href="/2021/01/15/leetcode/hot100/leetcode-hot100-1/"/>
       <url>/2021/01/15/leetcode/hot100/leetcode-hot100-1/</url>
@@ -2211,9 +2236,9 @@
       
         <tags>
             
-            <tag> 二分 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 二分 </tag>
             
         </tags>
       
