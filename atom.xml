@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-01-17T12:05:12.627Z</updated>
+  <updated>2021-01-17T14:48:32.828Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,141 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux查看文件的方式</title>
+    <link href="https://hlgao666.github.io/2021/01/17/linux/linux%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E5%BC%8F/"/>
+    <id>https://hlgao666.github.io/2021/01/17/linux/linux查看文件的方式/</id>
+    <published>2021-01-17T14:46:09.000Z</published>
+    <updated>2021-01-17T14:48:32.828Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux文件基本属性</title>
+    <link href="https://hlgao666.github.io/2021/01/17/linux/linux%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7/"/>
+    <id>https://hlgao666.github.io/2021/01/17/linux/linux文件基本属性/</id>
+    <published>2021-01-17T14:45:57.000Z</published>
+    <updated>2021-01-17T14:50:07.149Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux基本命令</title>
+    <link href="https://hlgao666.github.io/2021/01/17/linux/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
+    <id>https://hlgao666.github.io/2021/01/17/linux/Linux基本命令/</id>
+    <published>2021-01-17T14:45:46.000Z</published>
+    <updated>2021-01-17T14:49:14.413Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux开关机及目录介绍</title>
+    <link href="https://hlgao666.github.io/2021/01/17/linux/linux%E5%BC%80%E5%85%B3%E6%9C%BA%E5%8F%8A%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://hlgao666.github.io/2021/01/17/linux/linux开关机及目录介绍/</id>
+    <published>2021-01-17T14:45:33.000Z</published>
+    <updated>2021-01-17T14:49:33.791Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux概述及环境搭建</title>
+    <link href="https://hlgao666.github.io/2021/01/17/linux/linux%E6%A6%82%E8%BF%B0%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://hlgao666.github.io/2021/01/17/linux/linux概述及环境搭建/</id>
+    <published>2021-01-17T14:45:15.000Z</published>
+    <updated>2021-01-17T14:48:51.538Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>车队管家调度系统</title>
@@ -416,145 +551,6 @@
     <id>https://hlgao666.github.io/2021/01/08/springcloud/CAP原则及对比zookeeper/</id>
     <published>2021-01-08T14:53:58.000Z</published>
     <updated>2021-01-08T14:55:43.467Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Eureka服务注册、发现、集群</title>
-    <link href="https://hlgao666.github.io/2021/01/08/springcloud/Eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E3%80%81%E5%8F%91%E7%8E%B0%E3%80%81%E9%9B%86%E7%BE%A4/"/>
-    <id>https://hlgao666.github.io/2021/01/08/springcloud/Eureka服务注册、发现、集群/</id>
-    <published>2021-01-08T14:53:47.000Z</published>
-    <updated>2021-01-10T06:42:59.168Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer60  把二叉树打印成多行</title>
-    <link href="https://hlgao666.github.io/2021/01/08/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer60/"/>
-    <id>https://hlgao666.github.io/2021/01/08/剑指offer/剑指offer60/</id>
-    <published>2021-01-08T03:13:17.000Z</published>
-    <updated>2021-01-08T03:17:17.896Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="二叉树" scheme="https://hlgao666.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-      <category term="BFS" scheme="https://hlgao666.github.io/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer59 按之字形打印二叉树</title>
-    <link href="https://hlgao666.github.io/2021/01/08/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer59/"/>
-    <id>https://hlgao666.github.io/2021/01/08/剑指offer/剑指offer59/</id>
-    <published>2021-01-08T03:13:11.000Z</published>
-    <updated>2021-01-08T03:15:48.245Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="二叉树" scheme="https://hlgao666.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-      <category term="栈" scheme="https://hlgao666.github.io/tags/%E6%A0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Rest环境搭建</title>
-    <link href="https://hlgao666.github.io/2021/01/07/springcloud/Rest%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://hlgao666.github.io/2021/01/07/springcloud/Rest环境搭建/</id>
-    <published>2021-01-07T13:33:01.000Z</published>
-    <updated>2021-01-10T12:30:55.173Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>springcloud-Netflix</title>
-    <link href="https://hlgao666.github.io/2021/01/07/springcloud/springcloud-Netflix/"/>
-    <id>https://hlgao666.github.io/2021/01/07/springcloud/springcloud-Netflix/</id>
-    <published>2021-01-07T13:32:43.000Z</published>
-    <updated>2021-01-07T13:40:40.866Z</updated>
     
     <summary type="html">
     

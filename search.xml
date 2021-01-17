@@ -4,6 +4,131 @@
   
     
     <entry>
+      <title>linux查看文件的方式</title>
+      <link href="/2021/01/17/linux/linux%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E5%BC%8F/"/>
+      <url>/2021/01/17/linux/linux%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux查看文件的方式"><a href="#linux查看文件的方式" class="headerlink" title="linux查看文件的方式"></a>linux查看文件的方式</h1><ul><li>cat 由第一行开始显示文件内容</li><li>tac 从最后一行开始显示，可以看出 tac 是 cat 的倒着写！</li><li>nl  显示的时候，顺道输出行号！</li><li>more 一页一页的显示文件内容</li><li>less 与 more 类似，但是比 more 更好的是，他可以往前翻页！</li><li>head 只看头几行</li><li>tail 只看尾巴几行</li></ul><p>CentOS 7 查看网络配置，若使用虚拟机，则需要在此文件夹下查看配置<br><code>cd etc/sysconfig/network-scripts</code></p><p><code>ifconfig</code>查看网络配置</p><blockquote><p>nl  显示行号</p></blockquote><p><strong>常用！！！</strong><br><code>nl [-bnw] 文件</code></p><pre><code>选项与参数：-b ：指定行号指定的方式，主要有两种：-b a ：表示不论是否为空行，也同样列出行号(类似 cat -n)；-b t ：如果有空行，空的那一行不要列出行号(默认值)；-n ：列出行号表示的方法，主要有三种：-n ln ：行号在荧幕的最左方显示；-n rn ：行号在自己栏位的最右方显示，且不加 0 ；-n rz ：行号在自己栏位的最右方显示，且加 0 ；-w ：行号栏位的占用的位数。</code></pre><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117222034.png" alt=""></p><blockquote><p>more  一页一页翻动</p></blockquote><pre><code>在 more 这个程序的运行过程中，你有几个按键可以按的：空白键 (space)：代表向下翻一页；Enter     ：代表向下翻『一行』；/字串     ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；:f      ：立刻显示出档名以及目前显示的行数；q       ：代表立刻离开 more ，不再显示该文件内容。b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用</code></pre><pre><code>[root@hlgaotest etc]# more /etc/csh.login....(中间省略)....--More--(28%) # 重点在这一行喔！你的光标也会在这里等待你的命令</code></pre><blockquote><p>less   一页一页翻动，以下实例输出/etc/man.config文件的内容：</p></blockquote><p>q     ：离开 less 这个程序</p><pre><code>less运行时可以输入的命令有：空白键  ：向下翻动一页；[pagedown]：向下翻动一页；[pageup] ：向上翻动一页；/字串   ：向下搜寻『字串』的功能；?字串   ：向上搜寻『字串』的功能；n     ：重复前一个搜寻 (与 / 或 ? 有关！)N     ：反向的重复前一个搜寻 (与 / 或 ? 有关！)q     ：离开 less 这个程序；</code></pre><pre><code>[root@hlgaotest etc]# more /etc/csh.login....(中间省略)....:   # 这里可以等待你输入命令！</code></pre><blockquote><p>head  取出文件前面几行</p></blockquote><p><code>head [-n number] 文件</code></p><p>选项与参数：-n 后面接数字，代表显示几行的意思！</p><p>默认的情况中，显示前面 10 行！若要显示前 20 行，就得要这样：</p><p><code>[root@kuangshen etc]# head -n 20 /etc/csh.login</code></p><blockquote><p>tail  取出文件后面几行</p></blockquote><p><code>tail [-n number] 文件</code></p><p>选项与参数：</p><p>-n ：后面接数字，代表显示几行的意思</p><p>默认的情况中，显示最后 10 行！若要显示最后 20 行，就得要这样：</p><p><code>[root@kuangshen etc]# tail -n 20 /etc/csh.login</code></p><h2 id="拓展：Linux-链接概念"><a href="#拓展：Linux-链接概念" class="headerlink" title="拓展：Linux 链接概念"></a>拓展：Linux 链接概念</h2><p>Linux 链接分两种，一种被称为硬链接（Hard Link），另一种被称为符号链接（Symbolic Link）。</p><p>ln 命令产生硬链接。</p><p>硬连接</p><p>硬连接指通过索引节点来进行连接。在 Linux 的文件系统中，保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index)。在 Linux 中，多个文件名指向同一索引节点是存在的。比如：A 是 B 的硬链接（A 和 B 都是文件名），则 A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号相同，即一个 inode 节点对应两个不同的文件名，两个文件名指向同一个文件，A 和 B 对文件系统来说是完全平等的。删除其中任何一个都不会影响另外一个的访问。</p><p>硬连接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止“误删”的功能。其原因如上所述，因为对应该目录的索引节点有一个以上的连接。只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。也就是说，文件真正删除的条件是与之相关的所有硬连接文件均被删除。</p><p>软连接</p><p>另外一种连接称之为符号连接（Symbolic Link），也叫软连接。软链接文件有类似于 Windows 的快捷方式。它实际上是一个特殊的文件。在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。比如：A 是 B 的软链接（A 和 B 都是文件名），A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号不相同，A 和 B 指向的是两个不同的 inode，继而指向两块不同的数据块。但是 A 的数据块中存放的只是 B 的路径名（可以根据这个找到 B 的目录项）。A 和 B 之间是“主从”关系，如果 B 被删除了，A 仍然存在（因为两个是不同的文件），但指向的是一个无效的链接。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux文件基本属性</title>
+      <link href="/2021/01/17/linux/linux%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7/"/>
+      <url>/2021/01/17/linux/linux%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux文件基本属性"><a href="#linux文件基本属性" class="headerlink" title="linux文件基本属性"></a>linux文件基本属性</h1><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117215049.png" alt=""></p><p>实例中，boot文件的第一个属性用”d”表示。”d”在Linux中代表该文件是一个目录文件。</p><p>在Linux中<code>第一个字符</code>代表这个文件是目录、文件或链接文件等等：</p><ul><li>当为[ <strong>d</strong> ]则是<strong>目录</strong>；</li><li>当为[ <strong>-</strong> ]则是<strong>文件</strong>；</li><li>若是[ <strong>l</strong> ]则表示为<strong>链接文档</strong> ( link file )；</li><li>若是[ b ]则表示为装置文件里面的可供储存的接口设备 ( 可随机存取装置 )；</li><li>若是[ c ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标 ( 一次性读取装置 )。</li></ul><p>接下来的字符中，以三个为一组，且均为『rwx』 的三个参数的组合。</p><p>其中，[ r ]代表可读(read)、[ w ]代表可写(write)、[ x ]代表可执行(execute)。</p><p>要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现减号[ - ]而已。</p><p>每个文件的属性由左边第一部分的10个字符来确定（如下图）：</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117215511.png" alt=""></p><p>从左至右用0-9这些数字来表示。</p><p>第0位确定文件类型，第1-3位确定属主（该文件的所有者）拥有该文件的权限。第4-6位确定属组（所有者的同组用户）拥有该文件的权限，第7-9位确定其他用户拥有该文件的权限。</p><p>其中：</p><p>第1、4、7位表示读权限，如果用”r”字符表示，则有读权限，如果用”-“字符表示，则没有读权限；</p><p>第2、5、8位表示写权限，如果用”w”字符表示，则有写权限，如果用”-“字符表示没有写权限；</p><p>第3、6、9位表示可执行权限，如果用”x”字符表示，则有执行权限，如果用”-“字符表示，则没有执行权限。</p><p>对于文件来说，它都有一个特定的所有者，也就是对该文件具有所有权的用户。</p><p>同时，在Linux系统中，用户是按组分类的，一个用户属于一个或多个组。</p><p>文件所有者以外的用户又可以分为文件所有者的同组用户和其他用户。</p><p>因此，Linux系统按文件所有者、文件所有者同组用户和其他用户来规定了不同的文件访问权限。</p><p>在以上实例中，boot 文件是一个目录文件，属主和属组都为 root。</p><blockquote><p>修改文件属性</p></blockquote><p><strong>1、chgrp：更改文件属组</strong><br><code>chgrp [-R] 属组名 文件名</code></p><p>-R：递归更改文件属组，就是在更改某个目录文件的属组时，如果加上-R的参数，那么该目录下的所有文件的属组都会更改。</p><p><strong>2、chown：更改文件属主，也可以同时更改文件属组</strong></p><p><code>chown [–R] 属主名 文件名</code><br><code>chown [-R] 属主名：属组名 文件名</code></p><p><strong>3、chmod：更改文件9个属性</strong></p><p><strong>重要！！！</strong></p><p><code>chmod [-R] xyz 文件或目录</code>  </p><p>Linux文件属性有两种设置方法，一种是数字，一种是符号。</p><p>Linux文件的基本权限就有九个，分别是owner/group/others三种身份各有自己的read/write/execute权限。</p><p>先复习一下刚刚上面提到的数据：文件的权限字符为：『-rwxrwxrwx』， 这九个权限是三个三个一组的！其中，我们可以使用数字来代表各个权限，各权限的分数对照表如下：</p><table><thead><tr><th>数字</th><th>分数</th></tr></thead><tbody><tr><td>r</td><td>4</td></tr><tr><td>w</td><td>2</td></tr><tr><td>x</td><td>1</td></tr></tbody></table><p>每种身份(owner/group/others)各自的三个权限(r/w/x)分数是需要累加的，例如当权限为：[-rwxrwx—] 分数则是：</p><p>owner = rwx = 4+2+1 = 7</p><p>group = rwx = 4+2+1 = 7</p><p>others= — = 0+0+0 = 0</p><p><code>chmod 770 filename</code></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux基本命令</title>
+      <link href="/2021/01/17/linux/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
+      <url>/2021/01/17/linux/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Linux基本命令"><a href="#Linux基本命令" class="headerlink" title="Linux基本命令"></a>Linux基本命令</h1><blockquote><p>cd</p></blockquote><p>cd : 切换目录<br>./ : 当前目录<br>cd .. : 返回上一级  </p><blockquote><p>ls : 列出目录  </p></blockquote><p>-a参数: all, 查看全部文件<br>用法：<br><code>[root@www ~]# ls [-aAdfFhilnrRSt] 目录名称</code></p><pre><code>选项与参数：  -a ：全部的文件，连同隐藏文件( 开头为 . 的文件) 一起列出来(常用)  -l ：长数据串列出，包含文件的属性与权限等等数据；(常用)</code></pre><p>将目录下的所有文件列出来(含属性与隐藏档)<br><code>[root@www ~]# ls -al ~</code></p><blockquote><p>cd （切换目录）  </p></blockquote><p><code>cd [相对路径或绝对路径]</code></p><pre><code>#切换到用户目录下  [root@allen /]# cd home  #使用 mkdir 命令创建 allenstudy 目录  [root@allen home]# mkdir allenstudy#进入 allenstudy 目录  [root@allen home]# cd allenstudy  #回到上一级 [root@allen allenstudy]# cd ..  #回到根目录  [root@allen allenstudy]# cd /  #表示回到自己的家目录，亦即是 /root 这个目录  [root@allen allenstudy]# cd ~</code></pre><blockquote><p>pwd ( 显示目前所在的目录 )</p></blockquote><p>pwd 是 Print Working Directory 的缩写，也就是显示目前所在目录的命令。<br><code>[root@allen allenstudy]#pwd [-P]</code></p><pre><code># 单纯显示出目前的工作目录[root@allen ~]# pwd/root# 如果是链接，要显示真实地址，可以使用 -P参数[root@allen /]# cd bin[root@allen bin]# pwd -P/usr/bin</code></pre><blockquote><p>mkdir （创建新目录）</p></blockquote><p>如果想要创建新的目录的话，那么就使用mkdir (make directory)吧。</p><p><code>mkdir [-mp] 目录名称</code></p><pre><code>选项与参数：-m ：配置文件的权限喔！直接配置，不需要看默认权限 (umask) 的脸色～  -p ：帮助你直接将所需要的目录(包含上一级目录)递归创建起来！</code></pre><p>#创建多层级目录<br>#加了这个 -p 的选项，可以自行帮你创建多层目录！<br><code>[root@allen home]# mkdir -p test1/test2/test3/test4</code></p><blockquote><p>rmdir ( 删除空的目录 )</p></blockquote><p><code>rmdir [-p] 目录名称</code></p><pre><code>选项与参数：  -p ：连同上一级『空的』目录也一起删除</code></pre><p>注意：这个 rmdir 仅能删除空的目录，可以使用 rm 命令来删除非空目录！</p><blockquote><p>cp ( 复制文件或目录 )</p></blockquote><p><code>[root@www ~]# cp [-adfilprsu] 来源档(source) 目标档(destination)</code><br><code>[root@www ~]# cp [options] source1 source2 source3 .... directory</code></p><pre><code>选项与参数：-a：相当於 -pdr 的意思，至於 pdr 请参考下列说明；(常用)  -p：连同文件的属性一起复制过去，而非使用默认属性(备份常用)；  -d：若来源档为连结档的属性(link file)，则复制连结档属性而非文件本身；  -r：递归持续复制，用於目录的复制行为；(常用)  -f：为强制(force)的意思，若目标文件已经存在且无法开启，则移除后再尝试一次；  -i：若目标档(destination)已经存在时，在覆盖时会先询问动作的进行(常用)  -l：进行硬式连结(hard link)的连结档创建，而非复制文件本身。  -s：复制成为符号连结档 (symbolic link)，亦即『捷径』文件；  -u：若 destination 比 source 旧才升级 destination ！</code></pre><blockquote><p>rm ( 移除文件或目录 )</p></blockquote><p><code>rm [-fir] 文件或目录</code></p><p>选项与参数：</p><p>-f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息；<br>-i ：互动模式，在删除前会询问使用者是否动作;<br><strong>-r</strong>：递归删除啊！最常用在目录的删除了！这是<strong>非常危险</strong>的选项！！！</p><blockquote><p>mv  ( 移动文件与目录，或修改名称 )</p></blockquote><p><code>[root@www ~]# mv [-fiu] source destination</code><br><code>[root@www ~]# mv [options] source1 source2 source3 .... directory</code></p><pre><code>选项与参数：-f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；-i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！-u ：若目标文件已经存在，且 source 比较新，才会升级 (update)</code></pre><p>重命名文件夹：</p><p><code>mv allen allen1</code></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux开关机及目录介绍</title>
+      <link href="/2021/01/17/linux/linux%E5%BC%80%E5%85%B3%E6%9C%BA%E5%8F%8A%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2021/01/17/linux/linux%E5%BC%80%E5%85%B3%E6%9C%BA%E5%8F%8A%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux开关机及目录介绍"><a href="#linux开关机及目录介绍" class="headerlink" title="linux开关机及目录介绍"></a>linux开关机及目录介绍</h1><h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><p>关机前，通常需要同步数据，避免数据丢失。</p><p>使用命令</p><blockquote><p>sync</p></blockquote><p>同步数据，把内存中的数据写到磁盘中。</p><h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><blockquote><p>reboot</p></blockquote><h2 id="系统目录结构"><a href="#系统目录结构" class="headerlink" title="系统目录结构"></a>系统目录结构</h2><p>以下是对这些目录的解释∶</p><ul><li>/bin : bin是Binary的缩写,这个目录存放着最经常使用的命令。</li><li>/boot: 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。</li><li>/dev : dev是Device(设备)的缩写,存放的是Linux的外部设备，在Linux中访问设备的方式和访问文件的方式是相同的。</li><li>/etc : 这个目录用来<strong>存放所有的系统管理所需要的配置文件和子目录，如 reids、tomcat</strong>。</li><li>/home: <strong>用户的主目录</strong>，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</li><li>/lib: 这个目录里存放着系统最基本的动态连接共享库，其作用类似于Windows里的DLL文件。</li><li>/lost+found: 这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</li><li>/media : linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。</li><li>/mnt: 系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在/mnt/上，然后进入该目录就可以查看光驱里的内容了。</li><li>/opt: 这是<strong>给主机额外安装软件所摆放的目录</strong>。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</li><li>/proc: 这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。</li><li>/root: 该目录为系统管理员，也称作<strong>超级权限者的用户主目录</strong>。</li><li>lsbin : s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。</li><li>/srv: 该目录存放一些服务启动之后需要提取的数据。</li><li>/sys : 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统sysfs。./tmp :这个目录是用来存放一些临时文件的。</li><li>/usr: 这是一个非常重要的目录，<strong>用户的很多应用程序和文件都放在这个目录下</strong>，类似于windows下的program files目录。</li><li>usr/bin:系统用户使用的应用程序。</li><li>/usr/sbin : 超级用户使用的比较高级的管理程序和系统守护程序。</li><li>/usr/src : 内核源代码默认的放置目录。</li><li>/var: 这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下包括各种日志文件.</li><li>/run: 是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。</li><li>/www: <strong>存放服务器网站相关的资源</strong>，环境，网站的项目</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux概述及环境搭建</title>
+      <link href="/2021/01/17/linux/linux%E6%A6%82%E8%BF%B0%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <url>/2021/01/17/linux/linux%E6%A6%82%E8%BF%B0%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux概述及环境搭建"><a href="#linux概述及环境搭建" class="headerlink" title="linux概述及环境搭建"></a>linux概述及环境搭建</h1><h2 id="Linux-简介"><a href="#Linux-简介" class="headerlink" title="Linux 简介"></a>Linux 简介</h2><p>Linux 内核最初只是由芬兰人林纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。</p><p>Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个基于 POSIX（可移植操作系统接口） 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统。</p><p>Linux 能运行主要的 UNIX 工具软件、应用程序和网络协议。它支持 32 位和 64 位硬件。Linux 继承了 Unix 以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。</p><h2 id="Linux-发行版"><a href="#Linux-发行版" class="headerlink" title="Linux 发行版"></a>Linux 发行版</h2><p>Linux 的发行版说简单点就是将 Linux 内核与应用软件做一个打包。</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210117152012.png" alt=""></p><p>目前市面上较知名的发行版有：Ubuntu、RedHat、CentOS、Debian、Fedora、SuSE、OpenSUSE、Arch Linux、SolusOS 等。</p><h2 id="Linux-应用领域"><a href="#Linux-应用领域" class="headerlink" title="Linux 应用领域"></a>Linux 应用领域</h2><p>今天各种场合都有使用各种 Linux 发行版，从嵌入式设备到超级计算机，并且在服务器领域确定了地位，通常服务器使用 LAMP（Linux + Apache + MySQL + PHP）或 LNMP（Linux + Nginx+ MySQL + PHP）组合。</p><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>需要安装 XShell 和 Xftp.</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>车队管家调度系统</title>
       <link href="/2021/01/17/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/%E8%BD%A6%E9%98%9F%E7%AE%A1%E5%AE%B6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/"/>
       <url>/2021/01/17/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/%E8%BD%A6%E9%98%9F%E7%AE%A1%E5%AE%B6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/</url>
