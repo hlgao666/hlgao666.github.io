@@ -553,7 +553,95 @@
 <p>简单的说，我们可以将这三个模式想成底下的图标来表示：</p>
 <p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210118145901.png" alt=""></p>
 <h2 id="Vim-按键说明"><a href="#Vim-按键说明" class="headerlink" title="Vim 按键说明"></a>Vim 按键说明</h2><p><strong>第一部分：一般模式可用的光标移动、复制粘贴、搜索替换等</strong></p>
-<p><strong>光标移动</strong><br>| 移动光标的方法     | 解释                                                         |<br>| —————— | ———————————————————— |<br>| h 或 向左箭头键(←) | 光标向左移动一个字符                                         |<br>| j 或 向下箭头键(↓) | 光标向下移动一个字符                                         |<br>| k 或 向上箭头键(↑) | 光标向上移动一个字符                                         |<br>| l 或 向右箭头键(→) | 光标向右移动一个字符                                         |<br>| [Ctrl] + [f]       | 屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)          |<br>| [Ctrl] + [b]       | 屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)           |<br>| [Ctrl] + [d]       | 屏幕『向下』移动半页                                         |<br>| [Ctrl] + [u]       | 屏幕『向上』移动半页                                         |<br>| +                  | 光标移动到非空格符的下一行                                   |<br>| -                  | 光标移动到非空格符的上一行                                   |<br>| <strong>n&lt; space&gt;</strong>      | 那个 n 表示『数字』，例如 20 。按下数字后再按空格键，光标会向右移动这一行的 n 个字符。 |<br>| 0 或功能键[Home]   | 这是数字『 0 』：移动到这一行的最前面字符处 (常用)           |<br>| $ 或功能键[End]    | 移动到这一行的最后面字符处(常用)                             |<br>| H                  | 光标移动到这个屏幕的最上方那一行的第一个字符                 |<br>| M                  | 光标移动到这个屏幕的中央那一行的第一个字符                   |<br>| L                  | 光标移动到这个屏幕的最下方那一行的第一个字符                 |<br>| G                  | 移动到这个档案的最后一行(常用)                               |<br>| nG                 | n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 行(可配合 :set nu) |<br>| gg                 | 移动到这个档案的第一行，相当于 1G 啊！(常用)                 |<br>| <strong>n&lt; Enter&gt;</strong>      | n 为数字。光标向下移动 n 行(常用)                            |</p>
+<p><strong>光标移动</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">移动光标的方法</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">h 或 向左箭头键(←)</td>
+<td align="center">光标向左移动一个字符</td>
+</tr>
+<tr>
+<td align="center">j 或 向下箭头键(↓)</td>
+<td align="center">光标向下移动一个字符</td>
+</tr>
+<tr>
+<td align="center">k 或 向上箭头键(↑)</td>
+<td align="center">光标向上移动一个字符</td>
+</tr>
+<tr>
+<td align="center">l 或 向右箭头键(→)</td>
+<td align="center">光标向右移动一个字符</td>
+</tr>
+<tr>
+<td align="center">[Ctrl] + [f]</td>
+<td align="center">屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)</td>
+</tr>
+<tr>
+<td align="center">[Ctrl] + [b]</td>
+<td align="center">屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)</td>
+</tr>
+<tr>
+<td align="center">[Ctrl] + [d]</td>
+<td align="center">屏幕『向下』移动半页</td>
+</tr>
+<tr>
+<td align="center">[Ctrl] + [u]</td>
+<td align="center">屏幕『向上』移动半页</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">光标移动到非空格符的下一行</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">光标移动到非空格符的上一行</td>
+</tr>
+<tr>
+<td align="center"><strong>n&lt; space&gt;</strong></td>
+<td align="center">那个 n 表示『数字』，例如 20 。按下数字后再按空格键，光标会向右移动这一行的 n 个字符。</td>
+</tr>
+<tr>
+<td align="center">0 或功能键[Home]</td>
+<td align="center">这是数字『 0 』：移动到这一行的最前面字符处 (常用)</td>
+</tr>
+<tr>
+<td align="center">$ 或功能键[End]</td>
+<td align="center">移动到这一行的最后面字符处(常用)</td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="center">光标移动到这个屏幕的最上方那一行的第一个字符</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center">光标移动到这个屏幕的中央那一行的第一个字符</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="center">光标移动到这个屏幕的最下方那一行的第一个字符</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">移动到这个档案的最后一行(常用)</td>
+</tr>
+<tr>
+<td align="center">nG</td>
+<td align="center">n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 行(可配合 :set nu)</td>
+</tr>
+<tr>
+<td align="center">gg</td>
+<td align="center">移动到这个档案的第一行，相当于 1G 啊！(常用)</td>
+</tr>
+<tr>
+<td align="center"><strong>n&lt; Enter&gt;</strong></td>
+<td align="center">n 为数字。光标向下移动 n 行(常用)</td>
+</tr>
+</tbody></table>
 <p><strong>搜索替换</strong>    </p>
 <table>
 <thead>
