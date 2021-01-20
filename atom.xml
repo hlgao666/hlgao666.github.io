@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-01-18T14:24:31.133Z</updated>
+  <updated>2021-01-20T14:12:26.826Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>进程管理</title>
+    <link href="https://hlgao666.github.io/2021/01/20/linux/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
+    <id>https://hlgao666.github.io/2021/01/20/linux/进程管理/</id>
+    <published>2021-01-20T14:11:16.000Z</published>
+    <updated>2021-01-20T14:12:26.826Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>磁盘管理</title>
@@ -534,35 +561,6 @@
     
     
       <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer63  数据流中的中位数</title>
-    <link href="https://hlgao666.github.io/2021/01/10/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer63/"/>
-    <id>https://hlgao666.github.io/2021/01/10/剑指offer/剑指offer63/</id>
-    <published>2021-01-10T05:07:38.000Z</published>
-    <updated>2021-01-10T05:12:48.496Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="剑指offer" scheme="https://hlgao666.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="堆" scheme="https://hlgao666.github.io/tags/%E5%A0%86/"/>
-    
-      <category term="排序" scheme="https://hlgao666.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
