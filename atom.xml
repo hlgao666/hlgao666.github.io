@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-01-20T14:16:55.558Z</updated>
+  <updated>2021-01-21T11:58:05.122Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件安装方式及服务器基本环境搭建</title>
+    <link href="https://hlgao666.github.io/2021/01/21/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F%E5%8F%8A%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://hlgao666.github.io/2021/01/21/linux/软件安装方式及服务器基本环境搭建/</id>
+    <published>2021-01-21T11:56:59.000Z</published>
+    <updated>2021-01-21T11:58:05.122Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://hlgao666.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>进程管理</title>
@@ -516,33 +543,6 @@
     <id>https://hlgao666.github.io/2021/01/10/springcloud/Feign负载均衡/</id>
     <published>2021-01-10T14:34:47.000Z</published>
     <updated>2021-01-10T14:36:35.935Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/categories/springcloud/"/>
-    
-    
-      <category term="springcloud" scheme="https://hlgao666.github.io/tags/springcloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>负载均衡及ribbon</title>
-    <link href="https://hlgao666.github.io/2021/01/10/springcloud/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%8F%8Aribbon/"/>
-    <id>https://hlgao666.github.io/2021/01/10/springcloud/负载均衡及ribbon/</id>
-    <published>2021-01-10T14:34:34.000Z</published>
-    <updated>2021-01-10T14:37:49.977Z</updated>
     
     <summary type="html">
     

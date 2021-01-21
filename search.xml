@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>软件安装方式及服务器基本环境搭建</title>
+      <link href="/2021/01/21/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F%E5%8F%8A%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <url>/2021/01/21/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F%E5%8F%8A%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="软件安装方式及服务器基本环境搭建"><a href="#软件安装方式及服务器基本环境搭建" class="headerlink" title="软件安装方式及服务器基本环境搭建"></a>软件安装方式及服务器基本环境搭建</h1><h2 id="jdk安装（rpm安装）"><a href="#jdk安装（rpm安装）" class="headerlink" title="jdk安装（rpm安装）"></a>jdk安装（rpm安装）</h2><p>1、rpm下载地址 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p><p>2、如果安装了 openjdk 则卸载<br><code>rpm -qa|grep jdk</code><br>得到jdk版本信息<br><code>rpm -e --nodeps jdk版本信息</code></p><pre><code>[root@allen ~]# java -versionjava version "1.8.0_121"Java(TM) SE Runtime Environment (build 1.8.0_121-b13)Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)# 检查[root@allen ~]# rpm -qa|grep jdkjdk1.8.0_121-1.8.0_121-fcs.x86_64# 卸载 -e --nodeps 强制删除# 卸载版本为 rpm -qa|grep jdk 查出来的 jdk1.8.0_121-1.8.0_121-fcs.x86_64[root@allen ~]# rpm -e --nodeps jdk1.8.0_121-1.8.0_121-fcs.x86_64[root@allen ~]# java -version-bash: /usr/bin/java: No such file or directory  # OK</code></pre><p>3、安装JDK<br><strong>RPM不需要配置环境变量!!!</strong></p><p><code>rpm -ivh jdk_rpm包</code></p><pre><code># 安装java rpm包[root@hlgaotest allen]# rpm -ivh jdk-8u221-linux-x64.rpm# 测试 java -version[root@hlgaotest jdk1.8.0_221-amd64]# java -versionjava version "1.8.0_221"Java(TM) SE Runtime Environment (build 1.8.0_221-b11)Java HotSpot(TM) 64-Bit Server VM (build 25.221-b11, mixed mode)</code></pre><p>4、测试部署springboot项目</p><ol><li><ul><li>使用maven将springboot项目打包成jar包</li></ul></li><li><ul><li>将jar包丢到用户目录下</li></ul></li><li><ul><li>由于项目端口为8080，因此需要在阿里云服务器添加安全组放行8080端口</li></ul></li><li><ul><li>开启服务器防火墙<pre><code># 查看firewall服务状态systemctl status firewalld</code></pre></li></ul></li></ol><h1 id="开启、重启、关闭、firewalld-service服务"><a href="#开启、重启、关闭、firewalld-service服务" class="headerlink" title="开启、重启、关闭、firewalld.service服务"></a>开启、重启、关闭、firewalld.service服务</h1><h1 id="开启"><a href="#开启" class="headerlink" title="开启"></a>开启</h1><p>service firewalld start</p><h1 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h1><p>service firewalld restart</p><h1 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h1><p>service firewalld stop</p><h1 id="查看防火墙规则"><a href="#查看防火墙规则" class="headerlink" title="查看防火墙规则"></a>查看防火墙规则</h1><p>firewall-cmd –list-all    # 查看全部信息<br>firewall-cmd –list-ports  # 只看端口信息</p><h1 id="开启端口"><a href="#开启端口" class="headerlink" title="开启端口"></a>开启端口</h1><p>开端口命令：firewall-cmd –zone=public –add-port=8080/tcp –permanent<br>重启防火墙：systemctl restart firewalld.service</p><p>命令含义：<br>–zone #作用域<br>–add-port=80/tcp  #添加端口，格式为：端口/通讯协议<br>–permanent   #永久生效，没有此参数重启后失效</p><pre><code>5. - cd到用户目录下，输入`java -jar 项目.jar`，启动项目6. - 可以直接用公网 `IP:port` 访问![](https://gitee.com/hlgao666/image-depot/raw/master/static/20210121171419.png)## Tomcat安装（解压缩安装）1、安装好了Java环境后我们可以测试下Tomcat！准备好Tomcat的安装包！  `/home/allen/apache-tomcat-9.0.22.tar.gz`2、将文件移动到/usr/tomcat/下，并解压！`tar -zxvf apache-tomcat-9.0.22.tar.gz`![](https://gitee.com/hlgao666/image-depot/raw/master/static/20210121171933.png)3、启动tomcat</code></pre><h1 id="执行：startup-sh-–-gt-启动tomcat"><a href="#执行：startup-sh-–-gt-启动tomcat" class="headerlink" title="执行：startup.sh –>启动tomcat"></a>执行：startup.sh –&gt;启动tomcat</h1><h1 id="执行：shutdown-sh-–-gt-关闭tomcat"><a href="#执行：shutdown-sh-–-gt-关闭tomcat" class="headerlink" title="执行：shutdown.sh –>关闭tomcat"></a>执行：shutdown.sh –&gt;关闭tomcat</h1><p>./startup.sh<br>./shutdown.sh</p><pre><code>![](https://gitee.com/hlgao666/image-depot/raw/master/static/20210121172227.png)此时，如果防火墙开启了8080端口并且阿里云安全组也放行了8080端口，则可以直接访问！![](https://gitee.com/hlgao666/image-depot/raw/master/static/20210121172859.png)## 安装Docker（yum安装）&gt; 基于 CentOS 7 安装1、官网安装参考手册：https://docs.docker.com/install/linux/docker-ce/centos/2、确定CentOS7及以上版本</code></pre><p>[root@hlgaotest bin]# cat /etc/redhat-release<br>CentOS Linux release 7.4.1708 (Core) </p><pre><code>3、yum安装gcc相关（需要确保 虚拟机可以上外网 ）</code></pre><p>yum -y install gcc  # -y自动确保所有的命令都为<code>-y</code><br>yum -y install gcc-c++</p><pre><code>4、卸载旧版本</code></pre><p>yum -y remove docker docker-common docker-selinux docker-engine</p><h1 id="官网版本"><a href="#官网版本" class="headerlink" title="官网版本"></a>官网版本</h1><p>yum remove docker <br>          docker-client <br>          docker-client-latest <br>          docker-common <br>          docker-latest <br>          docker-latest-logrotate <br>          docker-logrotate <br>          docker-engine</p><pre><code>5、安装需要的软件包</code></pre><p>yum install -y yum-utils device-mapper-persistent-data lvm2</p><pre><code>6、设置stable镜像仓库</code></pre><h1 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h1><p>yum-config-manager –add-repo <a href="https://download.docker.com/linux/centos/docker-ce.repo" target="_blank" rel="noopener">https://download.docker.com/linux/centos/docker-ce.repo</a></p><h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><p>[Errno 14] curl#35 - TCP connection reset by peer<br>[Errno 12] curl#35 - Timeout</p><h1 id="正确推荐使用国内的"><a href="#正确推荐使用国内的" class="headerlink" title="正确推荐使用国内的"></a>正确推荐使用国内的</h1><p>yum-config-manager –add-repo <a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></p><pre><code>7、更新yum软件包索引</code></pre><p>yum makecache fast</p><pre><code>8、安装Docker CE</code></pre><p>yum -y install docker-ce docker-ce-cli containerd.io</p><pre><code>9、启动docker</code></pre><p>systemctl start docker</p><pre><code>10、测试</code></pre><p>docker version</p><p>docker run hello-world</p><p>docker images<br>```</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>进程管理</title>
       <link href="/2021/01/20/linux/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
       <url>/2021/01/20/linux/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/</url>
@@ -1052,11 +1077,11 @@
       
         <tags>
             
+            <tag> 递归 </tag>
+            
             <tag> 字符串 </tag>
             
             <tag> 动态规划 </tag>
-            
-            <tag> 递归 </tag>
             
         </tags>
       
@@ -2359,9 +2384,9 @@
       
         <tags>
             
-            <tag> 树 </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> 树 </tag>
             
         </tags>
       
@@ -2386,9 +2411,9 @@
       
         <tags>
             
-            <tag> 树 </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> 树 </tag>
             
         </tags>
       
@@ -2463,9 +2488,9 @@
       
         <tags>
             
-            <tag> 二分 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 二分 </tag>
             
         </tags>
       
