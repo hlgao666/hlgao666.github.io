@@ -1,0 +1,2013 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="7 传输层, hlgao666/hlgao666">
+    <meta name="description" content="I hope you are here for me">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>7 传输层 | Allen</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Allen</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Allen</div>
+        <div class="logo-desc">
+            
+            I hope you are here for me
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hlgao666" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hlgao666" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">7 传输层</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/TCP-UDP/">
+                                <span class="chip bg-color">TCP/UDP</span>
+                            </a>
+                        
+                            <a href="/tags/复用-解复用/">
+                                <span class="chip bg-color">复用/解复用</span>
+                            </a>
+                        
+                            <a href="/tags/可靠数据传输/">
+                                <span class="chip bg-color">可靠数据传输</span>
+                            </a>
+                        
+                            <a href="/tags/流量控制/">
+                                <span class="chip bg-color">流量控制</span>
+                            </a>
+                        
+                            <a href="/tags/拥塞控制/">
+                                <span class="chip bg-color">拥塞控制</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/计算机网络/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-02-26
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-02-26
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="7-传输层"><a href="#7-传输层" class="headerlink" title="7 传输层"></a>7 传输层</h1><h2 id="传输层服务和协议"><a href="#传输层服务和协议" class="headerlink" title="传输层服务和协议"></a>传输层服务和协议</h2><ul>
+<li>传输层协议为运行在不同Host上的进程提供了一种<strong>逻辑通信机制</strong></li>
+<li>端系统运行传输层协议<ul>
+<li>发送方:将应用递交的消息分成一个或多个的Segment，并<strong>向下传给网络层。</strong></li>
+<li>接收方:将接收到的segment组装成消息，并<strong>向上交给应用层。</strong></li>
+</ul>
+</li>
+<li>传输层可以为应用提供多种协议<ul>
+<li>Internet上的TCP</li>
+<li>Internet上的UDP</li>
+</ul>
+</li>
+</ul>
+<p><strong>传输层vs.网络层</strong></p>
+<ul>
+<li>网络层: 提供<strong>主机之间</strong>的逻辑通信机制</li>
+<li>传输层: 提供<strong>应用进程之间</strong>的逻辑通信机制<ul>
+<li>位于网络层之上</li>
+<li>依赖于网络层服务</li>
+<li>对网络层服务进行（可能的）增强</li>
+</ul>
+</li>
+</ul>
+<h3 id="Internet-传输层协议"><a href="#Internet-传输层协议" class="headerlink" title="Internet 传输层协议"></a>Internet 传输层协议</h3><ul>
+<li>可靠、按序的交付服务(TCP)<ul>
+<li>拥塞控制</li>
+<li>流量控制</li>
+<li>连接建立</li>
+</ul>
+</li>
+<li>不可靠的交付服务(UDP)<ul>
+<li>基于“尽力而为(Best-effort)”的网络层，没有做（可靠性方面的）扩展</li>
+</ul>
+</li>
+<li>两种服务均不保证<ul>
+<li>延迟</li>
+<li>带宽</li>
+</ul>
+</li>
+</ul>
+<h2 id="多路复用-分用"><a href="#多路复用-分用" class="headerlink" title="多路复用/分用"></a>多路复用/分用</h2><p>如果某层的一个协议对应直接上层的多个协议/实体，则需要复用/分用</p>
+<ul>
+<li>接收端进行多路分用:<ul>
+<li>传输层依据头部信息将收到的Segment交给正确的Socket, 即不同的应用进程</li>
+</ul>
+</li>
+<li>发送端进行多路复用:<ul>
+<li>从多个Socket接收数据，为每块数据封装上头部信息，生成Segment，交给网络层</li>
+</ul>
+</li>
+</ul>
+<h3 id="分用如何工作"><a href="#分用如何工作" class="headerlink" title="分用如何工作?"></a>分用如何工作?</h3><ul>
+<li>主机接收到IP数据报(datagram)<ul>
+<li>每个数据报携带源IP地址、目的IP地址。</li>
+<li>每个数据报携带一个传输层的段(Segment) 。</li>
+<li>每个段携带源端口号和目的端口号</li>
+</ul>
+</li>
+<li>主机收到Segment之后，传输层协议提取IP地址和端口号信息，将Segment导向相应的Socket</li>
+<li>TCP做更多处理</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225144126.png" alt=""></p>
+<h4 id="无连接分用"><a href="#无连接分用" class="headerlink" title="无连接分用"></a>无连接分用</h4><ul>
+<li>利用端口号创建Socket<pre><code>DatagramSocket mySocket1 =new DatagramSocket (99111);
+DatagramSocket mySocket2 =new DatagramSocket (99222);</code></pre></li>
+<li><strong>UDP的Socket用二元组标识</strong><ul>
+<li><strong>(目的IP地址，目的端口号)</strong></li>
+</ul>
+</li>
+<li>主机收到UDP段后,<ul>
+<li>检查段中的目的端口号</li>
+<li>将UDP段导向绑定在该端口号的Socket</li>
+</ul>
+</li>
+<li>来自不同源IP地址和/或源端口号的IPР数据包被导向同一个Socket</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225144650.png" alt=""></p>
+<h4 id="面向连接的分用"><a href="#面向连接的分用" class="headerlink" title="面向连接的分用"></a>面向连接的分用</h4><ul>
+<li>TCP的Socket用四元组标识<ul>
+<li>源IP地址</li>
+<li>源端口号</li>
+<li>目的IP地址</li>
+<li>目的端口号</li>
+</ul>
+</li>
+<li>接收端利用所有的四个值将Segment导向合适的Socket</li>
+<li>服务器可能同时支持多个TCP Socket<ul>
+<li>每个Socket用自己的四元组标识</li>
+</ul>
+</li>
+<li>Web服务器为每个客户端开不同的Socket</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225145327.png" alt=""></p>
+<p><strong>面向连接的分用: 多线程Web服务器</strong></p>
+<p>一个进程可能创建多个线程</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225145605.png" alt=""></p>
+<hr>
+<h2 id="UDP-User-Datagram-Protocol-RFC-768"><a href="#UDP-User-Datagram-Protocol-RFC-768" class="headerlink" title="UDP: User Datagram Protocol [RFC 768]"></a>UDP: User Datagram Protocol [RFC 768]</h2><ul>
+<li>基于Internet IP协议<ul>
+<li>复用/分用</li>
+<li>简单的错误校验</li>
+</ul>
+</li>
+<li>“Best effort”服务，UDP段可能<ul>
+<li>丢失</li>
+<li>非按序到达</li>
+</ul>
+</li>
+<li>无连接<ul>
+<li>UDP发送方和接收方之间不需要握手</li>
+<li>每个UDP段的处理独立于其他段</li>
+</ul>
+</li>
+</ul>
+<p>Q：<strong>UDP为什么存在?</strong></p>
+<ul>
+<li>无需建立连接(减少延迟)</li>
+<li>实现简单: 无需维护连接状态</li>
+<li>头部开销少</li>
+<li>没有拥塞控制: 应用可更好地控制发送时间和速率</li>
+</ul>
+<p><strong>用途：</strong></p>
+<ul>
+<li>常用于流媒体应用<ul>
+<li>容忍丢失</li>
+<li>速率敏感</li>
+</ul>
+</li>
+<li>UDP还用于<ul>
+<li>DNS</li>
+<li>SNMP</li>
+</ul>
+</li>
+<li>在UDP上实现可靠数据传输?<ul>
+<li>在应用层增加可靠性机制</li>
+<li>应用特定的错误恢复机制</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225152908.png" alt=""></p>
+<p><strong>UDP校验和(checksum)</strong></p>
+<p>目的: 检测UDP段在传输中是否发生错误(如位翻转)</p>
+<ul>
+<li>发送方<ul>
+<li>将段的内容视为16-bit整数</li>
+<li>校验和计算:计算所有整数的和，进位加在和的后面，将得到的值按位求反，得到校验和</li>
+<li>发送方将校验和放入校验和字段</li>
+</ul>
+</li>
+<li>接收方<ul>
+<li>计算所收到段的校验和</li>
+<li>将其与校验和字段进行对比<ul>
+<li>不相等:检测出错误</li>
+<li>相等:没有检测出错误（但可能有错误)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="可靠数据传输原理"><a href="#可靠数据传输原理" class="headerlink" title="可靠数据传输原理"></a>可靠数据传输原理</h2><p>什么是可靠?</p>
+<ul>
+<li>不错、不丢、不乱</li>
+</ul>
+<p><strong>可靠数据传输协议</strong></p>
+<ul>
+<li>可靠数据传输对应用层、传输层、链路层都很重要</li>
+<li>网络Top-10问题</li>
+<li>信道的不可靠特性决定了可靠数据传输协议(<strong>rdt</strong>)的复杂性</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225154329.png" alt=""></p>
+<ul>
+<li>渐进地设计可靠数据传输协议的发送方和接收方</li>
+<li>只考虑单向数据传输<ul>
+<li>但控制信息双向流动</li>
+</ul>
+</li>
+<li>利用状态机(Finite State Machine, <strong>FSM</strong>)刻画传输协议</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225154638.png" alt=""></p>
+<p><strong>- Rdt 1.0: 可靠信道上的可靠数据传输</strong></p>
+<ul>
+<li>底层信道完全可靠<ul>
+<li>不会发生错误(bit error)</li>
+<li>不会丢弃分组</li>
+</ul>
+</li>
+<li>发送方和接收方的FSM独立</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225161023.png" alt=""></p>
+<p><strong>- Rdt 2.0: 产生位错误的信道</strong></p>
+<ul>
+<li>底层信道可能翻转分组中的位(bit)<ul>
+<li>利用<strong>校验和</strong>检测位错误</li>
+</ul>
+</li>
+<li>如何从错误中恢复?<ul>
+<li>确认机制(Acknowledgements, <strong>ACK</strong>):接收方显式地告知发送方分组已正确接收</li>
+<li><strong>NAK</strong>: 接收方显式地告知发送方分组有错误</li>
+<li>发送方收到NAK后，<strong>重传</strong>分组</li>
+</ul>
+</li>
+<li>基于这种重传机制的 rdt 协议称为 <strong>ARQ</strong> (Automatic Repeat reQuest) 协议Rdt 2.0 中引入的新机制<ul>
+<li>差错检测</li>
+<li>接收方反馈控制消息: <strong>ACK/NAK</strong></li>
+<li>重传</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225162355.png" alt=""></p>
+<p><strong>- Rdt 2.0 有什么缺陷?</strong></p>
+<ul>
+<li>如果ACK/NAK消息发生错误/被破坏(corrupted)会怎么样?<ul>
+<li>为ACK/NAK增加校验和，检错并纠错</li>
+<li>发送方收到被破坏ACK/NAK时不知道接收方发生了什么，添加额外的控制消息</li>
+<li>如果ACK/NAK坏掉，发送方重传</li>
+<li>不能简单的重传: <strong>产生重复分组</strong></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>如何解决重复分组问题?</strong><ul>
+<li>序列号(Sequence number): 发送方给每个分组增加序列号</li>
+<li>接收方丢弃重复分组</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225163156.png" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225163222.png" alt=""></p>
+<p><strong>Rdt 2.1 vs. Rdt 2.0</strong></p>
+<p>发送方:</p>
+<ul>
+<li>为每个分组增加了序列号</li>
+<li>两个序列号(0，1)就够用，为什么?</li>
+<li>需校验ACK/NAK消息是否发生错误</li>
+<li>状态数量翻倍</li>
+<li>状态必须“记住”“当前”的分组序列号</li>
+</ul>
+<p>接收方：</p>
+<ul>
+<li>需判断分组是否是重复</li>
+<li>当前所处状态提供了期望收到分组的序列号</li>
+<li>注意:接收方无法知道ACK/NAK是否被发送方正确收到</li>
+</ul>
+<p><strong>- Rdt 2.2:无NAK消息协议</strong></p>
+<ul>
+<li>与 rdt2.1 功能相同，但是只使用 ACK</li>
+<li>如何实现?<ul>
+<li>接收方通过 ACK 告知最后一个被正确接收的分组</li>
+<li>在 ACK 消息中<strong>显式地加入被确认分组的序列号</strong></li>
+</ul>
+</li>
+<li>发送方收到重复 ACK,之后，采取与收到 NAK 消息相同的动作<ul>
+<li>重传当前分组</li>
+</ul>
+</li>
+</ul>
+<p><strong>- Rdt 3.0</strong></p>
+<ul>
+<li>如果信道既可能发生错误，也可能丢失分组，怎么办?<ul>
+<li>“校验和＋序列号+ACK+重传”够用吗?</li>
+</ul>
+</li>
+<li>方法: 发送方等待<strong>合理</strong>时间<ul>
+<li>如果没收到ACK，重传</li>
+<li>如果分组或ACK只是延迟而不是丢了？<ul>
+<li>重传会产生重复，序列号机制能够处理</li>
+<li>接收方需在ACK中显式告知所确认的分组</li>
+</ul>
+</li>
+<li>需要<strong>定时器</strong></li>
+</ul>
+</li>
+</ul>
+<p>Q：Rdt 3.0 的<strong>停-等协议</strong>导致其性能很差，网络带宽利用率很低！</p>
+<p>A：<strong>流水线机制与滑动窗口协议</strong></p>
+<h4 id="流水线机制"><a href="#流水线机制" class="headerlink" title="- 流水线机制"></a>- 流水线机制</h4><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225181950.png" alt=""></p>
+<ul>
+<li>允许发送方在收到ACK之前连续发送多个分组<ul>
+<li>更大的<strong>序列号范围</strong></li>
+<li>发送方和/或接收方需要更大的存储空间以<strong>缓存分组</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225182200.png" alt=""></p>
+<h4 id="滑动窗口协议-Sliding-window-protocol"><a href="#滑动窗口协议-Sliding-window-protocol" class="headerlink" title="- 滑动窗口协议: Sliding-window protocol"></a>- 滑动窗口协议: Sliding-window protocol</h4><ul>
+<li>窗口<ul>
+<li>允许使用的序列号范围</li>
+<li>窗口尺寸为N: 最多有N个等待确认的消息</li>
+</ul>
+</li>
+<li>滑动窗口<ul>
+<li>随着协议的<strong>运行</strong>，窗口在序列号空间内<strong>向前滑动</strong></li>
+</ul>
+</li>
+<li>滑动窗口协议: <strong>GBN, SR</strong></li>
+</ul>
+<p><strong>- Go-Back-N(GBN)协议: 发送方</strong></p>
+<ul>
+<li>分组头部包含 k-bit 序列号</li>
+<li>窗口尺寸为 N，最多允许 N 个分组未确认</li>
+<li>ACK(n): 确认到序列号n(包含n)的分组均已被正确接收<ul>
+<li>可能收到重复ACK</li>
+</ul>
+</li>
+<li>为空中的分组设置<strong>计时器(timer)</strong></li>
+<li>超时Timeout(n)事件: <strong>重传序列号大于等于n，还未收到ACK的所有分组</strong></li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225183346.png" alt=""></p>
+<ul>
+<li>ACK  机制: 发送拥有最高序列号的、已被正确接收的分组的 ACK<ul>
+<li>可能产生重复 ACK</li>
+<li>只需要记住唯一的 expectedseqnum</li>
+</ul>
+</li>
+<li>乱序到达的分组:<ul>
+<li>直接丢弃 → 接收方没有缓存</li>
+<li>重新确认序列号最大的、按序到达的分组</li>
+</ul>
+</li>
+</ul>
+<p><strong>- Selective Repeat协议</strong></p>
+<ul>
+<li>GBN有什么缺陷?</li>
+<li>接收方对每个分组<strong>单独进行确认</strong><ul>
+<li>设置<strong>缓存机制</strong>，缓存乱序到达的分组</li>
+</ul>
+</li>
+<li>发送方只重传那些没收到ACK的分组<ul>
+<li>为每个分组设置定时器</li>
+</ul>
+</li>
+<li>发送方窗口<ul>
+<li>N个连续的序列号</li>
+<li>限制已发送且未确认的分组</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210225185111.png" alt=""></p>
+<p>问题: 序列号空间大小与窗口尺寸需满足什么关系?</p>
+<ul>
+<li>Ns+NR&lt;=2^k</li>
+</ul>
+<hr>
+<h2 id="TCP概述-RFCS-793-1122-1323-2018-2581"><a href="#TCP概述-RFCS-793-1122-1323-2018-2581" class="headerlink" title="TCP概述:RFCS-793,1122,1323,2018,2581"></a>TCP概述:RFCS-793,1122,1323,2018,2581</h2><ul>
+<li>点对点</li>
+<li>一个发送方，一个接收方</li>
+<li>可靠的、按序的字节流流水线机制<ul>
+<li>TCP拥塞控制和流量控制机制设置窗口尺寸</li>
+</ul>
+</li>
+<li>发送方/接收方缓存</li>
+<li>全双工(full-duplex)<ul>
+<li>同一连接中能够传输双向数据流</li>
+</ul>
+</li>
+<li>面向连接<ul>
+<li>通信双方在发送数据之前必须建立连接。</li>
+<li>连接状态只在连接的两端中维护，在沿途节点中并不维护状态。</li>
+<li>TCP连接包括:两台主机上的缓存、连接状态变量、socket等</li>
+</ul>
+</li>
+<li>流量控制机制</li>
+</ul>
+<p><strong>TCP段结构</strong></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226103752.png" alt=""></p>
+<p><strong>TCP:序列号和ACK</strong></p>
+<ul>
+<li>序列号;<ul>
+<li>序列号指的是segment中第一个字节的编号，而不是segment的编号</li>
+<li>建立TCP连接时，双方随机选择序列号</li>
+</ul>
+</li>
+<li>ACKs:<ul>
+<li>希望接收到的下一个字节的序列号</li>
+<li>累计确认:该序列号之前的所有字节均已被正确接收到</li>
+</ul>
+</li>
+<li>Q: 接收方如何处理乱序到达的Segment?</li>
+<li>A: TCP 规范中没有规定，由TCP的实现者做出决策</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226104311.png" alt=""></p>
+<h3 id="TCP可靠数据传输概述"><a href="#TCP可靠数据传输概述" class="headerlink" title="TCP可靠数据传输概述"></a>TCP可靠数据传输概述</h3><ul>
+<li>TCP在IP层提供的不可靠服务基础上实现可靠数据传输服务</li>
+<li>流水线机制</li>
+<li>累积确认</li>
+<li>TCP使用单一重传定时器</li>
+<li>触发重传的事件<ul>
+<li>超时</li>
+<li>收到重复ACK</li>
+</ul>
+</li>
+<li>渐进式<ul>
+<li>暂不考虑重复ACK</li>
+<li>暂不考虑流量控制</li>
+<li>暂不考虑拥塞控制</li>
+</ul>
+</li>
+</ul>
+<h4 id="TCP-RTT和超时"><a href="#TCP-RTT和超时" class="headerlink" title="TCP RTT和超时"></a>TCP RTT和超时</h4><p>问题: 如何设置定时器的超时时间?</p>
+<ul>
+<li>大于RTT<ul>
+<li>但是RTT是变化的</li>
+</ul>
+</li>
+<li>过短:<ul>
+<li>不必要的重传</li>
+</ul>
+</li>
+<li>过长:<ul>
+<li>对段丢失时间反应慢</li>
+</ul>
+</li>
+</ul>
+<p>问题: 如何估计RTT?</p>
+<ul>
+<li>SampleRTT: 测量从段发出去到收到ACK的时间<ul>
+<li>忽略重传</li>
+</ul>
+</li>
+<li>SampleRTT变化<ul>
+<li>测量多个SampleRTT，求平均值，形成RTT的估计值。EstimatedRTT</li>
+</ul>
+</li>
+</ul>
+<p><strong>定时器超时时间的设置</strong>:</p>
+<ul>
+<li>EstimatedRTT+“安全边界”</li>
+<li>EstimatedRTT变化大→较大的边界</li>
+</ul>
+<p>测量RTT的变化值: SampleRTT与EstimatedRTT的差值</p>
+<ul>
+<li>DevRTT =(1-beta)*DevRTT+ beta* |SampleRTT-EstimatedRTT| </li>
+</ul>
+<p>(typically,β = 0.25)</p>
+<p><strong>定时器超时时间的设置:</strong></p>
+<p>TimeoutInterval = EstimatedRTT + 4* DevRTT</p>
+<h4 id="TCP发送方事件"><a href="#TCP发送方事件" class="headerlink" title="TCP发送方事件"></a>TCP发送方事件</h4><ul>
+<li>从应用层收到数据<ul>
+<li>创建Segment</li>
+<li>序列号是Segment第一个字节的编号</li>
+<li>开启计时器</li>
+<li>设置超时时间:TimeOutInterval</li>
+</ul>
+</li>
+<li>超时<ul>
+<li>重传引起超时的Segment</li>
+<li>重启定时器</li>
+</ul>
+</li>
+<li>收到ACK<ul>
+<li>如果确认此前未确认的Segment<ul>
+<li>更新SendBase</li>
+<li>如果窗口中还有未被确认的分组，重新启动定时器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>快速重传机制</strong></p>
+<ul>
+<li>TCP 的实现中，如果发生超时，超时时间间隔将重新设置，即将超时时间间隔加倍，导致其<strong>很大</strong><ul>
+<li>重发丢失的分组之前要等待很长时间</li>
+</ul>
+</li>
+<li>通过重复ACK检测分组丢失<ul>
+<li>Sender 会背靠背地发送多个分组</li>
+<li>如果某个分组丢失，可能会引发多个重复的 ACK</li>
+</ul>
+</li>
+<li>如果 sender 收到对同一数据的 3 个 ACK，则假定该数据之后的段已经丢失<ul>
+<li><strong>快速重传</strong>: 在定时器超时之前即进行重传</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h3><ul>
+<li>接收方为TCP连接分配buffer</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226123311.png" alt=""></p>
+<ul>
+<li>上层应用可能处理buffer中数据的速度较慢</li>
+<li><strong>flow control</strong>: 发送方不会传输的太多、太快以至于淹没接收方( buffer溢出)</li>
+<li><strong>速度匹配机制</strong></li>
+</ul>
+<p>(假定TCP receiver丢弃乱序的segments)</p>
+<ul>
+<li>Buffer中的可用空间(spareroom)<br>=Rcvwindow<br>=RcVBuffer- [LastByteRcvd - LastByteRead]</li>
+<li>Receiver通过在Segment的头部字段将 Rcvwindow 告诉Sender</li>
+<li>Sender限制自己已经发送的但还未收到ACK的数据<strong>不超过</strong>接收方的空闲Rcvwindow尺寸</li>
+<li>Receiver告知SenderRcvwindow=o，会出现什么情况?<ul>
+<li>sender 仍能发送较小的段，以便于 sender 保持发送状态，避免<strong>死锁</strong>！</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="TCP连接管理"><a href="#TCP连接管理" class="headerlink" title="TCP连接管理"></a>TCP连接管理</h3><ul>
+<li>TCP sender和receiver在传输数据前需要建立连接</li>
+<li>初始化TCP变量<ul>
+<li>Seq. #</li>
+<li>Buffer和流量控制信息</li>
+</ul>
+</li>
+<li>Client:<br>连接发起者 socket clientsocket = new socket ( “hostname” , “port number”) ;</li>
+<li>Server: 等待客户连接请求 socket connectionsocket =welcomeSocket.accept() ;</li>
+</ul>
+<p><strong>TCP连接管理: 建立</strong></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226132239.png" alt=""></p>
+<p><strong>TCP连接管理:关闭</strong></p>
+<p>Closing a connection:</p>
+<p>client closes socket: clientsocket.close () ;</p>
+<ul>
+<li>Step 1: client 向server 发送 TCP FIN 控制segment  </li>
+<li>Step 2: server 收到FIN, 回复ACK.关闭连接,发送 FIN.  </li>
+<li>Step 3: client 收到FIN, 回复ACK. <ul>
+<li>进入“等待” - 如果收到 FIN，会重新发送 ACK</li>
+</ul>
+</li>
+<li>Step 4：server收到ACK. 连接关闭.</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226132849.png" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226133346.png" alt="TCP 客户端生命周期"></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226133457.png" alt="TCP 服务端生命周期"></p>
+<hr>
+<h3 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h3><h4 id="拥塞-Congestion"><a href="#拥塞-Congestion" class="headerlink" title="拥塞(Congestion)"></a>拥塞(Congestion)</h4><ul>
+<li>非正式定义:“太多发送主机发送了太多数据或者发送速度太快，以至于<strong>网络</strong>无法处理”</li>
+<li>表现:<ul>
+<li>分组丢失（路由器缓存溢出）</li>
+<li>分组延迟过大（在路由器缓存中排队)</li>
+<li>当分组被drop时，任何用于该分组的“上游”传输能力全都被浪费掉</li>
+</ul>
+</li>
+<li>拥塞控制vs.流量控制</li>
+<li>A top-10 problem.</li>
+</ul>
+<h4 id="拥塞控制的方法"><a href="#拥塞控制的方法" class="headerlink" title="拥塞控制的方法"></a>拥塞控制的方法</h4><ul>
+<li>端到端拥塞控制:<ul>
+<li>网络层不需要显式的提供支持</li>
+<li>端系统通过观察loss，delay等网络行为判断是否发生拥塞</li>
+<li>TCP采取这种方法</li>
+</ul>
+</li>
+<li>网络辅助的拥塞控制:<ul>
+<li>路由器向发送方显式地反馈网络拥塞信息</li>
+<li>简单的拥塞指示(1bit): SNA, DECbit, TCP/IP ECN, ATM)</li>
+<li>指示发送方应该采取何种速率</li>
+</ul>
+</li>
+</ul>
+<h4 id="TCP拥塞控制的基本原理"><a href="#TCP拥塞控制的基本原理" class="headerlink" title="TCP拥塞控制的基本原理"></a>TCP拥塞控制的基本原理</h4><ul>
+<li>Sender限制发送速率<ul>
+<li>LastByteSent - LastByteAcked &lt;= Congwin</li>
+<li>rate ~=Conwin/RTT  Bytes/sec</li>
+</ul>
+</li>
+<li>CongWin:<ul>
+<li>动态调整以改变发送速率</li>
+<li>反映所感知到的网络拥塞</li>
+</ul>
+</li>
+<li>问题:如何感知网络拥塞?<ul>
+<li>Loss事件=timeout或3个重复ACK</li>
+<li>发生loss事件后，发送方降低速率</li>
+</ul>
+</li>
+<li>如何合理地调整发送速率?<ul>
+<li><strong>加性增—乘性减:AIMD</strong></li>
+<li><strong>慢启动: SS</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>加性增一乘性减: AIMD</strong></p>
+<ul>
+<li><strong>原理</strong>: 逐渐增加发送速率，谨慎探测可用带宽，直到发生loss</li>
+<li>方法:AIMD<ul>
+<li>Additive lncrease: 每个RTT将CongWin增大一个MSS——拥塞避免 </li>
+<li>Multiplicative Decrease: 发生loss后将CongWin减半</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226150942.png" alt=""></p>
+<p><strong>TCP慢启动: SS</strong></p>
+<ul>
+<li>TCP连接建立时, CongWin=1<ul>
+<li>例:MSS=500 byte,RTT=200msec</li>
+<li>初始速率 = 20k bps</li>
+</ul>
+</li>
+<li>可用带宽可能远远高于初始速率:<ul>
+<li>希望快速增长</li>
+</ul>
+</li>
+<li><strong>原理</strong>: 当连接开始时，指数性增长</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226151400.png" alt=""></p>
+<ul>
+<li>指数性增长<ul>
+<li>每个RTT将CongWin翻倍</li>
+<li>收到每个ACK进行操作</li>
+</ul>
+</li>
+<li>初始速率很慢，但是快速攀升</li>
+</ul>
+<p>Q: 何时应该指数性增长切换为线性增长(拥塞避免)?<br>A: 当CongWin达到Loss事件前值的1/2时.</p>
+<p>实现方法:</p>
+<ul>
+<li>变量 <strong>Threshold</strong></li>
+<li>Loss事件发生时，Threshold被设为Loss事件前CongWin值的1/2。</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226151823.png" alt=""></p>
+<p><strong>Loss事件的处理</strong></p>
+<ul>
+<li>3个重复ACKs:<ul>
+<li>Congwin 切到一半然后线性增长</li>
+</ul>
+</li>
+<li>Timeout事件:<ul>
+<li>Congwin直接设为1个MSS，然后指数增长，达到threshold后，再线性增长</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>3个重复ACKs表示网络还能够传输一些 segments</li>
+<li><strong>timeout 事件表明拥塞更为严重</strong></li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210226152806.png" alt=""></p>
+<p><strong>TCP throughput: 吞吐率</strong></p>
+<ul>
+<li>给定拥塞窗口大小和RTT，TCP的平均吞吐率是多少?<ul>
+<li>忽略掉Slow start</li>
+</ul>
+</li>
+<li>假定<strong>发生超时时CongWin的大小为W</strong>，吞吐率是W/RTT</li>
+<li>超时后，CongWin=W/2，吞吐率是W/2RTT</li>
+<li>平均吞吐率为: <strong>0.75W/RTT</strong></li>
+</ul>
+<p><strong>TCP的公平性</strong></p>
+<ul>
+<li>仅使用 TCP 是公平的（拥塞控制）</li>
+<li>多媒体应用通常不使用TCP，以免被拥塞控制机制限制速率</li>
+<li>使用UDP:以恒定速率发送,能够容忍丢失</li>
+<li>产生了不公平</li>
+</ul>
+<p><strong>公平性与并发TCP连接：</strong></p>
+<ul>
+<li>某些应用会打开多个并发连接</li>
+<li>Web浏览器</li>
+<li>产生公平性问题</li>
+<li>例子: 链路速率为R，已有9个连接<ul>
+<li>新来的应用请求1个TCP，获得R/10的速率</li>
+<li>新来的应用请求11个TCP，获得R/2的速率</li>
+</ul>
+</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Hailong Gao</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hlgao666.github.io/2021/02/26/计算机网络/7-传输层/">https://hlgao666.github.io/2021/02/26/计算机网络/7-传输层/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Hailong Gao</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/TCP-UDP/">
+                                    <span class="chip bg-color">TCP/UDP</span>
+                                </a>
+                            
+                                <a href="/tags/复用-解复用/">
+                                    <span class="chip bg-color">复用/解复用</span>
+                                </a>
+                            
+                                <a href="/tags/可靠数据传输/">
+                                    <span class="chip bg-color">可靠数据传输</span>
+                                </a>
+                            
+                                <a href="/tags/流量控制/">
+                                    <span class="chip bg-color">流量控制</span>
+                                </a>
+                            
+                                <a href="/tags/拥塞控制/">
+                                    <span class="chip bg-color">拥塞控制</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '71b3fe32e349132d133e',
+        clientSecret: '1c6066aad8a2feaccbdf64f42194f3dfef3eb0e0',
+        repo: 'hlgao666.github.io',
+        owner: 'hlgao666',
+        admin: "hlgao666",
+        id: '2021-02-26T18-33-01',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/02/26/计算机网络/7-传输层/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="7 传输层">
+                        
+                        <span class="card-title">7 传输层</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            传输层
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/计算机网络/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TCP-UDP/">
+                        <span class="chip bg-color">TCP/UDP</span>
+                    </a>
+                    
+                    <a href="/tags/复用-解复用/">
+                        <span class="chip bg-color">复用/解复用</span>
+                    </a>
+                    
+                    <a href="/tags/可靠数据传输/">
+                        <span class="chip bg-color">可靠数据传输</span>
+                    </a>
+                    
+                    <a href="/tags/流量控制/">
+                        <span class="chip bg-color">流量控制</span>
+                    </a>
+                    
+                    <a href="/tags/拥塞控制/">
+                        <span class="chip bg-color">拥塞控制</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/26/计算机网络/6-网络应用/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="6 网络应用">
+                        
+                        <span class="card-title">6 网络应用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            网络应用层
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/计算机网络/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Socket/">
+                        <span class="chip bg-color">Socket</span>
+                    </a>
+                    
+                    <a href="/tags/TCP-UDP/">
+                        <span class="chip bg-color">TCP/UDP</span>
+                    </a>
+                    
+                    <a href="/tags/HTTP/">
+                        <span class="chip bg-color">HTTP</span>
+                    </a>
+                    
+                    <a href="/tags/Web缓存-代理服务器技术/">
+                        <span class="chip bg-color">Web缓存/代理服务器技术</span>
+                    </a>
+                    
+                    <a href="/tags/DNS/">
+                        <span class="chip bg-color">DNS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Allen<br />'
+            + '文章作者: Hailong Gao<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="488982301"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Hailong Gao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">176.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "09";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hlgao666" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1330695688@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1330695688" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1330695688" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
