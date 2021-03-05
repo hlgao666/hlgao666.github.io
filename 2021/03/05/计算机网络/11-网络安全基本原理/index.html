@@ -1,0 +1,1932 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="11 网络安全基本原理, hlgao666/hlgao666">
+    <meta name="description" content="I hope you are here for me">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>11 网络安全基本原理 | Allen</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Allen</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Allen</div>
+        <div class="logo-desc">
+            
+            I hope you are here for me
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hlgao666" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hlgao666" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">11 网络安全基本原理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/网络威胁/">
+                                <span class="chip bg-color">网络威胁</span>
+                            </a>
+                        
+                            <a href="/tags/密码学基础/">
+                                <span class="chip bg-color">密码学基础</span>
+                            </a>
+                        
+                            <a href="/tags/SSL/">
+                                <span class="chip bg-color">SSL</span>
+                            </a>
+                        
+                            <a href="/tags/VPN/">
+                                <span class="chip bg-color">VPN</span>
+                            </a>
+                        
+                            <a href="/tags/防火墙/">
+                                <span class="chip bg-color">防火墙</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/计算机网络/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-03-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="网络安全基本原理"><a href="#网络安全基本原理" class="headerlink" title="网络安全基本原理"></a>网络安全基本原理</h1><h2 id="网络安全基本概念"><a href="#网络安全基本概念" class="headerlink" title="网络安全基本概念"></a>网络安全基本概念</h2><p>网络安全是指网络系统的硬件、软件及其系统中的<strong>数据受到保护</strong>，不因偶然的或者恶意的原因而遭受到破坏、更改、泄露，<strong>系统连续可靠正常地运行，网络服务不中断</strong>。</p>
+<h2 id="网络安全基本属性"><a href="#网络安全基本属性" class="headerlink" title="网络安全基本属性"></a>网络安全基本属性</h2><ul>
+<li><strong>机密性</strong>(confidentiality):只有发送方与预定接收方能够理解报文内容<ul>
+<li>发送方加密报文</li>
+<li>接收方解密报文</li>
+</ul>
+</li>
+<li><strong>身份认证</strong>(authentication):发送方与接收方希望确认彼此的真实身份</li>
+<li><strong>信息完整性</strong>(message integrity):发送方与接收方希望确保信息未被篡改（传输途中或者后期），发生篡改一定会被检测到</li>
+<li><strong>可访问与可用性</strong>(access and availability):<ul>
+<li>网络服务必须对被授权用户可访问与可用</li>
+</ul>
+</li>
+</ul>
+<h2 id="网络安全的基本特征"><a href="#网络安全的基本特征" class="headerlink" title="网络安全的基本特征"></a>网络安全的基本特征</h2><ul>
+<li><strong>相对性</strong><ul>
+<li>只有相对的安全，没有绝对的安全</li>
+</ul>
+</li>
+<li><strong>时效性</strong><ul>
+<li>新的漏洞与攻击方法不断发现</li>
+</ul>
+</li>
+<li><strong>相关性</strong><ul>
+<li>新配置、新系统组件可能会引入新的安全问题</li>
+</ul>
+</li>
+<li><strong>不确定性</strong><ul>
+<li>攻击时间、攻击者、攻击目标和攻击发起的地点都具有不确定性</li>
+</ul>
+</li>
+<li><strong>复杂性</strong><ul>
+<li>网络安全是一项系统工程，需要技术的和非技术的手段</li>
+</ul>
+</li>
+<li><strong>重要性</strong><ul>
+<li>网络安全关乎国家、政府、企业、个人的安全</li>
+</ul>
+</li>
+</ul>
+<h2 id="网络威胁"><a href="#网络威胁" class="headerlink" title="网络威胁"></a>网络威胁</h2><ul>
+<li><strong>窃听</strong>(eavesdrop): 窃听信息</li>
+<li><strong>插入</strong>(insert): 主动在连接中插入信息</li>
+<li><strong>假冒</strong>(impersonation): 可以通过伪造(spoof)分组中的源地址(或者分组的任意其他字段</li>
+<li><strong>劫持</strong>(hijacking): 通过移除/取代发送发或者接收方“接管”(take over)连接</li>
+<li><strong>拒绝服务DoS</strong>(denial of service): 阻止服务器为其他用户提供服务(e.g.,通过过载资源)</li>
+<li><strong>映射(Mapping)</strong>:<ul>
+<li>发起攻击前:“探路”(case the joint)一找出网络上在运行什么服务</li>
+<li>利用ping命令确定网络上主机的地址</li>
+<li><strong>端口扫描</strong>(Port-scanning):依次尝试与每个端口建立TCP连接</li>
+<li>nmap (<a href="http://www.insecure.org/nmapl)，广为使用的国外端口扫描工具之一" target="_blank" rel="noopener">http://www.insecure.org/nmapl)，广为使用的国外端口扫描工具之一</a></li>
+</ul>
+</li>
+<li>对策(Countermeasures)<ul>
+<li>记录到达的网络流量</li>
+<li>分析、识别出可疑活动(IP地址和端口被依次扫描)</li>
+</ul>
+</li>
+<li><strong>分组“嗅探”</strong>(sniffing):<ul>
+<li>广播介质(共享式以太网，无线网络)</li>
+<li>混杂(promiscuous)模式网络接口可以接收/记录所有经过的分组/帧</li>
+<li>可以读到所有未加密数据(e.g.，包括口令!）</li>
+<li>Wireshark 就是一个典型免费的分组嗅探软件（<strong>抓包工具</strong>）</li>
+</ul>
+</li>
+<li>分组嗅探对策<ul>
+<li>组织中的所有主机都运行软件，周期性监测网络接口是否工作在混杂模式</li>
+<li>每段广播介质连接一台主机(如交换式以太网)</li>
+</ul>
+</li>
+<li><strong>IP欺骗(Spoofing)</strong>:<ul>
+<li>直接由应用生成“原始”IP分组，可以设置分组的源IP地址字段为任意值</li>
+<li>接收方无法判断源地址是否被欺骗</li>
+<li>e.g.:C冒充B</li>
+</ul>
+</li>
+<li>IP欺骗对策: 入口过滤(ingress filtering)<ul>
+<li>路由器不转发源IP地址无效的IP分组 (e.g.,源IP地址不属于所连接网络)</li>
+<li>很有效!但是不能强制所有网络都执行入口过滤</li>
+</ul>
+</li>
+<li><strong>拒绝服务DOS(Denial of service)</strong>:<ul>
+<li>向接收方恶意泛洪(flood)分组，淹没(swamp)接收方<ul>
+<li>带宽耗尽</li>
+<li>资源耗尽</li>
+</ul>
+</li>
+<li>分布式拒绝服务攻击(DDOS): 多个源主机协同淹没接收方<ul>
+<li>e.g., C与另一个远程主机协同对A进行SYN攻击</li>
+</ul>
+</li>
+<li>DDoS攻击过程:<ul>
+<li>1.选择目标</li>
+<li>2.入侵(break into)网络中主机（构建僵尸网络)</li>
+<li>3.控制僵尸主机向目标发送分组</li>
+</ul>
+</li>
+<li>反射式DDoS攻击:<ul>
+<li>1.选择目标</li>
+<li>2.入侵网络中主机(构建僵尸网络）</li>
+<li>3.选择反射服务器</li>
+<li>4.借助反射服务器向目标发起攻击</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DOS:对策<ul>
+<li>在到达主机前过滤掉泛洪分组(e.g.,SYN)<ul>
+<li>可能好坏一起扔</li>
+</ul>
+</li>
+<li>追溯(traceback)攻击源<ul>
+<li><strong>SYN cookie</strong>[RFC 4987]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="密码学基础"><a href="#密码学基础" class="headerlink" title="密码学基础"></a>密码学基础</h2><p>密码学(cryptography)术语：</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210303200605.png" alt=""></p>
+<ul>
+<li>m: 明文  </li>
+<li>KA(m): 密文，利用秘钥KA加密  </li>
+<li>m = KB(KA(m)): 利用秘钥KB解密</li>
+</ul>
+<h3 id="对称密钥加密"><a href="#对称密钥加密" class="headerlink" title="对称密钥加密"></a>对称密钥加密</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210303200840.png" alt=""></p>
+<ul>
+<li>对称密钥加密: Bob和Alice共享相同(对称)密钥: Ks<ul>
+<li>e.g.,单码替代密码的替代模式</li>
+</ul>
+</li>
+<li>Q: Bob和Alice如何确认密钥值（密钥分发）?</li>
+</ul>
+<h3 id="公开密钥加密"><a href="#公开密钥加密" class="headerlink" title="公开密钥加密"></a>公开密钥加密</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210303201103.png" alt=""></p>
+<h3 id="破解加密方法"><a href="#破解加密方法" class="headerlink" title="破解加密方法"></a>破解加密方法</h3><ul>
+<li><strong>唯密文攻击</strong>(cipher-textonly attack): 入侵者(如Trudy)只截获到密文，基于对密文的分析进行破解<ul>
+<li>两条途径:<ul>
+<li>暴力破解(brute force): 尝试所有可能的密钥</li>
+<li>统计分析</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>已知明文攻击</strong>(known-plaintext attack): 入侵者已知(部分)明文以及与之匹配的密文<ul>
+<li>e.g.，在单码替代密码(monoalphabetic<br>cipher)中，入侵者已确认字母a,l,i,c,e,b,o的替换关系</li>
+</ul>
+</li>
+<li><strong>选择明文攻击</strong>(chosen-plaintext attack):入侵者可以获取针对选择的明文的密文</li>
+</ul>
+<h3 id="传统加密方法"><a href="#传统加密方法" class="headerlink" title="传统加密方法"></a>传统加密方法</h3><ul>
+<li><strong>替代密码</strong>(substitution cipher): 利用一种东西替代另一种东西<ul>
+<li><strong>凯撒密码</strong>(Casesar cipher): 一个字母替代另一个字母<ul>
+<li>将一个字母利用字母表中该字母后面的第 <code>k</code> 个字母替代</li>
+<li>如k=3，“bob. i love you. alice”→“ere, l oryh brx. dolfh”</li>
+</ul>
+</li>
+<li><strong>单码(字母)替代密码</strong>(monoalphabetic cipher)</li>
+<li><strong>多码(字母)替代加密</strong>(polyalphabetic encryption): 使用多个单码替代密码，明文中不同位置的字母使用不同的单码替代密码</li>
+</ul>
+</li>
+<li><strong>换位(transpositions)密码</strong>: 重新排列明文中的字母<ul>
+<li><strong>置换法</strong>(permutation method)<ul>
+<li>将明文划分为固定长度(d)的组，每个组内的字母按置换规则(f)变换位置</li>
+<li>密钥: (d, f)</li>
+</ul>
+</li>
+<li><strong>列置换加密</strong><ul>
+<li>将明文按行组成一个矩阵，然后按<strong>给定列顺序</strong>输出得到密文</li>
+<li>列置换加密的密钥包括列数和输出顺序<ul>
+<li>可以用一个单词来表示</li>
+<li>单词长度表示列数，单词中的字母顺序表示输出顺序</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="现代加密技术"><a href="#现代加密技术" class="headerlink" title="现代加密技术"></a>现代加密技术</h3><ul>
+<li>现代加密技术的基本操作包括经典的替代和置换·<ul>
+<li>不再针对一个个字母，而是针对二进制位操作</li>
+</ul>
+</li>
+<li>现代加密技术主要分为:<ul>
+<li><strong>对称密钥加密</strong></li>
+<li><strong>非对称密钥加密</strong>（公开密钥加密)</li>
+</ul>
+</li>
+<li>对称密钥加密:<ul>
+<li><strong>流密码</strong>( stream ciphers)</li>
+<li><strong>分组密码</strong>，也称块密码( block ciphers)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210304155304.png" alt=""></p>
+<h3 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h3><p>Q: 如何解决下列与报文完整性相关的问题?</p>
+<ul>
+<li>否认:发送方不承认自己发送过某一报文</li>
+<li>伪造:接收方自己伪造一份报文，并声称来自发送方</li>
+<li>冒充:某个用户冒充另一个用户接收或发送报文</li>
+<li>篡改:接收方对收到的信息进行篡改</li>
+</ul>
+<p>A: <strong>数字签名</strong>(Digital signatures) !</p>
+<ul>
+<li>数字签名技术是实现安全电子交易的核心技术之一</li>
+<li>可验证性(verifiable)</li>
+<li>不可伪造性(unforgeable)</li>
+<li>不可抵赖性(non-repudiation)</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210304211407.png" alt=""></p>
+<h3 id="对称密钥问题"><a href="#对称密钥问题" class="headerlink" title="对称密钥问题?"></a>对称密钥问题?</h3><p>Q: 两个实体在网上如何建立共享秘密密钥?</p>
+<p>A: 解决方案:<br><strong>可信任的密钥分发中心</strong>(Key Distribution<br>Center-<strong>KDC</strong>)作为实体间的中介(intermediary)</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210304212125.png" alt=""></p>
+<h3 id="公钥问题"><a href="#公钥问题" class="headerlink" title="公钥问题"></a>公钥问题</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210304212244.png" alt="中间人攻击"></p>
+<p>Q： 当Alice获得了Bob的公钥(通过web网站、e-mail、磁盘等)，她怎么确认这真的是Bob的公钥而不是Trudy的?</p>
+<p>A：解决方案:<br><strong>可信任的认证中心</strong>(Certification Authority-<strong>CA</strong>)</p>
+<ul>
+<li>认证中心(CA): 实现特定实体E与其公钥的绑定</li>
+<li>每个E(如人、路由器等)在CA上注册其公钥<ul>
+<li>E向CA提供“身份证明”.</li>
+<li>CA创建绑定E及其公钥的证书(certificate).</li>
+<li>证书包含由CA签名的E的公钥-CA声明:“这是E的公钥”</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210304212844.png" alt=""></p>
+<p>当Alice想要Bob的公钥时:</p>
+<ul>
+<li>首先获取Bob的公钥证书(从Bob或者其他地方)</li>
+<li>应用CA的公钥，解密证书中签名的公钥，获得Bob公钥</li>
+</ul>
+<h4 id="公钥证书主要内容"><a href="#公钥证书主要内容" class="headerlink" title="公钥证书主要内容"></a>公钥证书主要内容</h4><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210304213222.png" alt=""></p>
+<h3 id="Web安全威胁"><a href="#Web安全威胁" class="headerlink" title="Web安全威胁"></a>Web安全威胁</h3><ul>
+<li>Web服务器的安全威胁<ul>
+<li>Web服务越强大，包含安全漏洞概率就越高</li>
+<li>HTTP服务可在不同权限下运行</li>
+</ul>
+</li>
+<li>Web浏览器的安全威胁<ul>
+<li>活动Web页可能隐藏恶意程序</li>
+</ul>
+</li>
+<li>通信信道的安全威胁<ul>
+<li>监听程序会威胁通信信道中所传输信息的机密性</li>
+<li>伪造、篡改、重放会威胁所传输信息的完整性</li>
+<li>缺乏身份认证使得冒充他人身份进行中间人攻击</li>
+<li>缺乏数字签名机制使得通信双方能相互攻击</li>
+<li>拒绝服务攻击使得通信信道不能保证可用性</li>
+</ul>
+</li>
+</ul>
+<h3 id="应对Web安全威胁的着手点"><a href="#应对Web安全威胁的着手点" class="headerlink" title="应对Web安全威胁的着手点"></a>应对Web安全威胁的着手点</h3><ul>
+<li>基于应用层实现Web安全<ul>
+<li>为特定应用定制特定安全服务，将安全服务直接嵌入在应用程序中</li>
+</ul>
+</li>
+<li>基于传输层实现Web安全<ul>
+<li>SSL或TLS可作为基础协议栈的组成部分，对应用透明<ul>
+<li>也可直接嵌入到浏览器中使用</li>
+</ul>
+</li>
+<li>使用SSL或TLS后，传送的应用层数据会被加密<ul>
+<li>保证通信的安全</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基于网络层实现Web安全<ul>
+<li>IPSec提供端到端（主机到主机）的安全机制<ul>
+<li>通用解决方案</li>
+</ul>
+</li>
+<li>各种应用程序均可利用IPSec提供的安全机制<ul>
+<li>减少了安全漏洞的产生</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="SSL-Secure-Sockets-Layer"><a href="#SSL-Secure-Sockets-Layer" class="headerlink" title="SSL: Secure Sockets Layer"></a>SSL: Secure Sockets Layer</h3><ul>
+<li>广泛部署的安全协议<ul>
+<li>几乎所有浏览器和Web服务器都支持</li>
+<li><strong>https</strong></li>
+<li>每年通过SSL交易额达数十亿美元</li>
+</ul>
+</li>
+<li>实现:Netscape</li>
+<li>变体:TLS(RFC 2246)</li>
+<li>提供:<ul>
+<li>机密性(confidentiality)</li>
+<li>完整性(integrity)</li>
+<li>认证(authentication)</li>
+</ul>
+</li>
+<li>最初目标:<ul>
+<li>Web电子商务交易</li>
+<li>加密(尤其信用卡号)</li>
+<li>Web服务器认证可选的客户认证</li>
+<li>方便与新商户的商务活动(minimum hassle)</li>
+</ul>
+</li>
+<li>可用于所有基于TCP的网络应用<ul>
+<li>安全socket接口</li>
+</ul>
+</li>
+</ul>
+<h3 id="SSL和TCP-IP"><a href="#SSL和TCP-IP" class="headerlink" title="SSL和TCP/IP"></a>SSL和TCP/IP</h3><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210305135530.png" alt=""></p>
+<ul>
+<li>SSL为网络应用提供应用编程接口(API)</li>
+<li>C语言和Java语言的SSL库/类可用</li>
+</ul>
+<h3 id="简化的-Toy-SSL-一个简单的安全信道"><a href="#简化的-Toy-SSL-一个简单的安全信道" class="headerlink" title="简化的(Toy)SSL: 一个简单的安全信道"></a>简化的(Toy)SSL: 一个简单的安全信道</h3><ul>
+<li><strong>握手</strong>(handshake): Alice和Bob利用他们的证书、私钥认证（鉴别）彼此，以及交换共享密钥</li>
+<li><strong>密钥派生</strong>(key derivation): Alice和Bob利用共享密钥派生出一组密钥</li>
+<li><strong>数据传输</strong>(data transfer): 待传输数据分割成一系列记录</li>
+<li><strong>连接关闭</strong>(connection closure): 通过发送特殊消息, 安全关闭连接</li>
+</ul>
+<h4 id="握手"><a href="#握手" class="headerlink" title="握手"></a>握手</h4><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210305141151.png" alt=""></p>
+<ul>
+<li>MS:主密钥</li>
+<li>EMS:加密的主密钥</li>
+</ul>
+<h4 id="密钥派生"><a href="#密钥派生" class="headerlink" title="密钥派生"></a>密钥派生</h4><ul>
+<li>不同加密操作使用不同密钥会更加安全<ul>
+<li>例如:报文认证码(MAC)密钥和数据加密密钥</li>
+</ul>
+</li>
+<li>4个密钥:<ul>
+<li>Kc=用于加密客户向服务器发送数据的密钥</li>
+<li>Mc=用于客户向服务器发送数据的MAC密钥</li>
+<li>Ks=用于加密服务器向客户发送数据的密钥</li>
+<li>Ms=用于服务器向客户发送数据的MAC密钥</li>
+</ul>
+</li>
+<li>通过密钥派生函数(KDF)实现密钥派生<ul>
+<li>提取主密钥和（(可能的）一些额外的随机数，生成密钥</li>
+</ul>
+</li>
+</ul>
+<h4 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h4><ul>
+<li>为什么不直接加密发送给TCP的字节流?<ul>
+<li>MAC放到哪儿?<ul>
+<li>如果放到最后，则只有全部数据收全才能进行完整性认证</li>
+</ul>
+</li>
+<li>e.g.,对于即时消息应用，在显示一段消息之前，如何针对<strong>发送的所有字节</strong>进行完整性检验?</li>
+</ul>
+</li>
+<li>方案: 将字节流分割为一系列记录<ul>
+<li>每个记录携带一个 MAC</li>
+<li>接收方可以对每个记录进行完整性检验</li>
+</ul>
+</li>
+<li>问题: 对于每个记录，接收方需要从数据中识别出MAC<ul>
+<li>需要采用变长记录</li>
+</ul>
+</li>
+</ul>
+<h4 id="简化的SSL-序列号"><a href="#简化的SSL-序列号" class="headerlink" title="简化的SSL: 序列号"></a>简化的SSL: 序列号</h4><ul>
+<li>问题: 攻击者可以捕获和重放记录或者重新排序记录</li>
+<li>解决方案: 在MAC中增加序列号<ul>
+<li>MAC= MAC(Mx,sequence][data)</li>
+<li>注意:记录中没有序列号域</li>
+</ul>
+</li>
+<li>问题: 攻击者可以重放所有记录</li>
+<li>解决方案: 使用一次性随机数(nonce)</li>
+</ul>
+<h4 id="简化的SSL-控制信息"><a href="#简化的SSL-控制信息" class="headerlink" title="简化的SSL: 控制信息"></a>简化的SSL: 控制信息</h4><ul>
+<li>问题:截断攻击<ul>
+<li>攻击者伪造TCP连接的断连段，恶意断开连接</li>
+<li>一方或双方认为对方已没有数据发送</li>
+</ul>
+</li>
+<li>解决方案: 记录类型, 利用一个类型的记录专门用于断连<ul>
+<li>type 0用于数据记录; type 1用于断连</li>
+</ul>
+</li>
+<li>MAC=MAC(Mx,sequence || type || data)</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210305142656.png" alt="简单的SSL记录"></p>
+<h3 id="SSL协议栈"><a href="#SSL协议栈" class="headerlink" title="SSL协议栈"></a>SSL协议栈</h3><ul>
+<li>介于HTTP与TCP之间的一个可选层<ul>
+<li>绝大多数应用层协议可直接建立在SSL之上</li>
+</ul>
+</li>
+<li>SSL不是一个单独的协议，而是两层协议</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210305143334.png" alt=""></p>
+<h3 id="SSL密码组-cipher-suite"><a href="#SSL密码组-cipher-suite" class="headerlink" title="SSL密码组(cipher suite)"></a>SSL密码组(cipher suite)</h3><ul>
+<li>密码组(cipher suite)<ul>
+<li>公开密钥算法(public-keyalgorithm)</li>
+<li>对称加密算法(symmetricencryption algorithm)</li>
+<li>MAC算法</li>
+</ul>
+</li>
+<li>SSL支持多个密码组</li>
+<li>协商(negotiation): 客户与服务器商定密码组<ul>
+<li>客户提供选项(choice)</li>
+<li>服务器挑选其一</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>常见的SSL对称密码:<ul>
+<li>DES-分组密码</li>
+<li>3DES-分组密码</li>
+<li>RC2 -Rivest Cipher 2分组密码</li>
+<li>RC4 -Rivest Cipher 4流密码</li>
+</ul>
+</li>
+<li>SSL公开密钥加密: RSA</li>
+</ul>
+<h3 id="SSL握手过程"><a href="#SSL握手过程" class="headerlink" title="SSL握手过程"></a>SSL握手过程</h3><ol>
+<li>客户发送其支持的算法列表，以及客户一次随机数(nonce)</li>
+<li>服务器从算法列表中选择算法，并发回给客户: 选择＋证书＋服务器一次随机数</li>
+<li>客户验证证书，提取服务器公钥，生成预主密钥(pre_master_secret)，并利用服务器的公钥加密预主密钥，发送给服务器</li>
+<li>客户与服务器基于预主密钥和一次随机数分别独立计算加密密钥和MAC密钥</li>
+<li><strong>客户发送一个针对所有握手消息的MAC</strong></li>
+<li><strong>服务器发送一个针对所有握手消息的MAC</strong></li>
+</ol>
+<p>最后2步的意义: <strong>保护握手过程免遭篡改</strong></p>
+<ul>
+<li>客户提供的算法，安全性有强、有弱<ul>
+<li>明文传输</li>
+</ul>
+</li>
+<li>中间人攻击可以从列表中删除安全性强的算法<ul>
+<li>最后2步可以预防这种情况发生</li>
+</ul>
+</li>
+</ul>
+<p><strong>为什么使用两个一次随机数?</strong></p>
+<ul>
+<li>假设Trudy嗅探Alice与Bob之间的所有报文</li>
+<li>第二天，Trudy与Bob建立TCP连接，发送完全相同的记录序列</li>
+<li>Bob(如Amazon)认为Alice对同一产品下发两个分离的订单</li>
+<li>解决方案:Bob为每次连接发送完全不同的一次随机数<ul>
+<li><strong>确保两天的加密密钥不同</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="虚拟专用网VPN"><a href="#虚拟专用网VPN" class="headerlink" title="虚拟专用网VPN"></a>虚拟专用网VPN</h2><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210305151800.png" alt=""></p>
+<ul>
+<li>动机: 安全+成本</li>
+<li>虚拟专用网VPN(Virtual Private Networks): 通过建立在公共网络(如Internet)上的安全通道，实现远程用户、分支机构、业务伙伴等与机构总部网络的安全连接,从而构建针对特定组织机构的专用网络。<ul>
+<li>虚拟:“安全通道”不实际独占公共网络的资源，是一条逻辑的穿过公共网络的安全、稳定的隧道</li>
+<li>通过隧道技术、加密技术、密钥管理、认证和访问控制等，实现与专用网类似的安全性能</li>
+</ul>
+</li>
+</ul>
+<h3 id="VPN的功能"><a href="#VPN的功能" class="headerlink" title="VPN的功能"></a>VPN的功能</h3><ul>
+<li>数据机密性保护</li>
+<li>数据完整性认证</li>
+<li>数据源身份认证</li>
+<li>防重放攻击</li>
+<li>访问控制</li>
+</ul>
+<h3 id="VPN关键技术"><a href="#VPN关键技术" class="headerlink" title="VPN关键技术"></a>VPN关键技术</h3><ul>
+<li>隧道技术</li>
+<li>数据加密</li>
+<li>身份认证</li>
+<li>密钥管理</li>
+<li>访问控制</li>
+<li>网络管理</li>
+</ul>
+<h3 id="隧道技术"><a href="#隧道技术" class="headerlink" title="隧道技术"></a>隧道技术</h3><ul>
+<li>构建VPN的核心技术</li>
+<li>隧道: 通过Internet提供安全的点到点(或端到端)的数据传输“安全通道”<ul>
+<li>实质上是一种封装</li>
+</ul>
+</li>
+<li>VPN隧道利用隧道协议对通过隧道传输的数据进行封装<ul>
+<li>使数据安全穿越公共网络(通常是Internet)</li>
+<li>通过加密和认证以确保安全</li>
+<li>数据包进入隧道时，由VPN封装成IP数据报</li>
+<li>通过隧道在Internet上安全传输</li>
+<li>离开隧道后，进行解封装，数据便不再被保护</li>
+</ul>
+</li>
+</ul>
+<h4 id="隧道协议"><a href="#隧道协议" class="headerlink" title="隧道协议"></a>隧道协议</h4><p>隧道协议内包括以下三种协议:</p>
+<ul>
+<li>乘客协议(Passenger Protocol)</li>
+<li>封装协议（Encapsulating Protocol)</li>
+<li>承载协议(Carrier Protocol)</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210305152436.png" alt=""></p>
+<p>常见VPN隧道协议:</p>
+<ul>
+<li>第二层隧道:PPTP、L2TP<ul>
+<li>主要用于远程客户机访问局域网方案</li>
+</ul>
+</li>
+<li>第三层隧道: IPSec<ul>
+<li>主要用于网关到网关、或网关到主机方案</li>
+<li>不支持远程拨号访问</li>
+</ul>
+</li>
+</ul>
+<h4 id="典型VPN实现技术"><a href="#典型VPN实现技术" class="headerlink" title="典型VPN实现技术"></a>典型VPN实现技术</h4><ul>
+<li>IPSec: 最安全、适用面最广</li>
+<li>SSL:具有高层安全协议的优势</li>
+<li>L2TP:最好的实现远程接入VPN的技术</li>
+<li>典型VPN技术结合:<ul>
+<li>IPSec与SSL、IPSec与L2TP</li>
+</ul>
+</li>
+</ul>
+<h2 id="防火墙（firewall）"><a href="#防火墙（firewall）" class="headerlink" title="防火墙（firewall）"></a>防火墙（firewall）</h2><p>防火墙：隔离组织内部网络与公共互联网，允许某些分组通过, 而阻止其他分组进入/离开内部网络的软件/硬件设施。</p>
+<h3 id="为什么需要防火墙"><a href="#为什么需要防火墙" class="headerlink" title="为什么需要防火墙?"></a>为什么需要防火墙?</h3><ul>
+<li>预防拒绝服务攻击（DoS) :<ul>
+<li>SYN泛洪: 攻击者建立许多虚假TCP连接，耗尽资源，导致“真正”的连接无法建立</li>
+</ul>
+</li>
+<li>预防非法修改内部数据访问:<ul>
+<li>e.g.,攻击者替换CIA网站主页</li>
+</ul>
+</li>
+<li>只允许对内部网络的授权访问:<ul>
+<li>认证的用户/主机</li>
+</ul>
+</li>
+</ul>
+<p><strong>三种类型的防火墙</strong>:</p>
+<ul>
+<li>无状态分组过滤器(stateless packet filters)</li>
+<li>有状态分组过滤器(stateful packet filters)</li>
+<li>应用网关(application gateways)</li>
+</ul>
+<h4 id="无状态分组过滤器"><a href="#无状态分组过滤器" class="headerlink" title="无状态分组过滤器"></a>无状态分组过滤器</h4><ul>
+<li>内部网络通过<strong>路由器防火墙</strong>(router firewall)与Internet连接</li>
+<li>路由器<strong>逐个分组过滤</strong>，决策是否转发或丢弃分组，依据:<ul>
+<li>源IP地址、目的IP地址</li>
+<li>TCP/UDP源、目的端口号</li>
+<li>ICMP报文类型</li>
+<li>TCP SYN和ACK标志位</li>
+</ul>
+</li>
+</ul>
+<p>无状态分组过滤器: <strong>笨拙</strong></p>
+<ul>
+<li>不加以区分放行满足条件的所有分组</li>
+<li>例如:放行dest port = 80、ACK=1的分组，即使没有建立的TCP连接</li>
+</ul>
+<h4 id="有状态分组过滤器：跟踪每个TCP连接"><a href="#有状态分组过滤器：跟踪每个TCP连接" class="headerlink" title="有状态分组过滤器：跟踪每个TCP连接"></a>有状态分组过滤器：跟踪每个TCP连接</h4><ul>
+<li>跟踪连接建立(SYN)、拆除(FIN): 根据状态确定是否放行进入或外出的分组</li>
+<li>超时的非活动连接: 不再允许分组通过</li>
+</ul>
+<h4 id="应用网关"><a href="#应用网关" class="headerlink" title="应用网关"></a>应用网关</h4><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210305154756.png" alt=""></p>
+<ul>
+<li>基于应用数据以及lP/TCP/UDP头部字段过滤分组</li>
+<li>例如:允许特定用户telnet外部网络</li>
+</ul>
+<ol>
+<li>要求所有Telnet用户通过网关Telnet外部网络;</li>
+<li>对于授权的用户，网关代理用户与目的主机建立Telnet连接，并且在两个连接之间进行数据中继;</li>
+<li>路由器阻止所有不是由网关发起的Telnet连接。</li>
+</ol>
+<h4 id="防火墙、应用网关的局限性"><a href="#防火墙、应用网关的局限性" class="headerlink" title="防火墙、应用网关的局限性"></a>防火墙、应用网关的局限性</h4><ul>
+<li>IP欺骗(spoofing): 路由器不知道数据是否来自于声称的源</li>
+<li>如果多个应用需要特殊处理，则每个应用需要一个应用网关</li>
+<li>客户软件必须知道如何连接网关<ul>
+<li>e.g..必频配置Web浏览器的代理服务器的IP地址</li>
+</ul>
+</li>
+<li>过滤器经常对UDP流量使用“全部通过”或者“全部不通过”策略</li>
+<li>折衷(tradeoff):确定安全级别</li>
+<li>与外部网络的通信度<ul>
+<li>很多安全防护级别很高的网站仍然遭受攻击</li>
+</ul>
+</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Hailong Gao</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hlgao666.github.io/2021/03/05/计算机网络/11-网络安全基本原理/">https://hlgao666.github.io/2021/03/05/计算机网络/11-网络安全基本原理/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Hailong Gao</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/网络威胁/">
+                                    <span class="chip bg-color">网络威胁</span>
+                                </a>
+                            
+                                <a href="/tags/密码学基础/">
+                                    <span class="chip bg-color">密码学基础</span>
+                                </a>
+                            
+                                <a href="/tags/SSL/">
+                                    <span class="chip bg-color">SSL</span>
+                                </a>
+                            
+                                <a href="/tags/VPN/">
+                                    <span class="chip bg-color">VPN</span>
+                                </a>
+                            
+                                <a href="/tags/防火墙/">
+                                    <span class="chip bg-color">防火墙</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '71b3fe32e349132d133e',
+        clientSecret: '1c6066aad8a2feaccbdf64f42194f3dfef3eb0e0',
+        repo: 'hlgao666.github.io',
+        owner: 'hlgao666',
+        admin: "hlgao666",
+        id: '2021-03-05T15-56-03',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/03/05/计算机网络/11-网络安全基本原理/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="11 网络安全基本原理">
+                        
+                        <span class="card-title">11 网络安全基本原理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            网络安全
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/计算机网络/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/网络威胁/">
+                        <span class="chip bg-color">网络威胁</span>
+                    </a>
+                    
+                    <a href="/tags/密码学基础/">
+                        <span class="chip bg-color">密码学基础</span>
+                    </a>
+                    
+                    <a href="/tags/SSL/">
+                        <span class="chip bg-color">SSL</span>
+                    </a>
+                    
+                    <a href="/tags/VPN/">
+                        <span class="chip bg-color">VPN</span>
+                    </a>
+                    
+                    <a href="/tags/防火墙/">
+                        <span class="chip bg-color">防火墙</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/05/计算机网络/10-局域网/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="10 局域网">
+                        
+                        <span class="card-title">10 局域网</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            局域网
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/计算机网络/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ARP协议/">
+                        <span class="chip bg-color">ARP协议</span>
+                    </a>
+                    
+                    <a href="/tags/以太网/">
+                        <span class="chip bg-color">以太网</span>
+                    </a>
+                    
+                    <a href="/tags/VLAN/">
+                        <span class="chip bg-color">VLAN</span>
+                    </a>
+                    
+                    <a href="/tags/交换机/">
+                        <span class="chip bg-color">交换机</span>
+                    </a>
+                    
+                    <a href="/tags/IEEE802-11无线局域网/">
+                        <span class="chip bg-color">IEEE802.11无线局域网</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Allen<br />'
+            + '文章作者: Hailong Gao<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="488982301"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Hailong Gao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">194.8k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "09";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hlgao666" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1330695688@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1330695688" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1330695688" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

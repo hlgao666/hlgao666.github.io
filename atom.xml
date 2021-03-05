@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hlgao666.github.io/"/>
-  <updated>2021-03-01T12:10:49.736Z</updated>
+  <updated>2021-03-05T08:04:27.828Z</updated>
   <id>https://hlgao666.github.io/</id>
   
   <author>
@@ -15,6 +15,105 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>11 网络安全基本原理</title>
+    <link href="https://hlgao666.github.io/2021/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/11-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
+    <id>https://hlgao666.github.io/2021/03/05/计算机网络/11-网络安全基本原理/</id>
+    <published>2021-03-05T07:56:03.000Z</published>
+    <updated>2021-03-05T08:04:27.828Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://hlgao666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="网络威胁" scheme="https://hlgao666.github.io/tags/%E7%BD%91%E7%BB%9C%E5%A8%81%E8%83%81/"/>
+    
+      <category term="密码学基础" scheme="https://hlgao666.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="SSL" scheme="https://hlgao666.github.io/tags/SSL/"/>
+    
+      <category term="VPN" scheme="https://hlgao666.github.io/tags/VPN/"/>
+    
+      <category term="防火墙" scheme="https://hlgao666.github.io/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>10 局域网</title>
+    <link href="https://hlgao666.github.io/2021/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/10-%E5%B1%80%E5%9F%9F%E7%BD%91/"/>
+    <id>https://hlgao666.github.io/2021/03/05/计算机网络/10-局域网/</id>
+    <published>2021-03-05T07:55:50.000Z</published>
+    <updated>2021-03-05T08:02:14.123Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://hlgao666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="ARP协议" scheme="https://hlgao666.github.io/tags/ARP%E5%8D%8F%E8%AE%AE/"/>
+    
+      <category term="以太网" scheme="https://hlgao666.github.io/tags/%E4%BB%A5%E5%A4%AA%E7%BD%91/"/>
+    
+      <category term="VLAN" scheme="https://hlgao666.github.io/tags/VLAN/"/>
+    
+      <category term="交换机" scheme="https://hlgao666.github.io/tags/%E4%BA%A4%E6%8D%A2%E6%9C%BA/"/>
+    
+      <category term="IEEE802.11无线局域网" scheme="https://hlgao666.github.io/tags/IEEE802-11%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>9 数据链路层</title>
+    <link href="https://hlgao666.github.io/2021/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/9-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
+    <id>https://hlgao666.github.io/2021/03/05/计算机网络/9-数据链路层/</id>
+    <published>2021-03-05T07:55:36.000Z</published>
+    <updated>2021-03-05T07:58:19.683Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://hlgao666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="差错检测" scheme="https://hlgao666.github.io/tags/%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="MAC协议" scheme="https://hlgao666.github.io/tags/MAC%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>8 网络层</title>
@@ -72,8 +171,6 @@
       <category term="计算机网络" scheme="https://hlgao666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="TCP/UDP" scheme="https://hlgao666.github.io/tags/TCP-UDP/"/>
-    
       <category term="复用/解复用" scheme="https://hlgao666.github.io/tags/%E5%A4%8D%E7%94%A8-%E8%A7%A3%E5%A4%8D%E7%94%A8/"/>
     
       <category term="可靠数据传输" scheme="https://hlgao666.github.io/tags/%E5%8F%AF%E9%9D%A0%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/"/>
@@ -81,6 +178,8 @@
       <category term="流量控制" scheme="https://hlgao666.github.io/tags/%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/"/>
     
       <category term="拥塞控制" scheme="https://hlgao666.github.io/tags/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/"/>
+    
+      <category term="TCP/UDP" scheme="https://hlgao666.github.io/tags/TCP-UDP/"/>
     
   </entry>
   
@@ -107,9 +206,9 @@
       <category term="计算机网络" scheme="https://hlgao666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="Socket" scheme="https://hlgao666.github.io/tags/Socket/"/>
-    
       <category term="TCP/UDP" scheme="https://hlgao666.github.io/tags/TCP-UDP/"/>
+    
+      <category term="Socket" scheme="https://hlgao666.github.io/tags/Socket/"/>
     
       <category term="HTTP" scheme="https://hlgao666.github.io/tags/HTTP/"/>
     
@@ -512,87 +611,6 @@
     
     
       <category term="linux" scheme="https://hlgao666.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux概述及环境搭建</title>
-    <link href="https://hlgao666.github.io/2021/01/17/linux/linux%E6%A6%82%E8%BF%B0%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://hlgao666.github.io/2021/01/17/linux/linux概述及环境搭建/</id>
-    <published>2021-01-17T14:45:15.000Z</published>
-    <updated>2021-01-17T14:48:51.538Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://hlgao666.github.io/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="https://hlgao666.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>车队管家调度系统</title>
-    <link href="https://hlgao666.github.io/2021/01/17/%E6%8A%80%E6%9C%AF%E6%BC%AB%E6%AD%A5/%E8%BD%A6%E9%98%9F%E7%AE%A1%E5%AE%B6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://hlgao666.github.io/2021/01/17/技术漫步/车队管家调度系统/</id>
-    <published>2021-01-17T12:00:57.000Z</published>
-    <updated>2021-01-17T12:05:12.627Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="密" scheme="https://hlgao666.github.io/categories/%E5%AF%86/"/>
-    
-    
-      <category term="密" scheme="https://hlgao666.github.io/tags/%E5%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode hot100-1 两数之和</title>
-    <link href="https://hlgao666.github.io/2021/01/15/leetcode/hot100/leetcode-hot100-1/"/>
-    <id>https://hlgao666.github.io/2021/01/15/leetcode/hot100/leetcode-hot100-1/</id>
-    <published>2021-01-15T03:26:39.000Z</published>
-    <updated>2021-01-15T03:28:41.955Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode hot 100" scheme="https://hlgao666.github.io/categories/leetcode-hot-100/"/>
-    
-    
-      <category term="leetcode hot 100" scheme="https://hlgao666.github.io/tags/leetcode-hot-100/"/>
     
   </entry>
   
