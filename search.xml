@@ -144,8 +144,6 @@
       
         <tags>
             
-            <tag> TCP/UDP </tag>
-            
             <tag> 复用/解复用 </tag>
             
             <tag> 可靠数据传输 </tag>
@@ -153,6 +151,8 @@
             <tag> 流量控制 </tag>
             
             <tag> 拥塞控制 </tag>
+            
+            <tag> TCP/UDP </tag>
             
         </tags>
       
@@ -177,9 +177,9 @@
       
         <tags>
             
-            <tag> Socket </tag>
-            
             <tag> TCP/UDP </tag>
+            
+            <tag> Socket </tag>
             
             <tag> HTTP </tag>
             
