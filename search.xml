@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>leetcode-hot100-2 两数相加.md</title>
+      <link href="/2021/05/16/leetcode/hot100/leetcode-hot100-2/"/>
+      <url>/2021/05/16/leetcode/hot100/leetcode-hot100-2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="leetcode-hot100-2两数相加"><a href="#leetcode-hot100-2两数相加" class="headerlink" title="leetcode hot100-2两数相加"></a>leetcode hot100-2两数相加</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p><p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p><p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/image-20210204195430420.png" alt=""></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>只需维护一个进位变量t，逆序从左往右相加即可。</p><p><strong>注意</strong>：当进位变量不为0但两链表均为空时，仍要继续相加（把进位的1加上再终止）！</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode() {} *     ListNode(int val) { this.val = val; } *     ListNode(int val, ListNode next) { this.val = val; this.next = next; } * } */</span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> ListNode <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span>ListNode l1<span class="token punctuation">,</span> ListNode l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>        ListNode dummyHead <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pre <span class="token operator">=</span> dummyHead<span class="token punctuation">;</span>        <span class="token keyword">int</span> t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">while</span> <span class="token punctuation">(</span>l1 <span class="token operator">!=</span> null <span class="token operator">||</span> l2 <span class="token operator">!=</span> null <span class="token operator">||</span> t <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>l1 <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>                t <span class="token operator">+=</span> l1<span class="token punctuation">.</span>val<span class="token punctuation">;</span>                l1 <span class="token operator">=</span> l1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>            <span class="token punctuation">}</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>l2 <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>                t <span class="token operator">+=</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">;</span>                l2 <span class="token operator">=</span> l2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>            <span class="token punctuation">}</span>            pre<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span>t <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            pre <span class="token operator">=</span> pre<span class="token punctuation">.</span>next<span class="token punctuation">;</span>            t <span class="token operator">/=</span> <span class="token number">10</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> dummyHead<span class="token punctuation">.</span>next<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> leetcode hot 100 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode hot 100 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>11 网络安全基本原理</title>
       <link href="/2021/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/11-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
       <url>/2021/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/11-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</url>
@@ -144,6 +169,8 @@
       
         <tags>
             
+            <tag> TCP/UDP </tag>
+            
             <tag> 复用/解复用 </tag>
             
             <tag> 可靠数据传输 </tag>
@@ -151,8 +178,6 @@
             <tag> 流量控制 </tag>
             
             <tag> 拥塞控制 </tag>
-            
-            <tag> TCP/UDP </tag>
             
         </tags>
       
@@ -177,9 +202,9 @@
       
         <tags>
             
-            <tag> TCP/UDP </tag>
-            
             <tag> Socket </tag>
+            
+            <tag> TCP/UDP </tag>
             
             <tag> HTTP </tag>
             
@@ -2819,9 +2844,9 @@
       
         <tags>
             
-            <tag> 二分 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 二分 </tag>
             
         </tags>
       
@@ -2921,11 +2946,11 @@
       
         <tags>
             
-            <tag> 分治 </tag>
-            
             <tag> 数组 </tag>
             
             <tag> 归并排序 </tag>
+            
+            <tag> 分治 </tag>
             
         </tags>
       
@@ -3479,9 +3504,9 @@
       
         <tags>
             
-            <tag> 位运算 </tag>
-            
             <tag> 分治 </tag>
+            
+            <tag> 位运算 </tag>
             
         </tags>
       
