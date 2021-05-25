@@ -515,7 +515,7 @@
 <h3 id="堆属性"><a href="#堆属性" class="headerlink" title="堆属性"></a>堆属性</h3><p>堆分为两种：最大堆和最小堆，两者的差别在于节点的排序方式。</p>
 <p>在最大堆中，父节点的值比每一个子节点的值都要大。在最小堆中，父节点的值比每一个子节点的值都要小。这就是所谓的“堆属性”，并且这个属性对堆中的每一个节点都成立。</p>
 <p>例子：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/4064751-14a6cde25bdff968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/190/format/webp" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210525172625.jpeg" alt=""></p>
 <p>根据这一属性，那么最大堆总是将其中的最大值存放在树的根节点。而对于最小堆，根节点中的元素总是树中的最小值。堆属性非常有用，因为堆常常被当做优先队列使用，因为可以快速地访问到“最重要”的元素。</p>
 <blockquote>
 <p>注意：堆的根节点中存放的是最大或者最小元素，但是其他节点的排序顺序是未知的。例如，在一个最大堆中，最大的那一个元素总是位于 index 0 的位置，但是最小的元素则未必是最后一个元素。–唯一能够保证的是<strong>最小的元素是一个叶节点，但是不确定是哪一个</strong>。</p>
@@ -535,9 +535,9 @@
 left(i)   = 2i + 1
 right(i)  = 2i + 2</code></pre><p>注意 right(i) 就是简单的 left(i) + 1。左右节点总是处于相邻的位置。</p>
 <p><strong>平衡</strong>：在堆中，在当前层级所有的节点都已经填满之前不允许开是下一层的填充，所以堆总是有这样的形状（<strong>完全二叉树</strong>）：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/4064751-9590755bc6109a38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/413/format/webp" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210525172716.jpeg" alt=""></p>
 <p>但在二叉树中，<strong>没必要是完全二叉树</strong>。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/4064751-26be199ebd40f8bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/320/format/webp" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210525172748.jpeg" alt=""></p>
 <p>链接：<a href="https://zhuanlan.zhihu.com/p/154726632" target="_blank" rel="noopener">满二叉树与完全二叉树的区别</a></p>
 <h3 id="可以用堆做什么？"><a href="#可以用堆做什么？" class="headerlink" title="可以用堆做什么？"></a>可以用堆做什么？</h3><p>有两个原始操作用于保证插入或删除节点以后堆是一个有效的最大堆或者最小堆：</p>
 <ul>
@@ -656,7 +656,7 @@ right(i)  = 2i + 2</code></pre><p>注意 right(i) 就是简单的 left(i) + 1。
 <p>注意：</p>
 <p>(01) 特性(3)中的叶子节点，是只为空(NIL或null)的节点。</p>
 <p>(02) 红黑树是相对接近平衡的二叉树。正是因为这些规则限制，才保证了红黑树的自平衡。<strong>红黑树从根到叶子的最长路径不会超过最短路径的2倍</strong>。</p>
-<p><img src="https://images0.cnblogs.com/i/497634/201403/251730074203156.jpg" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210525172852.jpeg" alt=""></p>
 <h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ul>
 <li>左旋</li>
 <li>右旋</li>
