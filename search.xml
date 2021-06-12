@@ -8,7 +8,7 @@
       <link href="/2021/06/12/Redis/18-%E5%88%86%E7%89%87/"/>
       <url>/2021/06/12/Redis/18-%E5%88%86%E7%89%87/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h1><p><strong>分片以提升写性能，复制以提升读性能。</strong></p><p>分片是将数据划分为多个部分的方法，可以将数据存储到多台机器里面，这种方法在解决某些问题时可以获得线性级别的性能提升。</p><p>假设有 4 个 Redis 实例 R0，R1，R2，R3，还有很多表示用户的键 user:1，user:2，… ，有不同的方式来选择一个指定的键存储在哪个实例中。</p><p>最简单的方式是范围分片，例如用户 id 从 0<del>1000 的存储到实例 R0 中，用户 id 从 1001</del>2000 的存储到实例R1中，等等。但是这样需要维护一张映射范围表，维护操作代价很高。</p><p>还有一种方式是哈希分片，使用 CRC32哈希函数将键转换为一个数字，再对实例数量求模就能知道应该存储的实例。</p><p>根据执行分片的位置，可以分为三种分片方式：</p><ul><li>客户端分片：客户端使用一致性哈希等算法决定键应当分布到哪个节点。</li><li>代理分片：将客户端请求发送到代理上，由代理转发请求到正确的节点上。</li><li>服务器分片：Redis Cluster。</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h1><p><strong>分片以提升写性能，复制以提升读性能。</strong></p><p>分片是将数据划分为多个部分的方法，可以将数据存储到多台机器里面，这种方法在解决某些问题时可以获得线性级别的性能提升。</p><p>假设有 4 个 Redis 实例 R0，R1，R2，R3，还有很多表示用户的键 user:1，user:2，… ，有不同的方式来选择一个指定的键存储在哪个实例中。</p><p>最简单的方式是范围分片，例如用户 id 从 0~1000 的存储到实例 R0 中，用户 id 从 1001~2000 的存储到实例R1中，等等。但是这样需要维护一张映射范围表，维护操作代价很高。</p><p>还有一种方式是哈希分片，使用 CRC32哈希函数将键转换为一个数字，再对实例数量求模就能知道应该存储的实例。</p><p>根据执行分片的位置，可以分为三种分片方式：</p><ul><li>客户端分片：客户端使用一致性哈希等算法决定键应当分布到哪个节点。</li><li>代理分片：将客户端请求发送到代理上，由代理转发请求到正确的节点上。</li><li>服务器分片：Redis Cluster。</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -1116,9 +1116,9 @@
       
         <tags>
             
-            <tag> 递归 </tag>
-            
             <tag> 分治 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -1245,9 +1245,9 @@
       
         <tags>
             
-            <tag> DFS </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> DFS </tag>
             
             <tag> BFS </tag>
             
@@ -2864,9 +2864,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -3024,9 +3024,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -4935,9 +4935,9 @@
       
         <tags>
             
-            <tag> HashMap </tag>
-            
             <tag> 分治 </tag>
+            
+            <tag> HashMap </tag>
             
         </tags>
       
@@ -5137,9 +5137,9 @@
       
         <tags>
             
-            <tag> 递归 </tag>
-            
             <tag> 分治 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -5339,9 +5339,9 @@
       
         <tags>
             
-            <tag> DFS </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> DFS </tag>
             
         </tags>
       
