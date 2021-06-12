@@ -515,13 +515,13 @@
 <p>系统A是一个电商系统，目前是一台机器部署，系统中有一个用户下订单的接口，但是用户下订单之前一定要去检查一下库存，确保库存足够了才会给用户下单。</p>
 <p>由于系统有一定的并发，所以会预先将商品的库存保存在redis中，用户下单的时候会更新redis的库存。</p>
 <p>此时系统架构如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18534367-0eb1691bba934db9.png" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210612143440.png" alt=""></p>
 <p>但是这样一来会产生一个问题：假如某个时刻，redis里面的某个商品库存为1，此时两个请求同时到来，其中一个请求执行到上图的第3步，更新数据库的库存为0，但是第4步还没有执行。</p>
 <p>而另外一个请求执行到了第2步，发现库存还是1，就继续执行第3步。</p>
 <p>这样的结果，是导致卖出了2个商品，然而其实库存只有1个。</p>
 <p>很明显不对啊！这就是典型的库存超卖问题</p>
 <p>我们很容易想到解决方案：用锁把2、3、4步锁住，让他们执行完之后，另一个线程才能进来执行第2步。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18534367-24dfbc2880053f30.png" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210612143445.png" alt=""></p>
 <p>按照上面的图，在执行第2步时，使用Java提供的synchronized或者ReentrantLock来锁住，然后在第4步执行完之后才释放锁。</p>
 <p>Synchronized(this){</p>
 <p>//扣减库存逻辑代码</p>
@@ -529,7 +529,7 @@
 <p>}</p>
 <p>这样一来，2、3、4 这3个步骤就被“锁”住了，多个线程之间只能串行化执行。</p>
 <p>但是好景不长，整个系统的并发飙升，一台机器扛不住了。现在要增加一台机器，如下图：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18534367-8f6acab1e20f5eaa.png" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210612143500.png" alt=""></p>
 <p>增加机器之后，系统变成上图所示，我的天！</p>
 <p>假设此时两个用户的请求同时到来，但是落在了不同的机器上，那么这两个请求是可以同时执行了，还是会出现库存超卖的问题。</p>
 <p>为什么呢？因为上图中的两个A系统，运行在两个不同的JVM里面，他们加的锁只对属于自己JVM里面的线程有效，对于其他JVM的线程是无效的。</p>
@@ -540,7 +540,7 @@
 <p>在整个系统提供一个<strong>全局、唯一的获取锁的“东西”</strong>，然后每个系统在需要加锁时，都去问这个“东西”拿到一把锁，这样不同的系统拿到的就可以认为是同一把锁。</p>
 <p>至于这个“东西”，可以是Redis、Zookeeper，也可以是数据库。</p>
 <p>文字描述不太直观，我们来看下图：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18534367-d694a11c8d5165cf.png" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210612143510.png" alt=""></p>
 <p>通过上面的分析，我们知道了库存超卖场景在分布式部署系统的情况下使用Java原生的锁机制无法保证线程安全，所以我们需要用到分布式锁的方案。</p>
 <h2 id="什么是分布式锁？"><a href="#什么是分布式锁？" class="headerlink" title="什么是分布式锁？"></a>什么是分布式锁？</h2><p>Redlock：全名叫做 Redis Distributed Lock;即使用redis实现的分布式锁；</p>
 <p>使用场景：多个服务间保证同一时刻同一时间段内只能有同一用户发出一个请求（防止关键业务出现并发攻击）；</p>

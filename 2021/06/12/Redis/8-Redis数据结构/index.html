@@ -619,7 +619,7 @@ int dictRehash(dict *d, int n) {
 <p><a href="https://zhuanlan.zhihu.com/p/95984718" target="_blank" rel="noopener">哈希冲突</a></p>
 <h2 id="跳跃表"><a href="#跳跃表" class="headerlink" title="跳跃表"></a>跳跃表</h2><p>是有序集合的底层实现之一。</p>
 <p>跳跃表是基于多指针有序链表实现的，可以看成多个有序链表。</p>
-<p><img src="https://img-blog.csdn.net/20161205211246498" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210612143334.png" alt=""></p>
 <p> 如上图，我们搜索55只需要2次查找即可。这个结构中，查询元素46仍然是最耗时的，需要查询5次。即首先在L3层查找2次，然后在L2层查找2次，最后在L1层查找1次，共5次。很显然，这种思想和2分非常相似。所以，<strong>插入、删除、查找时间复杂度均为 O(log n)</strong>。</p>
 <p>与红黑树等平衡树相比，跳跃表具有以下优点：</p>
 <ul>
