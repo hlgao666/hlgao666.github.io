@@ -4,6 +4,176 @@
   
     
     <entry>
+      <title>6 主从复制和读写分离</title>
+      <link href="/2021/06/12/MySQL/6-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/"/>
+      <url>/2021/06/12/MySQL/6-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="主从复制和读写分离"><a href="#主从复制和读写分离" class="headerlink" title="主从复制和读写分离"></a>主从复制和读写分离</h1><h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><p>主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程。</p><ul><li>binlog 线程 ：负责将主服务器上的数据更改写入二进制日志（Binary log）中。</li><li>I/O 线程 ：负责从主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log）。</li><li>SQL 线程 ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中重放（Replay）。</li></ul><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210526182242.png" alt=""></p><h2 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h2><p>主服务器处理写操作以及实时性要求比较高的读操作，而从服务器处理读操作。</p><p>读写分离能提高性能的原因在于：</p><ol><li>主从服务器负责各自的读和写，极大程度缓解了锁的争用；</li><li>从服务器可以使用 MyISAM，提升查询性能以及节约系统开销；</li><li>增加冗余，提高可用性。</li></ol><ul><li>从服务器只有读操作，不需要执行事务，因此可使用 MyISAM 存储引擎。</li><li>为什么说 <strong>MyISAM 查询快</strong>呢？<ul><li>InnoDB 的表是根据主键进行展开的 B+tree 的聚集索引。</li><li>MyISAM 则非聚集型索引，MyISAM 存储会有两个文件，一个是索引文件，另外一个是数据文件，其中索引文件中的索引指向数据文件中的表数据。</li><li>注意：主（键）索引和辅助索引、聚簇索引和非聚簇索引的区别。</li><li>MyISAM 不支持事务，也就减少了执行事务带来的锁的占用，也是它查询快的一个原因！</li></ul></li></ul><p>读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器。</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210526182534.png" alt=""></p><p><a href="https://zhuanlan.zhihu.com/p/82300486" target="_blank" rel="noopener">补充：正向代理和反向代理</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 主从复制 </tag>
+            
+            <tag> 读写分离 </tag>
+            
+            <tag> 代理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>5 MySQL存储引擎</title>
+      <link href="/2021/06/12/MySQL/5-MySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"/>
+      <url>/2021/06/12/MySQL/5-MySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL存储引擎"><a href="#MySQL存储引擎" class="headerlink" title="MySQL存储引擎"></a>MySQL存储引擎</h1><h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><ul><li>是 MySQL 默认的事务型存储引擎，只有在需要它不支持的特性时，才考虑使用其它存储引擎.</li><li>实现了四个标准的隔离级别，默认级别是可重复读（REPEATABLE READ）。在可重复读隔离级别下，通过多版本并发控制（MVCC）+ 间隙锁（Next-Key Locking）防止幻影读。</li><li><strong>主索引是聚簇索引，在索引中保存了数据</strong>，从而避免直接读取磁盘，因此对查询性能有很大的提升。</li><li>内部做了很多优化，包括从磁盘读取数据时采用的<strong>可预测性读</strong>、能够加快读操作并且自动创建的<strong>自适应哈希索引</strong>、能够加速插入操作的<strong>插入缓冲区</strong>等。</li><li>支持真正的<strong>在线热备份</strong>。其它存储引擎不支持在线热备份，要获取一致性视图需要停止对所有表的写入，而在读写混合场景中，停止写入可能也意味着停止读取。</li></ul><h2 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h2><ul><li>设计简单，数据以紧密格式存储。对于只读数据，或者表比较小、可以容忍修复操作，则依然可以使用它。</li><li>提供了大量的<strong>特性，包括压缩表、空间数据索引</strong>等。</li><li><strong>不支持事务</strong>。</li><li><strong>不支持行级锁，只能对整张表加锁</strong>，读取时会对需要读到的所有表加共享锁，写入时则对表加排它锁。但在表有读取操作的同时，也可以往表中插入新的记录，这被称为<strong>并发插入</strong>（CONCURRENT INSERT）。</li><li>可以手工或者自动执行检查和修复操作，但是和事务恢复以及崩溃恢复不同，可能导致一些数据丢失，而且修复操作是非常慢的。</li><li>如果指定了 DELAY_ KEY_ WRITE选项，在每次修改执行完成时，不会立即将修改的索引数据写入磁盘，而是<strong>会写到内存中的键缓冲区</strong>，只有在清理键缓冲区或者关闭表的时候才会将对应的索引块写入磁盘。这种方式可以极大的提升写入性能，但是在数据库或者主机崩溃时会造成索引损坏，需要执行修复操作。</li></ul><h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><ul><li>事务：InnoDB 是事务型的，可以使用 Commit 和 Rollback 语句；<strong>MyISAM不支持事务</strong>。</li><li>并发：<strong>MyISAM 只支持表级锁</strong>，而 InnoDB 还支持行级锁。</li><li>外键：<strong>InnoDB 支持外键</strong>。</li><li>备份：<strong>InnoDB 支持在线热备份</strong>。</li><li>崩溃恢复：MyISAM 崩溃后发生损坏的概率比 InnoDB 高很多，而且恢复的速度也更慢。</li><li>其它特性：<strong>MyISAM 支持压缩表和空间数据索引</strong>。</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> InnoDB </tag>
+            
+            <tag> MyISAM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>4  Mysql的列索引和多列索引</title>
+      <link href="/2021/06/12/MySQL/4-Mysql%E7%9A%84%E5%88%97%E7%B4%A2%E5%BC%95%E5%92%8C%E5%A4%9A%E5%88%97%E7%B4%A2%E5%BC%95/"/>
+      <url>/2021/06/12/MySQL/4-Mysql%E7%9A%84%E5%88%97%E7%B4%A2%E5%BC%95%E5%92%8C%E5%A4%9A%E5%88%97%E7%B4%A2%E5%BC%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Mysql的列索引和多列索引"><a href="#Mysql的列索引和多列索引" class="headerlink" title="Mysql的列索引和多列索引"></a>Mysql的列索引和多列索引</h1><p>在需要使用多个列作为条件进行查询时，使用多列索引比使用多个单列索引性能更好。例如下面的语句中，最好把<br>actor_id 和 film_id 设置为多列索引。</p><pre><code>SELECT film_id, actor_ id FROM sakila.film_actorWHERE actor_id = 1 AND film_id = 1;</code></pre><h2 id="创建多列索引"><a href="#创建多列索引" class="headerlink" title="创建多列索引"></a>创建多列索引</h2><pre><code>CREATE TABLE test (      id         INT NOT NULL,      last_name  CHAR(30) NOT NULL,      first_name CHAR(30) NOT NULL,      PRIMARY KEY (id),      INDEX name (last_name,first_name)  );</code></pre><h2 id="创建多个单列索引"><a href="#创建多个单列索引" class="headerlink" title="创建多个单列索引"></a>创建多个单列索引</h2><pre><code>CREATE TABLE test (      id         INT NOT NULL,      last_name  CHAR(30) NOT NULL,      first_name CHAR(30) NOT NULL,      PRIMARY KEY (id),      INDEX name (last_name),       INDEX_2 name (first_name)  );</code></pre><p>一个多列索引可以认为是包含通过合并(concatenate)索引列值创建的值的一个排序数组。 当查询语句的条件中包含last_name 和 first_name时，例如：</p><pre><code>SELECT * FROM test WHERE last_name='Kun' AND first_name='Li';</code></pre><ul><li>使用多列索引：sql会先过滤出last_ name符合条件的记录，在其基础上在过滤first_ name符合条件的记录。</li><li>使用多个单列索引：那如果我们分别在last_ name和first_ name上创建两个列索引，mysql的处理方式就不一样了，它会选择一个最严格的索引来进行检索，可以理解为检索能力最强的那个索引来检索，另外一个利用不上了，这样效果就不如多列索引了。</li></ul><p>多列建索引比对每个列分别建索引更有优势，因为<strong>索引建立得越多就越占磁盘空间</strong>，在更新数据的时候速度会更慢。</p><p>另外建立多列索引时，顺序也是需要注意的，<strong>应该将严格的索引放在前面，这样筛选的力度会更大，效率更高</strong>。</p><p><a href="https://www.cnblogs.com/zhengwk/p/5779982.html" target="_blank" rel="noopener">正确理解Mysql的列索引和多列索引</a></p><h2 id="补充：MySQL-的前缀索引"><a href="#补充：MySQL-的前缀索引" class="headerlink" title="补充：MySQL 的前缀索引"></a>补充：MySQL 的前缀索引</h2><p><a href="https://www.cnblogs.com/niuben/p/13188277.html" target="_blank" rel="noopener">补充：MySQL 的前缀索引</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL列索引 </tag>
+            
+            <tag> MySQL多列索引 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>聚集索引 VS 非聚集索引</title>
+      <link href="/2021/06/12/MySQL/3-%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95-VS-%E9%9D%9E%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95/"/>
+      <url>/2021/06/12/MySQL/3-%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95-VS-%E9%9D%9E%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="聚集索引-VS-非聚集索引"><a href="#聚集索引-VS-非聚集索引" class="headerlink" title="聚集索引 VS 非聚集索引"></a>聚集索引 VS 非聚集索引</h1><p>在上节介绍 B+ 树索引的时候，我们提到了图中的索引其实是聚集索引的实现方式。</p><p>那什么是聚集索引呢？在 MySQL 中，B+ 树索引按照存储方式的不同分为聚集索引和非聚集索引。</p><p>这里我们着重介绍 InnoDB 中的聚集索引和非聚集索引：</p><p>①聚集索引（聚簇索引）：以 InnoDB 作为存储引擎的表，表中的数据都会有一个主键，即使你不创建主键，系统也会帮你创建一个隐式的主键。</p><p>这是因为 InnoDB 是把数据存放在 B+ 树中的，而 B+ 树的键值就是主键，在 B+ 树的叶子节点中，存储了表中所有的数据。</p><p>这种<strong>以主键作为 B+ 树索引的键值而构建的 B+ 树索引，我们称之为聚集索引</strong>。</p><p>②非聚集索引（非聚簇索引）：以主键以外的列值作为键值构建的 B+ 树索引，我们称之为非聚集索引。</p><p>非聚集索引与聚集索引的区别在于非聚集索引的叶子节点不存储表中的数据，而是存储该列对应的主键，想要查找数据我们还需要根据主键再去聚集索引中进行查找，这个再根据聚集索引查找数据的过程，我们称为回表。</p><p>明白了聚集索引和非聚集索引的定义，我们应该明白这样一句话：数据即索引，索引即数据。</p><h2 id="利用聚集索引和非聚集索引查找数据"><a href="#利用聚集索引和非聚集索引查找数据" class="headerlink" title="利用聚集索引和非聚集索引查找数据"></a>利用聚集索引和非聚集索引查找数据</h2><p>前面我们讲解 B+ 树索引的时候并没有去说怎么在 B+ 树中进行数据的查找，主要就是因为还没有引出聚集索引和非聚集索引的概念。</p><p>下面我们通过讲解如何通过聚集索引以及非聚集索引查找数据表中数据的方式介绍一下 B+ 树索引查找数据方法。</p><h3 id="利用聚集索引查找数据"><a href="#利用聚集索引查找数据" class="headerlink" title="利用聚集索引查找数据"></a>利用聚集索引查找数据</h3><p><img src="http://www.liuzk.com/wp-content/uploads/2019/11/7.jpg" alt=""></p><p>还是这张 B+ 树索引图，现在我们应该知道这就是聚集索引，表中的数据存储在其中。<br>现在假设我们要查找 id&gt;=18 并且 id&lt; 40 的用户数据。对应的 sql 语句为：</p><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> id<span class="token operator">>=</span><span class="token number">18</span> <span class="token operator">and</span> id <span class="token operator">&lt;</span><span class="token number">40</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>其中 id 为主键，具体的查找过程如下：</p><p>①一般根节点都是常驻内存的，也就是说页 1 已经在内存中了，此时不需要到磁盘中读取数据，直接从内存中读取即可。</p><p>从内存中读取到页 1，要查找这个 id&gt;=18 and id &lt; 40 或者范围值，我们首先需要找到 id=18 的键值。</p><p>从页 1 中我们可以找到键值 18，此时我们需要根据指针 p2，定位到页 3。</p><p>②要从页 3 中查找数据，我们就需要拿着 p2 指针去磁盘中进行读取页 3。</p><p>从磁盘中读取页 3 后将页 3 放入内存中，然后进行查找，我们可以找到键值 18，然后再拿到页 3 中的指针 p1，定位到页 8。</p><p>③同样的页 8 页不在内存中，我们需要再去磁盘中将页 8 读取到内存中。</p><p>将页 8 读取到内存中后。因为页中的数据是链表进行连接的，而且键值是按照顺序存放的，此时可以根据二分查找法定位到键值 18。</p><p>此时因为已经到数据页了，此时我们已经找到一条满足条件的数据了，就是键值 18 对应的数据。</p><p>因为是范围查找，而且此时所有的数据又都存在叶子节点，并且是有序排列的，那么我们就可以对页 8 中的键值依次进行遍历查找并匹配满足条件的数据。</p><p>我们可以一直找到键值为 22 的数据，然后页 8 中就没有数据了，此时我们需要拿着页 8 中的 p 指针去读取页 9 中的数据。</p><p>④因为页 9 不在内存中，就又会加载页 9 到内存中，并通过和页 8 中一样的方式进行数据的查找，直到将页 12 加载到内存中，发现 41 大于 40，此时不满足条件。那么查找到此终止。</p><p>最终我们找到满足条件的所有数据，总共 12 条记录：</p><p>(18,kl), (19,kl), (22,hj), (24,io), (25,vg) , (29,jk), (31,jk) , (33,rt) , (34,ty) , (35,yu) , (37,rt) , (39,rt) 。</p><p>下面看下具体的查找流程：</p><p><img src="http://www.liuzk.com/wp-content/uploads/2019/11/8.jpg" alt=""></p><h3 id="利用非聚集索引查找数据"><a href="#利用非聚集索引查找数据" class="headerlink" title="利用非聚集索引查找数据"></a>利用非聚集索引查找数据</h3><p><img src="http://www.liuzk.com/wp-content/uploads/2019/11/9-1024x626.jpg" alt=""></p><p>数据形式：x-y<br>其中，x 表示以主键以外的某一列值作为键值，y 表示主键。</p><p>在叶子节点中，不再存储所有的数据了，存储的是键值和主键。对于叶子节点中的 x-y，比如 1-1。左边的 1 表示的是索引的键值，右边的 1 表示的是主键值。</p><p>如果我们要找到幸运数字为 33 的用户信息，对应的 sql 语句为：</p><pre><code>select * from user where luckNum=33</code></pre><p>查找的流程跟聚集索引一样，这里就不详细介绍了。我们最终会找到主键值 47，找到主键后我们需要再到聚集索引中查找具体对应的数据信息(这一过程称为“回表”)，此时又回到了聚集索引的查找流程。</p><p>下面看下具体的查找流程图：</p><p><img src="http://www.liuzk.com/wp-content/uploads/2019/11/921.jpg" alt=""></p><p>注：在 MyISAM 中，聚集索引和非聚集索引的叶子节点都会存储数据的文件地址。</p><ul><li>在MySQL中，直接使用主键进行查找可以认为是使用主索引查找</li><li>where条件中使用别的列作为查询条件可以认为是先使用辅助索引找到主索引，然后再回表查询。</li><li>对于InnoDB引擎，若辅助索引能够覆盖查询（索引包含所有需要查询的字段的值），则无需访问主索引。</li></ul><ul><li>为什么说 <strong>MyISAM 查询快</strong>呢？<ul><li>InnoDB 的表是根据主键进行展开的 B+tree 的聚集索引。</li><li>MyISAM 则非聚集型索引，MyISAM 存储会有两个文件，一个是索引文件，另外一个是数据文件，其中索引文件中的索引指向数据文件中的表数据。</li><li>注意：主（键）索引和辅助索引、聚簇索引和非聚簇索引的区别。</li><li>MyISAM 不支持事务，也就减少了执行事务带来的锁的占用，也是它查询快的一个原因！</li></ul></li></ul><p><a href="http://www.liuzk.com/410.html" target="_blank" rel="noopener">MySQL索引-B+树（看完你就明白了）</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL索引 </tag>
+            
+            <tag> 聚集索引 </tag>
+            
+            <tag> 非聚集索引 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SQL MVCC(多版本并发控制)</title>
+      <link href="/2021/06/12/MySQL/2-SQL-MVCC-%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/"/>
+      <url>/2021/06/12/MySQL/2-SQL-MVCC-%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="SQL-MVCC-多版本并发控制"><a href="#SQL-MVCC-多版本并发控制" class="headerlink" title="SQL MVCC(多版本并发控制)"></a>SQL MVCC(多版本并发控制)</h1><h2 id="1-什么是MVCC"><a href="#1-什么是MVCC" class="headerlink" title="1 什么是MVCC"></a>1 什么是MVCC</h2><p>MVCC全称是： Multiversion concurrency control，多版本并发控制，提供并发访问数据库时，对事务内读取的到的内存做处理，用来避免写操作堵塞读操作的并发问题。</p><p>举个例子，程序员A正在读数据库中某些内容，而程序员B正在给这些内容做修改（假设是在一个事务内修改，大概持续10s左右），A在这10s内 则可能看到一个不一致的数据，在B没有提交前，如何让A能够一直读到的数据都是一致的呢？</p><p>有几种处理方法，第一种： 基于锁的并发控制，程序员B开始修改数据时，给这些数据加上锁，程序员A这时再读，就发现读取不了，处于等待情况，只能等B操作完才能读数据，这保证A不会读到一个不一致的数据，但是这个会影响程序的运行效率。还有一种就是：MVCC，每个用户连接数据库时，看到的都是某一特定时刻的数据库快照，在B的事务没有提交之前，A始终读到的是某一特定时刻的数据库快照，不会读到B事务中的数据修改情况，直到B事务提交，才会读取B的修改内容。</p><p>一个支持MVCC的数据库，在更新某些数据时，并非使用新数据覆盖旧数据，而是标记旧数据是过时的，同时在其他地方新增一个数据版本。因此，同一份数据有多个版本存储，但只有一个是最新的。</p><p>MVCC提供了 时间一致性的 处理思路，在MVCC下读事务时，通常使用一个时间戳或者事务ID来确定访问哪个状态的数据库及哪些版本的数据。读事务跟写事务彼此是隔离开来的，彼此之间不会影响。假设同一份数据，既有读事务访问，又有写事务操作，实际上，写事务会新建一个新的数据版本，而读事务访问的是旧的数据版本，直到写事务提交，读事务才会访问到这个新的数据版本。</p><p>MVCC有两种实现方式，第一种实现方式是将数据记录的多个版本保存在数据库中，当这些不同版本数据不再需要时，垃圾收集器回收这些记录。这个方式被PostgreSQL和Firebird/Interbase采用，SQL Server使用的类似机制，所不同的是旧版本数据不是保存在数据库中，而保存在不同于主数据库的另外一个数据库tempdb中。第二种实现方式只在数据库保存最新版本的数据，但是会在<strong>使用undo时动态重构旧版本数据</strong>，这种方式被Oracle和MySQL/InnoDB使用。</p><p>使用 MVCC 读取的是<strong>快照</strong>中的数据，这样<strong>可以减少加锁所带来的开销</strong>。</p><h2 id="2、InnoDB的MVCC实现机制"><a href="#2、InnoDB的MVCC实现机制" class="headerlink" title="2、InnoDB的MVCC实现机制"></a>2、InnoDB的MVCC实现机制</h2><p>　　MVCC可以认为是行级锁的一个变种，它可以在很多情况下避免加锁操作，因此开销更低。MVCC的实现大都都实现了非阻塞的读操作，写操作也只锁定必要的行。InnoDB的MVCC实现，是通过保存数据在某个时间点的快照来实现的。一个事务，不管其执行多长时间，其内部看到的数据是一致的。也就是事务在执行的过程中不会相互影响。下面我们简述一下MVCC在InnoDB中的实现。</p><p>　　InnoDB的MVCC，<strong>通过在每行记录后面保存两个隐藏的列来实现：一个保存了行的创建时间，一个保存行的过期时间（删除时间），当然，这里的时间并不是时间戳，而是系统版本号，每开始一个新的事务，系统版本号就会递增</strong>。在RR隔离级别下，MVCC的操作如下：</p><ul><li>select操作。<ul><li>InnoDB<strong>只查找版本早于（包含等于）当前事务版本的数据行</strong>。可以确保事务读取的行，要么是事务开始前就已存在，或者事务自身插入或修改的记录。</li><li><strong>行的删除版本要么未定义，要么大于当前事务版本号</strong>。可以确保事务读取的行，在事务开始之前未删除。</li></ul></li><li>insert操作。将新插入的行保存当前版本号为行版本号。</li><li>delete操作。将删除的行保存当前版本号为删除标识。</li><li>update操作。变为insert和delete操作的组合，insert的行保存当前版本号为行版本号，delete则保存当前版本号到原来的行作为删除标识。</li></ul><p>由于旧数据并不真正的删除，所以必须对这些数据进行清理，innodb会开启一个后台线程执行清理工作，具体的规则是<strong>将删除版本号小于当前系统版本的行删除</strong>，这个过程叫做purge。</p><h2 id="3、简单的小例子"><a href="#3、简单的小例子" class="headerlink" title="3、简单的小例子"></a>3、简单的小例子</h2><pre><code>create table yang(     id int primary key auto_increment,     name varchar(20));}</code></pre><p>假设系统的版本号从1开始.</p><p><strong>INSERT</strong></p><p>InnoDB为新插入的每一行保存当前系统版本号作为版本号. </p><p>第一个事务ID为1；</p><pre><code>start transaction;insert into yang values(NULL,'yang') ;insert into yang values(NULL,'long');insert into yang values(NULL,'fei');commit;</code></pre><p>对应在数据中的表如下(后面两列是隐藏列,我们通过查询语句并看不到)</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210518213826.png" alt=""></p><p><strong>SELECT</strong></p><p>InnoDB会根据以下两个条件检查每行记录:</p><ul><li>a.InnoDB只会查找版本早于当前事务版本的数据行(也就是,行的系统版本号小于或等于事务的系统版本号)，这样可以确保事务读取的行，要么是在事务开始前已经存在的，要么是事务自身插入或者修改过的.</li><li>b.行的删除版本要么未定义,要么大于当前事务版本号,这可以确保事务读取到的行，在事务开始之前未被删除.</li></ul><p>只有a,b同时满足的记录，才能返回作为查询结果.</p><p><strong>DELETE</strong></p><p>InnoDB会为删除的每一行保存当前系统的版本号(事务的ID)作为删除标识.</p><p>看下面的具体例子分析:</p><p>第二个事务,ID为2;</p><pre><code>start transaction;select * from yang;  //(1)select * from yang;  //(2)commit; </code></pre><p><strong>假设1</strong>: 假设在执行这个事务ID为2的过程中,刚执行到(1),这时,有另一个事务ID为3往这个表里插入了一条数据; </p><p>第三个事务ID为3;</p><pre><code>start transaction;insert into yang values(NULL,'tian');commit;</code></pre><p>这时表中的数据如下:</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210518214045.png" alt=""></p><p>然后接着执行事务2中的(2),由于id=4的数据的创建时间(事务ID为3),执行当前事务的ID为2,而InnoDB只会查找事务ID小于等于当前事务ID的数据行,所以id=4的数据行并不会在执行事务2中的(2)被检索出来,在事务2中的两条select 语句检索出来的数据都只会下表:</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210518214111.png" alt=""></p><p><strong>假设2</strong>: 假设在执行这个事务ID为2的过程中,刚执行到(1),假设事务执行完事务3后，接着又执行了事务4; </p><p>第四个事务:</p><pre><code>start   transaction;  delete from yang where id=1;commit;  </code></pre><p>此时数据库中的表如下:</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210518214211.png" alt=""></p><p>接着执行事务ID为2的事务(2),根据SELECT 检索条件可以知道,它会检索创建时间(创建事务的ID)小于当前事务ID的行和删除时间(删除事务的ID)大于当前事务的行,而id=4的行上面已经说过,而id=1的行由于删除时间(删除事务的ID)大于当前事务的ID,所以事务2的(2)select * from yang也会把id=1的数据检索出来.所以,事务2中的两条select 语句检索出来的数据都如下:</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210518214240.png" alt=""></p><p><strong>UPDATE</strong></p><p>InnoDB执行UPDATE，实际上是新插入了一行记录，并保存其创建时间为当前事务的ID，同时保存当前事务ID到要UPDATE的行的删除时间.</p><p><strong>假设3</strong>: 假设在执行完事务2的(1)后又执行,其它用户执行了事务3,4,这时，又有一个用户对这张表执行了UPDATE操作:</p><p>第5个事务:</p><pre><code>start  transaction;update yang set name='Long' where id=2;commit;</code></pre><p>根据update的更新原则:会生成新的一行,并在原来要修改的列的删除时间列上添加本事务ID,得到表如下:</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210518214336.png" alt=""></p><p>继续执行事务2的(2),根据select 语句的检索条件,得到下表:</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210518214357.png" alt=""></p><p>还是和事务2中(1)select 得到相同的结果.</p><h2 id="MySQL的间隙锁"><a href="#MySQL的间隙锁" class="headerlink" title="MySQL的间隙锁"></a>MySQL的间隙锁</h2><p><a href="https://www.cnblogs.com/crazylqy/p/7821481.html" target="_blank" rel="noopener">MySQL的间隙锁Gap Lock</a></p><p>行锁（Record Lock） + 间隙锁（Gap Lock） = （Next-Key Locking）</p><p>InnoDB 在可重复读（REPEATABLE READ）隔离级别下，通过多版本并发控制（MVCC）+ 间隙锁（Next-Key Locking）防止幻影读。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MVCC </tag>
+            
+            <tag> 间隙锁 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>不可重复读与幻影读的区别</title>
+      <link href="/2021/06/12/MySQL/1-%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E4%B8%8E%E5%B9%BB%E5%BD%B1%E8%AF%BB%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+      <url>/2021/06/12/MySQL/1-%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E4%B8%8E%E5%B9%BB%E5%BD%B1%E8%AF%BB%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="不可重复读与幻影读的区别"><a href="#不可重复读与幻影读的区别" class="headerlink" title="不可重复读与幻影读的区别"></a>不可重复读与幻影读的区别</h1><h2 id="并发一致性问题"><a href="#并发一致性问题" class="headerlink" title="并发一致性问题"></a>并发一致性问题</h2><ul><li><strong>1.修改丢失</strong><br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210517152605.png" alt=""></li><li><strong>2.读脏数据</strong><br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210517152648.png" alt=""></li><li><strong>3.不可重复读</strong><br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210517152710.png" alt=""></li><li><strong>4.幻影读</strong><br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210517152959.png" alt=""></li></ul><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>从控制的角度来讲，<strong>不可重复读只需要锁住满足条件的记录（可能只有一行），而幻影读要锁住满足条件的及其相近的记录（是一个范围）</strong>。所以，<strong>避免幻读，必须锁住表，避免不可重复读，只需要锁住行</strong>。</p><p>不可重复读和幻读最大的区别在于，<strong>如何通过锁的机制来解决它们产生的问题</strong>。</p><p>可以采用悲观锁的机制来处理问题，悲观锁大多数情况下<strong>依靠数据库的锁机制实现</strong>，以保证操作最大程度的独占性。但随之而来的就是数据库性能的大量开销，特别是对长事务而言，这样的开销往往无法承受。所以出于性能的考虑，成熟的数据库使用了以乐观锁为理论基础的MVCC（多版本并发控制）来避免上述两种问题。</p><p>乐观锁，大多是<strong>基于数据版本记录</strong>机制实现的。 </p><p>1.SELECT  : 当开始一个新事务时，该事务的版本号肯定会大于当前所有数据行快照的创建版本号。</p><p>2.INSERT : 将当前系统版本号作为数据行快照的创建版本号。</p><p>3.DELETE : 将当前系统版本号作为数据行快照的删除版本号。</p><p>4.UPDATE : 可以理解为先执行 DELETE 后执行 INSERT。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 修改丢失 </tag>
+            
+            <tag> 读脏数据 </tag>
+            
+            <tag> 不可重复读 </tag>
+            
+            <tag> 幻影读 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hot100-76 最小覆盖子串</title>
       <link href="/2021/05/27/leetcode/hot100/hot100-76-%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2/"/>
       <url>/2021/05/27/leetcode/hot100/hot100-76-%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2/</url>
@@ -605,9 +775,9 @@
       
         <tags>
             
-            <tag> DFS </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> DFS </tag>
             
             <tag> BFS </tag>
             
@@ -958,6 +1128,8 @@
       
         <tags>
             
+            <tag> TCP/UDP </tag>
+            
             <tag> 复用/解复用 </tag>
             
             <tag> 可靠数据传输 </tag>
@@ -965,8 +1137,6 @@
             <tag> 流量控制 </tag>
             
             <tag> 拥塞控制 </tag>
-            
-            <tag> TCP/UDP </tag>
             
         </tags>
       
@@ -991,9 +1161,9 @@
       
         <tags>
             
-            <tag> TCP/UDP </tag>
-            
             <tag> Socket </tag>
+            
+            <tag> TCP/UDP </tag>
             
             <tag> HTTP </tag>
             
@@ -2224,9 +2394,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -2384,9 +2554,9 @@
       
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -4699,9 +4869,9 @@
       
         <tags>
             
-            <tag> DFS </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> DFS </tag>
             
         </tags>
       
