@@ -4,6 +4,218 @@
   
     
     <entry>
+      <title>18 分片</title>
+      <link href="/2021/06/12/Redis/18-%E5%88%86%E7%89%87/"/>
+      <url>/2021/06/12/Redis/18-%E5%88%86%E7%89%87/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h1><p><strong>分片以提升写性能，复制以提升读性能。</strong></p><p>分片是将数据划分为多个部分的方法，可以将数据存储到多台机器里面，这种方法在解决某些问题时可以获得线性级别的性能提升。</p><p>假设有 4 个 Redis 实例 R0，R1，R2，R3，还有很多表示用户的键 user:1，user:2，… ，有不同的方式来选择一个指定的键存储在哪个实例中。</p><p>最简单的方式是范围分片，例如用户 id 从 0<del>1000 的存储到实例 R0 中，用户 id 从 1001</del>2000 的存储到实例R1中，等等。但是这样需要维护一张映射范围表，维护操作代价很高。</p><p>还有一种方式是哈希分片，使用 CRC32哈希函数将键转换为一个数字，再对实例数量求模就能知道应该存储的实例。</p><p>根据执行分片的位置，可以分为三种分片方式：</p><ul><li>客户端分片：客户端使用一致性哈希等算法决定键应当分布到哪个节点。</li><li>代理分片：将客户端请求发送到代理上，由代理转发请求到正确的节点上。</li><li>服务器分片：Redis Cluster。</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis分片 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>17 Redis主从复制及Sentinel</title>
+      <link href="/2021/06/12/Redis/17-Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%8F%8ASentinel/"/>
+      <url>/2021/06/12/Redis/17-Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%8F%8ASentinel/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Redis主从复制及Sentinel"><a href="#Redis主从复制及Sentinel" class="headerlink" title="Redis主从复制及Sentinel"></a>Redis主从复制及Sentinel</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul><li>主从复制，是指将一台Redis服务器的数据，复制到其他的Redis服务器。前者称为主节点(master/leader)，后者称为从节点(slave/follower);</li><li><strong>数据的复制是单向的，只能由主节点到从节点</strong>。Master以写为主，Slave以读为主。</li><li><strong>默认情况下，每台Redis服务器都是主节点</strong>; 且一个主节点可以有多个从节点(或没有从节点)，但一个从节点只能有一个主节点。</li><li>主从复制的作用主要包括:<ul><li>1、数据冗余:主从复制实现了数据的热备份，是持久化之外的一种数据冗余方式。</li><li>2、故障恢复︰当主节点出现问题时，可以由从节点提供服务，实现快速的故障恢复;实际上是一种服务的冗余。</li><li>3、负载均衡︰在主从复制的基础上，配合读写分离，可以由主节点提供写服务，由从节点提供读服务(即写Redis数据时应用连接主节点，读Redis数据时应用连接从节点），分担服务器负载;尤其是在写少读多的场景下，通过多个从节点分担读负载，可以大大提高Redis服务器的并发量。</li><li>4、高可用（集群）基石∶除了上述作用以外，主从复制还是哨兵和集群能够实施的基础，因此说主从复制是Redis高可用的基础。</li></ul></li></ul><ul><li>一般来说，要将Redis运用于工程项目中，只使用一台Redis是万万不能的（宕机），原因如下:<ul><li>1、从结构上，单个Redis服务器会发生单点故障，并且一台服务器需要处理所有的请求负载，压力较大;</li><li>2、从容量上，单个Redis服务器内存容量有限，就算一台Redis服务器内存容量为256G，也不能将所有内存用作Redis存储内存，一般来说，单台Redis最大使用内存不应该超过20G。</li></ul></li><li>主从复制，读写分离!80%的情况下都是在进行读操作!减缓服务器的压力!架构中经常使用!一主二从!</li></ul><pre><code>127.0.0.1:6379&gt; info replication    # 查看当前库信息# Replicationrole:master     # 角色connected_slaves:0  # 没有从机master_failover_state:no-failovermaster_replid:88692a0ce486cd91a89558823706c3a158c3b320master_replid2:0000000000000000000000000000000000000000master_repl_offset:0second_repl_offset:-1repl_backlog_active:0repl_backlog_size:1048576repl_backlog_first_byte_offset:0repl_backlog_histlen:0127.0.0.1:6379&gt; </code></pre><h2 id="连接过程"><a href="#连接过程" class="headerlink" title="连接过程"></a>连接过程</h2><ol><li>主服务器创建快照文件，发送给从服务器，并在发送期间使用缓冲区记录执行的写命令。快照文件发送完毕之后，开始向从服务器发送存储在缓冲区中的写命令；</li><li>从服务器丢弃所有旧数据，载入主服务器发来的快照文件，之后从服务器开始接受主服务器发来的写命令；</li><li>主服务器每执行一次写命令，就向从服务器发送相同的写命令。</li></ol><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>复制3个配置文件，然后修改对应的信息</p><ul><li>1、端口</li><li>2、pid名字</li><li>3、log文件名字</li><li>4、dump.rdb名字</li></ul><p>修改完毕之后，启动我们的3个redis服务器，可以通过进程信息查看!</p><pre><code>[root@centos bin]# ps -ef|grep redisroot       2948      1  0 16:55 ?        00:00:20 redis-server 127.0.0.1:6379root       3387   3352  0 17:24 pts/2    00:00:00 redis-cli -p 6379root       5089      1  0 19:51 ?        00:00:00 redis-server 127.0.0.1:6380root       5096      1  0 19:52 ?        00:00:00 redis-server 127.0.0.1:6381root       5112   2804  0 19:52 pts/0    00:00:00 grep --color=auto redis</code></pre><h2 id="配置从机"><a href="#配置从机" class="headerlink" title="配置从机"></a>配置从机</h2><pre><code># slaveof host port[root@centos bin]# redis-cli -p 6380127.0.0.1:6380&gt; slaveof 127.0.0.1 6379OK127.0.0.1:6380&gt; info replication# Replicationrole:slave  # 当前角色master_host:127.0.0.1master_port:6379master_link_status:upmaster_last_io_seconds_ago:0master_sync_in_progress:0slave_repl_offset:56slave_priority:100slave_read_only:1connected_slaves:0master_failover_state:no-failovermaster_replid:d862e2da22d4355d8304d7458e6d6bdc88500906master_replid2:0000000000000000000000000000000000000000master_repl_offset:56second_repl_offset:-1repl_backlog_active:1repl_backlog_size:1048576repl_backlog_first_byte_offset:1repl_backlog_histlen:56</code></pre><p>在主机查看配置</p><pre><code>[root@centos bin]# redis-cli -p 6379127.0.0.1:6379&gt; info replication# Replicationrole:masterconnected_slaves:2slave0:ip=127.0.0.1,port=6380,state=online,offset=322,lag=1slave1:ip=127.0.0.1,port=6381,state=online,offset=322,lag=0master_failover_state:no-failovermaster_replid:d862e2da22d4355d8304d7458e6d6bdc88500906master_replid2:0000000000000000000000000000000000000000master_repl_offset:322second_repl_offset:-1repl_backlog_active:1repl_backlog_size:1048576repl_backlog_first_byte_offset:1repl_backlog_histlen:322127.0.0.1:6379&gt; </code></pre><h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><ul><li>主机可以读写，从机只能读</li><li>主机断开后从机仍可以读到内容，但是没有了写操作（主机读）</li><li>如果是使用命令行，来配置的主从，这个时候如果重启了，就会变回主机!</li><li>如果是配置文件配置（replication），那么断开后再重启也可以读到</li></ul><h2 id="复制原理"><a href="#复制原理" class="headerlink" title="复制原理"></a>复制原理</h2><ul><li>slave启动成功连接到master后会发送一个sync同步命令</li><li>Master接到命令，启动后台的存盘进程，同时收集所有接收到的用于修改数据集命令，在后台进程执行完毕之后，<strong>master将传送整个数据文件到slave，并完成一次完全同步。（全量复制）</strong></li><li><strong>全量复制</strong>︰而slave服务在接收到数据库文件数据后，将其存盘并加载到内存中。</li><li><strong>增量复制</strong>: Master继续将新的所有收集到的修改命令依次传给slave，完成同步</li><li>但是只要是重新连接master，一次完全同步（<strong>全量复制</strong>)将被自动执行</li></ul><h2 id="主从链"><a href="#主从链" class="headerlink" title="主从链"></a>主从链</h2><p>随着负载不断上升，主服务器可能无法很快地更新所有从服务器，或者重新连接和重新同步从服务器将导致系统超载。为了解决这个问题，可以创建一个中间层来分担主服务器的复制工作。中间层的服务器是最上层服务器的从服务器，又是最下层服务器的主服务器<br>。</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210529175427.png" alt=""></p><hr><h2 id="哨兵模式"><a href="#哨兵模式" class="headerlink" title="哨兵模式"></a>哨兵模式</h2><p>(自动选举老大的模式)</p><pre><code>slaveof no one # 如果主机宕机，可使自己成为主机</code></pre><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>主从切换技术的方法是︰当主服务器宕机后，需要手动把一台从服务器切换为主服务器，这就需要人工干预，费事费力，还会造成一段时间内服务不可用。这不是一种推荐的方式，更多时候，我们优先考虑哨兵模式。Redis从2.8开始正式提供了Sentinel (哨兵）架构来解决这个问题。</p><p>谋朝篡位的自动版，能够后台监控主机是否故障，如果故障了根据投票数<strong>自动将从库转换为主库</strong>。</p><p>哨兵模式是一种特殊的模式，首先Redis提供了哨兵的命令，哨兵是一个独立的进程，作为进程，它会独立运行。其原理是<strong>哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例。</strong></p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210405212529.png" alt=""></p><p>这里的哨兵有两个作用</p><ul><li>通过发送命令，让Redis服务器返回监控其运行状态，包括主服务器和从服务器。</li><li>当哨兵监测到master宕机，会自动将slave切换成master，然后通过发布订阅模式通知其他的从服务器，修改配置文件，让它们切换主机。</li></ul><p>然而一个哨兵进程对Redis服务器进行监控，可能会出现问题，为此，我们可以使用多个哨兵进行监控。各个哨兵之间还会进行监控，这样就形成了多哨兵模式。</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210405212640.png" alt=""></p><p>假设主服务器宕机r哨兵1先检测到这个结果，系统并不会马上进行failover过程，仅仅是哨兵1主观的认为主服务器不可用，这个现象成为<strong>主观下线</strong>。</p><p>当后面的哨兵也检测到主服务器不可用，并且数量达到一定值时，那么哨兵之间就会进行一次投票，投票的结果由一个哨兵发起，进行failover[故障转移]操作。切换成功后，就会通过发布订阅模式，让各个哨兵把自己监控的从服务器实现切换主机，这个过程称为<strong>客观下线</strong>。</p><p>1、配置哨兵配置文件sentinel.conf</p><pre><code>cd /usr/local/binvim sentinel.confsentinel monitor myredis 127.0.0.1 6379 1</code></pre><p>后面的这个数字1，代表主机挂了，slave投票看让谁接替成为主机，票数最多的，就会成为主机 !</p><p>2、程序启动哨兵</p><pre><code># 注意位置在 /usr/local/bin[root@centos bin]# redis-sentinel sentinel.conf6263:X 06 Apr 2021 21:36:44.622 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo6263:X 06 Apr 2021 21:36:44.622 # Redis version=6.2.1, bits=64, commit=00000000, modified=0, pid=6263, just started6263:X 06 Apr 2021 21:36:44.622 # Configuration loaded6263:X 06 Apr 2021 21:36:44.622 * Increased maximum number of open files to 10032 (it was originally set to 1024).6263:X 06 Apr 2021 21:36:44.622 * monotonic clock: POSIX clock_gettime                _._                                                             _.-``__ ''-._                                                   _.-``    `.  `_.  ''-._           Redis 6.2.1 (00000000/0) 64 bit  .-`` .-```.  ```\/    _.,_ ''-._                                    (    '      ,       .-`  | `,    )     Running in sentinel mode |`-._`-...-` __...-.``-._|'` _.-'|     Port: 26379 |    `-._   `._    /     _.-'    |     PID: 6263  `-._    `-._  `-./  _.-'    _.-'                                    |`-._`-._    `-.__.-'    _.-'_.-'|                                   |    `-._`-._        _.-'_.-'    |           http://redis.io          `-._    `-._`-.__.-'_.-'    _.-'                                    |`-._`-._    `-.__.-'    _.-'_.-'|                                   |    `-._`-._        _.-'_.-'    |                                    `-._    `-._`-.__.-'_.-'    _.-'                                         `-._    `-.__.-'    _.-'                                                 `-._        _.-'                                                         `-.__.-'                                               6263:X 06 Apr 2021 21:36:44.638 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.6263:X 06 Apr 2021 21:36:44.650 # Sentinel ID is 0f72a8dd4a0897da343cca5c89d8db5c32862eae6263:X 06 Apr 2021 21:36:44.650 # +monitor master myredis 127.0.0.1 6379 quorum 16263:X 06 Apr 2021 21:36:44.655 * +slave slave 127.0.0.1:6380 127.0.0.1 6380 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:36:44.671 * +slave slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 6379</code></pre><p>哨兵日志</p><pre><code>6263:X 06 Apr 2021 21:36:44.638 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.6263:X 06 Apr 2021 21:36:44.650 # Sentinel ID is 0f72a8dd4a0897da343cca5c89d8db5c32862eae6263:X 06 Apr 2021 21:36:44.650 # +monitor master myredis 127.0.0.1 6379 quorum 16263:X 06 Apr 2021 21:36:44.655 * +slave slave 127.0.0.1:6380 127.0.0.1 6380 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:36:44.671 * +slave slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:18.293 # +sdown master myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:18.293 # +odown master myredis 127.0.0.1 6379 #quorum 1/16263:X 06 Apr 2021 21:40:18.293 # +new-epoch 16263:X 06 Apr 2021 21:40:18.293 # +try-failover master myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:18.328 # +vote-for-leader 0f72a8dd4a0897da343cca5c89d8db5c32862eae 16263:X 06 Apr 2021 21:40:18.328 # +elected-leader master myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:18.328 # +failover-state-select-slave master myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:18.383 # +selected-slave slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:18.383 * +failover-state-send-slaveof-noone slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:18.446 * +failover-state-wait-promotion slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:19.251 # +promoted-slave slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:19.251 # +failover-state-reconf-slaves master myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:19.291 * +slave-reconf-sent slave 127.0.0.1:6380 127.0.0.1 6380 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:20.267 * +slave-reconf-inprog slave 127.0.0.1:6380 127.0.0.1 6380 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:20.267 * +slave-reconf-done slave 127.0.0.1:6380 127.0.0.1 6380 @ myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:20.367 # +failover-end master myredis 127.0.0.1 63796263:X 06 Apr 2021 21:40:20.367 # +switch-master myredis 127.0.0.1 6379 127.0.0.1 63816263:X 06 Apr 2021 21:40:20.367 * +slave slave 127.0.0.1:6380 127.0.0.1 6380 @ myredis 127.0.0.1 63816263:X 06 Apr 2021 21:40:20.367 * +slave slave 127.0.0.1:6379 127.0.0.1 6379 @ myredis 127.0.0.1 63816263:X 06 Apr 2021 21:40:50.368 # +sdown slave 127.0.0.1:6379 127.0.0.1 6379 @ myredis 127.0.0.1 6381</code></pre><p>如果主机此时回来了，只能归并到新的主机下，当做从机，这就是哨兵模式的规则! </p><h3 id="哨兵模式-1"><a href="#哨兵模式-1" class="headerlink" title="哨兵模式"></a>哨兵模式</h3><p>优点:  </p><ul><li>1、哨兵集群，基于主从复制模式，所有的主从配置优点，它全有</li><li>2、主从可以切换，故障可以转移，系统的可用性就会更好</li><li>3、哨兵模式就是主从模式的升级，手动到自动，更加健壮!</li></ul><p>缺点︰</p><ul><li>1、Redis 不好啊在线扩容的，集群容量一旦到达上限，在线扩容就十分麻烦!</li><li>2、实现哨兵模式的配置其实是很麻烦的，里面有很多选择!</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 主从复制 </tag>
+            
+            <tag> Sentinel </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>16 Redis事件</title>
+      <link href="/2021/06/12/Redis/16-Redis%E4%BA%8B%E4%BB%B6/"/>
+      <url>/2021/06/12/Redis/16-Redis%E4%BA%8B%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Redis事件"><a href="#Redis事件" class="headerlink" title="Redis事件"></a>Redis事件</h1><p>Redis 服务器是一个事件驱动程序。</p><p>Redis 事件 分为<strong>文件事件和时间事件</strong>。</p><h2 id="文件事件"><a href="#文件事件" class="headerlink" title="文件事件"></a>文件事件</h2><p>服务器通过套接字与客户端或者其它服务器进行通信，<strong>文件事件就是对套接字操作的抽象。</strong></p><p>Redis 基于 Reactor 模式开发了自己的网络事件处理器，使用 I/O多路复用程序来同时监听多个套接字，并将到达的事件传送给文件事件分派器，分派器会根据套接字产生的事件类型调用相应的事件处理器。</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210529173649.png" alt=""></p><p>在同一个线程里面， 通过拨开关的方式，来同时传输多个I/O流， (学过EE的人现在可以站出来义正严辞说这个叫“时分复用”了）。</p><p>形象比喻：你有 N 个不知道什么时候来水的水龙头需要接水，你根据某种信号一会儿拧这个龙头，一会儿拧那个龙头把水都接了就是多路复用（<strong>单个线程，通过记录跟踪每个I/O流(socket)的状态，来同时管理多个I/O流</strong>）。</p><p><a href="https://www.zhihu.com/question/32163005" target="_blank" rel="noopener">IO 多路复用是什么意思？</a></p><h2 id="时间事件"><a href="#时间事件" class="headerlink" title="时间事件"></a>时间事件</h2><p>服务器有一些操作需要在给定的时间点执行，<strong>时间事件是对这类定时操作的抽象。</strong></p><p>时间事件又分为：</p><ul><li>定时事件：是让一段程序在指定的时间之内执行一次；</li><li>周期性事件：是让一段程序每隔指定时间就执行一次。</li></ul><p>Redis 将所有时间事件都放在一个无序链表中，通过遍历整个链表查找出已到达的时间事件，并调用相应的事件处理器。</p><h2 id="事件的调度与执行"><a href="#事件的调度与执行" class="headerlink" title="事件的调度与执行"></a>事件的调度与执行</h2><p>服务器需要不断监听文件事件的套接字才能得到待处理的文件事件，但是不能一直监听，否则时间事件无法在规定的时间内执行，因此监听时间应该根据距离现在最近的时间事件来决定。</p><p>先等待一定时间等待文件事件产生，然后等待时间到达后，处理所有已产生的文件事件，再处理所有已到达的时间事件。</p><p>事件调度与执行由 aeProcessEvents 函数负责，伪代码如下：</p><pre><code>def aeProcessEvents():# 获取到达时间离当前时间最接近的时间事件time_event = aeSearchNearestTimer()# 计算最接近的时间事件距离到达还有多少毫秒remaind_ms = time_event.when - unix_ts_now()# 如果事件已到达，那么 remaind_ms 的值可能为负数，将它设为 0if remaind_ms &lt; 0:remaind_ms = 0# 根据 remaind_ms 的值，创建 timevaltimeval = create_timeval_with_ms(remaind_ms)# 阻塞并等待文件事件产生，最大阻塞时间由传入的 timeval 决定aeApiPoll(timeval)# 处理所有已产生的文件事件procesFileEvents()# 处理所有已到达的时间事件processTimeEvents()</code></pre><p>将 aeProcessEvents 函数置于一个循环里面，加上初始化和清理函数，就构成了 Redis 服务器的主函数，伪代码如下：</p><pre><code>def main():# 初始化服务器init_server()# 一直处理事件，直到服务器关闭为止while server_is_not_shutdown():aeProcessEvents()# 服务器关闭，执行清理操作clean_server()</code></pre><p>从事件处理的角度来看，服务器运行流程如下：</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210529174240.png" alt=""></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文件事件 </tag>
+            
+            <tag> 时间事件 </tag>
+            
+            <tag> 事件调度 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>15 Redis 事务</title>
+      <link href="/2021/06/12/Redis/15-Redis-%E4%BA%8B%E5%8A%A1/"/>
+      <url>/2021/06/12/Redis/15-Redis-%E4%BA%8B%E5%8A%A1/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Redis-事务"><a href="#Redis-事务" class="headerlink" title="Redis 事务"></a>Redis 事务</h1><p><a href="https://zhuanlan.zhihu.com/p/135241403" target="_blank" rel="noopener">彻底搞懂 Redis 事务</a></p><h2 id="什么是事务？"><a href="#什么是事务？" class="headerlink" title="什么是事务？"></a>什么是事务？</h2><p>事务：指作为单个逻辑工作单元执行的一系列操作，要么完全地执行，要么完全地不执行。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><p>ACID：原子性、一致性、隔离性、持久性。</p><ul><li><strong>A (Atomicity) 原子性</strong>：事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。<br>回滚可以用回滚日志来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。</li><li><strong>C (Consistency) 一致性</strong>：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对一个数据的读取结果都是相同的。</li><li><strong>I (Isolation) 隔离性</strong>：一个事务所做的修改在最终提交以前，对其它事务是不可见的。</li><li><strong>D (Durability) 持久性</strong>：一旦事务提交，则其所做的修改将会永远保存到数据库中。即使系统发生崩溃，事务执行的结果也不能丢失。使用重做日志来保证持久性。</li></ul><p>一个事务包含了多个命令，服务器在执行事务期间，不会改去执行其它客户端的命令请求。</p><p>事务中的多个命令被一次性发送给服务器，而不是一条一条发送，这种方式被称为流水线，它可以减少客户端与服务器之间的网络通信次数从而提升性能。</p><p>Redis 最简单的事务实现方式是使用 <strong>MULTI</strong> 和 <strong>EXEC</strong> 命令将事务操作包围起来。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis事务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>14 Redis持久化</title>
+      <link href="/2021/06/12/Redis/14-Redis%E6%8C%81%E4%B9%85%E5%8C%96/"/>
+      <url>/2021/06/12/Redis/14-Redis%E6%8C%81%E4%B9%85%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h1><p>Redis 是内存型数据库，为了保证数据在断电后不会丢失，需要将内存中的数据持久化到硬盘上。</p><h2 id="RDB-持久化（默认）"><a href="#RDB-持久化（默认）" class="headerlink" title="RDB 持久化（默认）"></a>RDB 持久化（默认）</h2><p>RDB: <strong>Redis DataBase</strong></p><p>将某个时间点的所有数据都存放到硬盘上。</p><p>可以将快照复制到其它服务器从而创建具有相同数据的服务器副本。</p><p>如果系统发生故障，将会丢失最后一次创建快照之后的数据。</p><p>如果数据量很大，保存快照的时间会很长。</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210405160136.png" alt=""></p><p>在指定的时间间隔内将内存中的数据集快照写入磁盘，也就是行话讲的Snapshot快照，它恢复时是将快照文件直接读到内存里。</p><p>Redis会单独创建 （ fork)一个子进程来进行持久化，会先将数据写入到一个临时文件中，待持久化过程都结束了，再用这个临时文件替换上次持久化好的文件。整个过程中，主进程是不进行任何IO操作的。这就确保了极高的性能。</p><ul><li>如果需要进行大规模数据的恢复，且对于数据恢复的完整性不是非常敏感，那RDB方式要比AOF方式更加的高效。</li><li>RDB的缺点是<strong>最后一次持久化后的数据可能丢失</strong>。</li><li>我们默认的就是RDB，一般情况下不需要修改这个配置!</li></ul><h3 id="触发机制"><a href="#触发机制" class="headerlink" title="触发机制"></a>触发机制</h3><p>1、save的规则满足的情况下，会自动触发rdb规则<br>2、执行flushall命令，也会触发我们的rdb规则!<br>3、退出redis，也会产生rdb文件!<br>备份就自动生成一个dump.rdb</p><h3 id="恢复rdb文件？"><a href="#恢复rdb文件？" class="headerlink" title="恢复rdb文件？"></a>恢复rdb文件？</h3><p>只需要将rdb文件放在我们redis启动目录就可以，redis启动的时候会自动检查dump.rdb 恢复其中的数据!</p><p>优点∶  </p><ol><li>适合大规模的数据恢复!  </li><li>对数据的完整性要不高!</li></ol><p>缺点∶  </p><ol><li>需要一定的时间间隔进程操作!如果redis意外宕机了，这个最后一次修改数据就没有了!</li><li>fork进程的时候，会占用一定的内存空间!!</li></ol><h2 id="AOF-持久化"><a href="#AOF-持久化" class="headerlink" title="AOF 持久化"></a>AOF 持久化</h2><p>将写命令添加到 AOF 文件（<strong>Append Only File</strong>）的末尾。</p><p>使用 AOF 持久化需要设置同步选项，从而确保写命令同步到磁盘文件上的时机。这是因为<strong>对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓冲区，然后由操作系统决定什么时候同步到磁盘</strong>。有以下同步选项：</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210529163403.png" alt=""></p><ul><li><strong>always</strong> 选项会严重减低服务器的性能；</li><li><strong>everysec</strong> 选项比较合适(默认方式)，可以保证系统崩溃时只会丢失一秒左右的数据，并且 Redis 每秒执行一次同步对服务器性能几乎没有任何影响；</li><li><strong>no</strong> 选项并不能给服务器性能带来多大的提升，而且也会增加系统崩溃时数据丢失的数量。</li></ul><p>随着服务器写请求的增多，AOF 文件会越来越大。Redis 提供了一种将 <strong>AOF重写</strong> 的特性，能够去除 AOF 文件中的冗余写命令。</p><p>缺点︰  </p><ol><li>相对于数据文件来说，AOF 远远大于 RDB，修复的速度也比 RDB 慢!</li><li>AOF运行效率也要比RDB 慢，所以我们redis默认的配置就是RDB持久化!</li></ol><h3 id="AOF-文件重写"><a href="#AOF-文件重写" class="headerlink" title="AOF 文件重写"></a>AOF 文件重写</h3><p>和生成 RDB 文件时类似，在执行 AOF 重写的过程中，程序会对数据库中的键进行检查，已过期的键不会被保存到重写后的 AOF 文件中。</p><p>例如，如果数据库中包含三个键 k1、k2、k3，并且 k2 已经过期，那么在进行重写工作时，程序只会对 k1 和 k3 进行重写，而 k2 则会被忽略。因此，数据库中包含过期键不会对 AOF 重写造成影响。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis持久化 </tag>
+            
+            <tag> RDB </tag>
+            
+            <tag> AOF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>13 Redis数据淘汰策略</title>
+      <link href="/2021/06/12/Redis/13-Redis%E6%95%B0%E6%8D%AE%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5/"/>
+      <url>/2021/06/12/Redis/13-Redis%E6%95%B0%E6%8D%AE%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="数据淘汰策略"><a href="#数据淘汰策略" class="headerlink" title="数据淘汰策略"></a>数据淘汰策略</h1><p>可以设置内存最大使用量，当内存使用量超出时，会施行数据淘汰策略。</p><p>Redis 具体有 6 种淘汰策略：</p><p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210529160608.png" alt="Redis淘汰策略"></p><p>作为内存数据库，出于对性能和内存消耗的考虑，Redis 的淘汰算法实际实现上并非针对所有 key，而是抽样一小部分并且从中选出被淘汰的 key。</p><p>使用 Redis 缓存数据时，为了提高缓存命中率，需要保证缓存数据都是热点数据。可以将内存最大使用量设置为热点数据占用的内存量，然后启用 allkeys-lru 淘汰策略，将最近最少使用的数据淘汰。</p><p>Redis 4.0 引入了 volatile-lfu 和 allkeys-lfu 淘汰策略，<strong>LFU 策略通过统计访问频率</strong>，将访问频率最少的键值对淘汰。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis数据淘汰策略 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>12 Redis 和 Memcached</title>
+      <link href="/2021/06/12/Redis/12-Redis-%E5%92%8C-Memcached/"/>
+      <url>/2021/06/12/Redis/12-Redis-%E5%92%8C-Memcached/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Redis-和-Memcached"><a href="#Redis-和-Memcached" class="headerlink" title="Redis 和 Memcached"></a>Redis 和 Memcached</h1><p><a href="https://blog.csdn.net/u011489043/article/details/78922390" target="_blank" rel="noopener">分布式缓存Redis之与Memcached的比较</a></p><p>两者都是非关系型内存键值数据库，主要有以下不同：</p><ul><li><strong>数据类型</strong><ul><li>Memcached 仅支持字符串类型</li><li>而 Redis 支持五种不同的数据类型，可以更灵活地解决问题。</li></ul></li><li><strong>数据持久化</strong><ul><li>Redis 支持两种持久化策略：RDB 快照和 AOF 日志</li><li>而 Memcached 不支持持久化。</li></ul></li><li><strong>分布式</strong><ul><li>Memcached 不支持分布式，只能通过在客户端使用<strong>一致性哈希</strong>来实现分布式存储，这种方式在存储和查询时都需要先在客户端计算一次数据所在的节点。</li><li><strong>Redis Cluster</strong> 实现了分布式的支持。</li></ul></li><li><strong>数据存储</strong><ul><li>Redis和Memcached都是将数据存放在内存中，都是内存数据库。</li><li>不过memcached还可用于缓存其他东西，例如图片、视频等等。memcached把数据全部存在内存之中，断电后会挂掉，数据不能超过内存大小；</li><li>redis有部份存在硬盘上，这样能保证数据的持久性，支持数据的持久化（RDB、AOF），而Memcached不支持持久化。同时Redis并不是所有的数据都一直存储在内存中的，当物理内存用完时，Redis可以将一些很久没用到的value交换到磁盘，但memcached超过内存比例会抹掉前面的数据。</li></ul></li><li><strong>内存管理机制</strong><ul><li>在 Redis 中，并不是所有数据都一直存储在内存中，可以将一些很久没用的 value 交换到磁盘</li><li>而 Memcached 的数据则会一直在内存中。</li><li><strong>Memcached 将内存分割成特定长度的块来存储数据，以完全解决内存碎片的问题</strong>。但是这种方式会使得<strong>内存的利用率不高</strong>，例如块的大小为 128 bytes，只存储 100 bytes 的数据，那么剩下的 28 bytes 就浪费掉了。</li></ul></li><li><strong>线程数</strong><ul><li>Memcache支持多核多线程</li><li>Redis单线程操作</li></ul></li></ul><p><a href="https://blog.csdn.net/cywosp/article/details/23397179/" target="_blank" rel="noopener">补充：每天进步一点点——五分钟理解一致性哈希算法(consistent hashing)</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis </tag>
+            
+            <tag> Memcached </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>11 Redis过期键策略</title>
+      <link href="/2021/06/12/Redis/11-Redis%E8%BF%87%E6%9C%9F%E9%94%AE%E7%AD%96%E7%95%A5/"/>
+      <url>/2021/06/12/Redis/11-Redis%E8%BF%87%E6%9C%9F%E9%94%AE%E7%AD%96%E7%95%A5/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Redis过期键策略"><a href="#Redis过期键策略" class="headerlink" title="Redis过期键策略"></a>Redis过期键策略</h1><p><a href="https://www.sohu.com/a/355286852_505779" target="_blank" rel="noopener">探秘 Redis 中键的自动过期功能</a></p><p>注意：<strong>hash结构不能为每个key单独设置过期时间，只能为整个键设置过期时间（整个散列表）</strong></p><h2 id="Redis-的过期键删除策略"><a href="#Redis-的过期键删除策略" class="headerlink" title="Redis 的过期键删除策略"></a>Redis 的过期键删除策略</h2><p>Redis 服务器使用的是惰性删除和定期删除两种策略：通过配合使用这两种删除策略，服务器可以很好地<strong>在合理使用 CPU 时间和避免浪费内存空间之间取得平衡</strong>。</p><h3 id="惰性删除策略的实现"><a href="#惰性删除策略的实现" class="headerlink" title="惰性删除策略的实现"></a>惰性删除策略的实现</h3><p>过期键的惰性删除策略由 db.c/expireIfNeeded 函数实现，所有读写数据库的 Redis 命令在执行之前都会调用 expireIfNeeded 函数对输入键进行检查：</p><ul><li>如果输入键已经过期，那么 expireIfNeeded 函数将输入键从数据库中删除。</li><li>如果输入键未过期，那么 expireIfNeeded 函数不做动作。</li></ul><p>expireIfNeeded 函数就像一个过滤器，它可以在命令真正执行之前，过滤掉过期的输入键，从而避免命令接触到过期键。</p><h3 id="定期删除策略的实现"><a href="#定期删除策略的实现" class="headerlink" title="定期删除策略的实现"></a>定期删除策略的实现</h3><p>过期键的定期删除策略由 redis.c/activeExpireCycle 函数实现，每当 Redis 的服务器周期性操作 redis.c/serverCron 函数执行时，activeExpireCycle 函数就会被调用，它在规定的时间内，分多次遍历服务器中的各个数据库，从数据库的 expires 字典中随机检查一部分键的过期时间，并删除其中的过期键。</p><p>activeExpireCycle 函数的工作模式可以总结如下：</p><ul><li>函数每次运行时，都从一定数量的数据库中取出一定数量的随机键进行检查，并删除其中的过期键。</li><li>全局变量 current_db 会记录当前 activeExpireCycle 函数检查的进度，并在下一次 activeExpireCycle 函数调用时，接着上一次的进度进行处理。比如说，如果当前 activeExpireCycle 函数在遍历 10 号数据库时返回了，那么下次 activeExpireCycle 函数执行时，将从 11 号数据库开始查找并删除过期键。</li><li>随着 activeExpireCycle 函数的不断执行，服务器中的所有数据库都会被检查一遍，这时函数将 current_db 变量重置为 0，然后再次开始新一轮的检查工作。</li></ul><h2 id="AOF、RDB-和复制功能对过期键的处理"><a href="#AOF、RDB-和复制功能对过期键的处理" class="headerlink" title="AOF、RDB 和复制功能对过期键的处理"></a>AOF、RDB 和复制功能对过期键的处理</h2><p>redis的数据是在内存中来完成的，但是一旦redis的服务器重启，数据就会丢失。所以需要一种数据恢复机制。</p><p>redis的数据恢复机制有两种，一种通过AOF(Append only file)文件，另一种是通过RDB快照的方式。</p><p>AOF的写入方式：<br>aof的日志写入方式和mysql的不太一样，mysql采用的是wal(write ahead log) 写前日志，而 <strong>redis的aof的写入方式是 数据先写入到内存中去，然后再写入到日志中去</strong>。</p><p><img src="https://img-blog.csdnimg.cn/20210403195144775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hvbmd4aWFvemFp,size_16,color_FFFFFF,t_70" alt=""></p><h3 id="生成-RDB-文件"><a href="#生成-RDB-文件" class="headerlink" title="生成 RDB 文件"></a>生成 RDB 文件</h3><p>在执行 SAVE 命令或者 BGSAVE 命令创建一个新的 RDB 文件时，程序会对数据库中的键进行检查，已过期的键不会被保存到新创建的 RDB 文件中。</p><p>例如，如果数据库中包含三个键 k1、k2、k3，并且 k2 已经过期，那么当执行 SAVE 命令或者 BGSAVE 命令时，程序只会将 k1 和 k3 的数据保存到 RDB 文件中，而 k2 则会被忽略。</p><p>因此，数据库中包含过期键不会对生成新的 RDB 文件造成影响。</p><h3 id="载入-RDB-文件"><a href="#载入-RDB-文件" class="headerlink" title="载入 RDB 文件"></a>载入 RDB 文件</h3><p>在启动 Redis 服务器时，如果服务器开启了 RDB 功能，那么服务器将对 RDB 文件进行载入：</p><p>如果服务器以主服务器模式运行，那么在载入 RDB 文件时，程序会对文件中保存的键进行检查，未过期的键会被载入到数据库中，而过期键则会被忽略，所以过期键对载入 RDB 文件的主服务器不会造成影响。</p><p>如果服务器以从服务器模式运行，那么在载入 RDB 文件时，文件中保存的所有键，不论是否过期，都会被载入到数据库中。不过，因为主从服务器在进行数据同步的时候，从服务器的数据库就会被清空，所以一般来讲，过期键对载入 RDB 文件的从服务器也不会造成影响。</p><p>例如，如果数据库中包含三个键 k1、k2、k3，并且 k2 已经过期，那么当服务器启动时：</p><p>如果服务器以主服务器模式运行，那么程序只会将 k1 和 k3 载入到数据库，k2 会被忽略。</p><p>如果服务器以从服务器模式运行，那么 k1、k2 和 k3 都会被载入到数据库。</p><h3 id="AOF-文件写入"><a href="#AOF-文件写入" class="headerlink" title="AOF 文件写入"></a>AOF 文件写入</h3><p>当服务器以 AOF 持久化模式运行时，如果数据库中的某个键已经过期，但它还没有被惰性删除或者定期删除，那么 AOF 文件不会因为这个过期键而产生任何影响。当过期键被惰性删除或者定期删除之后，程序会向 AOF 文件追加（append）一条 DEL 命令，来显式地记录该键已被删除。</p><p>例如，如果客户端使用 GETmessage 命令，试图访问过期的 message 键，那么服务器将执行以下三个动作：</p><ul><li>从数据库中删除 message 键。</li><li>追加一条 DELmessage 命令到 AOF 文件。</li><li>向执行 GET 命令的客户端返回空回复。</li></ul><h3 id="AOF-文件重写"><a href="#AOF-文件重写" class="headerlink" title="AOF 文件重写"></a>AOF 文件重写</h3><p>和生成 RDB 文件时类似，在执行 AOF 重写的过程中，程序会对数据库中的键进行检查，已过期的键不会被保存到重写后的 AOF 文件中。</p><p>例如，如果数据库中包含三个键 k1、k2、k3，并且 k2 已经过期，那么在进行重写工作时，程序只会对 k1 和 k3 进行重写，而 k2 则会被忽略。因此，数据库中包含过期键不会对 AOF 重写造成影响。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis过期键策略 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>10 Redlock --- Redis 分布式锁</title>
       <link href="/2021/06/12/Redis/10-Redlock-Redis-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"/>
       <url>/2021/06/12/Redis/10-Redlock-Redis-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</url>
@@ -2812,9 +3024,9 @@
       
         <tags>
             
-            <tag> 字符串 </tag>
-            
             <tag> 数学 </tag>
+            
+            <tag> 字符串 </tag>
             
         </tags>
       
@@ -4723,9 +4935,9 @@
       
         <tags>
             
-            <tag> 分治 </tag>
-            
             <tag> HashMap </tag>
+            
+            <tag> 分治 </tag>
             
         </tags>
       
