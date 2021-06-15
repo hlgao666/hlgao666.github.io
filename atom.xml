@@ -66,9 +66,9 @@
       <category term="Redis" scheme="https://hlgao666.github.io/categories/Redis/"/>
     
     
-      <category term="主从复制" scheme="https://hlgao666.github.io/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"/>
-    
       <category term="Sentinel" scheme="https://hlgao666.github.io/tags/Sentinel/"/>
+    
+      <category term="主从复制" scheme="https://hlgao666.github.io/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"/>
     
   </entry>
   
