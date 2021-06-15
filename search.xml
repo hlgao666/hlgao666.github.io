@@ -45,9 +45,9 @@
       
         <tags>
             
-            <tag> Sentinel </tag>
-            
             <tag> 主从复制 </tag>
+            
+            <tag> Sentinel </tag>
             
         </tags>
       
@@ -1116,9 +1116,9 @@
       
         <tags>
             
-            <tag> 分治 </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> 分治 </tag>
             
         </tags>
       
@@ -2862,9 +2862,9 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 字符串 </tag>
             
@@ -4935,9 +4935,9 @@
       
         <tags>
             
-            <tag> HashMap </tag>
-            
             <tag> 分治 </tag>
+            
+            <tag> HashMap </tag>
             
         </tags>
       
@@ -5137,9 +5137,9 @@
       
         <tags>
             
-            <tag> 分治 </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> 分治 </tag>
             
         </tags>
       
