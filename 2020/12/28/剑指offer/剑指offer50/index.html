@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    772
+                    767
                 </div>
                 
 
@@ -544,8 +544,8 @@
         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
             <span class="token keyword">int</span> index<span class="token operator">=</span>numbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
             <span class="token comment" spellcheck="true">//为返回index做准备</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>index<span class="token operator">&gt;=</span>length<span class="token punctuation">)</span>index <span class="token operator">-=</span> length<span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>numbers<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">&gt;=</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>index<span class="token operator">>=</span>length<span class="token punctuation">)</span>index <span class="token operator">-=</span> length<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>numbers<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">>=</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
                 duplication<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>index<span class="token punctuation">;</span>
                 <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -567,7 +567,7 @@
         <span class="token keyword">if</span><span class="token punctuation">(</span>length<span class="token operator">==</span><span class="token number">0</span><span class="token operator">||</span>numbers<span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
         <span class="token comment" spellcheck="true">//3.利用LinkedHashMap的有序性</span>
-        LinkedHashMap<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span>Integer<span class="token operator">&gt;</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedHashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LinkedHashMap<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span>Integer<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedHashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
             <span class="token keyword">if</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>numbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -578,7 +578,7 @@
         <span class="token punctuation">}</span>
 
         <span class="token keyword">for</span><span class="token punctuation">(</span>Integer key<span class="token operator">:</span>numbers<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                 duplication<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> key<span class="token punctuation">;</span>
                 <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -1151,7 +1151,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

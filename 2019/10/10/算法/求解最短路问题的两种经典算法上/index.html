@@ -513,11 +513,11 @@
 <p>指定A作为“源点”，问题就是求A到其他节点的最短路径。</p>
 <h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><pre class="line-numbers language-bash"><code class="language-bash">1.指定一个节点，例如我们要计算 <span class="token string">'A'</span> 到其他节点的最短路径  
 
-2.引入两个集合（S、U），S集合包含已求出的最短路径的点（以及相应的最短长度），U集合包含未求出最短路径的点（以及A到该点的路径，注意:如上图1所示，A-<span class="token operator">&gt;</span>C由于没有直接边相连，初始时置为∞）  
+2.引入两个集合（S、U），S集合包含已求出的最短路径的点（以及相应的最短长度），U集合包含未求出最短路径的点（以及A到该点的路径，注意:如上图1所示，A-<span class="token operator">></span>C由于没有直接边相连，初始时置为∞）  
 
-3.初始化两个集合，S集合初始时 只有当前要计算的节点，A-<span class="token operator">&gt;</span>A <span class="token operator">=</span> 0，U集合初始时为 A-<span class="token operator">&gt;</span>B <span class="token operator">=</span> 4, A-<span class="token operator">&gt;</span>C <span class="token operator">=</span> ∞, A-<span class="token operator">&gt;</span>D <span class="token operator">=</span> 2, A-<span class="token operator">&gt;</span>E <span class="token operator">=</span> ∞  
+3.初始化两个集合，S集合初始时 只有当前要计算的节点，A-<span class="token operator">></span>A <span class="token operator">=</span> 0，U集合初始时为 A-<span class="token operator">></span>B <span class="token operator">=</span> 4, A-<span class="token operator">></span>C <span class="token operator">=</span> ∞, A-<span class="token operator">></span>D <span class="token operator">=</span> 2, A-<span class="token operator">></span>E <span class="token operator">=</span> ∞  
 
-4.从U集合中找出路径最短的点，加入S集合，例如 A-<span class="token operator">&gt;</span>D <span class="token operator">=</span> 2  
+4.从U集合中找出路径最短的点，加入S集合，例如 A-<span class="token operator">></span>D <span class="token operator">=</span> 2  
 
 5.更新U集合路径，if <span class="token punctuation">(</span> <span class="token string">'D 到 B,C,E 的距离'</span> + <span class="token string">'AD 距离'</span> <span class="token operator">&lt;</span> <span class="token string">'A 到 B,C,E 的距离'</span> <span class="token punctuation">)</span> 则更新U  
 
@@ -538,7 +538,7 @@
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 二维数组每一行分别是 A、B、C、D、E 各点到其余点的距离, </span>
-        <span class="token comment" spellcheck="true">// A -&gt; A 距离为0, 常量M 为正无穷</span>
+        <span class="token comment" spellcheck="true">// A -> A 距离为0, 常量M 为正无穷</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> weight1 <span class="token operator">=</span> <span class="token punctuation">{</span>
                 <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span>M<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span>M<span class="token punctuation">}</span><span class="token punctuation">,</span> 
                 <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>M<span class="token punctuation">}</span><span class="token punctuation">,</span> 
@@ -562,7 +562,7 @@
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> shortPath <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 保存start到其他各点的最短路径</span>
         String<span class="token punctuation">[</span><span class="token punctuation">]</span> path <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 保存start到其他各点最短路径的字符串表示</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-            path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>start <span class="token operator">+</span> <span class="token string">"--&gt;"</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>start <span class="token operator">+</span> <span class="token string">"-->"</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> visited <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 标记当前该顶点的最短路径是否已经求出,1表示已求出</span>
 
         <span class="token comment" spellcheck="true">// 初始化，第一个顶点已经求出</span>
@@ -588,7 +588,7 @@
                 <span class="token comment" spellcheck="true">//如果 '起始点到当前点距离' + '当前点到某点距离' &lt; '起始点到某点距离', 则更新</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> weight<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> weight<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> weight<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"--&gt;"</span> <span class="token operator">+</span> i<span class="token punctuation">;</span>
+                    path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"-->"</span> <span class="token operator">+</span> i<span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
@@ -1159,7 +1159,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

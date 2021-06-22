@@ -1,0 +1,1522 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="9 Executor框架, hlgao666/hlgao666">
+    <meta name="description" content="一点寒芒先至，随后枪出如龙。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>9 Executor框架 | Allen</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Allen</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Allen</div>
+        <div class="logo-desc">
+            
+            一点寒芒先至，随后枪出如龙。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hlgao666" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hlgao666" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/77.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">9 Executor框架</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CachedThreadPool/">
+                                <span class="chip bg-color">CachedThreadPool</span>
+                            </a>
+                        
+                            <a href="/tags/Future接口/">
+                                <span class="chip bg-color">Future接口</span>
+                            </a>
+                        
+                            <a href="/tags/FutureTask类/">
+                                <span class="chip bg-color">FutureTask类</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/多线程/" class="post-category">
+                                多线程
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-22
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-06-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Executor框架"><a href="#Executor框架" class="headerlink" title="Executor框架"></a>Executor框架</h1><p>在Java中，使用线程来异步执行任务。Java线程的创建与销毁需要一定的开销,如果我们为每一个任务创建一个新线程来执行,这些线程的创建与销毁将消耗大量的计算资源，这种策略也可能会使处于高负荷状态的应用最终崩溃。</p>
+<p>Java的线程既是工作单元,也是执行机制。从JDK5开始,把工作单元与执行机制分离开来。工作单元包括Rumnable和Callable，而执行机制由Executor框架提供。</p>
+<h2 id="Executor框架简介"><a href="#Executor框架简介" class="headerlink" title="Executor框架简介"></a>Executor框架简介</h2><h3 id="Executor框架的两级调度模型"><a href="#Executor框架的两级调度模型" class="headerlink" title="Executor框架的两级调度模型"></a>Executor框架的两级调度模型</h3><p>在HotSpot VM的线程模型中，Java线程(java.lang.Thread)被一对一映射为本地操作系统线程。Java线程后动时会创建一个本地操作系统线程;当该Java线程终止时,这个操作系统线程也会被回收。操作系统会调度所有线程并将它们分配给可用的CPU</p>
+<p>在上层，Java多线程程序通常把应用分解为若干个任务,然后使用用户级的调度器(Executor框架)将这些任务映射为固定数量的线程;在底层.操作系统内核将这些线程映射到硬件处理器上。这种两级调度模型的示意图如图10-1所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515161243.png" alt=""></p>
+<p>从图中可以看出，应用程序通过Executor框架控制上层的调度;而下层的调度由操作系统内核控制，下层的调度不受应用程序的控制。</p>
+<h3 id="Executor框架的结构与成员"><a href="#Executor框架的结构与成员" class="headerlink" title="Executor框架的结构与成员"></a>Executor框架的结构与成员</h3><p>本文将分两部分来介绍Execufor:Executor的结构和Executor框架包含的成员组件。</p>
+<h4 id="1-Executor框架的结构"><a href="#1-Executor框架的结构" class="headerlink" title="1.Executor框架的结构"></a>1.Executor框架的结构</h4><p>Executor框架主要由3大部分组成如下。</p>
+<ul>
+<li><strong>任务</strong>。包括被执行任务需要实现的接口:Rumnable接口或Callable接口。</li>
+<li><strong>任务的执行</strong>。包括任务执行机制的核心接口Executor，以及继承自Executor的ExecutorService接口。Executor框架有两个关键类实现了ExecutorService接口(ThreadPoolExecutor和ScheduledThreadPoolExecutor)。</li>
+<li><strong>异步计算的结果</strong>。包括接口Futre和实现Future接口的FutreTask类。</li>
+</ul>
+<p>Executor框架包含的主要的类与接口如图10-2所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515161530.png" alt=""></p>
+<p>下面是这些类和接口的简介。</p>
+<ul>
+<li>Executor是一个接口，它是Executor框架的基础,它将任务的提交与任务的执行分离开来。</li>
+<li>ThreadPoolExecutor是线程池的核心实现类,用来执行被提交的任务。</li>
+<li>ScheduledThreadPoolExecutor是一个实现类,可以在给定的延迟后运行命今,或者定期执行命今。ScheduledThreadPoolExecutor比Timer更灵活,功能更强大。</li>
+<li>Future接口和实现Future接口的FutureTask类,代表异步计算的结果。</li>
+<li>Runable接口和Callable接口的实现类,都可以被ThreadPoolExecutor或ScheduledThreadPoolExecutor执行。</li>
+</ul>
+<p>Executor框架的使用示意图如图10-3所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515161700.png" alt=""></p>
+<p>主线程首先要创建实现Runnable或者Callable接口的任务对象。工具类Executors可以把一个Runnable对象封装为一个Callable对象(Executors.callable(Runable task)或<br>Executors.callable(Ruunable task, Object resule))。</p>
+<p>然后可以把Runable对象直接交给ExecutorService执行(ExecutorService.execute(Ruumablecommand));或者也可以把Rumable对象或Callable对象提交给ExecutorService执行(Executor-Service.submit(Ruunable task)或ExecutorService.submit(Callable&lt;T&gt;task))。</p>
+<p>如果执行ExecutorService.subnit (…), ExecutorService将返回一个实现Future接口的对象(到目前为止的JDK中，返回的是FutureTask对象)。由于FuureTask实现了Rumnable，程序员也可以创建FutureTask,然后直接交给ExecutorService执行。</p>
+<p>最后，主线程可以执行FutueTask.get()方法来等待任务执行完成。主线程也可以执行<br>FufreTask.cancel(boolean mayInterruptIfRunning)来取消此任务的执行。</p>
+<h4 id="2-Executor框架的成员"><a href="#2-Executor框架的成员" class="headerlink" title="2.Executor框架的成员"></a>2.Executor框架的成员</h4><p>Executor框架的主要成员: <strong>ThreadPoolExecutor 、ScheduledThreadPoolExecutor、Future接口、Runnable接口、Callable接口和Executors</strong>。</p>
+<p><strong>(1)ThreadPoolExecutor</strong><br>ThreadPoolExecutor通常使用工厂类Executors来创建。Executors可以创建3种类型的ThreadPooIExecufor: SingleThreadExecutor、 FixedThreadPool和CachedThreadPool</p>
+<p>下面分别介绍这3种ThreadPoolExecutor。</p>
+<ul>
+<li>1)FixedThreadPool。下面是Executors提供的,创建使用固定线程数的FixedThreadPool的API。FixedThreadPool适用于为了满足资源管理的需求,而需要限制当前线程数量的应用场景，它适用于负载比较重的服务器。<br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515162021.png" alt=""></li>
+<li>2)SingleThreadExecutor。下面是Executors提供的,创建使用单个线程的SingleThreadExecutor的API。SingleThreadExecutor适用于<strong>需要保证顺序地执行</strong>各个任务;并且在任意时间点，<strong>只有一个线程是活动</strong>的应用场景。<br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515162107.png" alt=""></li>
+<li>3)CachedThreadPool。下面是Executors提供的,创建一个会根据需要创建新线程的CachedThreadPool的API。CachedThreadPool是大小无界的线程池,适用于执行很多的短期异步任务的小程序,或者是负载较轻的服务器。<br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515162224.png" alt=""></li>
+</ul>
+<p><strong>(2)ScheduledThreadPoolExecutor</strong><br>ScheduledThreadPoolExecutor通常使用工厂类Executors来创建。Executors可以创建2种类型的ScheduledThreadPoolExecutor，如下。</p>
+<ul>
+<li>ScheduledThreadPoolExecutor。包含若干个线程的ScheduledThreadPoolExecutor。</li>
+<li>SingleThreadScheduledExecutor。只包含一个线程的ScheduledThreadPoolExecutor。</li>
+<li>1）下面是工厂类Executors提供的,<strong>创建固定个数线程的ScheduledThreadPoolExecutor</strong>的API。ScheduledTlreadPoolExecutor适用于需要多个后台线程执行周期任务,同时为了满足资源管理的需求而需要限制后台线程的数量的应用场景。<br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515162459.png" alt=""></li>
+<li>2）下面是Executors提供的,<strong>创建单个线程的SingleThreadScheduledExecutor</strong>的API。SingleThreadScheduledExecutor适用于需要单个后台线程执行周期任务，同时需要保证顺序地执行各个任务的应用场景。<br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515162517.png" alt=""></li>
+</ul>
+<p><strong>(3)Fufure接口</strong><br>Future接口和实现Future接口的FutuueTask类用来表示异步计算的结果。当我们把Rumable接口或Callable接口的实现类提交(submit)给ThreadPoolExecutor或ScheduledThreadPoolExecutor时，ThreadPoolExecutor或ScheduledThreadPoolExecutor会向我们返回一个FutureTask对象。下面是对应的API。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515162649.png" alt=""></p>
+<p>有一点需要读者注意,到目前最新的JDK 8为止,Java通过上述API返回的是一个<br>FutureTask对象。但从API可以看到,Java仅仅保证返回的是一个实现了Future接口的对象。在将来的JDK实现中,返回的可能不一定是FutreTask。</p>
+<p><strong>(4)Ruunable接口和Callable接口</strong></p>
+<ul>
+<li><strong>Runnable没有返回值；Callable可以返回执行结果</strong>，是个泛型，和Future、FutureTask配合可以用来获取异步执行的结果</li>
+<li>Callable接口的call()方法允许抛出异常；Runnable的run()方法异常只能在内部消化，不能往上继续抛</li>
+</ul>
+<p>注：Callalble接口支持返回执行结果，需要调用FutureTask.get()得到，此方法会阻塞主进程的继续往下执行，如果不调用不会阻塞。</p>
+<p>Runnable接口和Callable接口的实现类,都可以被ThreadPoolExecutor或ScheduledThreadPoolExecutor执行。</p>
+<p>除了可以自己创建实现Callable接口的对象外,还<strong>可以使用工厂类Executors来把一个Runnable包装成一个Callable</strong>。</p>
+<p>下面是Executors提供的,把一个Ruunable包装成一个Callable的API。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515165411.png" alt=""></p>
+<p>下面是Executors提供的,把一个Runable和一个待返回的结果包装成一个Callable的API。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515165434.png" alt=""></p>
+<p>前面讲过，当我们把一个Callable对象(比如上面的Callablel或Callable2)提交给ThreadPoolExecufor或ScheduledThreadPoolExecutor执行时,submit(…)会向我们返回一个FutueTask对象。我们可以执行FutreTask.get()方法来等待任务执行完成。当任务成功完成后FunreTask.get()将返回该任务的结果。例如，如果提交的是对象Callable1（无返回结果），FutureTask.get()方法将返回null;如果提交的是对象Callable2（带返回结果），FutureTask.get()方法将返回result对象。</p>
+<h2 id="ThreadPoolExecutor详解"><a href="#ThreadPoolExecutor详解" class="headerlink" title="ThreadPoolExecutor详解"></a>ThreadPoolExecutor详解</h2><p>Executor框架最核心的类是ThreadPoolExecutor，它是线程池的实现类，主要由下列4个组件构成。</p>
+<ul>
+<li>corePoo1:核心线程池的大小。</li>
+<li>maximumnPool:最大线程池的大小。</li>
+<li>BlockingQueue:用来暂时保存任务的工作队列。</li>
+<li>RejectedExecutionHandler:当ThreadPoolExecutor已经关闭或ThreadPoolExecutor已经饱和时(达到了最大线程池大小且工作队列已满)，execute()方法将要调用的Handler。</li>
+</ul>
+<p>通过Executor框架的工具类Executors，可以创建3种类型的ThreadPoolExecutor。</p>
+<ul>
+<li>FixedThreadPool。</li>
+<li>SingleThreadExecutor。</li>
+<li>CachedThreadPool。</li>
+</ul>
+<h3 id="FixedThreadPool详解"><a href="#FixedThreadPool详解" class="headerlink" title="FixedThreadPool详解"></a>FixedThreadPool详解</h3><p>FixedThreadPool被称为可重用固定线程数的线程池。FixedThreadPool适用于为了满足资源管理的需求,而需要限制当前线程数量的应用场景，它适用于负载比较重的服务器。下面是FixedThreadPool的源代码实现。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515165800.png" alt=""></p>
+<p>FixedThreadPool的corePoolSize和maxinmmPoolSize都被设置为创建FixedThreadPool时指定的参数nThreads。</p>
+<p>当线程池中的线程数大于corePoolSizel时,keepAliveTime为多余的空闲线程等待新任务的最长时间,超过这个时间后多余的线程将被终止。这里把keepAliveTime设置为OL，意味着多余的空闲线程会被立即终止。</p>
+<p>FixedThreadPool的execute()方法的运行示意图如图10-4所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515170005.png" alt=""></p>
+<p>对图10-4的说明如下。</p>
+<ul>
+<li>1)如果当前运行的线程数少于corePoolSize，则创建新线程来执行任务。</li>
+<li>2)在线程池完成预热之后(当前运行的线程数等于corePoolSize)，将任务加人LinkedBlockingQueue。</li>
+<li>3)线程执行完1中的任务后，会在循环中反复MLinkedBlockingQueue获取任务来执行。</li>
+</ul>
+<p>FixedThreadPool使用无界队列LinkedBlockingQueue作为线程池的工作队列(队列的容量为Integer.MAX_VALUE)。使用无界队列作为工作队列会对线程池带来如下影响：</p>
+<ul>
+<li>1)当线程池中的线程数达到corePoolSize后，新任务将在无界队列中等待,因此线程池中的线程数不会超过corePoolSize。</li>
+<li>2)由于1，使用无界队列时maximumPoolSize将是一个无效参数。</li>
+<li>3)由于1和2，使用无界队列时keepAliveTime将是一个无效参数。</li>
+<li>4)由于使用无界队列,运行中的FixedThreadPool(未执行方法shutdown()或shutdownNow())不会拒绝任务(不会调用RejectedExecutionHandler.rejectedExecution方法)。</li>
+</ul>
+<h3 id="SingleThreadExecutor详解"><a href="#SingleThreadExecutor详解" class="headerlink" title="SingleThreadExecutor详解"></a>SingleThreadExecutor详解</h3><p>SingleThreadExecutor是使用单个worker线程的Executor。SingleThreadExecutor适用于<strong>需要保证顺序地执行</strong>各个任务;并且在任意时间点，<strong>只有一个线程是活动</strong>的应用场景。下面是SingleThreadExecutor的源代码实现。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515170932.png" alt=""></p>
+<p>SingleThreadExecutor的corePoolSize和maximumPoolSize被设置为1。其他参数与<br>FixedThreadPool相同。SingleThreadExecutor使用无界队列LinkedBlockingQueue作为线程池的工作队列(队列的容量为Integer.MAX_VALUE)。<strong>SingleThreadExecutor使用无界队列作为工作队列对线程池带来的影响与FixedThreadPool相同</strong>。</p>
+<p>SingleThreadExecutor的运行示意图如图10-5所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515171024.png" alt=""></p>
+<p>对图10-5的说明如下：</p>
+<ul>
+<li>1)如果当前运行的线程数少于corePoolSize(即线程池中无运行的线程)，则创建一个新线程来执行任务。</li>
+<li>2)在线程池完成预热之后(当前线程池中有且仅有一个运行的线程)，将任务加入LinkedBlockingQueue。</li>
+<li>3)线程执行完1中的任务后,会在一个无限循环中反复从LinkedBlockingQueue获取任务来执行。</li>
+</ul>
+<h3 id="CachedThreadPool详解"><a href="#CachedThreadPool详解" class="headerlink" title="CachedThreadPool详解"></a>CachedThreadPool详解</h3><p>CachedThreadPool是一个会根据需要创建新线程的线程池。CachedThreadPool是大小无界的线程池,适用于执行很多的短期异步任务的小程序,或者是负载较轻的服务器。下面是创建CachedThreadPool的源代码。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515171144.png" alt=""></p>
+<p>CachedThreadPool的corePoolSize被设置为0，即corePool为空;maximmPoolSize被设置为Integer.MAX_VALUE，即maxinmPool是无界的。这里把keepAliveTime设置为60L，意味着CachedThreadPool中的空闲线程等待新任务的最长时间为60秒，空闲线程超过60秒后将会被终止。</p>
+<p>FixedThreadPool和SingleThreadExecutor使用无界队列LinkedBlockingQueue作为线程池的工作队列。CachedThreadPool使用没有容量的SynchronousQueue作为线程池的工作队列,但CachedThreadPool<strong>的maximumPool是无界的</strong>。这意味着,<strong>如果主线程提交任务的速度高于maximmPool中线程处理任务的速度时,CachedThreadPool会不断创建新线程</strong>。<strong>极端情况下，CachedThreadPool会因为创建过多线程而耗尽CPU和内存资源</strong>。</p>
+<p>CachedThreadPool的execute()方法的执行示意图如图10-6所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515171346.png" alt=""></p>
+<p>对图10-6的说明如下。</p>
+<ul>
+<li>1)首先执行SynchronousQueue.offer(Rumnable task)。如果当前maxinmmPool中有空闲线程正在执行SynchronousQueue.poll(keepAliveTime，TimeUnit.NANOSECONDS)，那么主线程执行offer操作与空闲线程执行的poll操作配对成功,主线程把任务交给空闲线程执行,execute()方法执行完成;否则执行下面的步骤2)。</li>
+<li>2)当初始maximumPool为空,或者maximmmPool中当前没有空闲线程时,将没有线程执行SynchronousQneue.poll(keepAliveTime, TimeUnit.NANOSECONDS)。这种情况下,步骤1)将失败。此时CachedThreadPool会创建一个新线程执行任务,execute()方法执行完成。</li>
+<li>3)在步骤2)中新创建的线程将任务执行完后，会执行<br>SynclronousQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS)。这个poll操作会让空闲线<br>程最多在SynclronousQueue中等待60秒钟。如果60秒钟内主线程提交了一个新任务(主线程执行步骤1))，那么这个空闲线程将执行主线程提交的新任务;否则,这个空闲线程将终止。由于空闲60秒的空闲线程会被终止,因此长时间保持空闲的CachedThreadPool不会使用任何资源。</li>
+</ul>
+<p>前面提到过,<strong>SynchronousQueue是一个没有容量的阻塞队列。每个插入操作必须等待另一个线程的对应移除操作</strong>,反之亦然。</p>
+<p>CachedThreadPool使用<strong>SynchronousQueue（传递队列）</strong>，把主线程提交的任务传递给空闲线程执行。CachedThreadPool中任务传递的示意图如图10-7所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515171555.png" alt=""></p>
+<h2 id="ScheduledThreadPoolExecutor详解"><a href="#ScheduledThreadPoolExecutor详解" class="headerlink" title="ScheduledThreadPoolExecutor详解"></a>ScheduledThreadPoolExecutor详解</h2><p>ScheduledThreadPoolExecutor继承自ThreadPoolExecutor。它主要用来在给定的延迟之后运行任务,或者定期执行任务。ScheduledThreadPoolExecutor的功能与Timer类似，但ScheduledThreadPoolExecutor功能更强大、更灵活。<strong>Timer对应的是单个后台线程</strong>,而<strong>ScheduledThreadPoolExecutor可以在构造函数中指定多个对应的后台线程</strong>。</p>
+<h3 id="ScheduledThreadPoolExecutor的运行机制"><a href="#ScheduledThreadPoolExecutor的运行机制" class="headerlink" title="ScheduledThreadPoolExecutor的运行机制"></a>ScheduledThreadPoolExecutor的运行机制</h3><p>ScheduledThreadPoolExecutor的执行示意图(本文基于JDK6)如图10-8所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515172624.png" alt=""></p>
+<p>DelayQueue是一个无界队列,所以ThreadPoolExecutor的maximmmPoolSize在Scheduled-ThreadPoolExecutor中没有什么意义(设置maximumPoolSize的大小没有什么效果)。</p>
+<p>ScheduledThreadPoolExecutor的执行主要分为两大部分。</p>
+<ul>
+<li>1)调用ScheduledThreadPoolExecutor的scheduleAtFixedRate()方法或者scheduleWith-FixedDelay()方法时，会向ScheduledThreadPoolExecutor的DelayQueue添加一个实现了RumableScheduledFuture接口的ScheduledFutureTask。</li>
+<li>2)线程池中的线程从DelayQueue中获取ScheduledFutureTask,然后执行任务。</li>
+</ul>
+<p>ScheduledThreadPoolExecutor为了实现周期性的执行任务，对ThreadPoolExecutor做了如下的修改:</p>
+<ul>
+<li><strong>使用DelayQueue作为任务队列</strong>。</li>
+<li><strong>获取任务的方式不同（获取锁—判断时间是否到—取出任务—释放锁）</strong>(后文会说明)。</li>
+<li><strong>执行周期任务后,增加了额外的处理（修改time变量后，放回到DelayQueue中）</strong>(后文会说明)。</li>
+</ul>
+<h3 id="ScheduledThreadPoolExecutor的实现"><a href="#ScheduledThreadPoolExecutor的实现" class="headerlink" title="ScheduledThreadPoolExecutor的实现"></a>ScheduledThreadPoolExecutor的实现</h3><p>前面我们提到过,ScheduledThreadPoolExecutor会把待调度的任务(ScheduledFutureTask)放到一个DelayQueue中。</p>
+<p>ScheduledFufureTask主要包含3个成员变量,如下:</p>
+<ul>
+<li>long型成员变量time，表示这个任务将要被执行的具体时间。</li>
+<li>long型成员变量sequenceNuumber，表示这个任务被添加到ScheduledTreadPoolExecutor中的序号。</li>
+<li>long型成员变量period,表示任务执行的间隔周期。</li>
+</ul>
+<p>DelayQueue封装了一个PriorityQueue,这个PriorityQueue会对队列中的Scheduled-FutureTask进行排序。排序时，time小的排在前面(时间早的任务将被先执行)。如果两个ScheduledFutureTask的time相同,就比较sequenceNumber， sequenceNumber小的排在前面(也就是说，如果两个任务的执行时间相同，那么先提交的任务将被先执行)。</p>
+<p>首先,让我们看看ScheduledThreadPoolExecutor中的线程执行周期任务的过程。图10-9是ScheduledThreadPoolExecutor中的线程1执行某个周期任务的4个步骤。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515173149.png" alt=""></p>
+<p>下面是对这4个步骤的说明。</p>
+<ul>
+<li>1)线程1从DelayQueue中<strong>获取已到期</strong>的ScheduledFufureTask(DelayQueue.take())。到期任务是指scheduledFutureTask的time大于等于当前时间。</li>
+<li>2)线程1执行这个ScheduledFutureTask。</li>
+<li>3)线程1修改ScheduledFutureTask的<strong>time变量为下次将要被执行的时间</strong>。</li>
+<li>4)线程1把这个修改time之后的ScheduledFutureTask<strong>放回DelayQueue</strong>中(Delay-Queue.add())。</li>
+</ul>
+<p>接下来,让我们看看上面的步骤1)获取任务的过程。下面是DelayQueue.take()方法的源代码实现。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515173523.png" alt=""></p>
+<p>图10-10是DelayQueue.take()的执行示意图。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515173632.png" alt=""></p>
+<p>如图所示,获取任务分为3大步骤。</p>
+<ul>
+<li>1)获取当前DelayQueue实例的Lock（1）。</li>
+<li>2)获取周期任务。<ul>
+<li>如果PriorityQueue为空，当前线程到Condition中等待（2.1）;否则执行下面的2.2。</li>
+<li>如果PriorityQueue的头元素的time时间比当前时间大，到Condition中等待到time时间（2.2）;否则执行下面的2.3。</li>
+<li>获取（弹出）PriorityQueue的头元素(2.3.1);如果PriorityQueue不为空,则唤醒在Condition中等待的所有线程(2.3.2)，使其争夺执行下一个task。</li>
+</ul>
+</li>
+<li>3)释放Lock（3）。</li>
+</ul>
+<p>ScheduledThreadPoolExecutor在一个循环中执行步骤2,直到线程从PriorityQueue获取到一个元素之后(执行2.3.1之后)，才会退出无限循环(结束步骤2)。</p>
+<p>最后，让我们看看ScheduledThreadPoolExecutor中的线程执行任务的步骤4，把ScheduledFutueTask放入DelayQueue中的过程。下面是DelayQueue.add()的源代码实现。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515174646.png" alt=""></p>
+<p>图10-11是DelayQueue.add()的执行示意图。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515174711.png" alt=""></p>
+<p>如图所示，添加任务分为3大步骤。</p>
+<ul>
+<li>1)获取Lock（1）。</li>
+<li>2)添加任务。<ul>
+<li>向PriorityQueue添加任务（2.1）。</li>
+<li>如果在上面2.1中添加的任务是PriorityQueue的头元素,唤醒在Condition中等待的所有线程（2.2）。</li>
+</ul>
+</li>
+<li>3)释放Lock（3）。</li>
+</ul>
+<h2 id="FutureTask详解"><a href="#FutureTask详解" class="headerlink" title="FutureTask详解"></a>FutureTask详解</h2><p>Future接口和实现Futre接口的FutureTask类,代表异步计算的结果。</p>
+<h3 id="FutureTask简介"><a href="#FutureTask简介" class="headerlink" title="FutureTask简介"></a>FutureTask简介</h3><p>FutureTask除了实现Future接口外，还实现了Ruunable接口。因此，<strong>FutureTask可以交给Executor执行，也可以由调用线程直接执行</strong>(FutureTask.run())。根据FutureTaskrun()方法被执行的时机，FutureTask可以处于下面3种状态。</p>
+<ul>
+<li>1)未启动。FufureTask.run()方法还没有被执行之前,FutueTask处于未启动状态。当创建一个FutureTask,且没有执行FufureTask.run()方法之前,这个FutureTask处于未启动状态。</li>
+<li>2)已启动。FutureTask.run()方法被执行的过程中，FutueTask处于已启动状态。</li>
+<li>3)已完成。FutureTask.run()方法执行完后正常结束,或被取消(FutureTask.cancel(…))，或执行FutureTask.run()方法时抛出异常而异常结束,FutureTask处于已完成状态。</li>
+</ul>
+<p>图10-12是FutueTask的状态迁移的示意图。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515175249.png" alt=""></p>
+<ul>
+<li>当FuueTask处于未启动或已启动状态时,执行FutureTask.get()方法将导致调用线程阻塞;</li>
+<li>当FutreTask处于已完成状态时,执行FutureTask.get()方法将导致调用线程立即返回结果或抛出异常。</li>
+<li>当FufureTask处于未启动状态时,执行FutureTask.cancel()方法将导致此任务永远不会被执行;</li>
+<li>当FutueTask处于已启动状态时,执行FultueTask.cancel(<strong>true</strong>)方法将以中断执行此任务线程的方式来试图停止任务;当FulureTask处于已启动状态时,执行FutureTask.cancel(<strong>false</strong>)方法将不会对正在执行此任务的线程产生影响(让正在执行的任务运行完成);</li>
+<li>当FutureTask处于已完成状态时,执行FutueTask.cancel(…)方法将返回false。</li>
+</ul>
+<p>图10-13是get方法和cancel方法的执行示意图。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515175516.png" alt=""></p>
+<h3 id="FutureTask的使用"><a href="#FutureTask的使用" class="headerlink" title="FutureTask的使用"></a>FutureTask的使用</h3><p>可以把FutureTask交给Executor执行;也可以通过ExecutorService.submit(…)方法返回一个FutueTask,然后执行FutureTask.get()方法或FutureTask.cance1(…)方法。除此以外，还可以单独使用FutureTask。</p>
+<p><strong>单独使用用FutureTask的情景：</strong><br>当一个线程需要等待另一个线程把某个任务执行完后它才能继续执行，此时可以使用FutureTask。假设有多个线程执行若干任务,每个任务最多只能被执行一次。当多个线程试图同时执行同一个任务时，只允许一个线程执行任务，其他线程需要等待这个任务执行完后才能继续执行。下面是对应的示例代码。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515180441.png" alt=""></p>
+<p>上述代码的执行示意图如图10-14所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515180504.png" alt=""></p>
+<p>当两个线程试图同时执行同一个任务时，如果Thread 1执行1.3后Thread 2执行2.1，那么接下来Thread 2将在2.2等待,直到Thread 1执行完1.4后Thread 2才能从2.2(FutureTask.get())返回。</p>
+<h3 id="FutureTask的实现"><a href="#FutureTask的实现" class="headerlink" title="FutureTask的实现"></a>FutureTask的实现</h3><p>FuureTask的实现基于<strong>AbstractQueuedSynchronizer(以下简称为AQS</strong>)。 java.util.concurent中的很多可阻塞类(比如ReentrantLock)都是基于AQS来实现的。AQS是一个同步框架,它提供通用机制来原子性管理同步状态、阻塞和唤醒线程，以及维护被阻塞线程的队列。JDK6中AQS被广泛使用,基于AQS实现的同步器包括:</p>
+<ul>
+<li>ReentrantLock</li>
+<li>Semaphore</li>
+<li>ReentrantReadWriteLock</li>
+<li>CountDownLatch</li>
+<li>FutreTask</li>
+</ul>
+<p>每一个基于AQS实现的同步器都会包含两种类型的操作，如下。</p>
+<ul>
+<li>至少一个acquire操作。这个操作阻塞调用线程,除非/直到AQS的状态允许这个线程继续执行。FutureTask的acquire操作为get()/get(long timeout, TimeUnit unit)方法调用。</li>
+<li>至少一个release操作。这个操作改变AQS的状态，改变后的状态可允许一个或多个阻塞线程被解除阻塞。FutureTask的release操作包括run()方法和cancel(…)方法。</li>
+</ul>
+<p>基于“复合优先于继承”的原则,FutureTask声明了一个内部私有的继承于AQS的子类Sync，对FutueTask所有公有方法的调用都会委托给这个内部子类。</p>
+<p>AQS被作为“模板方法模式””的基础类提供给FutureTask的内部子类Sync，这个内部子类只需要实现<strong>状态检查和状态更新</strong>的方法即可,这些方法将控制FutureTask的获取和释放操作。具体来说，Sync实现了AQS的tryAcquireShared(int)方法和tryReleaseShared(int)方法,Sync通过这两个方法来检查和更新同步状态。</p>
+<p>FufureTask的设计示意图如图10-15所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515181456.png" alt=""></p>
+<p>如图所示，Sync是FufureTask的内部私有类，它继承自AQS。创建FutureTask时会创建内部私有的成员对象Sync，FutureTask所有的的公有方法都直接委托给了内部私有的Sync</p>
+<p><strong>FutureTask.get()方法</strong>会调用AQS.acquireSharedInterruptibly(int arg)方法,这个方法的执行过程如下。</p>
+<ul>
+<li>1)调用AQS.acquireSharedInterruptibly(int arg)方法,这个方法首先会回调在子类Sync中实现的tryAcquireShared()方法来判断acquire操作是否可以成功。acquire操作可以成功的条件为:state为执行完成状态RAN或已取消状态CANCELLED,且runner不为null。</li>
+<li>2)如果成功则get()方法立即返回。如果失败则到线程等待队列中去等待其他线程执行release操作。</li>
+<li>3)当其他线程执行release操作(比如FuureTask.run()或FutueTask.cance1(…))唤醒当前线程后,当前线程再次执行tryAcquireShared()将返回正值1，当前线程将离开线程等待队列并唤醒它的后继线程(这里会产生<strong>级联唤醒</strong>的效果，后面会介绍)。</li>
+<li>4)最后返回计算的结果或抛出异常。</li>
+</ul>
+<p><strong>FutreTask.run()的</strong>执行过程如下。</p>
+<ul>
+<li>1)执行在构造函数中指定的任务(Callable.cal1l())。</li>
+<li>2)以原子方式来更新同步状态(调用AQS.compareAndSetState(int expect,int update)，设置state为执行完成状态RAN)。如果这个原子操作成功,就设置代表计算结果的变量result的值为Callable.call)的返回值,然后调用AQS.releaseShared(int arg)。</li>
+<li>3)AQS.releaseShared(int arg)首先会回调在子类Sync中实现的tryReleaseShared(arg)来执行release操作(设置运行任务的线程runer为nuull，然会返回true) ; AQS.releaseShared(int argi),然后唤醒线程等待队列中的第一个线程。</li>
+<li>4)调用FutueTask.done()。</li>
+</ul>
+<p>当执行FutureTask.get()方法时，如果FuureTask不是处于执行完成状态RAN或已取消状态CANCEIIED,当前执行线程将到AQS的线程等待队列中等待(见下图的线程A、B、C和D)。当某个线程执行FutureTask.rnumn()方法或FutureTaskcancel(…)方法时，会唤醒线程等待队列的第一个线程(见图10-16所示的线程E唤醒线程A)。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210515182444.png" alt=""></p>
+<p>假设开始时FutureTask处于未后动状态或已后动状态，等待队列中已经有3个线程(A、B和C)在等待。此时，线程D执行get()方法将导致线程D也到等待队列中去等待。</p>
+<p>当线程E执行run()方法时,会唤醒队列中的第一个线程A。线程A被唤醒后，首先把自己从队列中删除,然后唤醒它的后继线程B,最后线程A从get()方法返回。线程B、C和D重复A线程的处理流程。最终,在队列中等待的所有线程都被级联唤醒并从get()方法返回。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Hailong Gao</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hlgao666.github.io/2021/06/22/多线程/9-Executor框架/">https://hlgao666.github.io/2021/06/22/多线程/9-Executor框架/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Hailong Gao</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CachedThreadPool/">
+                                    <span class="chip bg-color">CachedThreadPool</span>
+                                </a>
+                            
+                                <a href="/tags/Future接口/">
+                                    <span class="chip bg-color">Future接口</span>
+                                </a>
+                            
+                                <a href="/tags/FutureTask类/">
+                                    <span class="chip bg-color">FutureTask类</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '71b3fe32e349132d133e',
+        clientSecret: '1c6066aad8a2feaccbdf64f42194f3dfef3eb0e0',
+        repo: 'hlgao666.github.io',
+        owner: 'hlgao666',
+        admin: "hlgao666",
+        id: '2021-06-22T14-27-43',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/06/22/多线程/9-Executor框架/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/77.jpg" class="responsive-img" alt="9 Executor框架">
+                        
+                        <span class="card-title">9 Executor框架</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Executor框架
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/多线程/" class="post-category">
+                                    多线程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CachedThreadPool/">
+                        <span class="chip bg-color">CachedThreadPool</span>
+                    </a>
+                    
+                    <a href="/tags/Future接口/">
+                        <span class="chip bg-color">Future接口</span>
+                    </a>
+                    
+                    <a href="/tags/FutureTask类/">
+                        <span class="chip bg-color">FutureTask类</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/22/多线程/8-Java中的线程池/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/76.jpg" class="responsive-img" alt="8 Java中的线程池">
+                        
+                        <span class="card-title">8 Java中的线程池</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java中的线程池
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/多线程/" class="post-category">
+                                    多线程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/线程池原理/">
+                        <span class="chip bg-color">线程池原理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="488982301"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Hailong Gao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">364.2k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "09";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hlgao666" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1330695688@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1330695688" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1330695688" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

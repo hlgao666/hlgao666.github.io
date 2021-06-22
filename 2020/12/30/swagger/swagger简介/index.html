@@ -517,19 +517,19 @@
 <li>swagger2</li>
 <li>ui</li>
 </ul>
-<h2 id="springboot集成swagger"><a href="#springboot集成swagger" class="headerlink" title="springboot集成swagger"></a>springboot集成swagger</h2><h3 id="1-新建springboot-web项目"><a href="#1-新建springboot-web项目" class="headerlink" title="1.新建springboot-web项目"></a>1.新建springboot-web项目</h3><h3 id="2-导入相关依赖"><a href="#2-导入相关依赖" class="headerlink" title="2.导入相关依赖"></a>2.导入相关依赖</h3><pre class="line-numbers language-xml"><code class="language-xml">        <span class="token comment" spellcheck="true">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 --&gt;</span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>io.springfox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>springfox-swagger2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.9.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<h2 id="springboot集成swagger"><a href="#springboot集成swagger" class="headerlink" title="springboot集成swagger"></a>springboot集成swagger</h2><h3 id="1-新建springboot-web项目"><a href="#1-新建springboot-web项目" class="headerlink" title="1.新建springboot-web项目"></a>1.新建springboot-web项目</h3><h3 id="2-导入相关依赖"><a href="#2-导入相关依赖" class="headerlink" title="2.导入相关依赖"></a>2.导入相关依赖</h3><pre class="line-numbers language-xml"><code class="language-xml">        <span class="token comment" spellcheck="true">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.springfox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>springfox-swagger2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.9.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 
-        <span class="token comment" spellcheck="true">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui --&gt;</span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>io.springfox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>springfox-swagger-ui<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.9.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token comment" spellcheck="true">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.springfox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>springfox-swagger-ui<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.9.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-编写Hello工程"><a href="#3-编写Hello工程" class="headerlink" title="3.编写Hello工程"></a>3.编写Hello工程</h3><p>HelloController</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>allen<span class="token punctuation">.</span>swagger<span class="token punctuation">.</span>controller<span class="token punctuation">;</span>
 
@@ -1305,7 +1305,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

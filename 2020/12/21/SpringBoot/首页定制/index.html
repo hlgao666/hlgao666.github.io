@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    261
+                    260
                 </div>
                 
 
@@ -515,7 +515,7 @@
     <span class="token keyword">return</span> welcomePageHandlerMapping<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>以及</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">private</span> Optional<span class="token operator">&lt;</span>Resource<span class="token operator">&gt;</span> <span class="token function">getWelcomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">private</span> Optional<span class="token operator">&lt;</span>Resource<span class="token operator">></span> <span class="token function">getWelcomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     String<span class="token punctuation">[</span><span class="token punctuation">]</span> locations <span class="token operator">=</span> WebMvcAutoConfiguration<span class="token punctuation">.</span><span class="token function">getResourceLocations</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>resourceProperties<span class="token punctuation">.</span><span class="token function">getStaticLocations</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> Arrays<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>locations<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">:</span><span class="token operator">:</span>getIndexHtml<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">:</span><span class="token operator">:</span>isReadable<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -1083,7 +1083,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

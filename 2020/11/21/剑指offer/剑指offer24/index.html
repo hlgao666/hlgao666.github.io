@@ -487,7 +487,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    742
+                    734
                 </div>
                 
 
@@ -535,14 +535,14 @@ public class TreeNode {
 }
 */</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    ArrayList<span class="token operator">&lt;</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;&gt;</span> pathList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> path <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> ArrayList<span class="token operator">&lt;</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;&gt;</span> <span class="token function">FindPath</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">,</span><span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ArrayList<span class="token operator">&lt;</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">>></span> pathList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> path <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> ArrayList<span class="token operator">&lt;</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">>></span> <span class="token function">FindPath</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">,</span><span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">==</span>null<span class="token punctuation">)</span> 
             <span class="token keyword">return</span> pathList<span class="token punctuation">;</span>
         path<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token operator">==</span>null <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>right<span class="token operator">==</span>null <span class="token operator">&amp;&amp;</span> target<span class="token operator">==</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
-            pathList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            pathList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token operator">!=</span>null <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>val <span class="token operator">&lt;=</span> target<span class="token punctuation">)</span>
             <span class="token function">FindPath</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> target<span class="token operator">-</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token operator">!=</span>null <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>val<span class="token operator">&lt;=</span> target<span class="token punctuation">)</span>
@@ -1113,7 +1113,7 @@ public class TreeNode {
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    573
+                    571
                 </div>
                 
 
@@ -531,13 +531,13 @@
             <span class="token comment" spellcheck="true">//左半部分有序，注意小于等于</span>
             <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token operator">&lt;=</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                 <span class="token comment" spellcheck="true">//目标值在左半部分</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>target<span class="token operator">&gt;=</span>nums<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> target<span class="token operator">&lt;</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>target<span class="token operator">>=</span>nums<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> target<span class="token operator">&lt;</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                     high <span class="token operator">=</span> mid<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
                     low <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//右半部分有序</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>target<span class="token operator">&gt;</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> target<span class="token operator">&lt;=</span>nums<span class="token punctuation">[</span>high<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>target<span class="token operator">></span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> target<span class="token operator">&lt;=</span>nums<span class="token punctuation">[</span>high<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                     low <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
                     high <span class="token operator">=</span> mid<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
@@ -1106,7 +1106,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

@@ -491,7 +491,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    563
+                    561
                 </div>
                 
 
@@ -540,7 +540,7 @@
     <span class="token comment" spellcheck="true">//归并排序的分治---分</span>
     <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">divide</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span><span class="token keyword">int</span> start<span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//递归的终止条件</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>start <span class="token operator">&gt;=</span> end<span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>start <span class="token operator">>=</span> end<span class="token punctuation">)</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">//计算中间值，注意溢出</span>
         <span class="token keyword">int</span> mid <span class="token operator">=</span> start <span class="token operator">+</span> <span class="token punctuation">(</span>end <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
@@ -565,7 +565,7 @@
                 temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
                 temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">//a[i]&gt;a[j]了，那么这一次，从a[i]开始到a[mid]必定都是大于这个a[j]的，因为此时分治的两边已经是各自有序了</span>
+                <span class="token comment" spellcheck="true">//a[i]>a[j]了，那么这一次，从a[i]开始到a[mid]必定都是大于这个a[j]的，因为此时分治的两边已经是各自有序了</span>
                 cnt <span class="token operator">=</span> <span class="token punctuation">(</span>cnt<span class="token operator">+</span>mid<span class="token operator">-</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">1000000007</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
@@ -1144,7 +1144,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

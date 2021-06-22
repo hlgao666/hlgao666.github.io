@@ -487,7 +487,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1k
                 </div>
                 
 
@@ -549,17 +549,17 @@
         <span class="token keyword">int</span> minHeight<span class="token punctuation">;</span>
         <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-        <span class="token keyword">while</span><span class="token punctuation">(</span>tempLeft<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>tempLeft<span class="token punctuation">]</span><span class="token operator">&gt;</span>leftHigh<span class="token punctuation">)</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>tempLeft<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>tempLeft<span class="token punctuation">]</span><span class="token operator">></span>leftHigh<span class="token punctuation">)</span>
                 leftHigh <span class="token operator">=</span> height<span class="token punctuation">[</span>tempLeft<span class="token punctuation">]</span><span class="token punctuation">;</span>
             tempLeft<span class="token operator">--</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">while</span><span class="token punctuation">(</span>tempRight<span class="token operator">&lt;=</span>height<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>tempRight<span class="token punctuation">]</span><span class="token operator">&gt;</span>rightHigh<span class="token punctuation">)</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>tempRight<span class="token punctuation">]</span><span class="token operator">></span>rightHigh<span class="token punctuation">)</span>
                 rightHigh <span class="token operator">=</span> height<span class="token punctuation">[</span>tempRight<span class="token punctuation">]</span><span class="token punctuation">;</span>
             tempRight<span class="token operator">++</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        minHeight <span class="token operator">=</span> leftHigh<span class="token operator">&gt;</span>rightHigh<span class="token operator">?</span>rightHigh<span class="token operator">:</span>leftHigh<span class="token punctuation">;</span>
+        minHeight <span class="token operator">=</span> leftHigh<span class="token operator">></span>rightHigh<span class="token operator">?</span>rightHigh<span class="token operator">:</span>leftHigh<span class="token punctuation">;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>curCol<span class="token punctuation">]</span><span class="token operator">&lt;</span>minHeight<span class="token punctuation">)</span>
             res <span class="token operator">=</span> minHeight <span class="token operator">-</span> height<span class="token punctuation">[</span>curCol<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
@@ -582,13 +582,13 @@
             max_left<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max_left<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>height<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>height<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>height<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
             max_right<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max_right<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>height<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>height<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
             <span class="token keyword">int</span> min_height <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>max_left<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>max_right<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>min_height<span class="token operator">&gt;</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>min_height<span class="token operator">></span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
                 res <span class="token operator">+=</span> min_height<span class="token operator">-</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
@@ -612,7 +612,7 @@
         <span class="token keyword">if</span> <span class="token punctuation">(</span>height<span class="token punctuation">[</span>left <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> height<span class="token punctuation">[</span>right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             max_left <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max_left<span class="token punctuation">,</span> height<span class="token punctuation">[</span>left <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">int</span> min <span class="token operator">=</span> max_left<span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>min <span class="token operator">&gt;</span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>min <span class="token operator">></span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 sum <span class="token operator">=</span> sum <span class="token operator">+</span> <span class="token punctuation">(</span>min <span class="token operator">-</span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
             left<span class="token operator">++</span><span class="token punctuation">;</span>
@@ -620,7 +620,7 @@
         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
             max_right <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max_right<span class="token punctuation">,</span> height<span class="token punctuation">[</span>right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">int</span> min <span class="token operator">=</span> max_right<span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>min <span class="token operator">&gt;</span> height<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>min <span class="token operator">></span> height<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 sum <span class="token operator">=</span> sum <span class="token operator">+</span> <span class="token punctuation">(</span>min <span class="token operator">-</span> height<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
             right<span class="token operator">--</span><span class="token punctuation">;</span>
@@ -1193,7 +1193,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

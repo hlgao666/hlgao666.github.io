@@ -533,7 +533,7 @@
         <span class="token keyword">if</span><span class="token punctuation">(</span>depleft<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//如果递归完左子树，发现左子树不满足平衡二叉树，则返回 -1；右子树同理</span>
         <span class="token keyword">int</span> depright <span class="token operator">=</span> <span class="token function">TreeDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>depright<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>depleft<span class="token operator">-</span>depright<span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">1</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">1</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>depleft<span class="token punctuation">,</span>depright<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//记得加上根节点的1</span>
+        <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>depleft<span class="token operator">-</span>depright<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">1</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>depleft<span class="token punctuation">,</span>depright<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//记得加上根节点的1</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="补充：二叉树的创建、遍历、深度、宽度"><a href="#补充：二叉树的创建、遍历、深度、宽度" class="headerlink" title="补充：二叉树的创建、遍历、深度、宽度"></a>补充：二叉树的创建、遍历、深度、宽度</h3><p>其中，遍历包括 先序、中序、后序、层次，每一种都采用递归和非递归方法实现。</p>
@@ -655,7 +655,7 @@
      */</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">createTree</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> treeNodes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        Stack<span class="token operator">&lt;</span>Node<span class="token operator">&gt;</span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Stack<span class="token operator">&lt;</span>Node<span class="token operator">></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
@@ -763,7 +763,7 @@
     <span class="token comment" spellcheck="true">// 先序遍历</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printPreOder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        Stack<span class="token operator">&lt;</span>Node<span class="token operator">&gt;</span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Stack<span class="token operator">&lt;</span>Node<span class="token operator">></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         Node tempNode <span class="token operator">=</span> root<span class="token punctuation">;</span>
 
@@ -789,7 +789,7 @@
     <span class="token comment" spellcheck="true">// 中序遍历</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printInOder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        Stack<span class="token operator">&lt;</span>Node<span class="token operator">&gt;</span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Stack<span class="token operator">&lt;</span>Node<span class="token operator">></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         Node tempNode <span class="token operator">=</span> root<span class="token punctuation">;</span>
 
@@ -814,7 +814,7 @@
     <span class="token comment" spellcheck="true">// 后序遍历</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printPostOder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        Stack<span class="token operator">&lt;</span>Node<span class="token operator">&gt;</span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Stack<span class="token operator">&lt;</span>Node<span class="token operator">></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         Node tempNode <span class="token operator">=</span> root<span class="token punctuation">;</span>
 
@@ -852,7 +852,7 @@
     <span class="token comment" spellcheck="true">// 层序遍历 利用队列</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printLevelOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        Queue<span class="token operator">&lt;</span>Node<span class="token operator">&gt;</span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Queue<span class="token operator">&lt;</span>Node<span class="token operator">></span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         Node tempNode <span class="token operator">=</span> root<span class="token punctuation">;</span>
 
@@ -900,8 +900,8 @@
     <span class="token comment" spellcheck="true">// 利用层序遍历,得到树的最大宽度</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printMaxWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        Queue<span class="token operator">&lt;</span>Node<span class="token operator">&gt;</span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Queue<span class="token operator">&lt;</span>Node<span class="token operator">&gt;</span> queueTemp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Queue<span class="token operator">&lt;</span>Node<span class="token operator">></span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Queue<span class="token operator">&lt;</span>Node<span class="token operator">></span> queueTemp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token keyword">int</span> maxWidth <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
@@ -932,7 +932,7 @@
 
             maxWidth <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>maxWidth<span class="token punctuation">,</span> queueTemp<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             queue <span class="token operator">=</span> queueTemp<span class="token punctuation">;</span>
-            queueTemp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            queueTemp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>maxWidth<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -967,7 +967,7 @@
         AbstractBinaryTree binaryTree <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BinaryTree</span><span class="token punctuation">(</span>treeStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         Object newProxyInstance <span class="token operator">=</span> Proxy<span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>binaryTree<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                binaryTree<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>proxy<span class="token punctuation">,</span> method<span class="token punctuation">,</span> args<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+                binaryTree<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>proxy<span class="token punctuation">,</span> method<span class="token punctuation">,</span> args<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
                     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     Object invoke <span class="token operator">=</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>binaryTree<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
                     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1543,7 +1543,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

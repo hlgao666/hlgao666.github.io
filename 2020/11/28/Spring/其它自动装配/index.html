@@ -483,14 +483,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    455
+                    447
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -506,11 +506,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="使用注解实现自动装配"><a href="#使用注解实现自动装配" class="headerlink" title="使用注解实现自动装配"></a>使用注解实现自动装配</h1><h2 id="属性的注入"><a href="#属性的注入" class="headerlink" title="属性的注入"></a>属性的注入</h2><p>User 类的 name 属性</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 相当于配置文件中 &lt;bean id="user" class="当前注解的类"/&gt;</span>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 相当于配置文件中 &lt;bean id="user" class="当前注解的类"/></span>
 <span class="token annotation punctuation">@Component</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
 
-    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"allen"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//等价于 &lt;property name="name" value="allen"/&gt;</span>
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"allen"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//等价于 &lt;property name="name" value="allen"/></span>
     <span class="token keyword">public</span> String name<span class="token punctuation">;</span>
 
     <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -534,13 +534,13 @@
 <p>@Resource先通过名字(byName)，再通过类型(byType)实现自动装配；</p>
 <p>@Autowired 限定名称时需要通过@Qualifier(value=”xxx”)配合使用；</p>
 <p>@Nullable，允许属性值为 null 而不报空指针异常。</p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 相当于配置文件中 &lt;bean id="user" class="当前注解的类"/&gt;</span>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 相当于配置文件中 &lt;bean id="user" class="当前注解的类"/></span>
 <span class="token annotation punctuation">@Component</span>
 <span class="token comment" spellcheck="true">//作用域——原型</span>
 <span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span><span class="token string">"prototype"</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
 
-    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"allen"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//等价于 &lt;property name="name" value="allen"/&gt;</span>
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"allen"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//等价于 &lt;property name="name" value="allen"/></span>
     <span class="token keyword">public</span> String name<span class="token punctuation">;</span>
 
     <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -562,10 +562,10 @@
 <li>注解只负责属性的注入；</li>
 </ul>
 <p>注意：如果让注解生效，必须开启注解配置</p>
-<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- 指定注解扫描包 --&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.allen<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
-<span class="token comment" spellcheck="true">&lt;!-- 开启注解支持--&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>annotation-config</span><span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- 指定注解扫描包 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.allen<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token comment" spellcheck="true">&lt;!-- 开启注解支持--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>annotation-config</span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1123,7 +1123,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">306.8k</span>&nbsp;字
+                class="white-color">364.2k</span>&nbsp;字
             
             
             

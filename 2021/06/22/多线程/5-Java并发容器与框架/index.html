@@ -1,0 +1,1532 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="5 Java并发容器与框架, hlgao666/hlgao666">
+    <meta name="description" content="一点寒芒先至，随后枪出如龙。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>5 Java并发容器与框架 | Allen</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Allen</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Allen</div>
+        <div class="logo-desc">
+            
+            一点寒芒先至，随后枪出如龙。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hlgao666" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hlgao666" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/73.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">5 Java并发容器与框架</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ConcurrentHashMap原理/">
+                                <span class="chip bg-color">ConcurrentHashMap原理</span>
+                            </a>
+                        
+                            <a href="/tags/ConcurrentLinkedQueue/">
+                                <span class="chip bg-color">ConcurrentLinkedQueue</span>
+                            </a>
+                        
+                            <a href="/tags/阻塞队列/">
+                                <span class="chip bg-color">阻塞队列</span>
+                            </a>
+                        
+                            <a href="/tags/Fork-Join框架/">
+                                <span class="chip bg-color">Fork/Join框架</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/多线程/" class="post-category">
+                                多线程
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-22
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-06-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    32 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Java并发容器与框架"><a href="#Java并发容器与框架" class="headerlink" title="Java并发容器与框架"></a>Java并发容器与框架</h1><h2 id="ConcurrentHashMap的实现原理与使用"><a href="#ConcurrentHashMap的实现原理与使用" class="headerlink" title="ConcurrentHashMap的实现原理与使用"></a>ConcurrentHashMap的实现原理与使用</h2><p>ConcurrentHashMap是<strong>线程安全且高效的HashMap</strong>。</p>
+<h3 id="为什么要使用ConcurrentHashMap"><a href="#为什么要使用ConcurrentHashMap" class="headerlink" title="为什么要使用ConcurrentHashMap"></a>为什么要使用ConcurrentHashMap</h3><p>在并发编程中<strong>使用HashMap（线程不安全）可能导致程序死循环</strong>。而使用<strong>线程安全的HashTable效率低下</strong>，基于以上两个原因,便有了ConcuurentHashMap的登场机会。</p>
+<h4 id="1-线程不安全的HashMap"><a href="#1-线程不安全的HashMap" class="headerlink" title="(1)线程不安全的HashMap"></a>(1)线程不安全的HashMap</h4><p>在多线程环境下，使用HashMap进行put操作会引起死循环,导致CPU利用率接近100%，所以在并发情况下不能使用HashMap。例如，执行以下代码会引起死循环。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210511194814.png" alt=""></p>
+<p>HashMap在并发执行put操作时会引起死循环,是因为<strong>多线程会导致HashMap的Entry链表形成环形数据结构，一旦形成环形数据结构，Entry的next节点永远不为空,就会产生死循环获取Entry</strong>。</p>
+<p>HashMap的线程不安全主要体现在下面两个方面：</p>
+<ul>
+<li>1.在JDK1.7中，当<strong>并发执行**</strong>扩容操作时会造成环形链和数据丢失**的情况。</li>
+<li>2.在JDK1.8中，在并发执行put操作时会发生<strong>数据覆盖</strong>的情况。</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/e2f75c8cce01" target="_blank" rel="noopener">为什么HashMap线程不安全</a></p>
+<h4 id="2-效率低下的HashTable"><a href="#2-效率低下的HashTable" class="headerlink" title="(2)效率低下的HashTable"></a>(2)效率低下的HashTable</h4><p>HashTable容器使用synchronized来保证线程安全,但在线程竞争激烈的情况下HashTable的效率非常低下。因为当一个线程访问HashTable的同步方法,其他线程也访问HashTable的同步方法时，会进入阻塞或轮询状态。如线程1使用put进行元素添加,线程2不但不能使用put方法添加元素,也不能使用get方法来获取元素,所以竞争越激烈效率越低。</p>
+<h4 id="3-ConcurentHashMap的锁分段技术可有效提升并发访问率"><a href="#3-ConcurentHashMap的锁分段技术可有效提升并发访问率" class="headerlink" title="(3)ConcurentHashMap的锁分段技术可有效提升并发访问率"></a>(3)ConcurentHashMap的锁分段技术可有效提升并发访问率</h4><p>HashTable容器在竞争激烈的并发环境下表现出效率低下的原因是所有访问HashTable的线程都必须竞争同一把锁。</p>
+<p>假如容器里有多把锁,每一把锁用于锁容器其中一部分数据，那么当多线程访问容器里不同数据段的数据时,线程间就不会存在锁竞争,从而可以有效提高并发访问效率,这就是ConcurentHashMap所使用的<strong>锁分段技术</strong>——首先将数据分成一段一段地存储,然后给每一段数据配一把锁,当一个线程占用锁访问其中一个段数据的时候,其他段的数据也能被其他线程访问。</p>
+<h3 id="ConcurrentHashMap的结构"><a href="#ConcurrentHashMap的结构" class="headerlink" title="ConcurrentHashMap的结构"></a>ConcurrentHashMap的结构</h3><p>通过ConcuurentHashMap的类图来分析ConcuurentHashMap的结构,如图6-1所示。</p>
+<p>ConcuurentHashMap是由Segment数组结构和HashEntry数组结构组成。Segment是一种可重入锁(ReentrantLock)，在ConcurentHashMap里扮演锁的角色;HashEntry则用于存储键值对数据。一个ConcurentHashMap里包含一个Segment数组。Segment的结构和HashMap类似,是一种数组和链表结构。一个Segment里包含一个HashEntry数组,每个HashEntry是一个链表结构的元素，每个Segment守护着一个HashEntry数组里的元素,当对HashEntry数组的数据进行修改时，必须首先获得与它对应的Segment锁,如图6-2所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210511202631.png" alt=""></p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210511202647.png" alt=""></p>
+<h3 id="ConcurrentHashMap的初始化"><a href="#ConcurrentHashMap的初始化" class="headerlink" title="ConcurrentHashMap的初始化"></a>ConcurrentHashMap的初始化</h3><p>ConcurrentHashMap初始化方法是通过initialCapacity、loadFactor和concuurencyLevel等几个参数来初始化segment数组、段偏移量segmentShift、段掩码segmentMask和每个segment里的HashEntry数组来实现的。</p>
+<h4 id="1-初始化segments数组"><a href="#1-初始化segments数组" class="headerlink" title="1.初始化segments数组"></a>1.初始化segments数组</h4><p>让我们来看一下初始化segments数组的源代码。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210511210422.png" alt=""></p>
+<p>由上面的代码可知,segments数组的长度ssize是通过concurencyLevel计算得出的。<strong>为了能通过按位与的散列算法来定位segments数组的索引,必须保证segments数组的长度是2的N次方</strong>(power-of-two size)，所以必须计算出一个大于或等于concuurencyLevel的最小的2的N次方值来作为segments数组的长度。假如concurencyLevel等于14、15或16, ssize都会等于16, 即容器里锁的个数也是16。</p>
+<p>注意：concurrencyLevel的最大值是65535，这意味着segments数组的长度最大为65536，对应的二进制是16位。</p>
+<p><a href="https://blog.csdn.net/baidu_38116275/article/details/104849451" target="_blank" rel="noopener">HashMap的长度为什么要是2的n次方</a></p>
+<p><a href="https://blog.csdn.net/lkforce/article/details/89521318" target="_blank" rel="noopener">！！！！Hashmap实现原理及扩容机制详解！！！！</a></p>
+<h4 id="2-初始化segmentShift和segmentMask"><a href="#2-初始化segmentShift和segmentMask" class="headerlink" title="2.初始化segmentShift和segmentMask"></a>2.初始化segmentShift和segmentMask</h4><p>这两个全局变量需要在定位segment时的散列算法里使用,sshift等于ssize从1向左移位的次数,在默认情况下concurencyLevel等于16,1需要向左移位移动4次,所以sshift等于4。segmentShift用于定位参与散列运算的位数,segmentShift等于32减sshift，所以等于28,这里之所以用32是因为ConcumrentHashMap里的hash()方法输出的最大数是32位的,后面的测试中我们可以看到这点。segmentMask是散列运算的掩码,等于ssize减1，即15，掩码的二进制各个位的值都是1。因为ssize的最大长度是65536,所以segmentShift最大值是16,segmentMask最大值是65535，对应的二进制是16位，每个位都是1。</p>
+<h4 id="3-初始化每个segment"><a href="#3-初始化每个segment" class="headerlink" title="3.初始化每个segment"></a>3.初始化每个segment</h4><p>输入参数initialCapacity是ConcurentHashMap的初始化容量, loadfactor是每个segment的负载因子,在构造方法里需要通过这两个参数来初始化数组中的每个segment。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210511212712.png" alt=""></p>
+<p>上面代码中的变量cap就是segment里HashEntry数组的长度，它等于initialCapacity除以ssize的倍数c，如果c大于1，就会取大于等于c的2的N次方值,所以<strong>cap不是1，就是2的N次方</strong>。</p>
+<p>segment的容量threshold=(int) cap*loadFactor，默认情况下initialCapacity等于16, loadfactor等于0.75，通过运算cap等于1,threshold等于0。</p>
+<h3 id="定位-Segment"><a href="#定位-Segment" class="headerlink" title="定位 Segment"></a>定位 Segment</h3><p>既然ConcuurentHashMap使用分段锁Segment来保护不同段的数据，那么在插入和获取元素的时候,必须先通过散列算法定位到Segment。可以看到ConcurrentHashMap会首先使用<br>Wang/Jenkins hash的变种算法对元素的hashCode进行一次再散列。</p>
+<p><strong>之所以进行再散列,目的是减少散列冲突，使元素能够均匀地分布在不同的Segment上,从而提高容器的存取效率</strong>。假如散列的质量差到极点，那么所有的元素都在一个Segment中，不仅存取元素缓慢,分段锁也会失去意义。</p>
+<p>可以发现,每一位的数据都散列开了，通过这种再散列能让数字的每一位都参加到散列运算当中,从而减少散列冲突。ConcuurentHashMap通过以下散列算法定位segment。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210511213421.png" alt=""></p>
+<p>默认情况下segmentShift为28， segmentMask为15，再散列后的数最大是32位二进制数据，向右无符号移动28位，意思是让高4位参与到散列运算中，(hash&gt;&gt;&gt;segmentShift)<br>&amp;segmentMask的运算结果分别是4、15、7和8，可以看到散列值没有发生冲突。</p>
+<h3 id="ConcurrentHashMap的操作"><a href="#ConcurrentHashMap的操作" class="headerlink" title="ConcurrentHashMap的操作"></a>ConcurrentHashMap的操作</h3><p>本节介绍ConcurentHashMap的3种操作———get操作、put操作和size操作。</p>
+<h4 id="1-get操作"><a href="#1-get操作" class="headerlink" title="1.get操作"></a>1.get操作</h4><p>Segment的get操作实现非常简单和高效。先经过一次再散列,然后使用这个散列值通过散列运算定位到Segment，再通过散列算法定位到元素,代码如下。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210511213951.png" alt=""></p>
+<p>get操作的高效之处在于整个get过程不需要加锁,除非读到的值是空才会加锁重读。我们知道HashTable容器的get方法是需要加锁的,那么ConcurentHashMap的get操作是如何做到不加锁的呢?</p>
+<p><strong>原因是它的get方法里将要使用的共享变量都定义成volatile类型,如用于统计当前Segement大小的count字段和用于存储值的HashEntry的value</strong>。定义成volatile的变量,能够在线程之间保持可见性.能够被多线程同时读，并且保证不会读到过期的值,但是只能被单线程写(有一种情况可以被多线程写,就是写入的值不依赖于原值)，在get操作里只需要读不需要写共享变量count和value,所以可以不用加锁。</p>
+<p>之所以不会读到过期的值,是因为根据Java内存模型的happens-before原则，对volatile字段的写入操作先于读操作,即使两个线程同时修改和获取volatile变量,get操作也能拿到最新的值，这是用volatile替换锁的经典应用场景。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210511214431.png" alt=""></p>
+<p>在定位元素的代码里我们可以发现，定位HashEntry和定位Segment的散列算法虽然一样，都与数组的长度减去1再相与”，但是相“与”的值不一样：</p>
+<ul>
+<li>定位Segment使用的是元素的hashcode通过<strong>再散列后得到的值的高位</strong></li>
+<li>而定位HashEntry值接使用的是<strong>再散列后的值</strong>。</li>
+<li>其目的是避免两次散列后的值一样,虽然元素在Segment里散列开了，但是却没有在HashEntry里散列开。</li>
+</ul>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210511214509.png" alt=""></p>
+<h4 id="2-put操作"><a href="#2-put操作" class="headerlink" title="2.put操作"></a>2.put操作</h4><p>由于put方法里需要对共享变量进行写入操作，所以为了线程安全，在操作共享变量时必须加锁。 put方法首先定位到Segment，然后在Segment里进行插入操作。插入操作需要经历两个步骤，第一步判断是否需要对Segnent里的HashEntry数组进行扩容，第二步定位添加元素的位置，然后将其放在HashEntry数组里。</p>
+<p><strong>(1)是否需要扩容</strong></p>
+<p>在<strong>插入元素前</strong>会先判断<strong>Segment</strong>里的HashEntry数组是否超过容量(threshold)，如果超过阈值,则<strong>对数组进行扩容</strong>。</p>
+<p>值得一提的是,Segment的扩容判断比HashMap更恰当,因为<strong>HashMap是在插入元素后</strong>判断元素是否已经到达容量的,如果到达了就进行<strong>扩容</strong>，但是很有可能扩容之后没有新元素插入，这时HashMap就进行了一次<strong>无效的扩容</strong>。</p>
+<p><strong>(2)如何扩容</strong></p>
+<p>在扩容的时候,首先会创建一个容量是原来容量两倍的数组,然后将原数组里的元素进行再散列后插入到新的数组里。为了高效，<strong>ConcurentHashMap不会对整个容器进行扩容,而只对某个segment进行扩容</strong>。</p>
+<h4 id="3-size操作"><a href="#3-size操作" class="headerlink" title="3.size操作"></a>3.size操作</h4><p>如果要统计整个ConcuurentHashMap里元素的大小,就必须统计所有Segment里元素的大小后求和。Segment里的全局变量count是一个volatile变量，那么在多线程场景下，是不是直接把所有Segment的count相加就可以得到整个ConcurrentHashMap大小了呢?不是的,虽然相加时可以获取每个Segment的count的最新值，但是可能累加前使用的count发生了变化，那么统计结果就不准了。所以，最安全的做法是在统计size的时候把所有Segment的put、remove和clean方法全部锁住,但是这种做法显然非常低效。</p>
+<p>因为在累加count操作过程中，之前累加过的count发生变化的几率非常小,所以<br><strong>ConcurrentHashMap的做法是先尝试2次通过不锁住</strong>Segment的方式来统计各个Segnment大小，<strong>如果</strong>统计的过程中,<strong>容器的count发生了变化,则再采用加锁</strong>的方式来统计所有Segment的大小。</p>
+<p>那么ConcurentHashMap是如何判断在统计的时候容器是否发生了变化呢?使用modCoumnt变量,在put、remove和clean方法里操作元素前都会将变量modCount进行加1，那么在统计size前后比较modCouut是否发生变化，从而得知容器的大小是否发生变化。</p>
+<h2 id="ConcurrentLinkedQueue"><a href="#ConcurrentLinkedQueue" class="headerlink" title="ConcurrentLinkedQueue"></a>ConcurrentLinkedQueue</h2><p>在并发编程中,有时候需要使用<strong>线程安全的队列</strong>。如果要实现一个线程安全的队列有两种方式:一种是使用<strong>阻塞算法</strong>，另一种是使用<strong>非阻塞算法</strong>。使用<strong>阻塞算法</strong>的队列可以用<strong>一个锁(入队和出队用同一把锁)或两个锁</strong>(入队和出队用不同的锁)等方式来实现。<strong>非阻塞</strong>的实现方式则可以使用<strong>循环CAS</strong>的方式来实现。</p>
+<p>ConcurentLinkedQueue是一个基于链接节点的<strong>无界线程安全队列</strong>,它采用<strong>先进先出</strong>的规则对节点进行排序，当我们添加一个元素的时候，它会添加到队列的尾部;当我们获取一个元素时，它会返回队列头部的元素。它采用了<strong>wait-free算法(即CAS算法</strong>)来实现,该算法在Michael&amp;Scott算法上进行了一些修改。</p>
+<h3 id="ConcurrentLinkedQueue的结构"><a href="#ConcurrentLinkedQueue的结构" class="headerlink" title="ConcurrentLinkedQueue的结构"></a>ConcurrentLinkedQueue的结构</h3><p>通过ConcurrentLinkedQueue的类图来分析一下它的结构,如图6-3所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210512150343.png" alt=""></p>
+<p>ConcurrentLinkedQueue由head节点和tail节点组成,每个节点(Node)由节点元素(item)和指向下一个节点(next)的引用组成.<strong>节点与节点之间就是通过这个next关联起来,从而组成一张链表结构的队列</strong>。<strong>默认情况下</strong>head节点存储的元素为空, <strong>tail节点等于head节点</strong>。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210512150947.png" alt=""></p>
+<ul>
+<li>关键字<strong>transient</strong>是干啥的？<ul>
+<li>Java的<strong>serialization</strong>提供了一种持久化对象实例的机制。当持久化对象时，可能有一个特殊的对象数据成员，我们不想用serialization机制来保存它。为了在一个特定对象的一个域上<strong>关闭serialization</strong>，可以在这个域前加上关键字<strong>transient</strong>。当一个对象被序列化的时候，<strong>transient</strong>型变量的值不包括在序列化的表示中，然而非<strong>transient</strong>型的变量是被包括进去的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="入队列"><a href="#入队列" class="headerlink" title="入队列"></a>入队列</h3><h4 id="1-入队列的过程"><a href="#1-入队列的过程" class="headerlink" title="1.入队列的过程"></a>1.入队列的过程</h4><p>入队列就是将入队节点添加到队列的尾部。为了方便理解入队时队列的变化，以及head节点和tail节点的变化,这里以一个示例来展开介绍。假设我们想在一个队列中依次插入4个节点，为了帮助大家理解,每添加一个节点就做了一个队列的快照图,如图6-4所示。</p>
+<p>图6-4所示的过程如下。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210513210609.png" alt=""></p>
+<ul>
+<li>添加元素1。队列更新head节点的next节点为元素1节点。又因为tail节点默认情况下等于head节点，所以它们的next节点都指向元素1节点。</li>
+<li>添加元素2。队列首先设置元素1节点的next节点为元素2节点，然后更新tail节点指向元素2节点。</li>
+<li>添加元秦3，设置tail节点的next节点为元素3节点。</li>
+<li>添加元素4，设置元素3的next节点为元素4节点，然后将tail节点指向元素4节点。</li>
+</ul>
+<p>通过调试入队过程并观察head节点和tail节点的变化,发现人队主要做两件事情:第一是将入队节点设置成当前队列尾节点的下一个节点;第二是更新tail节点，<strong>如果tail节点的next节点不为空.则将入队节点设置成tail节点</strong>，如果tail节点的next节点为空,则将入队节点设置成tail的next节点,所以<strong>tail节点不总是尾节点</strong>(理解这一点对于我们研究源码会非常有帮助)。</p>
+<p>通过对上面的分析，我们从单线程入队的角度理解了入队过程,但是多个线程同时进行入队的情况就变得更加复杂了，因为可能会出现其他线程插队的情况。如果有一个线程正在入队，那么它必须先获取尾节点,然后设置尾节点的下一个节点为入队节点,但这时可能有另外一个线程插队了，那么队列的尾节点就会发生变化,这时当前线程要暂停入队操作,然后重新获取尾节点。让我们再通过源码来详细分析一下它是如何使用CAS算法来入队的。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210513210819.png" alt=""></p>
+<p>从源代码角度来看,整个人队过程主要做两件事情:第一是<strong>定位出尾节点</strong>;第二是使<strong>用CAS算法将入队节点设置成尾节点的next节点，如不成功则重试</strong>。</p>
+<h4 id="2-定位尾节点"><a href="#2-定位尾节点" class="headerlink" title="2.定位尾节点"></a>2.定位尾节点</h4><p><strong>tail节点并不总是尾节点</strong>,所以每次入队都必须先通过tail节点来找到尾节点。尾节点可能是tail节点，也可能是tail节点的next节点。代码中循环体中的第一个if就是判断tail是否有next节点,有则表示next节点可能是尾节点。获取tail节点的next节点需要注意的是p节点等于p的next节点的情况,只有一种可能就是p节点和p的next节点都等于空,表示这个队列刚初始化，正准备添加节点,所以需要返回head节点。获取p节点的next节点代码如下。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210513210928.png" alt=""></p>
+<h4 id="3-设置入队节点为尾节点"><a href="#3-设置入队节点为尾节点" class="headerlink" title="3.设置入队节点为尾节点"></a>3.设置入队节点为尾节点</h4><p>p.casNext(null, n)方法用于将入队节点设置为当前队列尾节点的next节点,如果p是null，表示p是当前队列的尾节点，如果不为null，表示有其他线程更新了尾节点，则需要重新获取当前队列的尾节点。</p>
+<h4 id="4-HOPS的设计意图"><a href="#4-HOPS的设计意图" class="headerlink" title="4.HOPS的设计意图"></a>4.HOPS的设计意图</h4><ul>
+<li><strong>每次都要CAS设置 next 节点，但并不是每次都要 CAS 设置 tail 节点</strong></li>
+</ul>
+<p>让tail节点永远作为队列的尾节点,这样实现代码量非常少,而且逻辑清晰和易懂。但是,这么做有个缺点,每次都需要使用<strong>循环CAS更新tail节点</strong>。如果能减少CAS更新tail节点的次数,就能提高入队的效率,所以doug lea使用hops变量来控制并减少tail节点的更新频率，并不是每次节点入队后都将tail节点更新成尾节点，而是当tail节点和尾节点的距离大于等于常量HOPS的值(默认等于1)时扌更新tail节点, <strong>tail和尾节点的距离越长，使用CAS更新tail节点的次<br>数就会越少</strong>，但是距离越长带来的负面效果就是每次入队时定位尾节点的时间就越长，因为循环体需要多循环一次来定位出尾节点，但是这样仍然能提高入队的效率,因为从本质上来看它<strong>通过增加对volatile变量的读操作来减少对volatile变量的写操作,而对volatile变量的写操作开销要远远大于读操作</strong>,所以人队效率会有所提升。</p>
+<pre><code>private static final int HOPS = 1;</code></pre><p>注意：<strong>入队方法永远返回true</strong>，所以不要通过返回值判断入队是否成功。</p>
+<h3 id="出队列"><a href="#出队列" class="headerlink" title="出队列"></a>出队列</h3><p>出队列的就是从队列里返回一个节点元素,并清空该节点对元素的引用。让我们通过每个节点出队的快照来观察一下head节点的变化,如图6-5所示。</p>
+<p>从图中可知，并不是每次出队时都更新head节点，当head节点里有元素时,直接弹出head节点里的元素,而不会更新head节点。只有当head节点里没有元素时，出队操作才会更新head节点。这种做法也是通过hops变量来减少使用CAS更新head节点的消耗,从而提高出队效率。让我们再通过源码来深人分析下出队过程。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210513211436.png" alt=""></p>
+<p>首先获取头节点的元素,然后判断头节点元素是否为空，如果为空，表示另外一个线程已经进行了一次出队操作将该节点的元素取走,如果不为空，则使用CAS的方式将头节点的引用设置成null，如果CAS成功,则直接返回头节点的元素,如果不成功,表示另外一个线程已经进行了一次出队操作更新了head节点，导致元素发生了变化.需要重新获取头节点。</p>
+<h2 id="Java中的阻塞队列"><a href="#Java中的阻塞队列" class="headerlink" title="Java中的阻塞队列"></a>Java中的阻塞队列</h2><h3 id="什么是阻塞队列"><a href="#什么是阻塞队列" class="headerlink" title="什么是阻塞队列"></a>什么是阻塞队列</h3><p>阻塞队列(BlockingQueue)是一个支持两个附加操作的队列。这两个附加的操作支持阻塞的插入和移除方法。</p>
+<ul>
+<li>1)支持阻塞的插入方法:意思是当队列满时,队列会阻塞插入元素的线程,直到队列不满。</li>
+<li>2)支持阻塞的移除方法:意思是在队列为空时,获取元素的线程会等待队列变为非空。</li>
+</ul>
+<p>阻塞队列常用于生产者和消费者的场景，生产者是向队列里添加元素的线程，消费者是从队列里取元素的线程。<strong>阻塞队列就是生产者用来存放元素、消费者用来获取元素的容器</strong>。</p>
+<p>在阻塞队列不可用时，这两个附加操作提供了4种处理方式,如表6-1所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514153017.png" alt=""></p>
+<ul>
+<li>抛出异常:当队列满时，如果再往队列里插入元素，会抛出llegalStateException( “Queuefull”)异常。当队列空时,从队列里获取元素会抛出NoSuchElementException异常。</li>
+<li>返回特殊值:当往队列插人元素时，会返回元素是否插入成功,成功返回true。如果是移除方法，则是从队列里取出一个元素,如果没有则返回null。</li>
+<li>一直阻塞:当阻塞队列满时，如果生产者线程往队列里put元素,队列会一直阻塞生产者线程,直到队列可用或者响应中断退出。当队列空时，如果消费者线程从队列里take元素,队列会阻塞住消费者线程,直到队列不为空。</li>
+<li>超时退出:当阻塞队列满时，如果生产者线程往队列里插入元素,队列会阻塞生产者线程一段时间，如果超过了指定的时间，生产者线程就会退出。</li>
+</ul>
+<p>这两个附加操作的4种处理方式不方便记忆,所以我找了一下这几个方法的规律。<strong>put</strong>和<br><strong>take</strong>分别尾首含有字母t，<strong>offer</strong>和<strong>poll</strong>都含有字母o。</p>
+<p>注意：如果是无界阻塞队列,队列不可能会出现满的情况,所以使用put或offer方法永远不会被阻塞，而且使用offer方法时，该方法永远返回true。</p>
+<h3 id="Java里的阻塞队列"><a href="#Java里的阻塞队列" class="headerlink" title="Java里的阻塞队列"></a>Java里的阻塞队列</h3><p>JDK7提供了7个阻塞队列，如下。</p>
+<ul>
+<li>ArrayBlockingQueue:一个由数组结构组成的有界阻塞队列。</li>
+<li>LinkedBlockingQueue:一个由链表结构组成的有界阻塞队列。</li>
+<li>PriorityBlockingQueue:一个支持优先级排序的<strong>无界阻塞</strong>队列。</li>
+<li>DelayQueue:一个使用优先级队列实现的<strong>无界阻塞</strong>队列。</li>
+<li>SynchronousQueue:一个不存储元素的阻塞队列。</li>
+<li>LinkedTransferQueue:一个由链表结构组成的<strong>无界阻塞</strong>队列。</li>
+<li>LinkedBlockingDeque:一个由链表结构组成的<strong>双向阻塞</strong>队列。</li>
+</ul>
+<h4 id="1-ArrayBlockingQueue"><a href="#1-ArrayBlockingQueue" class="headerlink" title="1.ArrayBlockingQueue"></a>1.ArrayBlockingQueue</h4><p>ArrayBlockingQueue是一个用数组实现的有界阻塞队列。此队列按照先进先出(FIFO)的原则对元素进行排序。</p>
+<p>默认情况下不保证线程公平的访问队列,所谓公平访问队列是指阻塞的线程,可以按照阻塞的先后顺序访问队列，即先阻塞线程先访问队列。非公平性是对先等待的线程是非公平的，当队列可用时,阻塞的线程都可以争夺访问队列的资格,有可能先阻塞的线程最后才访问队列。为了保证公平性,通常会降低吞吐量。我们可以使用以下代码创建一个公平的阻塞队列。</p>
+<p>访问者的公平性是使用可重入锁实现的！</p>
+<h4 id="2-LinkedBlockingQueue"><a href="#2-LinkedBlockingQueue" class="headerlink" title="2.LinkedBlockingQueue"></a>2.LinkedBlockingQueue</h4><p>LinkedBlockingQueue是一个用链表实现的有界阻塞队列。此队列的默认和最大长度为Ilnteger.MAX_VALUE。此队列按照先进先出的原则对元素进行排序。</p>
+<h4 id="3-PriorityBlockingQueue"><a href="#3-PriorityBlockingQueue" class="headerlink" title="3.PriorityBlockingQueue"></a>3.PriorityBlockingQueue</h4><p>PriorityBlockingQueue是一个支持优先级的无界阻塞队列。默认情况下元素采取自然顺序升序排列。也可以自定义类实现compareTo()方法来指定元素排序规则,或者初始化<br>PriorityBlockingQueue时，指定构造参数Comparator来对元素进行排序。需要注意的是不能保证同优先级元素的顺序。</p>
+<h4 id="4-DelayQueue"><a href="#4-DelayQueue" class="headerlink" title="4.DelayQueue"></a>4.DelayQueue</h4><p>DelayQueue是一个支持延时获取元素的无界阻塞队列。队列使用PriorityQueue来实现。队列中的元素必须实现Delayed接口，在创建元素时可以指定多久扌能从队列中获取当前元素。只有在延迟期满时才能从队列中提取元素。</p>
+<p>DelayQueue非常有用，可以将DelayQueue运用在以下应用场景。</p>
+<ul>
+<li><strong>缓存系统的设计</strong>:可以用DelayQueue保存缓存元素的有效期,使用一个线程循环查询DelayQueue，一旦能从DelayQueue中获取元素时，表示缓存有效期到了。</li>
+<li><strong>定时任务调度</strong>:使用DelayQueue保存当天将会执行的任务和执行时间，一旦从DelayQueue中获取到任务就开始执行,比如TimerQueue就是使用DelayQueue实现的。</li>
+</ul>
+<h4 id="5-SynchronousQueue"><a href="#5-SynchronousQueue" class="headerlink" title="5.SynchronousQueue"></a>5.SynchronousQueue</h4><p>SynchronousQueue是一个<strong>不存储元素的阻塞队列</strong>。每一个put操作必须等待一个take操作，否则不能继续添加元素。<br>它<strong>支持公平访问</strong>队列。<strong>默认情况</strong>下线程采用<strong>非公平</strong>性策略访问队列。使用以下构造方法可以创建公平性访问的SynchronousQueue，如果设置为true,则等待的线程会采用先进先出的顺序访问队列。</p>
+<p>SynchronousQueue可以看成是一个传球手,负责把生产者线程处理的数据直接传递给消费者线程。队列本身并不存储任何元素,非常适合传递性场景。SynchronousQueue的吞吐量高于LinkedBlockingQueue和ArrayBlockingQueue。</p>
+<h4 id="6-LinkedTransferQueue"><a href="#6-LinkedTransferQueue" class="headerlink" title="6.LinkedTransferQueue"></a>6.LinkedTransferQueue</h4><p>LinkedTransferQueue是一个由链表结构组成的无界阻塞TransferQueue队列。相对于其他阻塞队列,LinkedTransferQueue<strong>多了tryTransfer和transfer方法</strong>。</p>
+<ul>
+<li>( 1 )transfer方法<ul>
+<li>如果当前有消费者正在等待接收元素(消费者使用take()方法或带时间限制的poll)方法时)，transfer方法可以把生产者传入的元素立刻transfer(传输)给消费者。如果没有消费者在等待接收元素,transfer方法会将元素存放在队列的tail节点，并等到该元素被消费者消费了扌返回。transfer方法的关键代码如下。<br><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514153829.png" alt=""></li>
+<li>第一行代码是试图把存放当前元素的s节点作为tail节点。第二行代码是让CPU自旋等待消费者消费元素。因为自旋会消耗CPU,所以自旋一定的次数后使用Thread.yield()方法来暂停当前正在执行的线程,并执行其他线程。</li>
+</ul>
+</li>
+<li>(2)tryTransfer方法<ul>
+<li>tryransfer方法是用来试探生产者传入的元素是否能直接传给消费者。如果没有消费者等待接收元素,则返回false。<strong>和transfer方法的区别是tryTransfer方法无论消费者是否接收,方法立即返回，而transfer方法是必须等到消费者消费了才返回。</strong></li>
+<li>对于带有时间限制的tryTransfer(E e, long timeout,TimeUnit uit)方法，试图把生产者传入的元素直接传给消费者，但是如果没有消费者消费该元素则等待指定的时间再返回,如果超时还没消费元素,则返回false，如果在超时时间内消费了元素,则返回true。</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-LinkedBlockingDeque"><a href="#7-LinkedBlockingDeque" class="headerlink" title="7.LinkedBlockingDeque"></a>7.LinkedBlockingDeque</h4><ul>
+<li>LinkedBlockingDeque是一个由链表结构组成的双向阻塞队列。所谓双向队列指的是可以从队列的两端插入和移出元素。双向队列因为多了一个操作队列的入口，在多线程同时入队时，也就减少了一半的竞争。相比其他的阻塞队列,LinkedBlockingDeque多了<strong>addFirst、addLast、offerFirst、offerLast、peekFirst和peekLast</strong>等方法，以First单词结尾的方法,表示插入、获取(peek)或移除双端队列的第一个元素。以Last单词结尾的方法,表示插入、获取或移除双端队列的最后一个元素。另外，插入方法add等同于addLast，移除方法remove等效于removeFirst。但是take方法却等同于takeFirst,不知道是不是JDK的bug, <strong>使用时还是用带有First和Last后缀的方法更清楚</strong>。</li>
+<li>在初始化LinkedBlockingDeque时可以设置容量防止其过度膨胀。另外，<strong>双向阻塞队列可以运用在“工作窃取”模式</strong>中。</li>
+</ul>
+<h3 id="阻塞队列的实现原理"><a href="#阻塞队列的实现原理" class="headerlink" title="阻塞队列的实现原理"></a>阻塞队列的实现原理</h3><p>如果队列是空的,消费者会一直等待,当生产者添加元素时，消费者是如何知道当前队列有元素的呢?如果让你来设计阻塞队列你会如何设计,如何让生产者和消费者进行高效率的通信呢?让我们先来看看JDK是如何实现的。</p>
+<p><strong>使用通知模式实现</strong>。所谓通知模式，就是当生产者往满的队列里添加元素时会阻塞住生产者,当消费者消费了一个队列中的元素后,会通知生产者当前队列可用。通过查看JDK源码发现ArrayBlockingQueue使用了Condition来实现,代码如下。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514155450.png" alt=""></p>
+<p>当往队列里插入一个元素时,如果队列不可用，那么阻塞生产者主要通过LockSupport.park( this)来实现。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514155528.png" alt=""></p>
+<p>继续进人源码,发现调用setBlocker先保存一下将要阻塞的线程,然后调用tusafe.park阻塞当前线程。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514155603.png" alt=""></p>
+<p>unsafe.park是个native方法,代码如下。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514155634.png" alt=""></p>
+<p>park这个方法会阻塞当前线程，只有以下4种情况中的一种发生时，该方法扌会返回。</p>
+<ul>
+<li>与park对应的upark执行或已经执行时。“已经执行”是指unpark先执行,然后再执行park的情况。</li>
+<li>线程被中断时。</li>
+<li>等待完time参数指定的毫秒数时。</li>
+<li>异常现象发生时,这个异常现象没有任何原因。</li>
+</ul>
+<h2 id="Fork-Join框架"><a href="#Fork-Join框架" class="headerlink" title="Fork/Join框架"></a>Fork/Join框架</h2><p>Fork/Join框架是Java 7提供的一个用于并行执行任务的框架,<strong>是一个把大任务分割成若干个小任务,最终汇总每个小任务结果后得到大任务结果的框架</strong>。</p>
+<p>我们再通过Fork和Join这两个单词来理解一下Fork/Join框架。Fork就是把一个大任务切分为若干子任务并行的执行,Join就是合并这些子任务的执行结果,最后得到这个大任务的结果。比如计算1+2+…+10000，可以分割成10个子任务,每个子任务分别对1000个数进行求和,最终汇总这10个子任务的结果。Fork/Join的运行流程如图6-6所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514155946.png" alt=""></p>
+<h3 id="工作窃取算法"><a href="#工作窃取算法" class="headerlink" title="工作窃取算法"></a>工作窃取算法</h3><p>工作窃取(work-stealing)算法是指某个线程从其他队列里窃取任务来执行。那么，为什么需要使用工作窃取算法呢?假如我们需要做一个比较大的任务，可以把这个任务分割为若干互不依赖的子任务，为了减少线程间的竞争,把这些子任务分别放到不同的队列里,并为每个队列创建一个单独的线程来执行队列里的任务,线程和队列一一对应。比如A线程负责处理A队列里的任务。但是,有的线程会先把自己队列里的任务干完.而其他线程对应的队列里还有任务等待处理。干完活的线程与其等着,不如去帮其他线程干活，于是它就去其他线程的队列里窃取一个任务来执行。而在这时它们会访问同一个队列,所以<strong>为了减少窃取任务线程和被窃取任务线程之间的竞争</strong>，通常会使用<strong>双端队列</strong>,被窃取任务线程永远从双端队列的<strong>头部</strong>拿任务执行,而窃取任务的线程永远从双端队列的<strong>尾部</strong>拿任务执行。</p>
+<p>工作窃取的运行流程如图6-7所示。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514162145.png" alt=""></p>
+<ul>
+<li>工作窃取算法的优点: 充分利用线程进行并行计算,减少了线程间的竞争。</li>
+<li>工作窃取算法的缺点:<ul>
+<li>在某些情况下还是存在竞争，比如双端队列里只有一个任务时。</li>
+<li>并且该算法会消耗了更多的系统资源,比如创建多个线程和多个双端队列。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Fork-Join框架的设计"><a href="#Fork-Join框架的设计" class="headerlink" title="Fork/Join框架的设计"></a>Fork/Join框架的设计</h3><p>我们已经很清楚Fork/Join框架的需求了，那么可以思考一下，如果让我们来设计一个Fork/Join框架,该如何设计?这个思考有助于你理解Fork/Join框架的设计。</p>
+<p>步骤1 ：<strong>分割任务</strong>。首先我们需要有一个fork类来把大任务分割成子任务,有可能子任务还是很大,所以还需要不停地分割,直到分割出的子任务足够小。</p>
+<p>步骤2： <strong>执行任务并合并结果</strong>。分割的子任务分别放在双端队列里,然后几个后动线程分别从双端队列里获取任务执行。子任务执行完的结果都统一放在一个队列里,唐动一个线程从队列里拿数据,然后合并这些数据。</p>
+<p>Fork/Join使用两个类来完成以上两件事情。</p>
+<ul>
+<li>ForkJoinTask:我们要使用ForkJoin框架,必须首先创建一个ForkJoin任务。它提供在任务中执行fork()和joinr)操作的机制。通常情况下，<strong>我们不需要直接继承ForkToinTask类,只需要继承它的子类</strong>, Fork/Join框架提供了以下两个子类。<ul>
+<li>RecuursiveAction:用于没有返回结果的任务。</li>
+<li>RecursiveTask:用于有返回结果的任务。</li>
+</ul>
+</li>
+<li>ForkToinPool :ForkJoinTask需要通过ForkJoinPool来执行。<ul>
+<li>任务分割出的子任务会添加到当前工作线程所维护的双端队列中，进人队列的头部。当一个工作线程的队列里暂时没有任务时，它会<strong>随机</strong>从其他工作线程的队列的<strong>尾部</strong>获取一个任务。</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用Fork-Join框架"><a href="#使用Fork-Join框架" class="headerlink" title="使用Fork/Join框架"></a>使用Fork/Join框架</h3><p>让我们通过一个简单的需求来使用Fork/Join框架，需求是：计算1+2+3+4的结果。</p>
+<p>使用Fork/Toin框架首先要考虑到的是如何分割任务,如果希望每个子任务最多执行两个数的相加，那么我们设置分割的阈值是2,由于是4个数字相加,所以Fork/Join框架会把这个任务fork成两个子任务,子任务一负责计算1+2,子任务二负责计算3+4,然后再join两个子任务的结果。因为是有结果的任务，所以必须继承RecursiveTask,实现代码如下。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514162620.png" alt=""></p>
+<p>通过这个例子，我们进一步了解ForkJoinTask,ForkJoinTask与一般任务的主要区别在于它<strong>需要实现compute方法</strong>,在这个方法里，首先需要判断任务是否足够小，如果足够小就直接执行任务。如果不足够小,就必须分割成两个子任务，每个子任务在调用fork方法时,又会进入conmpute方法,看看当前子任务是否需要继续分割成子任务,如果不需要继续分割,则执行当前子任务并返回结果。使用join方法会等待子任务执行完并得到其结果。</p>
+<h3 id="Fork-Join框架的异常处理"><a href="#Fork-Join框架的异常处理" class="headerlink" title="Fork/Join框架的异常处理"></a>Fork/Join框架的异常处理</h3><p>ForkJoinTask在执行的时候可能会抛出异常,但是我们没办法在主线程里直接捕获异常，所以ForkJoinTask提供了isCompletedAbnormallyO)方法来检查任务是否已经抛出异常或已经被取消了，并且可以通过ForkJoinTask的getException方法获取异常。使用如下代码。</p>
+<pre><code>if(task.isCompletecAbnormally () )
+    system.out.println (task.getException () ) ;
+}</code></pre><p>getException方法返回Throwable对象,如果任务被取消了则返回CancellationException。如果任务没有完成或者没有抛出异常则返回null。</p>
+<h3 id="Fork-Join框架的实现原理"><a href="#Fork-Join框架的实现原理" class="headerlink" title="Fork/Join框架的实现原理"></a>Fork/Join框架的实现原理</h3><p>ForkJoinPool由ForkJoinTask数组和ForkJoinWorkerThread数组组成,ForkJoinTask数组负责存放程序提交给ForkJoinPool的任务，而ForkJoinWorkerThread数组负责执行这些任务。</p>
+<h4 id="1-ForkJoinTask的fork方法实现原理"><a href="#1-ForkJoinTask的fork方法实现原理" class="headerlink" title="(1)ForkJoinTask的fork方法实现原理"></a>(1)ForkJoinTask的fork方法实现原理</h4><p>当我们调用ForkToinTask的fork方法时，程序会调用ForkJoinWorkerThread的pushTask方法异步地执行这个任务，然后立即返回结果。代码如下。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514162810.png" alt=""></p>
+<p>pushTask方法把当前任务存放在ForkJoinTask数组队列里。然后再调用ForkJoinPool的signalWork()方法唤醒或创建一个工作线程来执行任务。代码如下。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514162840.png" alt=""></p>
+<h4 id="2-ForkJoinTask的join方法实现原理"><a href="#2-ForkJoinTask的join方法实现原理" class="headerlink" title="(2)ForkJoinTask的join方法实现原理"></a>(2)ForkJoinTask的join方法实现原理</h4><p>Join方法的主要作用是阻塞当前线程并等待获取结果。让我们一起看看ForkJoinTask的join方法的实现,代码如下。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514162910.png" alt=""></p>
+<p>首先，它调用了doJoin()方法,通过doJoin()方法得到当前任务的状态来判断返回什么结果,任务状态有4种:已完成(NORMAL)、被取消(CANCELLED)、信号(SIGNAL)和出现异常(EXCEPTIONAL)。</p>
+<ul>
+<li>如果任务状态是已完成,则直接返回任务结果。</li>
+<li>如果任务状态是被取消，则直接抛出CancellationException。</li>
+<li>如果任务状态是抛出异常,则直接抛出对应的异常。</li>
+</ul>
+<p>让我们再来分析一下doJoin()方法的实现代码。</p>
+<p><img src="https://gitee.com/hlgao666/image-depot/raw/master/static/20210514162946.png" alt=""></p>
+<p>在doJoin()方法里，首先通过查看任务的状态,看任务是否已经执行完成,如果执行完成.则直接返回任务状态;如果没有执行完,则从任务数组里取出任务并执行。如果任务顺利执行完成,则设置任务状态为NORMAL，如果出现异常,则记录异常,并将任务状态设置为 EXCEPTIONAL。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Hailong Gao</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hlgao666.github.io/2021/06/22/多线程/5-Java并发容器与框架/">https://hlgao666.github.io/2021/06/22/多线程/5-Java并发容器与框架/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Hailong Gao</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/ConcurrentHashMap原理/">
+                                    <span class="chip bg-color">ConcurrentHashMap原理</span>
+                                </a>
+                            
+                                <a href="/tags/ConcurrentLinkedQueue/">
+                                    <span class="chip bg-color">ConcurrentLinkedQueue</span>
+                                </a>
+                            
+                                <a href="/tags/阻塞队列/">
+                                    <span class="chip bg-color">阻塞队列</span>
+                                </a>
+                            
+                                <a href="/tags/Fork-Join框架/">
+                                    <span class="chip bg-color">Fork/Join框架</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '71b3fe32e349132d133e',
+        clientSecret: '1c6066aad8a2feaccbdf64f42194f3dfef3eb0e0',
+        repo: 'hlgao666.github.io',
+        owner: 'hlgao666',
+        admin: "hlgao666",
+        id: '2021-06-22T14-26-37',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/06/22/多线程/6-Java中的13个原子操作类/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/74.jpg" class="responsive-img" alt="6 Java中的13个原子操作类">
+                        
+                        <span class="card-title">6 Java中的13个原子操作类</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java中的13个原子操作类
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/多线程/" class="post-category">
+                                    多线程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/原子更新基本类型类/">
+                        <span class="chip bg-color">原子更新基本类型类</span>
+                    </a>
+                    
+                    <a href="/tags/原子更新数组/">
+                        <span class="chip bg-color">原子更新数组</span>
+                    </a>
+                    
+                    <a href="/tags/原子更新引用类型/">
+                        <span class="chip bg-color">原子更新引用类型</span>
+                    </a>
+                    
+                    <a href="/tags/原子更新字段类/">
+                        <span class="chip bg-color">原子更新字段类</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/22/多线程/4-Java中的锁/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/72.jpg" class="responsive-img" alt="4 Java中的锁">
+                        
+                        <span class="card-title">4 Java中的锁</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java中的锁
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/多线程/" class="post-category">
+                                    多线程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Lock/">
+                        <span class="chip bg-color">Lock</span>
+                    </a>
+                    
+                    <a href="/tags/AQS/">
+                        <span class="chip bg-color">AQS</span>
+                    </a>
+                    
+                    <a href="/tags/ReentrantLock/">
+                        <span class="chip bg-color">ReentrantLock</span>
+                    </a>
+                    
+                    <a href="/tags/ReentrantReadWriteLock/">
+                        <span class="chip bg-color">ReentrantReadWriteLock</span>
+                    </a>
+                    
+                    <a href="/tags/LockSupport/">
+                        <span class="chip bg-color">LockSupport</span>
+                    </a>
+                    
+                    <a href="/tags/Condition/">
+                        <span class="chip bg-color">Condition</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="488982301"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Hailong Gao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">364.2k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "09";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hlgao666" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1330695688@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1330695688" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1330695688" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hlgao666/hlgao666.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
