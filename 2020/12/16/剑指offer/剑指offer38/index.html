@@ -487,7 +487,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    355
+                    358
                 </div>
                 
 
@@ -527,7 +527,7 @@
         <span class="token keyword">int</span> depright <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
         depleft <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">+</span><span class="token function">TreeDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
         depright <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">+</span><span class="token function">TreeDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> depleft<span class="token operator">></span>depright<span class="token operator">?</span>depleft<span class="token operator">:</span>depright<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> depleft<span class="token operator">&gt;</span>depright<span class="token operator">?</span>depleft<span class="token operator">:</span>depright<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="解法2：层次遍历，使用队列辅助实现"><a href="#解法2：层次遍历，使用队列辅助实现" class="headerlink" title="解法2：层次遍历，使用队列辅助实现"></a>解法2：层次遍历，使用队列辅助实现</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Queue<span class="token punctuation">;</span>
@@ -537,7 +537,7 @@
         <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
         <span class="token comment" spellcheck="true">//层次遍历,使用队列辅助实现</span>
-        Queue<span class="token operator">&lt;</span>TreeNode<span class="token operator">></span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span>TreeNode<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Queue<span class="token operator">&lt;</span>TreeNode<span class="token operator">&gt;</span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span>TreeNode<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> depth<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> cnt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> nextcnt<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
@@ -1127,7 +1127,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">302k</span>&nbsp;字
+                class="white-color">306.8k</span>&nbsp;字
             
             
             

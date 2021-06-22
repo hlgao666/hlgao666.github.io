@@ -820,10 +820,10 @@ OK
 </ul>
 <h3 id="Zset（有序集合）"><a href="#Zset（有序集合）" class="headerlink" title="Zset（有序集合）"></a>Zset（有序集合）</h3><p>在set的基础上，<br><code>set k1 v1</code><br>增加了一个值  score， Zset 正是依靠 score 来进行排序。<br><code>zset k1 score1 v1</code></p>
 <pre class="line-numbers language-java"><code class="language-java"># 根据score（数字）进行排序
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zadd myset <span class="token number">1</span> one <span class="token number">2</span> two <span class="token number">5</span> three <span class="token number">2</span> <span class="token function">six</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zadd myset <span class="token number">1</span> one <span class="token number">2</span> two <span class="token number">5</span> three <span class="token number">2</span> <span class="token function">six</span>
 <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">4</span>
 # 获取所有元素
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zrange myset <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zrange myset <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span>
 <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"one"</span>
 <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"six"</span>
 <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">"two"</span>
@@ -832,26 +832,26 @@ OK
 ###########################################
 
 # 排序
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zadd salary <span class="token number">1000</span> <span class="token function">p1</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zadd salary <span class="token number">1000</span> <span class="token function">p1</span>
 <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zadd salary <span class="token number">200</span> <span class="token function">p2</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zadd salary <span class="token number">200</span> <span class="token function">p2</span>
 <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zadd salary <span class="token number">2080</span> <span class="token function">p3</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zadd salary <span class="token number">2080</span> <span class="token function">p3</span>
 <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
 # 默认从小到大排序
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zrangebyscore salary <span class="token operator">-</span>inf <span class="token operator">+</span>inf
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zrangebyscore salary <span class="token operator">-</span>inf <span class="token operator">+</span>inf
 <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"p2"</span>
 <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"p1"</span>
 <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">"p3"</span>
 # 从大到小排序
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zrevrange salary <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> withscores
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zrevrange salary <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> withscores
 <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"p3"</span>
 <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"2080"</span>
 <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">"p2"</span>
 <span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">"200"</span>
 
 # 显示所有用户并且带 score
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zrangebyscore salary <span class="token operator">-</span>inf <span class="token operator">+</span>inf withscores 
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zrangebyscore salary <span class="token operator">-</span>inf <span class="token operator">+</span>inf withscores 
 <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"p2"</span>
 <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"200"</span>
 <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">"p1"</span>
@@ -862,25 +862,25 @@ OK
 ###########################################
 
 # 移除某个元素
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zrem salary <span class="token function">p1</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zrem salary <span class="token function">p1</span>
 <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zrange salary <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zrange salary <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span>
 <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"p2"</span>
 <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"p3"</span>
 
 ###########################################
 
 # 获取集合中的元素个数
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zcard <span class="token function">salary</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zcard <span class="token function">salary</span>
 <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">2</span>
 
 
 ###########################################
 
 # 统计。获取指定区间的成员数量
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zadd score <span class="token number">1</span> p1 <span class="token number">2</span> p2 <span class="token number">3</span> <span class="token function">p3</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zadd score <span class="token number">1</span> p1 <span class="token number">2</span> p2 <span class="token number">3</span> <span class="token function">p3</span>
 <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">3</span>
-<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">></span> zcount score <span class="token number">1</span> <span class="token function">2</span>
+<span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zcount score <span class="token number">1</span> <span class="token function">2</span>
 <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="三种特殊数据类型"><a href="#三种特殊数据类型" class="headerlink" title="三种特殊数据类型"></a>三种特殊数据类型</h2><h3 id="geospatial地理位置"><a href="#geospatial地理位置" class="headerlink" title="geospatial地理位置"></a>geospatial地理位置</h3><pre><code># geoadd  添加经、纬度、城市
 # geopos  根据城市查询经纬度
@@ -1751,7 +1751,7 @@ OK</code></pre><h2 id="Jedis"><a href="#Jedis" class="headerlink" title="Jedis">
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">302k</span>&nbsp;字
+                class="white-color">306.8k</span>&nbsp;字
             
             
             

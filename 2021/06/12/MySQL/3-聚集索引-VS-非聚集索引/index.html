@@ -526,7 +526,7 @@
 <p>下面我们通过讲解如何通过聚集索引以及非聚集索引查找数据表中数据的方式介绍一下 B+ 树索引查找数据方法。</p>
 <h3 id="利用聚集索引查找数据"><a href="#利用聚集索引查找数据" class="headerlink" title="利用聚集索引查找数据"></a>利用聚集索引查找数据</h3><p><img src="http://www.liuzk.com/wp-content/uploads/2019/11/7.jpg" alt=""></p>
 <p>还是这张 B+ 树索引图，现在我们应该知道这就是聚集索引，表中的数据存储在其中。<br>现在假设我们要查找 id&gt;=18 并且 id&lt; 40 的用户数据。对应的 sql 语句为：</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> id<span class="token operator">>=</span><span class="token number">18</span> <span class="token operator">and</span> id <span class="token operator">&lt;</span><span class="token number">40</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> id<span class="token operator">&gt;=</span><span class="token number">18</span> <span class="token operator">and</span> id <span class="token operator">&lt;</span><span class="token number">40</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>其中 id 为主键，具体的查找过程如下：</p>
 <p>①一般根节点都是常驻内存的，也就是说页 1 已经在内存中了，此时不需要到磁盘中读取数据，直接从内存中读取即可。</p>
 <p>从内存中读取到页 1，要查找这个 id&gt;=18 and id &lt; 40 或者范围值，我们首先需要找到 id=18 的键值。</p>
@@ -1139,7 +1139,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">302k</span>&nbsp;字
+                class="white-color">306.8k</span>&nbsp;字
             
             
             

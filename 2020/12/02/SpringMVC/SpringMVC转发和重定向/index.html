@@ -483,14 +483,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    901
+                    947
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -507,14 +507,14 @@
             <div id="articleContent">
                 <h1 id="SpringMVC转发和重定向"><a href="#SpringMVC转发和重定向" class="headerlink" title="SpringMVC转发和重定向"></a>SpringMVC转发和重定向</h1><h2 id="ModelAndView"><a href="#ModelAndView" class="headerlink" title="ModelAndView"></a>ModelAndView</h2><p>设置ModelAndView对象 , 根据view的名称 , 和视图解析器跳到指定的页面 .</p>
 <p>页面 : {视图解析器前缀} + viewName +{视图解析器后缀}</p>
-<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- 视图解析器 --></span>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- 视图解析器 --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>org.springframework.web.servlet.view.InternalResourceViewResolver<span class="token punctuation">"</span></span>
-     <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>internalResourceViewResolver<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token comment" spellcheck="true">&lt;!-- 前缀 --></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prefix<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/WEB-INF/jsp/<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-   <span class="token comment" spellcheck="true">&lt;!-- 后缀 --></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>suffix<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>.jsp<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+     <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>internalResourceViewResolver<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+   <span class="token comment" spellcheck="true">&lt;!-- 前缀 --&gt;</span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prefix<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/WEB-INF/jsp/<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+   <span class="token comment" spellcheck="true">&lt;!-- 后缀 --&gt;</span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>suffix<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>.jsp<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>对应的controller类 <strong>ControllerMV</strong></p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Controller</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ControllerMV</span> <span class="token punctuation">{</span>
@@ -528,7 +528,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h2 id="无视图解析器"><a href="#无视图解析器" class="headerlink" title="无视图解析器"></a>无视图解析器</h2><h3 id="springmvc-servlet-xml"><a href="#springmvc-servlet-xml" class="headerlink" title="springmvc-servlet.xml"></a>springmvc-servlet.xml</h3><pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<h2 id="无视图解析器"><a href="#无视图解析器" class="headerlink" title="无视图解析器"></a>无视图解析器</h2><h3 id="springmvc-servlet-xml"><a href="#springmvc-servlet-xml" class="headerlink" title="springmvc-servlet.xml"></a>springmvc-servlet.xml</h3><pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
        <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
        <span class="token attr-name"><span class="token namespace">xmlns:</span>context</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/context<span class="token punctuation">"</span></span>
@@ -538,26 +538,26 @@
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
-       https://www.springframework.org/schema/mvc/spring-mvc.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
 
-    <span class="token comment" spellcheck="true">&lt;!-- 自动扫描包，让指定包下的注解生效,由IOC容器统一管理 --></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.allen.controller<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 自动扫描包，让指定包下的注解生效,由IOC容器统一管理 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.allen.controller<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
 
-<span class="token comment" spellcheck="true">&lt;!--    &amp;lt;!&amp;ndash; 让Spring MVC不处理静态资源 &amp;ndash;&amp;gt;--></span>
-<span class="token comment" spellcheck="true">&lt;!--    &lt;mvc:default-servlet-handler />--></span>
+<span class="token comment" spellcheck="true">&lt;!--    &amp;lt;!&amp;ndash; 让Spring MVC不处理静态资源 &amp;ndash;&amp;gt;--&gt;</span>
+<span class="token comment" spellcheck="true">&lt;!--    &lt;mvc:default-servlet-handler /&gt;--&gt;</span>
 
-<span class="token comment" spellcheck="true">&lt;!--    &lt;mvc:annotation-driven />--></span>
+<span class="token comment" spellcheck="true">&lt;!--    &lt;mvc:annotation-driven /&gt;--&gt;</span>
 
-    <span class="token comment" spellcheck="true">&lt;!-- 视图解析器 --></span>
-<span class="token comment" spellcheck="true">&lt;!--    &lt;bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"--></span>
-<span class="token comment" spellcheck="true">&lt;!--          id="internalResourceViewResolver">--></span>
-<span class="token comment" spellcheck="true">&lt;!--        &amp;lt;!&amp;ndash; 前缀 &amp;ndash;&amp;gt;--></span>
-<span class="token comment" spellcheck="true">&lt;!--        &lt;property name="prefix" value="/WEB-INF/jsp/" />--></span>
-<span class="token comment" spellcheck="true">&lt;!--        &amp;lt;!&amp;ndash; 后缀 &amp;ndash;&amp;gt;--></span>
-<span class="token comment" spellcheck="true">&lt;!--        &lt;property name="suffix" value=".jsp" />--></span>
-<span class="token comment" spellcheck="true">&lt;!--    &lt;/bean>--></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 视图解析器 --&gt;</span>
+<span class="token comment" spellcheck="true">&lt;!--    &lt;bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"--&gt;</span>
+<span class="token comment" spellcheck="true">&lt;!--          id="internalResourceViewResolver"&gt;--&gt;</span>
+<span class="token comment" spellcheck="true">&lt;!--        &amp;lt;!&amp;ndash; 前缀 &amp;ndash;&amp;gt;--&gt;</span>
+<span class="token comment" spellcheck="true">&lt;!--        &lt;property name="prefix" value="/WEB-INF/jsp/" /&gt;--&gt;</span>
+<span class="token comment" spellcheck="true">&lt;!--        &amp;lt;!&amp;ndash; 后缀 &amp;ndash;&amp;gt;--&gt;</span>
+<span class="token comment" spellcheck="true">&lt;!--        &lt;property name="suffix" value=".jsp" /&gt;--&gt;</span>
+<span class="token comment" spellcheck="true">&lt;!--    &lt;/bean&gt;--&gt;</span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="新建测试类-ControllerTest4"><a href="#新建测试类-ControllerTest4" class="headerlink" title="新建测试类 ControllerTest4"></a>新建测试类 ControllerTest4</h3><p>实现转发（两种方式）、重定向</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Controller</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ControllerTest4</span> <span class="token punctuation">{</span>
@@ -575,7 +575,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h2 id="有视图解析器"><a href="#有视图解析器" class="headerlink" title="有视图解析器"></a>有视图解析器</h2><h3 id="springmvc-servlet-xml-1"><a href="#springmvc-servlet-xml-1" class="headerlink" title="springmvc-servlet.xml"></a>springmvc-servlet.xml</h3><pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<h2 id="有视图解析器"><a href="#有视图解析器" class="headerlink" title="有视图解析器"></a>有视图解析器</h2><h3 id="springmvc-servlet-xml-1"><a href="#springmvc-servlet-xml-1" class="headerlink" title="springmvc-servlet.xml"></a>springmvc-servlet.xml</h3><pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
        <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
        <span class="token attr-name"><span class="token namespace">xmlns:</span>context</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/context<span class="token punctuation">"</span></span>
@@ -585,26 +585,26 @@
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
-       https://www.springframework.org/schema/mvc/spring-mvc.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
 
-    <span class="token comment" spellcheck="true">&lt;!-- 自动扫描包，让指定包下的注解生效,由IOC容器统一管理 --></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.allen.controller<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 自动扫描包，让指定包下的注解生效,由IOC容器统一管理 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.allen.controller<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
 
-<span class="token comment" spellcheck="true">&lt;!--    &amp;lt;!&amp;ndash; 让Spring MVC不处理静态资源 &amp;ndash;&amp;gt;--></span>
-<span class="token comment" spellcheck="true">&lt;!--    &lt;mvc:default-servlet-handler />--></span>
+<span class="token comment" spellcheck="true">&lt;!--    &amp;lt;!&amp;ndash; 让Spring MVC不处理静态资源 &amp;ndash;&amp;gt;--&gt;</span>
+<span class="token comment" spellcheck="true">&lt;!--    &lt;mvc:default-servlet-handler /&gt;--&gt;</span>
 
-<span class="token comment" spellcheck="true">&lt;!--    &lt;mvc:annotation-driven />--></span>
+<span class="token comment" spellcheck="true">&lt;!--    &lt;mvc:annotation-driven /&gt;--&gt;</span>
 
-    <span class="token comment" spellcheck="true">&lt;!-- 视图解析器 --></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 视图解析器 --&gt;</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>org.springframework.web.servlet.view.InternalResourceViewResolver<span class="token punctuation">"</span></span>
-          <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>internalResourceViewResolver<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token comment" spellcheck="true">&lt;!-- 前缀 --></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prefix<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/WEB-INF/jsp/<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-        <span class="token comment" spellcheck="true">&lt;!-- 后缀 --></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>suffix<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>.jsp<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span>
+          <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>internalResourceViewResolver<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment" spellcheck="true">&lt;!-- 前缀 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prefix<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/WEB-INF/jsp/<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+        <span class="token comment" spellcheck="true">&lt;!-- 后缀 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>suffix<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>.jsp<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="在测试类-ControllerTest4-下新建测试方法"><a href="#在测试类-ControllerTest4-下新建测试方法" class="headerlink" title="在测试类 ControllerTest4 下新建测试方法"></a>在测试类 ControllerTest4 下新建测试方法</h3><p>实现转发、重定向</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//请求地址为  localhost:8080/m2</span>
 <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/m2"</span><span class="token punctuation">)</span>
@@ -1215,7 +1215,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">302k</span>&nbsp;字
+                class="white-color">306.8k</span>&nbsp;字
             
             
             

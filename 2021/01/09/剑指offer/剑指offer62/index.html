@@ -591,7 +591,7 @@ public class TreeNode {
               <span class="token keyword">return</span> null<span class="token punctuation">;</span>
           <span class="token punctuation">}</span>
           <span class="token comment" spellcheck="true">// 定义栈进行存储数据</span>
-          Stack<span class="token operator">&lt;</span>TreeNode<span class="token operator">></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          Stack<span class="token operator">&lt;</span>TreeNode<span class="token operator">&gt;</span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
           TreeNode node <span class="token operator">=</span> pRoot<span class="token punctuation">;</span>
           <span class="token comment" spellcheck="true">// 栈不空，结点不为空</span>
           <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> node <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -652,7 +652,7 @@ public class TreeNode {
             <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
             <span class="token punctuation">{</span>
                 parent<span class="token operator">=</span>current<span class="token punctuation">;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>key<span class="token operator">></span>current<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>key<span class="token operator">&gt;</span>current<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
                 <span class="token punctuation">{</span>
                     current<span class="token operator">=</span>current<span class="token punctuation">.</span>right<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 右子树</span>
                     <span class="token keyword">if</span><span class="token punctuation">(</span>current<span class="token operator">==</span>null<span class="token punctuation">)</span>
@@ -1284,7 +1284,7 @@ public class TreeNode {
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">302k</span>&nbsp;字
+                class="white-color">306.8k</span>&nbsp;字
             
             
             
